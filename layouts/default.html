@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  
+  {% seo %}  <!-- jekyll-seo-tag 外掛 -->
+
+  {% include head.html %}
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+</head>
+<body>
+  <header>
+    {% include header.html %}
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer>
+    {% include footer.html %}
+  </footer>
+
+  <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+</body>
+</html>
