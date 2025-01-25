@@ -1,19 +1,95 @@
+/* Reset */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  header, footer {
-    background-color: #f2f2f2;
-    padding: 1rem;
-  }
-  
-  main {
-    padding: 1rem;
-  }
-  
-  .post {
-    margin-bottom: 2rem;
-  }
-  
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr 250px;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  grid-column: 1 / -1;
+  background: #0073e6;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.nav .menu {
+  display: flex;
+  justify-content: center;
+}
+
+.nav .menu a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.hamburger {
+  display: none;
+}
+
+/* Sidebar */
+.sidebar {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-pic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+/* Main Content */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Right Sidebar */
+.right-bar {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Dark Mode */
+body.dark {
+  background: #333;
+  color: #f9f9f9;
+}
+
+.card.dark {
+  background: #444;
+}
+
+.sidebar.dark, .right-bar.dark {
+  background: #555;
+}

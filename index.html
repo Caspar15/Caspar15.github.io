@@ -1,15 +1,97 @@
----
-layout: default
-title: Home
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chia Yu's Blog</title>
+  <link rel="stylesheet" href="asserts/css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="layout">
+    <!-- Header -->
+    <header class="header">
+      <h1>Chia Yu's Blog</h1>
+      <nav class="nav">
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <div class="menu">
+          <a href="#">首頁</a>
+          <a href="#">存檔</a>
+          <a href="#">標籤</a>
+          <a href="#">分類</a>
+          <a href="#">關於</a>
+          <a href="#">友鏈</a>
+        </div>
+      </nav>
+    </header>
 
-<div class="main-container">
-  <h1>Welcome to My GitHub Page</h1>
-  <p>This is the main landing page of my site, powered by Jekyll and hosted on GitHub Pages.</p>
-  <nav>
-    <ul>
-      <li><a href="./about.html">About</a></li>
-      <li><a href="./blog/index.md">Blog</a></li>
-    </ul>
-  </nav>
-</div>
+    <!-- 左側導航欄 -->
+    <aside class="sidebar">
+      <div class="profile">
+        <img src="asserts/images/profile.jpg" alt="Profile" class="profile-pic">
+        <h2>Chia Yu</h2>
+        <p>What if we just hadn’t said goodbye?</p>
+        <div class="social-icons">
+          <a href="#"><img src="asserts/images/facebook-icon.png" alt="Facebook"></a>
+          <a href="#"><img src="asserts/images/twitter-icon.png" alt="Twitter"></a>
+          <a href="#"><img src="asserts/images/github-icon.png" alt="GitHub"></a>
+        </div>
+      </div>
+      <section class="stats">
+        <h3>站點統計</h3>
+        <p>文章數：63</p>
+        <p>分類數：8</p>
+        <p>標籤數：11</p>
+      </section>
+      <nav class="categories">
+        <h3>分類</h3>
+        <ul>
+          <li><a href="#" onclick="filterCategory('解題心得')">解題心得 (56)</a></li>
+          <li><a href="#" onclick="filterCategory('CPE')">CPE練習題 (10)</a></li>
+          <li><a href="#" onclick="filterCategory('Python')">Python專案 (5)</a></li>
+          <li><a href="#" onclick="filterCategory('all')">顯示全部</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- 主內容區域 -->
+    <main class="main-content">
+      <section class="articles">
+        <input type="text" id="searchBox" placeholder="搜尋文章..." onkeyup="searchArticles()">
+        <article class="card" data-category="解題心得">
+          <h2>CPE 49 題必考一星題</h2>
+          <p>探索 CPE 一星題型：深入了解 49 道基礎程式設計題目，提升你的解題技巧。</p>
+          <span class="date">2023-05-01</span>
+          <a href="#" class="btn">繼續閱讀</a>
+        </article>
+        <article class="card" data-category="Python">
+          <h2>Python UVa 12019 - Doom's Day Algorithm</h2>
+          <p>這題目的是計算某年日期的星期，可以直接計算。</p>
+          <span class="date">2024-05-02</span>
+          <a href="#" class="btn">繼續閱讀</a>
+        </article>
+      </section>
+    </main>
+
+    <!-- 右側欄位 -->
+    <aside class="right-bar">
+      <section class="latest-posts">
+        <h3>最新文章</h3>
+        <ul>
+          <li><a href="#">CPE 49 題必考一星題</a></li>
+          <li><a href="#">Python UVa 12019 - Doom's Day Algorithm</a></li>
+        </ul>
+      </section>
+      <section class="archives">
+        <h3>存檔</h3>
+        <ul>
+          <li><a href="#">2024 (24)</a></li>
+          <li><a href="#">2023 (39)</a></li>
+        </ul>
+      </section>
+      <button class="btn" onclick="toggleDarkMode()">切換深色模式</button>
+    </aside>
+  </div>
+  <script src="asserts/js/main.js"></script>
+</body>
+</html>
