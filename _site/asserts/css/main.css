@@ -1,25 +1,54 @@
+/* 通用變數 */
+:root {
+  --primary: #0073e6; /* 主色調 */
+  --secondary: #f9f9f9; /* 背景色 */
+  --dark-bg: #333; /* 深色模式背景 */
+  --dark-text: #f9f9f9; /* 深色模式文字 */
+  --card-bg: white; /* 卡片背景色 */
+  --card-shadow: rgba(0, 0, 0, 0.1); /* 卡片陰影 */
+  --hover-shadow: rgba(0, 0, 0, 0.2); /* 懸停陰影 */
+  --border-radius: 12px; /* 圓角半徑 */
+}
+
 /* Reset */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #f9f9f9;
+  background: var(--secondary);
   color: #333;
+  line-height: 1.6;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 網站佈局 */
 .layout {
   display: grid;
   grid-template-columns: 250px 1fr 250px;
-  gap: 20px;
+  gap: 40px;
   padding: 20px;
 }
 
 /* Header */
 .header {
   grid-column: 1 / -1;
-  background: #0073e6;
+  background: var(--primary);
   color: white;
   padding: 20px;
   text-align: center;
+  border-radius: var(--border-radius);
 }
 
 .nav .menu {
@@ -30,19 +59,26 @@ body {
 .nav .menu a {
   color: white;
   margin: 0 10px;
-  text-decoration: none;
+  font-weight: 600;
 }
 
+/* 漢堡菜單 */
 .hamburger {
   display: none;
+  font-size: 20px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
-/* Sidebar */
+/* 側邊欄 */
 .sidebar {
-  background: white;
+  background: var(--card-bg);
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px var(--card-shadow);
+  text-align: center;
 }
 
 .profile-pic {
@@ -53,37 +89,149 @@ body {
   margin: 0 auto 10px;
 }
 
-/* Main Content */
+.social-icons {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  gap: 15px; /* 圖標之間的間距 */
+  margin-top: 20px;
+}
+
+.social-icons img {
+  width: 40px; /* 圖標寬度 */
+  height: 40px; /* 圖標高度 */
+  border-radius: 8px; /* 圖標圓角 */
+  transition: transform 0.3s ease; /* 懸停效果 */
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+.stats {
+  margin-top: 20px;
+}
+
+.stats h3 {
+  margin-bottom: 10px;
+}
+
+.categories ul {
+  list-style: none;
+  padding: 0;
+}
+
+.categories li {
+  margin: 10px 0;
+}
+
+.categories a {
+  color: var(--primary);
+}
+
+/* 主內容 */
 .main-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 }
 
+.articles input[type="text"] {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+}
+
+/* 卡片樣式 */
 .card {
-  background: white;
-  border-radius: 8px;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
   padding: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  box-shadow: 0 2px 10px var(--card-shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px var(--hover-shadow);
 }
 
-/* Right Sidebar */
+.card h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.card p {
+  margin: 10px 0;
+}
+
+.card .date {
+  font-size: 0.9em;
+  color: #888;
+}
+
+.card .btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: background 0.3s;
+}
+
+.card .btn:hover {
+  background: #005bb5;
+}
+
+/* 右側欄 */
 .right-bar {
-  background: white;
+  background: var(--card-bg);
   padding: 20px;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px var(--card-shadow);
 }
 
-/* Dark Mode */
+.right-bar h3 {
+  margin-bottom: 15px;
+}
+
+.right-bar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.right-bar li {
+  margin: 10px 0;
+}
+
+.right-bar li a {
+  color: var(--primary);
+}
+
+/* 按鈕 */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-size: 1em;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #005bb5;
+}
+
+/* 深色模式 */
 body.dark {
-  background: #333;
-  color: #f9f9f9;
+  background: var(--dark-bg);
+  color: var(--dark-text);
 }
 
 .card.dark {
@@ -92,4 +240,34 @@ body.dark {
 
 .sidebar.dark, .right-bar.dark {
   background: #555;
+  color: var(--dark-text);
+}
+
+.btn.dark {
+  background: #555;
+  color: var(--dark-text);
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar, .right-bar {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .menu {
+    flex-direction: column;
+    display: none;
+  }
+
+  .menu.active {
+    display: flex;
+  }
 }

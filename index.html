@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chia Yu's Blog</title>
+  <title>Caspar's GitHub Pages</title>
   <link rel="stylesheet" href="asserts/css/main.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="layout">
     <!-- Header -->
     <header class="header">
-      <h1>Chia Yu's Blog</h1>
+      <h1>Caspar's GitHub Pages</h1>
       <nav class="nav">
         <button class="hamburger" onclick="toggleMenu()">☰</button>
         <div class="menu">
@@ -29,47 +29,53 @@
     <aside class="sidebar">
       <div class="profile">
         <img src="asserts/images/profile.jpg" alt="Profile" class="profile-pic">
-        <h2>Chia Yu</h2>
-        <p>What if we just hadn’t said goodbye?</p>
+        <h2>Caspar</h2>
+        <p>探索我的專案，了解我的開發歷程！</p>
         <div class="social-icons">
-          <a href="#"><img src="asserts/images/facebook-icon.png" alt="Facebook"></a>
-          <a href="#"><img src="asserts/images/twitter-icon.png" alt="Twitter"></a>
-          <a href="#"><img src="asserts/images/github-icon.png" alt="GitHub"></a>
+          <a href="#"><img src="asserts/images/facebook.png" alt="Facebook"></a>
+          <a href="#"><img src="asserts/images/twitter.png" alt="Twitter"></a>
+          <a href="#"><img src="asserts/images/github.png" alt="GitHub"></a>
+          <a href="#"><img src="asserts/images/linkedin.png" alt="GitHub"></a>
         </div>
       </div>
-      <section class="stats">
-        <h3>站點統計</h3>
-        <p>文章數：63</p>
-        <p>分類數：8</p>
-        <p>標籤數：11</p>
-      </section>
-      <nav class="categories">
+      <section class="categories">
         <h3>分類</h3>
         <ul>
-          <li><a href="#" onclick="filterCategory('解題心得')">解題心得 (56)</a></li>
-          <li><a href="#" onclick="filterCategory('CPE')">CPE練習題 (10)</a></li>
-          <li><a href="#" onclick="filterCategory('Python')">Python專案 (5)</a></li>
-          <li><a href="#" onclick="filterCategory('all')">顯示全部</a></li>
+          <li><a href="#">綠色出行 (1)</a></li>
+          <li><a href="#">深度學習 (2)</a></li>
+          <li><a href="#">工具與腳本 (3)</a></li>
+          <li><a href="#">其他專案 (5)</a></li>
         </ul>
-      </nav>
+      </section>
     </aside>
 
     <!-- 主內容區域 -->
     <main class="main-content">
       <section class="articles">
+        <h2>我的專案</h2>
         <input type="text" id="searchBox" placeholder="搜尋文章..." onkeyup="searchArticles()">
-        <article class="card" data-category="解題心得">
-          <h2>CPE 49 題必考一星題</h2>
-          <p>探索 CPE 一星題型：深入了解 49 道基礎程式設計題目，提升你的解題技巧。</p>
-          <span class="date">2023-05-01</span>
-          <a href="#" class="btn">繼續閱讀</a>
-        </article>
-        <article class="card" data-category="Python">
-          <h2>Python UVa 12019 - Doom's Day Algorithm</h2>
-          <p>這題目的是計算某年日期的星期，可以直接計算。</p>
-          <span class="date">2024-05-02</span>
-          <a href="#" class="btn">繼續閱讀</a>
-        </article>
+        <div class="card-grid">
+          <article class="card">
+            <h3>GreenFriend</h3>
+            <p>綠色出行的好夥伴，交通工具探減少專案，數創比賽金獎作品。</p>
+            <a href="#" class="btn">了解更多</a>
+          </article>
+          <article class="card">
+            <h3>Discord Music Bot</h3>
+            <p>在 Discord 平台上設計的音樂機器人，支持播放清單與自動播放。</p>
+            <a href="#" class="btn">了解更多</a>
+          </article>
+          <article class="card">
+            <h3>Double DQN 演算法設計</h3>
+            <p>運用強化學習優化資源分配，設計雙重 DQN 演算法。</p>
+            <a href="#" class="btn">了解更多</a>
+          </article>
+          <article class="card">
+            <h3>無人機影像語義分割</h3>
+            <p>使用深度學習進行高解析度影像語義分割，訓練 U-Net 與 VGG 模型。</p>
+            <a href="#" class="btn">了解更多</a>
+          </article>
+        </div>
       </section>
     </main>
 
@@ -78,18 +84,17 @@
       <section class="latest-posts">
         <h3>最新文章</h3>
         <ul>
-          <li><a href="#">CPE 49 題必考一星題</a></li>
-          <li><a href="#">Python UVa 12019 - Doom's Day Algorithm</a></li>
+          <li><a href="#">GreenFriend 專案介紹</a></li>
+          <li><a href="#">Discord Music Bot 更新</a></li>
         </ul>
       </section>
       <section class="archives">
         <h3>存檔</h3>
         <ul>
-          <li><a href="#">2024 (24)</a></li>
-          <li><a href="#">2023 (39)</a></li>
+          <li><a href="#">2024 (4)</a></li>
+          <li><a href="#">2023 (7)</a></li>
         </ul>
       </section>
-      <button class="btn" onclick="toggleDarkMode()">切換深色模式</button>
     </aside>
   </div>
   <script src="asserts/js/main.js"></script>
