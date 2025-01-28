@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Caspar's GitHub Pages - Explore my projects and development journey!">
+  <meta name="keywords" content="Caspar, GitHub, Projects, Deep Learning, Tools, Web Apps">
   <title>Caspar's GitHub Pages</title>
   <link rel="stylesheet" href="asserts/css/main.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="layout">
@@ -23,28 +25,31 @@
           <a href="#">友鏈</a>
         </div>
       </nav>
+      <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
     </header>
 
     <!-- 左側導航欄 -->
     <aside class="sidebar">
       <div class="profile">
-        <img src="asserts/images/profile.jpg" alt="Profile" class="profile-pic">
+        <img src="asserts/images/profile.webp" alt="Profile" class="profile-pic">
         <h2>Caspar</h2>
         <p>探索我的專案，了解我的開發歷程！</p>
         <div class="social-icons">
           <a href="#"><img src="asserts/images/facebook.png" alt="Facebook"></a>
           <a href="#"><img src="asserts/images/twitter.png" alt="Twitter"></a>
           <a href="#"><img src="asserts/images/github.png" alt="GitHub"></a>
-          <a href="#"><img src="asserts/images/linkedin.png" alt="GitHub"></a>
+          <a href="#"><img src="asserts/images/linkedin.png" alt="LinkedIn"></a>
         </div>
+        <a href="#" class="btn download-resume">下載簡歷</a>
       </div>
       <section class="categories">
         <h3>分類</h3>
         <ul>
-          <li><a href="#">綠色出行 (1)</a></li>
-          <li><a href="#">深度學習 (2)</a></li>
-          <li><a href="#">工具與腳本 (3)</a></li>
-          <li><a href="#">其他專案 (5)</a></li>
+          <li><a href="#" onclick="filterCategory('green-travel')">綠色出行 (1)</a></li>
+          <li><a href="#" onclick="filterCategory('deep-learning')">深度學習 (2)</a></li>
+          <li><a href="#" onclick="filterCategory('tools-scripts')">工具與腳本 (4)</a></li>
+          <li><a href="#" onclick="filterCategory('web-apps')">網頁應用 (3)</a></li>
+          <li><a href="#" onclick="filterCategory('other-projects')">其他專案 (2)</a></li>
         </ul>
       </section>
     </aside>
@@ -55,24 +60,80 @@
         <h2>我的專案</h2>
         <input type="text" id="searchBox" placeholder="搜尋文章..." onkeyup="searchArticles()">
         <div class="card-grid">
-          <article class="card">
+          <!-- GreenFriend -->
+          <article class="card" data-category="green-travel">
             <h3>GreenFriend</h3>
-            <p>綠色出行的好夥伴，交通工具探減少專案，數創比賽金獎作品。</p>
+            <p>綠色出行的好夥伴，是數創比賽金獎作品，專注於減少交通工具碳排放的專案。</p>
             <a href="#" class="btn">了解更多</a>
           </article>
-          <article class="card">
+
+          <!-- Discord Music Bot -->
+          <article class="card" data-category="tools-scripts">
             <h3>Discord Music Bot</h3>
-            <p>在 Discord 平台上設計的音樂機器人，支持播放清單與自動播放。</p>
+            <p>在 Discord 平台上設計的音樂機器人，支持播放清單與自動播放功能。</p>
             <a href="#" class="btn">了解更多</a>
           </article>
-          <article class="card">
+
+          <!-- Double DQN 演算法設計 -->
+          <article class="card" data-category="deep-learning">
             <h3>Double DQN 演算法設計</h3>
             <p>運用強化學習優化資源分配，設計雙重 DQN 演算法。</p>
             <a href="#" class="btn">了解更多</a>
           </article>
-          <article class="card">
+
+          <!-- THU Grade Scraper -->
+          <article class="card" data-category="tools-scripts">
+            <h3>THU Grade Scraper</h3>
+            <p>計算東海大學總成績的程式碼，自動抓取成績並計算 GPA。</p>
+            <a href="#" class="btn">了解更多</a>
+          </article>
+
+          <!-- 成績圖表生成 -->
+          <article class="card" data-category="tools-scripts">
+            <h3>成績圖表生成</h3>
+            <p>將成績數據可視化，生成直方圖、折線圖等圖表，幫助分析學習表現。</p>
+            <a href="#" class="btn">了解更多</a>
+          </article>
+
+          <!-- 無人機影像語義分割 -->
+          <article class="card" data-category="deep-learning">
             <h3>無人機影像語義分割</h3>
-            <p>使用深度學習進行高解析度影像語義分割，訓練 U-Net 與 VGG 模型。</p>
+            <p>使用深度學習進行高解析度影像語義分割，訓練 U-Net 與 VGG 模型，識別適合無人機著陸的區域。</p>
+            <a href="#" class="btn">了解更多</a>
+          </article>
+
+          <!-- TownPass 場地租借系統 -->
+          <article class="card" data-category="web-apps">
+            <h3>TownPass 場地租借系統</h3>
+            <p>台北通的場地租借系統，基於 WebView 開發，提供便捷的場地預約功能。</p>
+            <a href="#" class="btn">了解更多</a>
+          </article>
+
+          <!-- 簡單飯店管理系統 -->
+          <article class="card" data-category="web-apps">
+            <h3>簡單飯店管理系統</h3>
+            <p>使用 Java 開發的飯店管理系統，支持房間預訂、客戶管理等功能。</p>
+            <a href="#" class="btn">了解更多</a>
+          </article>
+
+          <!-- 感測器 Dashboard -->
+          <article class="card" data-category="other-projects">
+            <h3>感測器 Dashboard</h3>
+            <p>實時監控感測器數據的儀表板，支持數據可視化與警報功能。</p>
+            <a href="#" class="btn">了解更多</a>
+          </article>
+
+          <!-- Tiny FB -->
+          <article class="card" data-category="other-projects">
+            <h3>Tiny FB</h3>
+            <p>一個簡易的社交平台原型，支持發文、按讚與評論功能。</p>
+            <a href="#" class="btn">了解更多</a>
+          </article>
+
+          <!-- 生鮮公司產銷存系統 -->
+          <article class="card" data-category="web-apps">
+            <h3>生鮮公司產銷存系統</h3>
+            <p>為生鮮公司設計的產銷存管理系統，支持庫存管理、銷售分析等功能。</p>
             <a href="#" class="btn">了解更多</a>
           </article>
         </div>
@@ -96,6 +157,17 @@
         </ul>
       </section>
     </aside>
+
+    <!-- 頁腳 -->
+    <footer class="footer">
+      <p>&copy; 2024 Caspar. All rights reserved.</p>
+      <div class="footer-social-icons">
+        <a href="#"><img src="asserts/images/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="asserts/images/twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="asserts/images/github.png" alt="GitHub"></a>
+        <a href="#"><img src="asserts/images/linkedin.png" alt="LinkedIn"></a>
+      </div>
+    </footer>
   </div>
   <script src="asserts/js/main.js"></script>
 </body>
