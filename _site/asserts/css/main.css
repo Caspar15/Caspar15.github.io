@@ -523,6 +523,190 @@ body.dark {
   --color-neutral-muted: rgba(110, 118, 129, 0.4);
 }
 
+/* 統計部分樣式 */
+.statistics-section {
+  background: var(--color-canvas-subtle);
+  border: 1px solid var(--color-border-default);
+  border-radius: 6px;
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.stat-card {
+  background: var(--color-canvas-default);
+  border: 1px solid var(--color-border-default);
+  border-radius: 6px;
+  padding: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+  font-size: 24px;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-accent-emphasis);
+}
+
+.stat-label {
+  color: var(--color-fg-muted);
+  font-size: 14px;
+}
+
+.chart-container {
+  height: 300px;
+  margin-top: var(--spacing-xl);
+}
+
+/* 頁面載入動畫 */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 卡片懸停效果 */
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent);
+  transition: 0.6s;
+}
+
+.card:hover::before {
+  left: 100%;
+}
+
+/* 閱讀進度條 */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--color-border-muted);
+  z-index: 1000;
+}
+
+.reading-progress-bar {
+  height: 100%;
+  background: var(--color-accent-emphasis);
+  width: 0;
+  transition: width 0.1s ease;
+}
+
+/* 改進的搜索框 */
+.search-container {
+  position: relative;
+  margin-bottom: var(--spacing-lg);
+}
+
+.search-container input {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  padding-left: 40px;
+  border: 1px solid var(--color-border-default);
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.search-container::before {
+  content: '🔍';
+  position: absolute;
+  left: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-fg-muted);
+}
+
+.search-container input:focus {
+  border-color: var(--color-accent-emphasis);
+  box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.1);
+}
+
+/* 標籤動畫效果 */
+.tag {
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 滾動到頂部按鈕改進 */
+.back-to-top {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  background: var(--color-accent-emphasis);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  transform: translateY(-4px);
+  background: #0859C6;
+}
+
+/* 加載動畫 */
+.skeleton {
+  background: linear-gradient(90deg,
+      var(--color-canvas-subtle) 25%,
+      var(--color-neutral-muted) 50%,
+      var(--color-canvas-subtle) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .layout {
@@ -617,6 +801,18 @@ body.dark {
     height: 36px;
     font-size: 16px;
   }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-card {
+    padding: var(--spacing-sm);
+  }
+
+  .chart-container {
+    height: 200px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -642,5 +838,9 @@ body.dark {
 
   .footer-content {
     gap: var(--spacing-sm);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
   }
 }

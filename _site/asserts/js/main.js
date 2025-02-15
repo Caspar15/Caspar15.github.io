@@ -1,158 +1,24 @@
-// Theme management
-const THEME_KEY = 'github-theme-preference';
+// 入口檔案：初始化各模組與所有事件監聽
 
-function setTheme(isDark) {
-  localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
-  document.body.classList.toggle('dark', isDark);
-}
+import { initializeTheme, toggleDarkMode } from './modules/theme.js';
+import { toggleMenu, toggleView, scrollToTop } from './modules/navigation.js';
+import {
+  debouncedEnhancedSearch,
+  debouncedEnhancedFilterCategory,
+  toggleSearch,
+  globalSearch
+} from './modules/search.js';
+import { initializeAnimations, createReadingProgress, handleScroll } from './modules/animations.js';
+import { initializeChart } from './modules/chart.js';
 
-function initializeTheme() {
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const storedTheme = localStorage.getItem(THEME_KEY);
-  const isDark = storedTheme ? storedTheme === 'dark' : prefersDark;
-  setTheme(isDark);
-}
-
-function toggleDarkMode() {
-  const isDark = document.body.classList.toggle('dark');
-  setTheme(isDark);
-}
-
-// Navigation
-function toggleMenu() {
-  const menu = document.querySelector('.menu');
-  menu.classList.toggle('active');
-}
-
-// Search functionality
-function searchArticles() {
-  const query = document.getElementById('searchBox').value.toLowerCase();
-  const cards = document.querySelectorAll('.card');
-
-  cards.forEach(card => {
-    const title = card.querySelector('h3').textContent.toLowerCase();
-    const description = card.querySelector('p').textContent.toLowerCase();
-    const isVisible = title.includes(query) || description.includes(query);
-
-    card.style.display = isVisible ? 'block' : 'none';
-  });
-}
-
-// Global search functionality
-function toggleSearch() {
-  const searchBar = document.querySelector('.global-search');
-  searchBar.classList.toggle('active');
-  if (searchBar.classList.contains('active')) {
-    searchBar.querySelector('input').focus();
-  }
-}
-
-function globalSearch(event) {
-  const query = event.target.value.toLowerCase();
-  const resultsContainer = document.querySelector('.search-results');
-
-  if (query.length < 2) {
-    resultsContainer.innerHTML = '';
-    return;
-  }
-
-  // 搜尋所有可搜尋的內容
-  const cards = document.querySelectorAll('.card');
-  const posts = document.querySelectorAll('.post-title');
-  let results = [];
-
-  // 搜尋專案卡片
-  cards.forEach(card => {
-    const title = card.querySelector('h3').textContent;
-    const description = card.querySelector('p').textContent;
-    if (title.toLowerCase().includes(query) || description.toLowerCase().includes(query)) {
-      results.push({
-        type: '專案',
-        title: title,
-        link: card.querySelector('a').href
-      });
-    }
-  });
-
-  // 搜尋文章
-  posts.forEach(post => {
-    if (post.textContent.toLowerCase().includes(query)) {
-      results.push({
-        type: '文章',
-        title: post.textContent,
-        link: post.closest('a').href
-      });
-    }
-  });
-
-  // 顯示結果
-  resultsContainer.innerHTML = results.length > 0
-    ? results.map(result => `
-        <div class="search-item">
-          <a href="${result.link}">
-            <span class="search-type">${result.type}</span>
-            <span class="search-title">${result.title}</span>
-          </a>
-        </div>
-      `).join('')
-    : '<div class="no-results">沒有找到相關結果</div>';
-}
-
-// View toggle functionality
-function toggleView(viewType) {
-  const container = document.querySelector('.card-container');
-  const buttons = document.querySelectorAll('.view-options button');
-
-  // 更新容器類別
-  container.classList.remove('grid-view', 'list-view');
-  container.classList.add(`${viewType}-view`);
-
-  // 更新按鈕狀態
-  buttons.forEach(button => {
-    button.classList.toggle('active', button.textContent.toLowerCase().includes(viewType));
-  });
-}
-
-// Category filtering with animation
-function filterCategory(category) {
-  const cards = document.querySelectorAll('.card');
-
-  cards.forEach(card => {
-    const isVisible = card.dataset.category === category || category === 'all';
-    card.style.opacity = '0';
-
-    setTimeout(() => {
-      card.style.display = isVisible ? 'block' : 'none';
-      if (isVisible) {
-        card.style.opacity = '1';
-      }
-    }, 300);
-  });
-}
-
-// Back to top functionality
-function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-}
-
-// Show/hide back to top button based on scroll position
-function handleScroll() {
-  const backToTopButton = document.getElementById('backToTop');
-  if (window.scrollY > 300) {
-    backToTopButton.classList.add('visible');
-  } else {
-    backToTopButton.classList.remove('visible');
-  }
-}
-
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
+  // 初始化主題、動畫、閱讀進度條與圖表
   initializeTheme();
+  initializeAnimations();
+  createReadingProgress();
+  initializeChart();
 
-  // Add smooth transitions for cards
+  // 新增卡片過渡效果（以 CSS 控制）
   const style = document.createElement('style');
   style.textContent = `
     .card {
@@ -161,25 +27,95 @@ document.addEventListener('DOMContentLoaded', () => {
   `;
   document.head.appendChild(style);
 
-  // 關閉 loading overlay
+  // 如果存在 loading overlay，延遲隱藏
   const loadingOverlay = document.querySelector('.loading-overlay');
   if (loadingOverlay) {
-    loadingOverlay.style.opacity = '0';
     setTimeout(() => {
-      loadingOverlay.style.display = 'none';
-    }, 500);
+      loadingOverlay.style.opacity = '0';
+      setTimeout(() => {
+        loadingOverlay.style.display = 'none';
+      }, 500);
+    }, 1000);
   }
 
-  // 添加滾動事件監聽
+  // 為每個卡片加入 stagger 效果的 fade-in 動畫
+  const cards = document.querySelectorAll('.card');
+  cards.forEach((card, index) => {
+    setTimeout(() => {
+      card.classList.add('fade-in', 'visible');
+    }, index * 100);
+  });
+
+  // 監聽 scroll 事件，控制「回到頂部」按鈕的顯示與隱藏
   window.addEventListener('scroll', handleScroll);
 
-  // 初始化外部點擊關閉全局搜尋
+  // 當點擊頁面其他區域時，關閉全局搜尋面板
   document.addEventListener('click', (event) => {
     const searchBar = document.querySelector('.global-search');
     const searchToggle = document.querySelector('.search-toggle');
-
-    if (!searchBar.contains(event.target) && !searchToggle.contains(event.target)) {
+    if (searchBar && searchToggle &&
+      !searchBar.contains(event.target) &&
+      !searchToggle.contains(event.target)) {
       searchBar.classList.remove('active');
     }
   });
+
+  // 搜尋輸入框：加入 debounced 的搜尋功能
+  const searchInput = document.getElementById('searchBox');
+  if (searchInput) {
+    searchInput.addEventListener('input', debouncedEnhancedSearch);
+  }
+
+  // 若存在全局搜尋的按鈕，點擊切換搜尋面板
+  const searchToggleBtn = document.querySelector('.search-toggle');
+  if (searchToggleBtn) {
+    searchToggleBtn.addEventListener('click', (event) => {
+      event.stopPropagation();
+      toggleSearch();
+    });
+  }
+
+  // 若存在暗黑模式切換按鈕，加入事件監聽
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', toggleDarkMode);
+  }
+
+  // 若存在導覽選單按鈕（例如漢堡選單），加入事件監聽
+  const menuToggle = document.querySelector('.menu-toggle');
+  if (menuToggle) {
+    menuToggle.addEventListener('click', toggleMenu);
+  }
+
+  // 若存在檢視切換按鈕（例如切換 grid 與 list），加入事件監聽
+  const viewButtons = document.querySelectorAll('.view-options button');
+  viewButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const viewType = button.dataset.view; // 例如 data-view="grid" 或 "list"
+      toggleView(viewType);
+    });
+  });
+
+  // 若存在分類篩選按鈕，加入事件監聽（假設按鈕具有 data-category 屬性）
+  const categoryButtons = document.querySelectorAll('.category-filter');
+  categoryButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const category = button.dataset.category; // 例如 data-category="all" 或其他分類值
+      debouncedEnhancedFilterCategory(category);
+    });
+  });
+
+  // 若存在「回到頂部」按鈕，加入點擊事件
+  const backToTopButton = document.getElementById('backToTop');
+  if (backToTopButton) {
+    backToTopButton.addEventListener('click', scrollToTop);
+  }
+
+  // 若存在全局搜尋用的輸入框（另一種情況），加入事件監聽
+  const globalSearchInput = document.getElementById('globalSearchInput');
+  if (globalSearchInput) {
+    globalSearchInput.addEventListener('input', globalSearch);
+  }
+
+  // 其他初始化程式碼可以依需求加入…
 });

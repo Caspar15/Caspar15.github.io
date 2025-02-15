@@ -9,6 +9,7 @@
   <title>Caspar's GitHub Pages</title>
   <link rel="stylesheet" href="asserts/css/main.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -99,6 +100,41 @@
 
     <!-- 主內容區域 -->
     <main class="main-content">
+      <div class="statistics-section">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">📊</div>
+            <div class="stat-content">
+              <div class="stat-value">12</div>
+              <div class="stat-label">總專案數</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🔥</div>
+            <div class="stat-content">
+              <div class="stat-value">5</div>
+              <div class="stat-label">活躍專案</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">📝</div>
+            <div class="stat-content">
+              <div class="stat-value">8</div>
+              <div class="stat-label">技術文章</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">📅</div>
+            <div class="stat-content">
+              <div class="stat-value">156</div>
+              <div class="stat-label">貢獻天數</div>
+            </div>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas id="categoryChart"></canvas>
+        </div>
+      </div>
       <section class="articles">
         <div class="section-header">
           <h2>我的專案</h2>
@@ -339,7 +375,7 @@
   <!-- Back to Top Button -->
   <button id="backToTop" class="back-to-top" onclick="scrollToTop()">↑</button>
 
-  <script src="asserts/js/main.js"></script>
+  <script type="module" src="asserts/js/main.js"></script>
 </body>
 
 </html>
