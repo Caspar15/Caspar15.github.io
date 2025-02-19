@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Caspar's GitHub Pages - Explore my projects and development journey!">
+  <meta name="keywords" content="Caspar, GitHub, Projects, Deep Learning, Tools, Web Apps">
+  
+  <!-- 主 CSS -->
+  <link rel="stylesheet" href="/asserts/css/main.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- Loading Overlay（只放一次） -->
+  <div class="loading-overlay">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- Header（導覽列） -->
+  {% include header.html %}
+
+  <!-- layout 容器 -->
+  <div class="layout">
+    {{ content }}
+  </div>
+
+  <!-- Footer（頁腳） -->
+  {% include footer.html %}
+
+  <!-- 主 JS -->
+  <script type="module" src="/asserts/js/main.js"></script>
+</body>
+</html>
