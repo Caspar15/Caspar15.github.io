@@ -1,0 +1,84 @@
+/* github-theme.css */
+
+/* GitHub Theme Overrides */
+
+/* 覆寫基礎變數以符合 GitHub 的設計風格 */
+:root {
+    /* GitHub 的邊框與前景顏色 */
+    --color-border-default: #e1e4e8;
+    --color-border-muted: #d1d5da;
+    --color-fg-default: #24292e;
+    --color-fg-muted: #6a737d;
+    --color-accent-emphasis: #0366d6;
+    
+    /* 調整字型（GitHub 內部採用系統字型） */
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --font-mono: SFMono-Regular, Menlo, Consolas, "Liberation Mono", Courier, monospace;
+  }
+  
+  /* Header 調整：GitHub 頁首通常有一條底線 */
+  .header {
+    background: var(--color-header-bg); /* 默認保持黑色背景 */
+    border-bottom: 1px solid var(--color-border-default);
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+  
+  .header h1 {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  /* 按鈕樣式，參考 GitHub 的按鈕設計 */
+  .btn {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background-color: #eff3f6;
+    color: #24292e;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .btn:hover {
+    background-color: #e1e4e8;
+    text-decoration: none;
+  }
+  
+  /* 卡片樣式調整：模仿 GitHub issue / PR 卡片風格 */
+  .card {
+    border: 1px solid var(--color-border-default);
+    border-radius: 6px;
+    background-color: var(--color-canvas-default);
+    padding: var(--spacing-lg);
+    transition: box-shadow 0.2s ease;
+  }
+  
+  .card:hover {
+    box-shadow: 0 4px 12px rgba(27, 31, 35, 0.15);
+    border-color: var(--color-accent-emphasis);
+  }
+  
+  /* 頁腳樣式調整 */
+  .footer {
+    border-top: 1px solid var(--color-border-default);
+    padding-top: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+    text-align: center;
+    color: var(--color-fg-muted);
+  }
+  
+  /* 連結樣式（GitHub 風格通常連結使用藍色） */
+  a {
+    color: var(--color-accent-emphasis);
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

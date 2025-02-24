@@ -26,3 +26,6 @@
 
 /* 9. Responsive */
 @import url("responsive.css");
+
+/* 10. github-theme */
+@import url("github-theme.css")
