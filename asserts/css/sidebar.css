@@ -3,82 +3,224 @@
 /* 左側導航欄 */
 
 .sidebar {
-    background: var(--color-canvas-subtle);
-    border: 1px solid var(--color-border-default);
-    border-radius: 6px;
-    padding: var(--spacing-lg);
-  }
-  
-  .profile {
-    text-align: center;
-    margin-bottom: var(--spacing-xl);
-  }
-  
-  .profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: var(--spacing-md);
-    border: 2px solid var(--color-border-default);
-  }
-  
-  .profile h2 {
-    font-size: 24px;
-    margin-bottom: var(--spacing-xs);
-  }
-  
-  .profile p {
-    color: var(--color-fg-muted);
-    margin-bottom: var(--spacing-md);
-  }
-  
-  .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-md);
-  }
-  
-  .social-icons a {
-    opacity: 0.8;
-    transition: opacity var(--transition-fast);
-  }
-  
-  .social-icons a:hover {
-    opacity: 1;
-  }
-  
-  .social-icons img {
-    width: 24px;
-    height: 24px;
-  }
-  
-  .categories h3 {
-    font-size: 16px;
-    margin-bottom: var(--spacing-md);
-    padding-bottom: var(--spacing-xs);
-    border-bottom: 1px solid var(--color-border-muted);
-  }
-  
-  .category-list {
-    list-style: none;
-  }
-  
-  .category-list li {
-    margin-bottom: var(--spacing-xs);
-  }
-  
-  .category-list a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--spacing-xs) 0;
-  }
-  
-  .count {
-    background: var(--color-neutral-muted);
-    padding: 2px 8px;
-    border-radius: 12px;
-    font-size: 12px;
-  }
-  
+  background: var(--color-canvas-subtle);
+  border: 1px solid var(--color-border-default);
+  border-radius: 6px;
+  padding: var(--spacing-lg);
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: var(--spacing-md);
+  border: 2px solid var(--color-border-default);
+}
+
+.profile h2 {
+  font-size: 24px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.profile p {
+  color: var(--color-fg-muted);
+  margin-bottom: var(--spacing-md);
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.social-icons a {
+  opacity: 0.8;
+  transition: opacity var(--transition-fast);
+}
+
+.social-icons a:hover {
+  opacity: 1;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+.categories h3 {
+  font-size: 16px;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 1px solid var(--color-border-muted);
+}
+
+.category-list {
+  list-style: none;
+}
+
+.category-list li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.category-list a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-xs) 0;
+}
+
+.count {
+  background: var(--color-neutral-muted);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+/* -------------------------------------------------- */
+/* 改良右側欄 (right-bar) 及其區塊樣式               */
+/* -------------------------------------------------- */
+
+/* 整個右側欄本身，可以視需求調整寬度/背景等 */
+.right-bar {
+  /* 你原本的樣式可能有 background, border, padding */
+  background: var(--color-canvas-subtle);
+  border: 1px solid var(--color-border-default);
+  border-radius: 6px;
+  padding: var(--spacing-md);
+}
+
+/* 每個區塊 (section) 的外距 */
+.right-bar section {
+  margin-bottom: var(--spacing-md);
+  /* 也可不加 padding，改用內部 .section-body 處理 */
+}
+
+/* 標題 H3 */
+.right-bar h3 {
+  font-size: 14px;
+  margin-bottom: var(--spacing-xs);
+  padding-bottom: var(--spacing-xs);
+  color: var(--color-fg-subtle);
+  border-bottom: 1px solid var(--color-border-muted);
+  text-transform: uppercase;
+  /* 讓字母大寫，如不喜歡可刪除 */
+  letter-spacing: 0.5px;
+  /* 微調字距 */
+}
+
+/* 讓每個 section 內容用一個小卡片風格 */
+.right-bar .section-body {
+  margin-top: var(--spacing-sm);
+  background: var(--color-canvas-default);
+  border: 1px solid var(--color-border-default);
+  border-radius: 4px;
+  padding: var(--spacing-md);
+}
+
+/* 清單 ul 的樣式 */
+.right-bar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 每個清單項目的間距 */
+.right-bar li {
+  margin-bottom: var(--spacing-xs);
+  position: relative;
+  padding-left: 16px;
+  /* 給自訂符號預留空間 */
+}
+
+/* 自訂符號：使用 • 或 ▶ 等 */
+.right-bar li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent-emphasis);
+  font-weight: bold;
+}
+
+/* 文章標題的樣式 */
+.right-bar .post-title {
+  display: inline-block;
+  font-weight: 500;
+  color: var(--color-fg-default);
+  margin-right: 6px;
+  /* 與日期之間的間隔 */
+}
+
+/* 文章日期的樣式 */
+.right-bar .post-date {
+  font-size: 12px;
+  color: var(--color-fg-muted);
+}
+
+/* 連結樣式（含友站連結等） */
+.right-bar a {
+  color: var(--color-fg-default);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.right-bar a:hover {
+  color: var(--color-accent-fg);
+  text-decoration: underline;
+}
+
+/* 「查看全部文章」按鈕 */
+.right-bar .view-all {
+  display: inline-block;
+  margin-top: var(--spacing-sm);
+  font-size: 13px;
+  color: var(--color-accent-fg);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.right-bar .view-all:hover {
+  color: var(--color-accent-emphasis);
+  text-decoration: underline;
+}
+
+/* 標籤雲區塊 */
+.right-bar .tags-cloud-section .section-body {
+  /* 與其他區塊相同，但也可做額外調整 */
+}
+
+/* 標籤雲容器 */
+.right-bar .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+/* 單個標籤樣式（若你原本 .tag 已有樣式，可合併） */
+.right-bar .tag {
+  background: var(--color-canvas-subtle);
+  color: var(--color-fg-muted);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  transition: background-color var(--transition-fast);
+}
+
+.right-bar .tag:hover {
+  background-color: var(--color-border-muted);
+  color: var(--color-fg-default);
+}
+
+/* 數字徽章 .count (若需要) */
+.right-bar .count {
+  background: var(--color-neutral-muted);
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 12px;
+  margin-left: 4px;
+}
