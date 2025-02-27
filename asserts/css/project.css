@@ -1,0 +1,51 @@
+/* project.css */
+/* 專案詳細頁面專屬樣式 */
+
+.project-layout {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: var(--spacing-xl) auto;
+    padding: var(--spacing-md);
+  }
+  
+  /* 專案內容區（類似 GitHub README） */
+  .project-readme {
+    flex: 3;
+    background-color: var(--color-canvas-default);
+    border: 1px solid var(--color-border-default);
+    border-radius: 6px;
+    padding: var(--spacing-lg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  /* 專案導覽選單 */
+  .project-nav {
+    flex: 1;
+    background-color: var(--color-canvas-subtle);
+    border: 1px solid var(--color-border-default);
+    border-radius: 6px;
+    padding: var(--spacing-lg);
+  }
+  
+  .project-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .project-nav li {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .project-nav a {
+    color: var(--color-accent-emphasis);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .project-nav a:hover {
+    text-decoration: underline;
+  }
+  

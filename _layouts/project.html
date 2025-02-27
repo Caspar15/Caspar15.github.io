@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page.title }} - Caspar's Projects</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <!-- 引入主要 CSS、GitHub 主題覆寫，以及專案頁面專屬 CSS -->
+    <link rel="stylesheet" href="/asserts/css/main.css">
+    <link rel="stylesheet" href="/asserts/css/github-theme.css">
+    <link rel="stylesheet" href="/asserts/css/project.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    {% include header.html %}
+
+    <div class="layout project-layout">
+        <main class="main-content">
+            <article class="project-readme" id="readme">
+                {{ content }}
+            </article>
+        </main>
+        <aside class="right-bar">
+            <!-- 這裡可以放專案導覽選單，例如 Readme、Issues、Pull Requests -->
+            <nav class="project-nav">
+                <ul>
+                    <li><a href="#readme">Readme</a></li>
+                    <li><a href="#issues">Issues</a></li>
+                    <li><a href="#pull-requests">Pull Requests</a></li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+
+    {% include footer.html %}
+    <script type="module" src="/asserts/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GreenFriend - Caspar's Projects</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="綠色出行的好夥伴，是數創比賽金獎作品，減少碳排放。">
+    <!-- 引入主要 CSS、GitHub 主題覆寫，以及專案頁面專屬 CSS -->
+    <link rel="stylesheet" href="/asserts/css/main.css">
+    <link rel="stylesheet" href="/asserts/css/github-theme.css">
+    <link rel="stylesheet" href="/asserts/css/project.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+  <div class="header-left">
+    <button class="hamburger">☰</button>
+    <h1>Caspar's GitHub Pages</h1>
+  </div>
+  <nav class="nav">
+    <div class="menu">
+      <a href="#" class="active">Home</a>
+      <a href="#">Archives</a>
+      <a href="#">Tags</a>
+      <a href="#">Categories</a>
+      <a href="#">About</a>
+      <a href="#">Links</a>
+    </div>
+  </nav>
+  <div class="header-right">
+    <button class="search-toggle">🔍</button>
+    <button class="dark-mode-toggle" id="darkModeToggle">🌙</button>
+  </div>
+</header>
+
+    <div class="layout project-layout">
+        <main class="main-content">
+            <article class="project-readme" id="readme">
+                <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gh"># 碳排放路線顯示專案</span>
+
+此專案是基於 Google Maps API 的碳排放路線顯示應用程式。它使用後端 API 獲取路線資料並在地圖上顯示路徑、碳排放、距離和時間等信息。
+
+<span class="gu">## 功能</span>
+<span class="p">-</span> 根據使用者位置顯示路徑
+<span class="p">-</span> 自動顯示交通方式（步行、駕車、公共交通）和碳排放量
+<span class="p">-</span> 使用 Google Maps 繪製路徑，並提供動態箭頭顯示路線
+<span class="p">-</span> 提供總距離、碳排放和總時間的詳細數據
+<span class="p">-</span> 支持地圖自動縮放和關閉信息窗口
+
+<span class="gu">## 安裝與使用</span>
+
+<span class="gu">### 1. 克隆專案</span>
+首先，從 GitHub 儲存庫克隆專案：
+
+<span class="p">```</span><span class="nl">bash
+</span>git clone https://github.com/yourusername/your-repository-name.git
+</code></pre></div></div>
+
+<h3 id="2-安裝依賴">2. 安裝依賴</h3>
+<p>此專案主要使用 Google Maps API 和 Axios 來進行 HTTP 請求。請確保你已經在項目中引入了以下庫：</p>
+
+<ul>
+  <li>Google Maps API</li>
+  <li>Axios</li>
+</ul>
+
+<p>你可以直接在 HTML 檔案中通過 CDN 引入這些庫，範例如下：</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;libraries=geometry"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<h3 id="3-配置-google-maps-api-key">3. 配置 Google Maps API Key</h3>
+<p>在 <code class="language-plaintext highlighter-rouge">map.html</code> 文件中，替換 <code class="language-plaintext highlighter-rouge">YOUR_API_KEY</code> 為你自己的 Google Maps API 金鑰。你可以在 <a href="https://cloud.google.com/maps-platform/">Google Cloud</a> 獲取你的 API Key。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;libraries=geometry"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<h3 id="4-啟動本地伺服器">4. 啟動本地伺服器</h3>
+<p>你可以使用任何本地伺服器來運行此專案。以下是使用 Python 啟動本地伺服器的範例：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Python 3.x</span>
+python <span class="nt">-m</span> http.server
+</code></pre></div></div>
+
+<p>然後打開瀏覽器並訪問 <code class="language-plaintext highlighter-rouge">http://localhost:8000</code>。</p>
+
+<h2 id="文件結構">文件結構</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/
+|-- index.html           <span class="c"># 主頁面</span>
+|-- scripts/
+|   |-- map.js           <span class="c"># Google Maps 和路線邏輯</span>
+|-- style/
+|   |-- css1.css         <span class="c"># 頁面樣式文件</span>
+|-- images/
+|   |-- road.png         <span class="c"># 圖示</span>
+|   |-- co2.png          <span class="c"># 圖示</span>
+|   |-- time.png         <span class="c"># 圖示</span>
+</code></pre></div></div>
+
+<h2 id="貢獻">貢獻</h2>
+<p>歡迎對此專案提出問題、建議或進行貢獻。請先 fork 本專案，並創建一個分支來提交您的變更，然後發送 Pull Request。</p>
+
+<h2 id="授權">授權</h2>
+<p>此專案採用 <a href="LICENSE">MIT License</a> 授權，詳見 LICENSE 文件。</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+### 提交 `README.md`
+1. 在你的專案目錄下創建 `README.md` 文件：
+   ```bash
+   touch README.md
+</code></pre></div></div>
+
+<ol>
+  <li>
+    <p>將上述內容複製並貼到 <code class="language-plaintext highlighter-rouge">README.md</code> 文件中，然後保存。</p>
+  </li>
+  <li>
+    <p>使用以下命令提交 <code class="language-plaintext highlighter-rouge">README.md</code> 到 GitHub：</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add README.md
+git commit <span class="nt">-m</span> <span class="s2">"Add README file"</span>
+git push
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+            </article>
+        </main>
+        <aside class="right-bar">
+            <!-- 這裡可以放專案導覽選單，例如 Readme、Issues、Pull Requests -->
+            <nav class="project-nav">
+                <ul>
+                    <li><a href="#readme">Readme</a></li>
+                    <li><a href="#issues">Issues</a></li>
+                    <li><a href="#pull-requests">Pull Requests</a></li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 Caspar. All rights reserved.</p>
+      <div class="footer-social-icons">
+        <a href="#"><img src="/asserts/images/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="/asserts/images/twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="/asserts/images/github.png" alt="GitHub"></a>
+        <a href="#"><img src="/asserts/images/linkedin.png" alt="LinkedIn"></a>
+      </div>
+    </div>
+  </footer>
+  
+    <script type="module" src="/asserts/js/main.js"></script>
+</body>
+
+</html>
