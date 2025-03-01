@@ -1,26 +1,16 @@
 title: "Caspar15 的網站"
 description: "這是一個使用 Jekyll 建立的 GitHub Pages 網站"
-baseurl: ""    # 由於是User Page，可留空
+baseurl: ""                  # 因為是 user page (caspar15.github.io)，留空即可
 url: "https://caspar15.github.io"
 
-# Markdown 引擎
+# 使用 kramdown 作為 Markdown 引擎
 markdown: kramdown
-kramdown:
-  input: GFM        # 使用 GitHub Flavored Markdown
-  hard_wrap: false
-  syntax_highlighter_opts:
-    block:
-      line_numbers: false  # 是否顯示行號，可自行決定
-
-# 若要語法高亮
-highlighter: rouge
 
 # 外掛
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# 要忽略不上傳的檔案
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -30,3 +20,6 @@ exclude:
   - .gitignore
   - .idea
   - .vscode
+
+# 設定永久連結 (專案頁面 URL 將會是 /projects/greenfriend/ 形式)
+permalink: /:categories/:title/
