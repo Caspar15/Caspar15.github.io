@@ -1,98 +1,93 @@
+---
+layout: none
+---
+
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>{{ page.title }} - Caspar15 的網站</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ page.description }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="{{ page.description }}" />
 
-    <!-- 主 CSS -->
-    <link rel="stylesheet" href="/asserts/css/main.css">
-    <!-- GitHub 風格覆寫 -->
-    <link rel="stylesheet" href="/asserts/css/github-theme.css">
-</head>
+    <!-- 載入主要 CSS 與 GitHub 風格覆寫 -->
+    <!-- 你可以依需求調整路徑 -->
+    <link rel="stylesheet" href="/asserts/css/main.css" />
+    <link rel="stylesheet" href="/asserts/css/github-theme.css" />
 
-<body>
-    <!-- 如果想保留全站導覽列，可 include header.html -->
+    <!-- 若想在此頁也使用 chart.js 或其他 JS，可在這裡載入 -->
+  </head>
+  <body>
+    <!-- 若想沿用全站 header，可直接 include -->
     {% include header.html %}
 
-    <!-- 專案專用容器：避免和主站 .layout 衝突，改用 .project-layout -->
-    <div class="project-layout">
+    <!-- 主要容器，不用再被 .layout 包住，避免網格衝突 -->
+    <div class="repo-page-container">
+      <!-- 專案標題與描述 -->
+      <div class="repo-header">
+        <h1>{{ page.title }}</h1>
+        {% if page.description %}
+        <p class="repo-desc">{{ page.description }}</p>
+        {% endif %}
+      </div>
 
-        <!-- 專案標題 & 描述 -->
-        <div class="repo-header">
-            <h1>{{ page.title }}</h1>
-            {% if page.description %}
-            <p class="repo-desc">{{ page.description }}</p>
-            {% endif %}
-        </div>
+      <!-- GitHub 風格的導覽列（假裝 Code/Issues/Pull Requests） -->
+      <div class="repo-nav">
+        <ul>
+          <li><a href="#">Code</a></li>
+          <li><a href="#">Issues</a></li>
+          <li><a href="#">Pull Requests</a></li>
+        </ul>
+      </div>
 
-        <!-- 類似 GitHub 的導覽列 (Code / Issues / Pull Requests) -->
-        <div class="repo-nav">
-            <ul>
-                <li><a href="#">Code</a></li>
-                <li><a href="#">Issues</a></li>
-                <li><a href="#">Pull Requests</a></li>
-            </ul>
-        </div>
+      <!-- 兩欄結構：左側放 Markdown 主要內容，右側放專案資訊 -->
+      <div class="repo-container">
+        <!-- 左側主要內容 -->
+        <div class="repo-main markdown-body">{{ content }}</div>
 
-        <!-- 主要內容 & 右側資訊欄 -->
-        <div class="repo-container">
-            <!-- 左側：Markdown 或 HTML 主內容 -->
-            <div class="repo-main markdown-body">
-                {{ content }}
+        <!-- 右側資訊欄 -->
+        <aside class="repo-sidebar">
+          <!-- About 區塊 -->
+          <div class="repo-about">
+            <h3>About</h3>
+            <p>這是範例的專案 About 區塊，可自行放說明或連結。</p>
+          </div>
+
+          <!-- Releases 區塊 -->
+          <div class="repo-releases">
+            <h3>Releases</h3>
+            <p>No releases published</p>
+            <a href="#">Create a new release</a>
+          </div>
+
+          <!-- Packages 區塊 -->
+          <div class="repo-packages">
+            <h3>Packages</h3>
+            <p>No packages published</p>
+            <a href="#">Publish your first package</a>
+          </div>
+
+          <!-- Languages 區塊（模擬 GitHub 語言統計） -->
+          <div class="repo-languages">
+            <h3>Languages</h3>
+            <div class="lang-progress">
+              <!-- 例如 Python 100% -->
+              <span style="width: 100%; background: #3572a5"></span>
             </div>
+            <div class="language-bar-info">
+              <span>Python 100%</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+      <!-- .repo-container 結束 -->
+    </div>
+    <!-- .repo-page-container 結束 -->
 
-            <!-- 右側：GitHub 風格欄位 -->
-            <aside class="repo-sidebar">
-                <!-- About 區塊 -->
-                <div class="repo-about">
-                    <h3>About</h3>
-                    <p>{{ page.description }}</p>
-                    <ul>
-                        <li><a href="#">Readme</a></li>
-                        <li><a href="#">Activity</a></li>
-                        <li>Stars: 2</li>
-                        <li>Watchers: 1</li>
-                        <li>Forks: 0</li>
-                    </ul>
-                </div>
-
-                <!-- Releases 區塊 -->
-                <div class="repo-releases">
-                    <h3>Releases</h3>
-                    <p>No releases published</p>
-                    <a href="#">Create a new release</a>
-                </div>
-
-                <!-- Packages 區塊 -->
-                <div class="repo-packages">
-                    <h3>Packages</h3>
-                    <p>No packages published</p>
-                    <a href="#">Publish your first package</a>
-                </div>
-
-                <!-- Languages 區塊 -->
-                <div class="repo-languages">
-                    <h3>Languages</h3>
-                    <div class="language-bar">
-                        <span>Python</span>
-                        <span>100%</span>
-                        <div class="lang-progress">
-                            <span style="width: 100%; background-color: #3572A5;"></span>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-        </div><!-- end .repo-container -->
-    </div><!-- end .project-layout -->
-
-    <!-- 如果想保留全站底部，可 include footer.html -->
+    <!-- 若想沿用全站 footer，可直接 include -->
     {% include footer.html %}
 
-    <!-- 主 JS -->
+    <!-- 若本頁需要 JS -->
     <script type="module" src="/asserts/js/main.js"></script>
-</body>
-
+  </body>
 </html>

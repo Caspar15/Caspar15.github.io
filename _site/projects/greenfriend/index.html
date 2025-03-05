@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>GreenFriend - Caspar15 的網站</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="綠色出行的好夥伴，是數創比賽金獎作品，減少碳排放。">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="綠色出行的好夥伴，是數創比賽金獎作品，減少碳排放。" />
 
-    <!-- 主 CSS -->
-    <link rel="stylesheet" href="/asserts/css/main.css">
-    <!-- GitHub 風格覆寫 -->
-    <link rel="stylesheet" href="/asserts/css/github-theme.css">
-</head>
+    <!-- 載入主要 CSS 與 GitHub 風格覆寫 -->
+    <!-- 你可以依需求調整路徑 -->
+    <link rel="stylesheet" href="/asserts/css/main.css" />
+    <link rel="stylesheet" href="/asserts/css/github-theme.css" />
 
-<body>
-    <!-- 如果想保留全站導覽列，可 include header.html -->
+    <!-- 若想在此頁也使用 chart.js 或其他 JS，可在這裡載入 -->
+  </head>
+  <body>
+    <!-- 若想沿用全站 header，可直接 include -->
     <header class="header">
   <div class="header-left">
     <button class="hamburger">☰</button>
@@ -36,44 +36,42 @@
   </div>
 </header>
 
-    <!-- 專案專用容器：避免和主站 .layout 衝突，改用 .project-layout -->
-    <div class="project-layout">
+    <!-- 主要容器，不用再被 .layout 包住，避免網格衝突 -->
+    <div class="repo-page-container">
+      <!-- 專案標題與描述 -->
+      <div class="repo-header">
+        <h1>GreenFriend</h1>
+        
+        <p class="repo-desc">綠色出行的好夥伴，是數創比賽金獎作品，減少碳排放。</p>
+        
+      </div>
 
-        <!-- 專案標題 & 描述 -->
-        <div class="repo-header">
-            <h1>GreenFriend</h1>
-            
-            <p class="repo-desc">綠色出行的好夥伴，是數創比賽金獎作品，減少碳排放。</p>
-            
-        </div>
+      <!-- GitHub 風格的導覽列（假裝 Code/Issues/Pull Requests） -->
+      <div class="repo-nav">
+        <ul>
+          <li><a href="#">Code</a></li>
+          <li><a href="#">Issues</a></li>
+          <li><a href="#">Pull Requests</a></li>
+        </ul>
+      </div>
 
-        <!-- 類似 GitHub 的導覽列 (Code / Issues / Pull Requests) -->
-        <div class="repo-nav">
-            <ul>
-                <li><a href="#">Code</a></li>
-                <li><a href="#">Issues</a></li>
-                <li><a href="#">Pull Requests</a></li>
-            </ul>
-        </div>
-
-        <!-- 主要內容 & 右側資訊欄 -->
-        <div class="repo-container">
-            <!-- 左側：Markdown 或 HTML 主內容 -->
-            <div class="repo-main markdown-body">
-                <!-- 以下為純 HTML 內容 -->
+      <!-- 兩欄結構：左側放 Markdown 主要內容，右側放專案資訊 -->
+      <div class="repo-container">
+        <!-- 左側主要內容 -->
+        <div class="repo-main markdown-body"><!-- 以下為純 HTML 內容 -->
 <h1>碳排放路線顯示專案</h1>
 <p>
-   此專案是基於 Google Maps API 的碳排放路線顯示應用程式。
-   它使用後端 API 獲取路線資料並在地圖上顯示路徑、碳排放、距離和時間等信息。
+  此專案是基於 Google Maps API 的碳排放路線顯示應用程式。 它使用後端 API
+  獲取路線資料並在地圖上顯示路徑、碳排放、距離和時間等信息。
 </p>
 
 <h2>功能</h2>
 <ul>
-   <li>根據使用者位置顯示路徑</li>
-   <li>自動顯示交通方式（步行、駕車、公共交通）和碳排放量</li>
-   <li>使用 Google Maps 繪製路徑，並提供動態箭頭顯示路線</li>
-   <li>提供總距離、碳排放和總時間的詳細數據</li>
-   <li>支持地圖自動縮放和關閉信息窗口</li>
+  <li>根據使用者位置顯示路徑</li>
+  <li>自動顯示交通方式（步行、駕車、公共交通）和碳排放量</li>
+  <li>使用 Google Maps 繪製路徑，並提供動態箭頭顯示路線</li>
+  <li>提供總距離、碳排放和總時間的詳細數據</li>
+  <li>支持地圖自動縮放和關閉信息窗口</li>
 </ul>
 
 <h2>安裝與使用</h2>
@@ -85,11 +83,12 @@
 
 <h3>2. 安裝依賴</h3>
 <p>
-   此專案主要使用 Google Maps API 和 Axios 來進行 HTTP 請求。請確保你已經在項目中引入：
+  此專案主要使用 Google Maps API 和 Axios 來進行 HTTP
+  請求。請確保你已經在項目中引入：
 </p>
 <ul>
-   <li>Google Maps API</li>
-   <li>Axios</li>
+  <li>Google Maps API</li>
+  <li>Axios</li>
 </ul>
 <p>你可以直接在 HTML 檔案中通過 CDN 引入：</p>
 <pre><code>&lt;script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=geometry"&gt;&lt;/script&gt;
@@ -98,16 +97,18 @@
 
 <h3>3. 配置 Google Maps API Key</h3>
 <p>
-   在 <code>map.html</code> 中替換 <code>YOUR_API_KEY</code> 為你自己的金鑰，
-   你可以在 <a href="https://cloud.google.com/maps-platform/" target="_blank">Google Cloud</a> 獲取。
+  在 <code>map.html</code> 中替換 <code>YOUR_API_KEY</code> 為你自己的金鑰，
+  你可以在
+  <a href="https://cloud.google.com/maps-platform/" target="_blank"
+    >Google Cloud</a
+  >
+  獲取。
 </p>
 <pre><code>&lt;script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=geometry"&gt;&lt;/script&gt;
 </code></pre>
 
 <h3>4. 啟動本地伺服器</h3>
-<p>
-   以下為使用 Python 的範例：
-</p>
+<p>以下為使用 Python 的範例：</p>
 <pre><code>python -m http.server
 </code></pre>
 <p>然後瀏覽 <code>http://localhost:8000</code>。</p>
@@ -126,72 +127,70 @@
 </code></pre>
 
 <h2>貢獻</h2>
-<p>歡迎對此專案提出問題、建議或進行貢獻。請先 fork 並創建分支，然後送 Pull Request。</p>
+<p>
+  歡迎對此專案提出問題、建議或進行貢獻。請先 fork 並創建分支，然後送 Pull
+  Request。
+</p>
 
 <h2>授權</h2>
 <p>此專案採用 <a href="LICENSE">MIT License</a> 授權。</p>
 
 <h3>提交 <code>README.md</code></h3>
 <ol>
-   <li>在專案目錄下建立 <code>README.md</code></li>
+  <li>在專案目錄下建立 <code>README.md</code></li>
 </ol>
 <pre><code>touch README.md
 </code></pre>
 <ol start="2">
-   <li>將上述內容貼上</li>
-   <li>使用以下命令提交</li>
+  <li>將上述內容貼上</li>
+  <li>使用以下命令提交</li>
 </ol>
 <pre><code>git add README.md
 git commit -m "Add README file"
 git push
 </code></pre>
+</div>
+
+        <!-- 右側資訊欄 -->
+        <aside class="repo-sidebar">
+          <!-- About 區塊 -->
+          <div class="repo-about">
+            <h3>About</h3>
+            <p>這是範例的專案 About 區塊，可自行放說明或連結。</p>
+          </div>
+
+          <!-- Releases 區塊 -->
+          <div class="repo-releases">
+            <h3>Releases</h3>
+            <p>No releases published</p>
+            <a href="#">Create a new release</a>
+          </div>
+
+          <!-- Packages 區塊 -->
+          <div class="repo-packages">
+            <h3>Packages</h3>
+            <p>No packages published</p>
+            <a href="#">Publish your first package</a>
+          </div>
+
+          <!-- Languages 區塊（模擬 GitHub 語言統計） -->
+          <div class="repo-languages">
+            <h3>Languages</h3>
+            <div class="lang-progress">
+              <!-- 例如 Python 100% -->
+              <span style="width: 100%; background: #3572a5"></span>
             </div>
+            <div class="language-bar-info">
+              <span>Python 100%</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+      <!-- .repo-container 結束 -->
+    </div>
+    <!-- .repo-page-container 結束 -->
 
-            <!-- 右側：GitHub 風格欄位 -->
-            <aside class="repo-sidebar">
-                <!-- About 區塊 -->
-                <div class="repo-about">
-                    <h3>About</h3>
-                    <p>綠色出行的好夥伴，是數創比賽金獎作品，減少碳排放。</p>
-                    <ul>
-                        <li><a href="#">Readme</a></li>
-                        <li><a href="#">Activity</a></li>
-                        <li>Stars: 2</li>
-                        <li>Watchers: 1</li>
-                        <li>Forks: 0</li>
-                    </ul>
-                </div>
-
-                <!-- Releases 區塊 -->
-                <div class="repo-releases">
-                    <h3>Releases</h3>
-                    <p>No releases published</p>
-                    <a href="#">Create a new release</a>
-                </div>
-
-                <!-- Packages 區塊 -->
-                <div class="repo-packages">
-                    <h3>Packages</h3>
-                    <p>No packages published</p>
-                    <a href="#">Publish your first package</a>
-                </div>
-
-                <!-- Languages 區塊 -->
-                <div class="repo-languages">
-                    <h3>Languages</h3>
-                    <div class="language-bar">
-                        <span>Python</span>
-                        <span>100%</span>
-                        <div class="lang-progress">
-                            <span style="width: 100%; background-color: #3572A5;"></span>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-        </div><!-- end .repo-container -->
-    </div><!-- end .project-layout -->
-
-    <!-- 如果想保留全站底部，可 include footer.html -->
+    <!-- 若想沿用全站 footer，可直接 include -->
     <footer class="footer">
     <div class="footer-content">
       <p>&copy; 2024 Caspar. All rights reserved.</p>
@@ -205,8 +204,7 @@ git push
   </footer>
   
 
-    <!-- 主 JS -->
+    <!-- 若本頁需要 JS -->
     <script type="module" src="/asserts/js/main.js"></script>
-</body>
-
+  </body>
 </html>

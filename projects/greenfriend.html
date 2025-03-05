@@ -8,17 +8,17 @@ permalink: /projects/greenfriend/
 <!-- 以下為純 HTML 內容 -->
 <h1>碳排放路線顯示專案</h1>
 <p>
-   此專案是基於 Google Maps API 的碳排放路線顯示應用程式。
-   它使用後端 API 獲取路線資料並在地圖上顯示路徑、碳排放、距離和時間等信息。
+  此專案是基於 Google Maps API 的碳排放路線顯示應用程式。 它使用後端 API
+  獲取路線資料並在地圖上顯示路徑、碳排放、距離和時間等信息。
 </p>
 
 <h2>功能</h2>
 <ul>
-   <li>根據使用者位置顯示路徑</li>
-   <li>自動顯示交通方式（步行、駕車、公共交通）和碳排放量</li>
-   <li>使用 Google Maps 繪製路徑，並提供動態箭頭顯示路線</li>
-   <li>提供總距離、碳排放和總時間的詳細數據</li>
-   <li>支持地圖自動縮放和關閉信息窗口</li>
+  <li>根據使用者位置顯示路徑</li>
+  <li>自動顯示交通方式（步行、駕車、公共交通）和碳排放量</li>
+  <li>使用 Google Maps 繪製路徑，並提供動態箭頭顯示路線</li>
+  <li>提供總距離、碳排放和總時間的詳細數據</li>
+  <li>支持地圖自動縮放和關閉信息窗口</li>
 </ul>
 
 <h2>安裝與使用</h2>
@@ -30,11 +30,12 @@ permalink: /projects/greenfriend/
 
 <h3>2. 安裝依賴</h3>
 <p>
-   此專案主要使用 Google Maps API 和 Axios 來進行 HTTP 請求。請確保你已經在項目中引入：
+  此專案主要使用 Google Maps API 和 Axios 來進行 HTTP
+  請求。請確保你已經在項目中引入：
 </p>
 <ul>
-   <li>Google Maps API</li>
-   <li>Axios</li>
+  <li>Google Maps API</li>
+  <li>Axios</li>
 </ul>
 <p>你可以直接在 HTML 檔案中通過 CDN 引入：</p>
 <pre><code>&lt;script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=geometry"&gt;&lt;/script&gt;
@@ -43,16 +44,18 @@ permalink: /projects/greenfriend/
 
 <h3>3. 配置 Google Maps API Key</h3>
 <p>
-   在 <code>map.html</code> 中替換 <code>YOUR_API_KEY</code> 為你自己的金鑰，
-   你可以在 <a href="https://cloud.google.com/maps-platform/" target="_blank">Google Cloud</a> 獲取。
+  在 <code>map.html</code> 中替換 <code>YOUR_API_KEY</code> 為你自己的金鑰，
+  你可以在
+  <a href="https://cloud.google.com/maps-platform/" target="_blank"
+    >Google Cloud</a
+  >
+  獲取。
 </p>
 <pre><code>&lt;script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=geometry"&gt;&lt;/script&gt;
 </code></pre>
 
 <h3>4. 啟動本地伺服器</h3>
-<p>
-   以下為使用 Python 的範例：
-</p>
+<p>以下為使用 Python 的範例：</p>
 <pre><code>python -m http.server
 </code></pre>
 <p>然後瀏覽 <code>http://localhost:8000</code>。</p>
@@ -71,20 +74,23 @@ permalink: /projects/greenfriend/
 </code></pre>
 
 <h2>貢獻</h2>
-<p>歡迎對此專案提出問題、建議或進行貢獻。請先 fork 並創建分支，然後送 Pull Request。</p>
+<p>
+  歡迎對此專案提出問題、建議或進行貢獻。請先 fork 並創建分支，然後送 Pull
+  Request。
+</p>
 
 <h2>授權</h2>
 <p>此專案採用 <a href="LICENSE">MIT License</a> 授權。</p>
 
 <h3>提交 <code>README.md</code></h3>
 <ol>
-   <li>在專案目錄下建立 <code>README.md</code></li>
+  <li>在專案目錄下建立 <code>README.md</code></li>
 </ol>
 <pre><code>touch README.md
 </code></pre>
 <ol start="2">
-   <li>將上述內容貼上</li>
-   <li>使用以下命令提交</li>
+  <li>將上述內容貼上</li>
+  <li>使用以下命令提交</li>
 </ol>
 <pre><code>git add README.md
 git commit -m "Add README file"

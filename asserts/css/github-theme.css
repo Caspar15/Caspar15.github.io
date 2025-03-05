@@ -1,8 +1,9 @@
 /* github-theme.css */
 
 /* GitHub Theme Overrides */
+/* ------------------------------------------------------ */
 
-/* 覆寫基礎變數以符合 GitHub 的設計風格 */
+/* 1. 覆寫基礎變數以符合 GitHub 的設計風格 */
 :root {
   /* GitHub 的邊框與前景顏色 */
   --color-border-default: #e1e4e8;
@@ -12,11 +13,13 @@
   --color-accent-emphasis: #0366d6;
 
   /* 調整字型（GitHub 內部採用系統字型） */
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  --font-mono: SFMono-Regular, Menlo, Consolas, "Liberation Mono", Courier, monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+  --font-mono: SFMono-Regular, Menlo, Consolas, "Liberation Mono", Courier,
+    monospace;
 }
 
-/* Header 調整：GitHub 頁首通常有一條底線 */
+/* 2. Header 調整：GitHub 頁首通常有一條底線 */
 .header {
   background: var(--color-header-bg);
   border-bottom: 1px solid var(--color-border-default);
@@ -28,7 +31,7 @@
   font-weight: 600;
 }
 
-/* 按鈕樣式，參考 GitHub 的按鈕設計 */
+/* 3. 按鈕樣式，參考 GitHub 的按鈕設計 */
 .btn {
   display: inline-block;
   padding: 6px 12px;
@@ -50,7 +53,7 @@
   text-decoration: none;
 }
 
-/* 卡片樣式調整：模仿 GitHub issue / PR 卡片風格 */
+/* 4. 卡片樣式調整：模仿 GitHub issue / PR 卡片風格 */
 .card {
   border: 1px solid var(--color-border-default);
   border-radius: 6px;
@@ -64,7 +67,7 @@
   border-color: var(--color-accent-emphasis);
 }
 
-/* 頁腳樣式調整 */
+/* 5. 頁腳樣式調整 */
 .footer {
   border-top: 1px solid var(--color-border-default);
   padding-top: var(--spacing-lg);
@@ -73,7 +76,7 @@
   color: var(--color-fg-muted);
 }
 
-/* 連結樣式（GitHub 風格通常連結使用藍色） */
+/* 6. 連結樣式（GitHub 風格通常連結使用藍色） */
 a {
   color: var(--color-accent-emphasis);
 }
@@ -82,14 +85,14 @@ a:hover {
   text-decoration: underline;
 }
 
+/* 7. Markdown Body 基礎排版 */
 .markdown-body {
-  /* GitHub 風格預設排版 */
   box-sizing: border-box;
   min-width: 200px;
   max-width: 100%;
   margin: 0 auto;
   padding: 1rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.6;
 }
 
@@ -124,9 +127,18 @@ a:hover {
   overflow: auto;
 }
 
-/* 針對 project.html 的調整 */
+/* ------------------------------------------------------
+   針對 project.html 的排版結構
+   ------------------------------------------------------ */
 
-/* 頁首區域 */
+/* A. 外層容器: 讓內容有最大寬度 & 置中 */
+.repo-page-container {
+  max-width: 1000px; /* 你可依需求調整 */
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* B. 專案標題區 */
 .repo-header {
   border-bottom: 1px solid var(--color-border-default);
   padding-bottom: var(--spacing-md);
@@ -143,13 +155,17 @@ a:hover {
   margin-top: 4px;
 }
 
-/* 導覽列 */
+/* C. 導覽列 (Code / Issues / Pull Requests) */
 .repo-nav ul {
   list-style: none;
   display: flex;
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-lg);
   padding-left: 0;
+}
+
+.repo-nav li {
+  display: inline-block;
 }
 
 .repo-nav li a {
@@ -164,37 +180,16 @@ a:hover {
   background-color: var(--color-canvas-subtle);
 }
 
-/* 內容區 */
-.repo-content {
-  background-color: var(--color-canvas-default);
-  border: 1px solid var(--color-border-default);
-  border-radius: 6px;
-  padding: var(--spacing-md);
-}
-
-.markdown-body {
-  line-height: 1.6;
-  font-size: 16px;
-}
-
-.repo-page-container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-/* 讓左側、右側並排 */
+/* D. 兩欄結構：左主欄、右側欄 */
 .repo-container {
   display: grid;
-  grid-template-columns: 1fr 280px;
-  /* 左寬右窄 */
+  grid-template-columns: 1fr 280px; /* 左寬右窄 */
   gap: 2rem;
-  /* 可依喜好 */
   margin-bottom: 2rem;
 }
 
 .repo-main {
-  /* 主要內容區域 */
+  /* 左側主要內容 */
 }
 
 .repo-sidebar {
@@ -205,6 +200,30 @@ a:hover {
   background-color: var(--color-canvas-subtle);
 }
 
+.repo-sidebar h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.repo-sidebar p,
+.repo-sidebar a {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--color-fg-default);
+}
+
+.repo-sidebar a {
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.repo-sidebar a:hover {
+  text-decoration: underline;
+}
+
+/* E. About / Releases / Packages / Languages 區塊 */
 .repo-about,
 .repo-releases,
 .repo-packages,
@@ -212,13 +231,7 @@ a:hover {
   margin-bottom: 1.5rem;
 }
 
-.language-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 14px;
-}
-
+/* 語言統計條 */
 .lang-progress {
   width: 100%;
   height: 8px;
@@ -232,4 +245,10 @@ a:hover {
   display: block;
   height: 100%;
   border-radius: 4px;
+}
+
+.language-bar-info {
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--color-fg-muted);
 }
