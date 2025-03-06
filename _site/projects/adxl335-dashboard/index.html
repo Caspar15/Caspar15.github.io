@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ADXL335 Dashboard - Caspar15 的網站</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sensor Data Monitoring Dashboard" />
+
+    <!-- 載入主要 CSS 與 GitHub 風格覆寫 -->
+    <!-- 你可以依需求調整路徑 -->
+    <link rel="stylesheet" href="/asserts/css/main.css" />
+    <link rel="stylesheet" href="/asserts/css/github-theme.css" />
+
+    <!-- 若想在此頁也使用 chart.js 或其他 JS，可在這裡載入 -->
+  </head>
+  <body>
+    <!-- 若想沿用全站 header，可直接 include -->
+    <header class="header">
+  <div class="header-left">
+    <button class="hamburger">☰</button>
+    <h1>Caspar's GitHub Pages</h1>
+  </div>
+  <nav class="nav">
+    <div class="menu">
+      <a href="#" class="active">Home</a>
+      <a href="#">Archives</a>
+      <a href="#">Tags</a>
+      <a href="#">Categories</a>
+      <a href="#">About</a>
+      <a href="#">Links</a>
+    </div>
+  </nav>
+  <div class="header-right">
+    <button class="search-toggle">🔍</button>
+    <button class="dark-mode-toggle" id="darkModeToggle">🌙</button>
+  </div>
+</header>
+
+    <!-- 主要容器，不用再被 .layout 包住，避免網格衝突 -->
+    <div class="repo-page-container">
+      <!-- 專案標題與描述 -->
+      <div class="repo-header">
+        <h1>ADXL335 Dashboard</h1>
+        
+        <p class="repo-desc">Sensor Data Monitoring Dashboard</p>
+        
+      </div>
+
+      <!-- GitHub 風格的導覽列（假裝 Code/Issues/Pull Requests） -->
+      <div class="repo-nav">
+        <ul>
+          <li><a href="#">Code</a></li>
+          <li><a href="#">Issues</a></li>
+          <li><a href="#">Pull Requests</a></li>
+        </ul>
+      </div>
+
+      <!-- 兩欄結構：左側放 Markdown 主要內容，右側放專案資訊 -->
+      <div class="repo-container">
+        <!-- 左側主要內容 -->
+        <div class="repo-main markdown-body"><!-- 主要內容開始（HTML 版本） -->
+<h1>Sensor Data Monitoring Dashboard</h1>
+
+<h2>Overview</h2>
+<p>
+  This project is a comprehensive Sensor Data Monitoring Dashboard built using
+  Dash and Plotly. The dashboard visualizes various sensor data, including XYZ
+  axis data, Mean Squared Error (MSE), Standard Deviation (STD), and Peak
+  Frequency data. It also includes real-time data monitoring and alarm
+  functionality for out-of-range sensor values.
+</p>
+
+<h2>Features</h2>
+<ul>
+  <li>
+    <strong>XYZ Axis Data Visualization:</strong> Displays time series data for
+    X, Y, and Z axis.
+  </li>
+  <li>
+    <strong>Mean Squared Error (MSE) Visualization:</strong> Shows MSE data for
+    X, Y, and Z axis.
+  </li>
+  <li>
+    <strong>Standard Deviation (STD) Visualization:</strong> Visualizes the
+    standard deviation of X, Y, and Z axis data.
+  </li>
+  <li>
+    <strong>Peak Frequency Data Visualization:</strong> Plots the peak frequency
+    data using bar charts.
+  </li>
+  <li>
+    <strong>3D Surface Plots:</strong> Provides 3D surface plots for XYZ axis,
+    MSE, STD, and Peak Frequency data.
+  </li>
+  <li>
+    <strong>Real-Time Data Monitoring:</strong> Displays real-time sensor data
+    and triggers alarms if values are out-of-range.
+  </li>
+  <li>
+    <strong>Week Comparison Feature:</strong> Allows users to compare data from
+    different weeks side-by-side.
+  </li>
+</ul>
+
+<h2>🛠️ Installation</h2>
+<ol>
+  <li>
+    <p><strong>Clone the repository:</strong></p>
+    <pre><code>git clone https://github.com/yourusername/sensor-data-monitoring.git
+cd sensor-data-monitoring
+</code></pre>
+  </li>
+  <li>
+    <p><strong>Create and activate a virtual environment:</strong></p>
+    <pre><code>python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+</code></pre>
+  </li>
+  <li>
+    <p><strong>Install the required packages:</strong></p>
+    <pre><code>pip install -r requirements.txt
+</code></pre>
+  </li>
+</ol>
+
+<h2>🚀 Usage</h2>
+<ol>
+  <li>
+    <p><strong>Start the application:</strong></p>
+    <pre><code>python app.py
+</code></pre>
+  </li>
+  <li>
+    <p><strong>Access the dashboard:</strong></p>
+    <p>
+      Open your web browser and go to <code>http://127.0.0.1:8050/</code> to
+      view the dashboard.
+    </p>
+  </li>
+</ol>
+
+<h2>📁 Directory Structure</h2>
+<pre><code>sensor-data-monitoring/
+│
+├── app.py                    # Main application file
+├── data.py                   # Data fetching and caching logic
+├── layout.py                 # Layout and UI components
+├── plots.py                  # Plotting functions
+├── requirements.txt          # List of dependencies
+├── static/
+│   └── style.css             # Custom CSS for styling
+└── README.md                 # Project documentation
+</code></pre>
+
+<h2>📦 Dependencies</h2>
+<ul>
+  <li>Dash</li>
+  <li>Dash Bootstrap Components</li>
+  <li>Plotly</li>
+  <li>Pandas</li>
+  <li>NumPy</li>
+  <li>SciPy</li>
+  <li>SQLAlchemy</li>
+  <li>Cachetools</li>
+  <li>MySQL Connector</li>
+</ul>
+
+<h2>📊 Data Source</h2>
+<p>
+  The application fetches sensor data from a MySQL database. The database schema
+  should include tables for <code>AccelerometerData</code> and
+  <code>StatisticsData</code> with the following structure:
+</p>
+
+<h3>AccelerometerData</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RECORDED_TIME</td>
+      <td>DATETIME</td>
+    </tr>
+    <tr>
+      <td>XOUT</td>
+      <td>FLOAT</td>
+    </tr>
+    <tr>
+      <td>YOUT</td>
+      <td>FLOAT</td>
+    </tr>
+    <tr>
+      <td>ZOUT</td>
+      <td>FLOAT</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>StatisticsData</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RECORDED_TIME</td>
+      <td>DATETIME</td>
+    </tr>
+    <tr>
+      <td>MSE_X</td>
+      <td>FLOAT</td>
+    </tr>
+    <tr>
+      <td>MSE_Y</td>
+      <td>FLOAT</td>
+    </tr>
+    <tr>
+      <td>MSE_Z</td>
+      <td>FLOAT</td>
+    </tr>
+    <tr>
+      <td>STD_X</td>
+      <td>FLOAT</td>
+    </tr>
+    <tr>
+      <td>STD_Y</td>
+      <td>FLOAT</td>
+    </tr>
+    <tr>
+      <td>STD_Z</td>
+      <td>FLOAT</td>
+    </tr>
+    <tr>
+      <td>PEAK_FREQ_X</td>
+      <td>FLOAT</td>
+    </tr>
+    <tr>
+      <td>PEAK_FREQ_Y</td>
+      <td>FLOAT</td>
+    </tr>
+    <tr>
+      <td>PEAK_FREQ_Z</td>
+      <td>FLOAT</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>✨ Customization</h2>
+<ul>
+  <li>
+    <strong>Styling:</strong> Modify the <code>static/style.css</code> file to
+    change the appearance of the dashboard.
+  </li>
+  <li>
+    <strong>Data Fetching:</strong> Update <code>data.py</code> to modify the
+    data fetching logic or to connect to a different database.
+  </li>
+</ul>
+
+<h2>🛠️ Deployment</h2>
+
+<h3>Docker</h3>
+<ol>
+  <li>
+    <strong>Build the Docker image:</strong>
+    <pre><code>docker build -t sensor-dashboard .
+</code></pre>
+  </li>
+  <li>
+    <strong>Run the Docker container:</strong>
+    <pre><code>docker run -p 8050:8050 sensor-dashboard
+</code></pre>
+  </li>
+</ol>
+
+<h3>Kubernetes</h3>
+<p>Create a Kubernetes deployment file:</p>
+<pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sensor-dashboard
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sensor-dashboard
+  template:
+    metadata:
+      labels:
+        app: sensor-dashboard
+    spec:
+      containers:
+      - name: sensor-dashboard
+        image: your-docker-image
+        ports:
+        - containerPort: 8050
+</code></pre>
+
+<p>Create a Kubernetes service file:</p>
+<pre><code>apiVersion: v1
+kind: Service
+metadata:
+  name: sensor-dashboard
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8050
+  selector:
+    app: sensor-dashboard
+</code></pre>
+
+<p>Apply the Kubernetes files:</p>
+<pre><code>kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+</code></pre>
+
+<h2>🤝 Contributing</h2>
+<p>
+  Contributions are welcome! Please open an issue or submit a pull request with
+  your changes.
+</p>
+
+<h2>💬 Acknowledgements</h2>
+<ul>
+  <li>Thanks to the Dash and Plotly teams for their excellent libraries.</li>
+  <li>
+    Inspiration for this project came from various online resources and
+    tutorials.
+  </li>
+</ul>
+
+<h2>📧 Contact</h2>
+<p>
+  For questions or feedback, please contact
+  <a href="mailto:caspar9202166422@gmail.com">Caspar15</a>.
+</p>
+
+<hr />
+<!-- 主要內容結束 -->
+</div>
+
+        <!-- 右側資訊欄 -->
+        <aside class="repo-sidebar">
+          <!-- About 區塊 -->
+          <div class="repo-about">
+            <h3>About</h3>
+            <p>這是範例的專案 About 區塊，可自行放說明或連結。</p>
+          </div>
+
+          <!-- Releases 區塊 -->
+          <div class="repo-releases">
+            <h3>Releases</h3>
+            <p>No releases published</p>
+            <a href="#">Create a new release</a>
+          </div>
+
+          <!-- Packages 區塊 -->
+          <div class="repo-packages">
+            <h3>Packages</h3>
+            <p>No packages published</p>
+            <a href="#">Publish your first package</a>
+          </div>
+
+          <!-- Languages 區塊（模擬 GitHub 語言統計） -->
+          <div class="repo-languages">
+            <h3>Languages</h3>
+            <div class="lang-progress">
+              <!-- 例如 Python 100% -->
+              <span style="width: 100%; background: #3572a5"></span>
+            </div>
+            <div class="language-bar-info">
+              <span>Python 100%</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+      <!-- .repo-container 結束 -->
+    </div>
+    <!-- .repo-page-container 結束 -->
+
+    <!-- 若想沿用全站 footer，可直接 include -->
+    <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 Caspar. All rights reserved.</p>
+      <div class="footer-social-icons">
+        <a href="#"><img src="/asserts/images/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="/asserts/images/twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="/asserts/images/github.png" alt="GitHub"></a>
+        <a href="#"><img src="/asserts/images/linkedin.png" alt="LinkedIn"></a>
+      </div>
+    </div>
+  </footer>
+  
+
+    <!-- 若本頁需要 JS -->
+    <script type="module" src="/asserts/js/main.js"></script>
+  </body>
+</html>
