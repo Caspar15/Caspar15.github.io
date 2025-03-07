@@ -1,0 +1,91 @@
+---
+layout: project
+title: "THU Grade Scraper"
+description: "This Python script scrapes overall grades from the THU (East Sea) student information system."
+permalink: /projects/thu-grade/
+---
+
+<div class="repo-content markdown-body">
+  <h1>THU Grade Scraper</h1>
+  <p>
+    This Python script scrapes overall grades from the THU (East Sea) student
+    information system.
+  </p>
+
+  <h2>Introduction</h2>
+  <p>
+    THU Grade Scraper is a Python script designed to automate the retrieval of
+    overall grades from the THU (East Sea) student information system. It uses
+    Selenium for web automation and BeautifulSoup for HTML parsing.
+  </p>
+
+  <h2>Requirements</h2>
+  <ul>
+    <li>Python 3</li>
+    <li>Selenium</li>
+    <li>BeautifulSoup</li>
+  </ul>
+
+  <h2>Installation</h2>
+  <ol>
+    <li>
+      <p><strong>Clone the repository:</strong></p>
+      <pre><code>git clone https://github.com/Caspar15/THU-grade-scraper.git
+cd THU-grade-scraper</code></pre>
+    </li>
+    <li>
+      <p><strong>Install dependencies:</strong></p>
+      <pre><code>pip install selenium beautifulsoup4</code></pre>
+    </li>
+  </ol>
+
+  <h2>Usage</h2>
+  <ol>
+    <li>
+      <p><strong>Configuration:</strong></p>
+      <p>
+        Open <code>scraper.py</code> and modify the following variables with
+        your THU-NID credentials:
+      </p>
+      <pre><code class="language-python">username = "your_THU_NID_here"
+password = "your_password_here"</code></pre>
+    </li>
+    <li>
+      <p><strong>Run the Scraper:</strong></p>
+      <pre><code>python scraper.py</code></pre>
+      <p>
+        The script will open a browser window and prompt you to complete the
+        manual verification and login process.
+      </p>
+    </li>
+    <li>
+      <p><strong>Output:</strong></p>
+      <p>
+        After successful login, the script will parse your grades and calculate
+        the semester GPA. It will print individual course details and the
+        overall semester GPA.
+      </p>
+    </li>
+  </ol>
+
+  <h2>Example Output</h2>
+  <p>
+    大一英文: GPA=4.0 * 學分=2.0 = 8.0<br />
+    中文：文學欣賞與實用: GPA=3.7 * 學分=2.0 = 7.4<br />
+    ...<br />
+    總成績點數: 60.6<br />
+    總學分數: 18.0<br />
+    學期總平均 GPA: 3.3666666667
+  </p>
+
+  <h2>Contributing</h2>
+  <p>
+    Contributions are welcome! Fork the repository, make improvements, and
+    submit a pull request.
+  </p>
+
+  <h2>Author</h2>
+  <ul>
+    <li>Caspar15</li>
+  </ul>
+</div>
