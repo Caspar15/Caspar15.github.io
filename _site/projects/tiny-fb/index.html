@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TinyFB - Caspar15 的網站</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="TinyFB 是一個基於 C++ 的簡單社交網路模擬應用程式，用戶可以建立帳戶、登入、發布文章、發送好友請求、喜歡頁面以及刪除好友等。" />
+
+    <!-- 載入主要 CSS 與 GitHub 風格覆寫 -->
+    <!-- 你可以依需求調整路徑 -->
+    <link rel="stylesheet" href="/asserts/css/main.css" />
+    <link rel="stylesheet" href="/asserts/css/github-theme.css" />
+
+    <!-- 若想在此頁也使用 chart.js 或其他 JS，可在這裡載入 -->
+  </head>
+  <body>
+    <!-- 若想沿用全站 header，可直接 include -->
+    <header class="header">
+  <div class="header-left">
+    <button class="hamburger">☰</button>
+    <h1>Caspar's GitHub Pages</h1>
+  </div>
+  <nav class="nav">
+    <div class="menu">
+      <a href="#" class="active">Home</a>
+      <a href="#">Archives</a>
+      <a href="#">Tags</a>
+      <a href="#">Categories</a>
+      <a href="#">About</a>
+      <a href="#">Links</a>
+    </div>
+  </nav>
+  <div class="header-right">
+    <button class="search-toggle">🔍</button>
+    <button class="dark-mode-toggle" id="darkModeToggle">🌙</button>
+  </div>
+</header>
+
+    <!-- 主要容器，不用再被 .layout 包住，避免網格衝突 -->
+    <div class="repo-page-container">
+      <!-- 專案標題與描述 -->
+      <div class="repo-header">
+        <h1>TinyFB</h1>
+        
+        <p class="repo-desc">TinyFB 是一個基於 C++ 的簡單社交網路模擬應用程式，用戶可以建立帳戶、登入、發布文章、發送好友請求、喜歡頁面以及刪除好友等。</p>
+        
+      </div>
+
+      <!-- GitHub 風格的導覽列（假裝 Code/Issues/Pull Requests） -->
+      <div class="repo-nav">
+        <ul>
+          <li><a href="#">Code</a></li>
+          <li><a href="#">Issues</a></li>
+          <li><a href="#">Pull Requests</a></li>
+        </ul>
+      </div>
+
+      <!-- 兩欄結構：左側放 Markdown 主要內容，右側放專案資訊 -->
+      <div class="repo-container">
+        <!-- 左側主要內容 -->
+        <div class="repo-main markdown-body"><div class="repo-content markdown-body">
+  <h1>TinyFB</h1>
+  <p>
+    TinyFB 是一個基於 C++
+    的簡單的社交網路模擬應用程式。用戶可以建立帳戶、登入、發布文章、發送好友請求、喜歡頁面以及刪除好友等。
+  </p>
+
+  <h2>目錄</h2>
+  <ul>
+    <li><a href="#安裝">安裝</a></li>
+    <li><a href="#使用說明">使用說明</a></li>
+    <li><a href="#功能">功能</a></li>
+    <li><a href="#項目結構">項目結構</a></li>
+    <li><a href="#貢獻">貢獻</a></li>
+    <li><a href="#許可證">許可證</a></li>
+    <li><a href="#作者">作者</a></li>
+  </ul>
+
+  <h2 id="安裝">安裝</h2>
+  <p>首先，請確保您的系統已安裝 C++ 編譯器，例如 GCC 或 Visual Studio。</p>
+  <ol>
+    <li>
+      <p>克隆項目到本地：</p>
+      <pre><code>git clone https://github.com/你的使用者名稱/TinyFB.git</code></pre>
+    </li>
+    <li>
+      <p>進入專案目錄：</p>
+      <pre><code>cd TinyFB</code></pre>
+    </li>
+    <li>
+      <p>編譯專案：</p>
+      <pre><code>g++ -o tinyfb_app main.cpp tinyfb.cpp -lws2_32</code></pre>
+    </li>
+    <li>
+      <p>運行可執行檔：</p>
+      <pre><code>./tinyfb_app # 或 tinyfb_app.exe 在 Windows 上</code></pre>
+    </li>
+  </ol>
+
+  <h2 id="使用說明">使用說明</h2>
+  <p>啟動應用程式後，您將看到主選單，您可以選擇以下操作：</p>
+  <ol>
+    <li>登入已有帳戶</li>
+    <li>建立新帳戶</li>
+    <li>退出</li>
+  </ol>
+  <h3>建立新帳戶</h3>
+  <p>選擇建立新帳戶後，按提示輸入相關資訊：</p>
+  <ul>
+    <li>姓名</li>
+    <li>電子郵件</li>
+    <li>密碼</li>
+    <li>性別</li>
+  </ul>
+  <h3>登入</h3>
+  <p>
+    選擇登入後，按提示輸入您的電子郵件和密碼。成功登入後，您可以進行以下操作：
+  </p>
+  <ul>
+    <li>發布文章</li>
+    <li>發送好友請求</li>
+    <li>喜歡頁面</li>
+    <li>刪除好友</li>
+    <li>顯示好友列表</li>
+    <li>顯示喜歡的頁面</li>
+    <li>顯示刪除列表</li>
+    <li>顯示您的文章</li>
+    <li>登出登入</li>
+  </ul>
+
+  <h2 id="功能">功能</h2>
+  <ul>
+    <li>
+      <strong>建立帳戶</strong
+      >：使用者可以建立一個新帳戶並將其儲存到本機檔案系統。
+    </li>
+    <li><strong>登入</strong>：使用者可以使用電子郵件和密碼登入已有帳戶。</li>
+    <li><strong>發布文章</strong>：登入後，使用者可以發布文章到自己的帳號。</li>
+    <li><strong>發送好友請求</strong>：使用者可以向其他使用者發送好友請求。</li>
+    <li><strong>喜歡頁面</strong>：使用者可以喜歡某個頁面。</li>
+    <li><strong>刪除好友</strong>：使用者可以刪除某個好友。</li>
+    <li><strong>顯示好友清單</strong>：使用者可以查看自己的好友清單。</li>
+    <li><strong>顯示喜歡的頁面</strong>：使用者可以查看自己喜歡的頁面。</li>
+    <li><strong>顯示刪除清單</strong>：使用者可以查看已刪除的好友清單。</li>
+    <li><strong>顯示文章</strong>：使用者可以查看自己的所有文章。</li>
+    <li><strong>登出登入</strong>：使用者可以安全地登出登入。</li>
+  </ul>
+
+  <h2 id="項目結構">項目結構</h2>
+  <pre><code>TinyFB/
+├── Mini_FB/
+│   ├── Files_loaded_for_options/
+│   │   └── Pages_Names.txt
+│   ├── User_Data_base/
+│   └── User_info.txt
+├── main.cpp
+├── tinyfb.cpp
+├── tinyfb.h
+└── README.md</code></pre>
+
+  <h2 id="貢獻">貢獻</h2>
+  <p>
+    歡迎對本項目提出建議、報告問題或建立合併請求。如果您想做出重大改變，請先開啟一個問題，以便我們討論您的計劃。
+  </p>
+
+  <h2 id="許可證">許可證</h2>
+  <p>（此處填入許可證相關資訊，如 MIT License 等）</p>
+
+  <h2 id="作者">作者</h2>
+  <ul>
+    <li><strong>Caspar15</strong></li>
+  </ul>
+</div>
+</div>
+
+        <!-- 右側資訊欄 -->
+        <aside class="repo-sidebar">
+          <!-- About 區塊 -->
+          <div class="repo-about">
+            <h3>About</h3>
+            <p>這是範例的專案 About 區塊，可自行放說明或連結。</p>
+          </div>
+
+          <!-- Releases 區塊 -->
+          <div class="repo-releases">
+            <h3>Releases</h3>
+            <p>No releases published</p>
+            <a href="#">Create a new release</a>
+          </div>
+
+          <!-- Packages 區塊 -->
+          <div class="repo-packages">
+            <h3>Packages</h3>
+            <p>No packages published</p>
+            <a href="#">Publish your first package</a>
+          </div>
+
+          <!-- Languages 區塊（模擬 GitHub 語言統計） -->
+          <div class="repo-languages">
+            <h3>Languages</h3>
+            <div class="lang-progress">
+              <!-- 例如 Python 100% -->
+              <span style="width: 100%; background: #3572a5"></span>
+            </div>
+            <div class="language-bar-info">
+              <span>Python 100%</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+      <!-- .repo-container 結束 -->
+    </div>
+    <!-- .repo-page-container 結束 -->
+
+    <!-- 若想沿用全站 footer，可直接 include -->
+    <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 Caspar. All rights reserved.</p>
+      <div class="footer-social-icons">
+        <a href="#"><img src="/asserts/images/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="/asserts/images/twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="/asserts/images/github.png" alt="GitHub"></a>
+        <a href="#"><img src="/asserts/images/linkedin.png" alt="LinkedIn"></a>
+      </div>
+    </div>
+  </footer>
+  
+
+    <!-- 若本頁需要 JS -->
+    <script type="module" src="/asserts/js/main.js"></script>
+  </body>
+</html>
