@@ -3,23 +3,24 @@
 /* 左側導航欄 */
 
 .sidebar {
-  background: var(--color-canvas-subtle);
-  border: 1px solid var(--color-border-default);
-  border-radius: 6px;
-  padding: var(--spacing-lg);
+  position: sticky;
+  top: var(--spacing-lg);
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+  padding: var(--spacing-md);
+  border-right: 1px solid var(--color-border-default);
+  background: var(--color-canvas-default);
 }
-
 .profile {
   text-align: center;
   margin-bottom: var(--spacing-xl);
 }
 
 .profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin-bottom: var(--spacing-md);
-  border: 2px solid var(--color-border-default);
+  width: 120px;
+  height: 120px;
+  border: 3px solid var(--color-border-default);
+  box-shadow: 0 0 0 3px var(--color-canvas-default);
 }
 
 .profile h2 {
@@ -73,6 +74,17 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--spacing-xs) 0;
+}
+
+.category-filter {
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+}
+
+.category-filter:hover {
+  background: var(--color-canvas-subtle);
+  transform: translateX(4px);
 }
 
 .count {
@@ -140,7 +152,7 @@
 
 /* 自訂符號：使用 • 或 ▶ 等 */
 .right-bar li::before {
-  content: '•';
+  content: "•";
   position: absolute;
   left: 0;
   color: var(--color-accent-emphasis);
