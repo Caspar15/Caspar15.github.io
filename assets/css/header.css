@@ -1,0 +1,74 @@
+/* header.css */
+
+.site-header {
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 var(--spacing-lg);
+  position: sticky; /* 讓 header 固定在頂部 */
+  top: 0;
+  z-index: 99; /* 確保 header 在其他內容之上 */
+}
+
+.site-header .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  gap: 20px; /* Add gap between site-title and site-nav */
+}
+
+.site-title {
+  font-size: 22px; /* Increased font size */
+  font-weight: 700;
+  color: var(--color-text);
+  white-space: nowrap; /* Prevent wrapping */
+}
+.site-title:hover {
+  text-decoration: none;
+}
+
+.site-nav {
+  flex-grow: 1; /* Allow site-nav to take available space */
+  display: flex;
+  justify-content: flex-end; /* Push nav items to the right */
+}
+
+.site-nav .page-link {
+  color: var(--color-text-muted);
+  margin-left: 20px;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.site-nav .page-link:hover {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.site-nav .menu-icon {
+  display: none; /* For mobile */
+}
+
+.site-nav .trigger {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Add gap between nav items, search, and dark mode toggle */
+}
+
+.site-nav .search-input {
+  border: 1px solid var(--color-border);
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: var(--color-bg-subtle);
+  color: var(--color-text);
+  width: 180px; /* Adjust as needed */
+  transition: width 0.3s ease;
+}
+
+.site-nav .search-input:focus {
+  width: 220px; /* Expand on focus */
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(var(--color-accent-rgb), 0.2);
+}

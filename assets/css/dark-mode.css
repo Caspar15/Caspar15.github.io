@@ -1,0 +1,103 @@
+/* dark-mode.css */
+
+body.dark {
+  --color-bg: #0d1117;
+  --color-bg-subtle: #161b22;
+  --color-text: #c9d1d9;
+  --color-text-muted: #8b949e;
+  --color-border: #30363d;
+  --color-accent: #58a6ff;
+  --color-accent-hover: #428eff;
+}
+
+/* 針對特定元素調整深色模式下的樣式 */
+body.dark .site-header {
+  border-bottom-color: var(--color-border);
+}
+
+body.dark .site-title,
+body.dark .site-nav .page-link {
+  color: var(--color-text);
+}
+
+body.dark .site-nav .page-link:hover {
+  color: var(--color-accent);
+}
+
+body.dark .dark-mode-toggle svg {
+  color: var(--color-text);
+}
+
+body.dark .dark-mode-toggle:hover {
+  background-color: var(--color-border);
+}
+
+body.dark .sidebar section,
+body.dark .right-bar section,
+body.dark .statistics-section,
+body.dark .card {
+  background-color: var(--color-bg-subtle);
+  border-color: var(--color-border);
+}
+
+body.dark .stat-icon {
+  background-color: var(--color-accent);
+}
+
+body.dark .filter-btn {
+  color: var(--color-text-muted);
+  border-color: var(--color-border);
+}
+
+body.dark .filter-btn:hover {
+  background-color: var(--color-border);
+  color: var(--color-text);
+}
+
+body.dark .filter-btn.active {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+body.dark .card-header h3 a {
+  color: var(--color-text);
+}
+
+body.dark .card-header h3 a:hover {
+  color: var(--color-accent);
+}
+
+body.dark .card .tag {
+  background-color: var(--color-border);
+  color: var(--color-text-muted);
+}
+
+body.dark .repo-header .repo-badges img {
+  filter: brightness(0.8) contrast(1.2);
+}
+
+body.dark .repo-about .btn-github {
+  background-color: #30363d;
+  border-color: #444c56;
+}
+
+body.dark .repo-about .btn-github:hover {
+  background-color: #444c56;
+}
+
+body.dark .repo-topics .topic-tag {
+  background-color: #30363d;
+  color: #58a6ff;
+}
+
+body.dark .repo-topics .topic-tag:hover {
+  background-color: #444c56;
+}
+
+body.dark .repo-languages .lang-stats .lang-name {
+  color: var(--color-text);
+}
+
+body.dark .repo-languages .lang-stats .lang-percentage {
+  color: var(--color-text-muted);
+}

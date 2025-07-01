@@ -1,0 +1,128 @@
+---
+layout: project
+title: "TinyFB"
+description: "一個基於 C++ 的簡單社交網路模擬應用程式，實現了基本的社交功能，包括貼文、留言和好友系統。"
+permalink: /projects/tiny-fb/
+tags: ["C++", "Social Platform", "System Design"]
+read-time: "9分鐘"
+repo_url: "https://github.com/Caspar15/Tiny-FB"
+license: "MIT"
+languages:
+  - name: "C++"
+    percentage: 100
+    color: "#f34b7d"
+---
+
+<div class="repo-content markdown-body">
+  <h1>TinyFB</h1>
+  <p>
+    TinyFB 是一個基於 C++
+    的簡單的社交網路模擬應用程式。用戶可以建立帳戶、登入、發布文章、發送好友請求、喜歡頁面以及刪除好友等。
+  </p>
+
+  <h2>目錄</h2>
+  <ul>
+    <li><a href="#安裝">安裝</a></li>
+    <li><a href="#使用說明">使用說明</a></li>
+    <li><a href="#功能">功能</a></li>
+    <li><a href="#項目結構">項目結構</a></li>
+    <li><a href="#貢獻">貢獻</a></li>
+    <li><a href="#許可證">許可證</a></li>
+    <li><a href="#作者">作者</a></li>
+  </ul>
+
+  <h2 id="安裝">安裝</h2>
+  <p>首先，請確保您的系統已安裝 C++ 編譯器，例如 GCC 或 Visual Studio。</p>
+  <ol>
+    <li>
+      <p>克隆項目到本地：</p>
+      <pre><code>git clone https://github.com/你的使用者名稱/TinyFB.git</code></pre>
+    </li>
+    <li>
+      <p>進入專案目錄：</p>
+      <pre><code>cd TinyFB</code></pre>
+    </li>
+    <li>
+      <p>編譯專案：</p>
+      <pre><code>g++ -o tinyfb_app main.cpp tinyfb.cpp -lws2_32</code></pre>
+    </li>
+    <li>
+      <p>運行可執行檔：</p>
+      <pre><code>./tinyfb_app # 或 tinyfb_app.exe 在 Windows 上</code></pre>
+    </li>
+  </ol>
+
+  <h2 id="使用說明">使用說明</h2>
+  <p>啟動應用程式後，您將看到主選單，您可以選擇以下操作：</p>
+  <ol>
+    <li>登入已有帳戶</li>
+    <li>建立新帳戶</li>
+    <li>退出</li>
+  </ol>
+  <h3>建立新帳戶</h3>
+  <p>選擇建立新帳戶後，按提示輸入相關資訊：</p>
+  <ul>
+    <li>姓名</li>
+    <li>電子郵件</li>
+    <li>密碼</li>
+    <li>性別</li>
+  </ul>
+  <h3>登入</h3>
+  <p>
+    選擇登入後，按提示輸入您的電子郵件和密碼。成功登入後，您可以進行以下操作：
+  </p>
+  <ul>
+    <li>發布文章</li>
+    <li>發送好友請求</li>
+    <li>喜歡頁面</li>
+    <li>刪除好友</li>
+    <li>顯示好友列表</li>
+    <li>顯示喜歡的頁面</li>
+    <li>顯示刪除列表</li>
+    <li>顯示您的文章</li>
+    <li>登出登入</li>
+  </ul>
+
+  <h2 id="功能">功能</h2>
+  <ul>
+    <li>
+      <strong>建立帳戶</strong
+      >：使用者可以建立一個新帳戶並將其儲存到本機檔案系統。
+    </li>
+    <li><strong>登入</strong>：使用者可以使用電子郵件和密碼登入已有帳戶。</li>
+    <li><strong>發布文章</strong>：登入後，使用者可以發布文章到自己的帳號。</li>
+    <li><strong>發送好友請求</strong>：使用者可以向其他使用者發送好友請求。</li>
+    <li><strong>喜歡頁面</strong>：使用者可以喜歡某個頁面。</li>
+    <li><strong>刪除好友</strong>：使用者可以刪除某個好友。</li>
+    <li><strong>顯示好友清單</strong>：使用者可以查看自己的好友清單。</li>
+    <li><strong>顯示喜歡的頁面</strong>：使用者可以查看自己喜歡的頁面。</li>
+    <li><strong>顯示刪除清單</strong>：使用者可以查看已刪除的好友清單。</li>
+    <li><strong>顯示文章</strong>：使用者可以查看自己的所有文章。</li>
+    <li><strong>登出登入</strong>：使用者可以安全地登出登入。</li>
+  </ul>
+
+  <h2 id="項目結構">項目結構</h2>
+  <pre><code>TinyFB/
+├── Mini_FB/
+│   ├── Files_loaded_for_options/
+│   │   └── Pages_Names.txt
+│   ├── User_Data_base/
+│   └── User_info.txt
+├── main.cpp
+├── tinyfb.cpp
+├── tinyfb.h
+└── README.md</code></pre>
+
+  <h2 id="貢獻">貢獻</h2>
+  <p>
+    歡迎對本項目提出建議、報告問題或建立合併請求。如果您想做出重大改變，請先開啟一個問題，以便我們討論您的計劃。
+  </p>
+
+  <h2 id="許可證">許可證</h2>
+  <p>（此處填入許可證相關資訊，如 MIT License 等）</p>
+
+  <h2 id="作者">作者</h2>
+  <ul>
+    <li><strong>Caspar15</strong></li>
+  </ul>
+</div>

@@ -1,93 +1,86 @@
----
-layout: none
----
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>{{ page.title }} - Caspar15 的網站</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="{{ page.description }}" />
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ page.title }} - Caspar15 的網站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{ page.description }}" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/github-theme.css" />
+  <link rel="stylesheet" href="/assets/css/project.css" />
+</head>
+<body>
+  {% include header.html %}
 
-    <!-- 載入主要 CSS 與 GitHub 風格覆寫 -->
-    <!-- 你可以依需求調整路徑 -->
-    <link rel="stylesheet" href="/asserts/css/main.css" />
-    <link rel="stylesheet" href="/asserts/css/github-theme.css" />
-
-    <!-- 若想在此頁也使用 chart.js 或其他 JS，可在這裡載入 -->
-  </head>
-  <body>
-    <!-- 若想沿用全站 header，可直接 include -->
-    {% include header.html %}
-
-    <!-- 主要容器，不用再被 .layout 包住，避免網格衝突 -->
-    <div class="repo-page-container">
-      <!-- 專案標題與描述 -->
-      <div class="repo-header">
-        <h1>{{ page.title }}</h1>
-        {% if page.description %}
+  <div class="repo-page-container">
+    <div class="repo-header">
+      <h1><svg class="octicon octicon-repo" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zM4.5 1C3.672 1 3 1.672 3 2.5V3h10V1H4.5z"></path></svg> {{ page.title }}</h1>
+      {% if page.description %}
         <p class="repo-desc">{{ page.description }}</p>
+      {% endif %}
+      <div class="repo-badges">
+        {% if page.python_version %}
+          <img src="https://img.shields.io/badge/python-{{ page.python_version }}-blue" alt="Python Version" />
+        {% endif %}
+        {% if page.license %}
+          <img src="https://img.shields.io/badge/license-{{ page.license }}-green" alt="License" />
+        {% endif %}
+        {% if page.repo_url %}
+           <a href="{{ page.repo_url }}/issues" target="_blank"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen" alt="Contributions Welcome"></a>
         {% endif %}
       </div>
-
-      <!-- GitHub 風格的導覽列（假裝 Code/Issues/Pull Requests） -->
-      <div class="repo-nav">
-        <ul>
-          <li><a href="#">Code</a></li>
-          <li><a href="#">Issues</a></li>
-          <li><a href="#">Pull Requests</a></li>
-        </ul>
-      </div>
-
-      <!-- 兩欄結構：左側放 Markdown 主要內容，右側放專案資訊 -->
-      <div class="repo-container">
-        <!-- 左側主要內容 -->
-        <div class="repo-main markdown-body">{{ content }}</div>
-
-        <!-- 右側資訊欄 -->
-        <aside class="repo-sidebar">
-          <!-- About 區塊 -->
-          <div class="repo-about">
-            <h3>About</h3>
-            <p>這是範例的專案 About 區塊，可自行放說明或連結。</p>
-          </div>
-
-          <!-- Releases 區塊 -->
-          <div class="repo-releases">
-            <h3>Releases</h3>
-            <p>No releases published</p>
-            <a href="#">Create a new release</a>
-          </div>
-
-          <!-- Packages 區塊 -->
-          <div class="repo-packages">
-            <h3>Packages</h3>
-            <p>No packages published</p>
-            <a href="#">Publish your first package</a>
-          </div>
-
-          <!-- Languages 區塊（模擬 GitHub 語言統計） -->
-          <div class="repo-languages">
-            <h3>Languages</h3>
-            <div class="lang-progress">
-              <!-- 例如 Python 100% -->
-              <span style="width: 100%; background: #3572a5"></span>
-            </div>
-            <div class="language-bar-info">
-              <span>Python 100%</span>
-            </div>
-          </div>
-        </aside>
-      </div>
-      <!-- .repo-container 結束 -->
     </div>
-    <!-- .repo-page-container 結束 -->
 
-    <!-- 若想沿用全站 footer，可直接 include -->
-    {% include footer.html %}
+    <div class="repo-container">
+      <div class="repo-main markdown-body">
+        {{ content }}
+      </div>
 
-    <!-- 若本頁需要 JS -->
-    <script type="module" src="/asserts/js/main.js"></script>
-  </body>
+      <aside class="repo-sidebar">
+        <div class="repo-about">
+          <h3>About</h3>
+          <p>{{ page.description | default: "No description provided." }}</p>
+          {% if page.repo_url %}
+            <a href="{{ page.repo_url }}" class="btn btn-github" target="_blank">
+              <svg class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="16" height="16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+              View on GitHub
+            </a>
+          {% endif %}
+        </div>
+
+        {% if page.tags %}
+        <div class="repo-topics">
+            <h3>Topics</h3>
+            {% for tag in page.tags %}
+                <a href="#" class="topic-tag">{{ tag }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if page.languages %}
+        <div class="repo-languages">
+          <h3>Languages</h3>
+          <div class="lang-progress-container">
+            {% for lang in page.languages %}
+              <span class="lang-progress-bar" style="width: {{ lang.percentage }}%; background-color: {{ lang.color }};" title="{{ lang.name }} {{ lang.percentage }}%"></span>
+            {% endfor %}
+          </div>
+          <ul class="lang-stats">
+            {% for lang in page.languages %}
+            <li>
+              <span class="lang-color-dot" style="background-color: {{ lang.color }};"></span>
+              <span class="lang-name">{{ lang.name }}</span>
+              <span class="lang-percentage">{{ lang.percentage }}%</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </aside>
+    </div>
+  </div>
+
+  {% include footer.html %}
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
 </html>

@@ -3,191 +3,101 @@ layout: default
 title: Home
 ---
 
-<!-- Global Search Bar -->
-<div class="global-search">
-  <input type="text" id="globalSearchInput" placeholder="Search projects, posts, and more...">
-  <div class="search-results"></div>
+<div class="layout">
+  <!-- 左側邊欄 (包含篩選器) -->
+  <aside class="sidebar">
+    <section class="profile-section">
+      <img src="/assets/images/profile.webp" alt="Profile" class="profile-pic-sidebar">
+      <h2>Caspar</h2>
+      <p>軟體工程師 | 全端開發 | 資料科學愛好者</p>
+      <div class="social-icons">
+        <a href="#" title="Facebook"><img src="/assets/images/facebook.png" alt="Facebook"></a>
+        <a href="#" title="Twitter"><img src="/assets/images/twitter.png" alt="Twitter"></a>
+        <a href="#" title="GitHub"><img src="/assets/images/github.png" alt="GitHub"></a>
+        <a href="#" title="LinkedIn"><img src="/assets/images/linkedin.png" alt="LinkedIn"></a>
+      </div>
+    </section>
+    
+  </aside>
+
+  <!-- 中間主內容 (統計 + 專案) -->
+  <main class="main-content">
+    <div class="statistics-section">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📊</div>
+          <div class="stat-content">
+            <div class="stat-value">{{ site.projects.size }}</div>
+            <div class="stat-label">總專案數</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🔥</div>
+          <div class="stat-content">
+            <div class="stat-value">5</div>
+            <div class="stat-label">活躍專案</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📝</div>
+          <div class="stat-content">
+            <div class="stat-value">8</div>
+            <div class="stat-label">技術文章</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📅</div>
+          <div class="stat-content">
+            <div class="stat-value">156</div>
+            <div class="stat-label">貢獻天數</div>
+          </div>
+        </div>
+      </div>
+      <div class="chart-container">
+        <canvas id="categoryChart"></canvas>
+      </div>
+    </div>
+    
+    <section class="articles" id="projects">
+      {% include projects.html %}
+    </section>
+  </main>
+
+  <!-- 右側邊欄 -->
+  <aside class="right-bar">
+    <section class="latest-posts">
+      <h3>最新文章</h3>
+      <ul>
+        <li><a href="#"><span class="post-title">GreenFriend 專案介紹</span><span class="post-date">2024-02-10</span></a></li>
+        <li><a href="#"><span class="post-title">Discord Music Bot 更新</span><span class="post-date">2024-02-05</span></a></li>
+      </ul>
+      <a href="/blog/" class="view-all">查看全部</a>
+    </section>
+    <section class="skills-section">
+      <h3>技能與技術</h3>
+      <div class="skills-list">
+        <span class="skill-item">Python</span>
+        <span class="skill-item">JavaScript</span>
+        <span class="skill-item">HTML/CSS</span>
+        <span class="skill-item">React</span>
+        <span class="skill-item">Node.js</span>
+        <span class="skill-item">SQL</span>
+        <span class="skill-item">Git</span>
+        <span class="skill-item">Jekyll</span>
+        <span class="skill-item">Deep Learning</span>
+        <span class="skill-item">Data Science</span>
+      </div>
+    </section>
+
+    <section class="future-updates-section">
+      <h3>未來更新計畫</h3>
+      <ul>
+        <li><span class="update-item">新增更多專案範例</span><span class="update-status">進行中</span></li>
+        <li><span class="update-item">撰寫系列技術文章</span><span class="update-status">計畫中</span></li>
+        <li><span class="update-item">優化網站載入速度</span><span class="update-status">計畫中</span></li>
+      </ul>
+    </section>
+
+    
+  </aside>
 </div>
-
-<!-- 左側導航欄 -->
-<aside class="sidebar">
-  <div class="profile">
-    <img src="/asserts/images/profile.webp" alt="Profile" class="profile-pic">
-    <h2>Caspar</h2>
-    <p>探索我的專案，了解我的開發歷程！</p>
-    <div class="social-icons">
-      <a href="#" title="Facebook"><img src="/asserts/images/facebook.png" alt="Facebook"></a>
-      <a href="#" title="Twitter"><img src="/asserts/images/twitter.png" alt="Twitter"></a>
-      <a href="#" title="GitHub"><img src="/asserts/images/github.png" alt="GitHub"></a>
-      <a href="#" title="LinkedIn"><img src="/asserts/images/linkedin.png" alt="LinkedIn"></a>
-    </div>
-    <a href="#" class="btn download-resume">下載簡歷</a>
-  </div>
-  <section class="categories">
-    <h3>分類</h3>
-    <ul class="category-list">
-      <li>
-        <a href="#" class="category-filter" data-category="green-travel" data-count="1">
-          <span>綠色出行</span>
-          <span class="count">1</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="category-filter" data-category="deep-learning" data-count="2">
-          <span>深度學習</span>
-          <span class="count">2</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="category-filter" data-category="tools-scripts" data-count="4">
-          <span>工具與腳本</span>
-          <span class="count">4</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="category-filter" data-category="web-apps" data-count="3">
-          <span>網頁應用</span>
-          <span class="count">3</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="category-filter" data-category="other-projects" data-count="2">
-          <span>其他專案</span>
-          <span class="count">2</span>
-        </a>
-      </li>
-    </ul>
-  </section>
-</aside>
-
-<!-- 主內容區域 -->
-<main class="main-content">
-  <div class="statistics-section">
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-icon">📊</div>
-        <div class="stat-content">
-          <div class="stat-value">12</div>
-          <div class="stat-label">總專案數</div>
-        </div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">🔥</div>
-        <div class="stat-content">
-          <div class="stat-value">5</div>
-          <div class="stat-label">活躍專案</div>
-        </div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">📝</div>
-        <div class="stat-content">
-          <div class="stat-value">8</div>
-          <div class="stat-label">技術文章</div>
-        </div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">📅</div>
-        <div class="stat-content">
-          <div class="stat-value">156</div>
-          <div class="stat-label">貢獻天數</div>
-        </div>
-      </div>
-    </div>
-    <div class="chart-container">
-      <canvas id="categoryChart"></canvas>
-    </div>
-  </div>
-  
-  <section class="articles">
-    <div class="section-header">
-      <h2>我的專案</h2>
-    </div>
-    {% include projects.html %}
-  </section>
-</main>
-
-<!-- 右側欄位 -->
-<aside class="right-bar">
-  <!-- 最新文章 -->
-  <section class="latest-posts">
-    <h3>最新文章</h3>
-    <ul>
-      <li>
-        <a href="#">
-          <span class="post-title">GreenFriend 專案介紹</span>
-          <span class="post-date">2024-02-10</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <span class="post-title">Discord Music Bot 更新</span>
-          <span class="post-date">2024-02-05</span>
-        </a>
-      </li>
-    </ul>
-    <!-- 可以加個「查看全部文章」的連結 -->
-    <a href="/posts" class="view-all">查看全部</a>
-  </section>
-
-  <!-- 熱門文章（範例，可自行調整/移除） -->
-  <section class="popular-posts">
-    <h3>熱門文章</h3>
-    <ul>
-      <li>
-        <a href="#">
-          <span class="post-title">AI 教學系列</span>
-          <span class="post-date">2024-01-05</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <span class="post-title">Node.js 實戰</span>
-          <span class="post-date">2023-12-20</span>
-        </a>
-      </li>
-    </ul>
-  </section>
-
-  <!-- 標籤雲 -->
-  <section class="tags-cloud">
-    <h3>標籤雲</h3>
-    <div class="tags">
-      <a href="#" class="tag" data-count="5">Python</a>
-      <a href="#" class="tag" data-count="3">React</a>
-      <a href="#" class="tag" data-count="2">Node.js</a>
-      <a href="#" class="tag" data-count="4">Web</a>
-    </div>
-  </section>
-
-  <!-- 存檔 -->
-  <section class="archives">
-    <h3>存檔</h3>
-    <ul>
-      <li>
-        <a href="#">
-          <span>2024</span>
-          <span class="count">4</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <span>2023</span>
-          <span class="count">7</span>
-        </a>
-      </li>
-    </ul>
-  </section>
-
-  <!-- 友站連結（範例，可自行調整/移除） -->
-  <section class="friend-links">
-    <h3>友站連結</h3>
-    <ul>
-      <li><a href="#">技術部落格</a></li>
-      <li><a href="#">開源專案</a></li>
-      <li><a href="#">GitHub 官網</a></li>
-    </ul>
-  </section>
-</aside>
-
-<!-- Back to Top Button -->
-<button id="backToTop" class="back-to-top">↑</button>

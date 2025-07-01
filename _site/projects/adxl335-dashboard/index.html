@@ -1,64 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>ADXL335 Dashboard - Caspar15 的網站</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sensor Data Monitoring Dashboard" />
-
-    <!-- 載入主要 CSS 與 GitHub 風格覆寫 -->
-    <!-- 你可以依需求調整路徑 -->
-    <link rel="stylesheet" href="/asserts/css/main.css" />
-    <link rel="stylesheet" href="/asserts/css/github-theme.css" />
-
-    <!-- 若想在此頁也使用 chart.js 或其他 JS，可在這裡載入 -->
-  </head>
-  <body>
-    <!-- 若想沿用全站 header，可直接 include -->
-    <header class="header">
-  <div class="header-left">
-    <button class="hamburger">☰</button>
-    <h1>Caspar's GitHub Pages</h1>
-  </div>
-  <nav class="nav">
-    <div class="menu">
-      <a href="#" class="active">Home</a>
-      <a href="#">Archives</a>
-      <a href="#">Tags</a>
-      <a href="#">Categories</a>
-      <a href="#">About</a>
-      <a href="#">Links</a>
-    </div>
-  </nav>
-  <div class="header-right">
-    <button class="search-toggle">🔍</button>
-    <button class="dark-mode-toggle" id="darkModeToggle">🌙</button>
+<head>
+  <meta charset="UTF-8" />
+  <title>ADXL335 Dashboard - Caspar15 的網站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A real-time sensor data monitoring dashboard built with Dash and Plotly." />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="stylesheet" href="/assets/css/github-theme.css" />
+  <link rel="stylesheet" href="/assets/css/project.css" />
+</head>
+<body>
+  <header class="site-header">
+  <div class="wrapper">
+    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle sidebar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+    <a class="site-title" href="/">Caspar15 的網站</a>
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <div class="trigger">
+        <a class="page-link" href="/">首頁</a>
+        <a class="page-link" href="/about/">關於我</a>
+        <a class="page-link" href="/blog/">部落格</a>
+        <!-- You can add a contact page later -->
+        <!-- <a class="page-link" href="/contact/">聯絡我</a> -->
+        <input type="text" id="globalSearchInput" class="search-input" placeholder="Search...">
+        <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+      </div>
+    </nav>
   </div>
 </header>
 
-    <!-- 主要容器，不用再被 .layout 包住，避免網格衝突 -->
-    <div class="repo-page-container">
-      <!-- 專案標題與描述 -->
-      <div class="repo-header">
-        <h1>ADXL335 Dashboard</h1>
+<div id="projectCategoriesSidebar" class="project-categories-sidebar">
+  <section class="categories">
+  <h3>專案分類</h3>
+  <div class="project-filters">
+    <button class="filter-btn active" data-filter="all">全部專案</button>
+    
+    
+    
+    
+      <button class="filter-btn" data-filter="frontend-development">Frontend Development</button>
+    
+      <button class="filter-btn" data-filter="data-visualization">Data Visualization</button>
+    
+      <button class="filter-btn" data-filter="real-time-monitoring">Real-time Monitoring</button>
+    
+      <button class="filter-btn" data-filter="dash">Dash</button>
+    
+      <button class="filter-btn" data-filter="python">Python</button>
+    
+      <button class="filter-btn" data-filter="discord-bot">Discord Bot</button>
+    
+      <button class="filter-btn" data-filter="music">Music</button>
+    
+      <button class="filter-btn" data-filter="api">API</button>
+    
+      <button class="filter-btn" data-filter="php">PHP</button>
+    
+      <button class="filter-btn" data-filter="mysql">MySQL</button>
+    
+      <button class="filter-btn" data-filter="system-development">System Development</button>
+    
+      <button class="filter-btn" data-filter="inventory-management">Inventory Management</button>
+    
+      <button class="filter-btn" data-filter="data-viz">Data Viz</button>
+    
+      <button class="filter-btn" data-filter="matplotlib">Matplotlib</button>
+    
+      <button class="filter-btn" data-filter="seaborn">Seaborn</button>
+    
+      <button class="filter-btn" data-filter="javascript">JavaScript</button>
+    
+      <button class="filter-btn" data-filter="html">HTML</button>
+    
+      <button class="filter-btn" data-filter="css">CSS</button>
+    
+      <button class="filter-btn" data-filter="google-maps-api">Google Maps API</button>
+    
+      <button class="filter-btn" data-filter="java">Java</button>
+    
+      <button class="filter-btn" data-filter="backend-development">Backend Development</button>
+    
+      <button class="filter-btn" data-filter="system-design">System Design</button>
+    
+      <button class="filter-btn" data-filter="web-scraping">Web Scraping</button>
+    
+      <button class="filter-btn" data-filter="data-analysis">Data Analysis</button>
+    
+      <button class="filter-btn" data-filter="selenium">Selenium</button>
+    
+      <button class="filter-btn" data-filter="c">C++</button>
+    
+      <button class="filter-btn" data-filter="social-platform">Social Platform</button>
+    
+  </div>
+</section>
+</div>
+
+
+  <div class="repo-page-container">
+    <div class="repo-header">
+      <h1><svg class="octicon octicon-repo" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zM4.5 1C3.672 1 3 1.672 3 2.5V3h10V1H4.5z"></path></svg> ADXL335 Dashboard</h1>
+      
+        <p class="repo-desc">A real-time sensor data monitoring dashboard built with Dash and Plotly.</p>
+      
+      <div class="repo-badges">
         
-        <p class="repo-desc">Sensor Data Monitoring Dashboard</p>
+        
+          <img src="https://img.shields.io/badge/license-MIT-green" alt="License" />
+        
+        
+           <a href="https://github.com/Caspar15/ADXL335-Dashboard/issues" target="_blank"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen" alt="Contributions Welcome"></a>
         
       </div>
+    </div>
 
-      <!-- GitHub 風格的導覽列（假裝 Code/Issues/Pull Requests） -->
-      <div class="repo-nav">
-        <ul>
-          <li><a href="#">Code</a></li>
-          <li><a href="#">Issues</a></li>
-          <li><a href="#">Pull Requests</a></li>
-        </ul>
-      </div>
-
-      <!-- 兩欄結構：左側放 Markdown 主要內容，右側放專案資訊 -->
-      <div class="repo-container">
-        <!-- 左側主要內容 -->
-        <div class="repo-main markdown-body"><!-- 主要內容開始（HTML 版本） -->
+    <div class="repo-container">
+      <div class="repo-main markdown-body">
+        <!-- 主要內容開始（HTML 版本） -->
 <h1>Sensor Data Monitoring Dashboard</h1>
 
 <h2>Overview</h2>
@@ -345,62 +417,71 @@ kubectl apply -f service.yaml
 
 <hr />
 <!-- 主要內容結束 -->
-</div>
 
-        <!-- 右側資訊欄 -->
-        <aside class="repo-sidebar">
-          <!-- About 區塊 -->
-          <div class="repo-about">
-            <h3>About</h3>
-            <p>這是範例的專案 About 區塊，可自行放說明或連結。</p>
-          </div>
-
-          <!-- Releases 區塊 -->
-          <div class="repo-releases">
-            <h3>Releases</h3>
-            <p>No releases published</p>
-            <a href="#">Create a new release</a>
-          </div>
-
-          <!-- Packages 區塊 -->
-          <div class="repo-packages">
-            <h3>Packages</h3>
-            <p>No packages published</p>
-            <a href="#">Publish your first package</a>
-          </div>
-
-          <!-- Languages 區塊（模擬 GitHub 語言統計） -->
-          <div class="repo-languages">
-            <h3>Languages</h3>
-            <div class="lang-progress">
-              <!-- 例如 Python 100% -->
-              <span style="width: 100%; background: #3572a5"></span>
-            </div>
-            <div class="language-bar-info">
-              <span>Python 100%</span>
-            </div>
-          </div>
-        </aside>
       </div>
-      <!-- .repo-container 結束 -->
-    </div>
-    <!-- .repo-page-container 結束 -->
 
-    <!-- 若想沿用全站 footer，可直接 include -->
-    <footer class="footer">
+      <aside class="repo-sidebar">
+        <div class="repo-about">
+          <h3>About</h3>
+          <p>A real-time sensor data monitoring dashboard built with Dash and Plotly.</p>
+          
+            <a href="https://github.com/Caspar15/ADXL335-Dashboard" class="btn btn-github" target="_blank">
+              <svg class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="16" height="16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+              View on GitHub
+            </a>
+          
+        </div>
+
+        
+        <div class="repo-topics">
+            <h3>Topics</h3>
+            
+                <a href="#" class="topic-tag">Frontend Development</a>
+            
+                <a href="#" class="topic-tag">Data Visualization</a>
+            
+                <a href="#" class="topic-tag">Real-time Monitoring</a>
+            
+                <a href="#" class="topic-tag">Dash</a>
+            
+        </div>
+        
+
+        
+        <div class="repo-languages">
+          <h3>Languages</h3>
+          <div class="lang-progress-container">
+            
+              <span class="lang-progress-bar" style="width: 100%; background-color: #3572A5;" title="Python 100%"></span>
+            
+          </div>
+          <ul class="lang-stats">
+            
+            <li>
+              <span class="lang-color-dot" style="background-color: #3572A5;"></span>
+              <span class="lang-name">Python</span>
+              <span class="lang-percentage">100%</span>
+            </li>
+            
+          </ul>
+        </div>
+        
+      </aside>
+    </div>
+  </div>
+
+  <footer class="footer">
     <div class="footer-content">
       <p>&copy; 2024 Caspar. All rights reserved.</p>
       <div class="footer-social-icons">
-        <a href="#"><img src="/asserts/images/facebook.png" alt="Facebook"></a>
-        <a href="#"><img src="/asserts/images/twitter.png" alt="Twitter"></a>
-        <a href="#"><img src="/asserts/images/github.png" alt="GitHub"></a>
-        <a href="#"><img src="/asserts/images/linkedin.png" alt="LinkedIn"></a>
+        <a href="#"><img src="/assets/images/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="/assets/images/twitter.png" alt="Twitter"></a>
+        <a href="#"><img src="/assets/images/github.png" alt="GitHub"></a>
+        <a href="#"><img src="/assets/images/linkedin.png" alt="LinkedIn"></a>
       </div>
     </div>
   </footer>
   
-
-    <!-- 若本頁需要 JS -->
-    <script type="module" src="/asserts/js/main.js"></script>
-  </body>
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
 </html>

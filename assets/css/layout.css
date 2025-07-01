@@ -1,0 +1,144 @@
+/* layout.css */
+
+/* 版面配置、整體網頁框架相關 */
+
+/* .layout 容器 */
+.layout {
+    display: grid;
+    grid-template-columns: 280px 1fr 260px;
+    gap: var(--spacing-lg);
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+  }
+  
+/* About Page Wrapper for centering */
+.about-page-wrapper {
+  max-width: 900px; /* Match about-container max-width */
+  margin: 0 auto; /* Center the wrapper */
+  padding: var(--spacing-lg); /* Add some padding */
+}
+
+/* Hide sidebars on about page */
+body.page-關於我 .sidebar,
+body.page-關於我 .right-bar {
+  display: none;
+}
+
+/* Adjust main-content for about page */
+body.page-關於我 .main-content {
+  grid-column: 1 / -1; /* Make main-content span all columns */
+  width: 100%; /* Ensure it takes full width */
+  /* margin: 0 auto; /* Removed as about-page-wrapper handles centering */
+}
+
+/* 側邊欄切換按鈕 */
+.sidebar-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  display: flex; /* 確保 SVG 居中 */
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px; /* 與網站標題的間距 */
+}
+
+.sidebar-toggle svg {
+  width: 24px;
+  height: 24px;
+  color: var(--color-text-muted);
+}
+
+.sidebar-toggle:hover {
+  background-color: var(--color-bg-subtle);
+}
+
+/* 可展開的專案分類側邊欄 */
+.project-categories-sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px; /* 初始隱藏在左側 */
+  width: 280px;
+  height: 100%;
+  background-color: var(--color-bg);
+  border-right: 1px solid var(--color-border);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  transition: left 0.3s ease-in-out;
+  z-index: 999; /* 確保在其他內容之上 */
+  overflow-y: auto;
+}
+
+.project-categories-sidebar.active {
+  left: 0; /* 展開時顯示 */
+}
+
+.project-categories-sidebar .categories {
+  margin-top: 60px; /* 避免被 header 遮擋 */
+}
+
+.project-categories-sidebar .categories h3 {
+  font-size: 16px;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-categories-sidebar .project-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-categories-sidebar .filter-btn {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background-color: transparent;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.project-categories-sidebar .filter-btn.active {
+  background-color: var(--color-accent);
+  color: white;
+  font-weight: 700;
+}
+
+/* Back to Top Button */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-accent);
+  color: white;
+  border-radius: 50%;
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.back-to-top-btn.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+  background-color: var(--color-accent-dark);
+}

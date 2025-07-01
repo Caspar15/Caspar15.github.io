@@ -1,165 +1,18 @@
 <div class="card-container grid-view">
-  <article class="card" data-category="web-apps">
+  {% for project in site.projects %}
+  <article class="card" data-tags="{{ project.tags | join: ' ' | slugify }}">
     <div class="card-header">
-      <h3>GreenFriend</h3>
-      <div class="tags">
-        <span class="tag">綠色出行</span>
-      </div>
+      <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>
     </div>
-    <p>綠色出行的好夥伴，是數創比賽金獎作品，減少碳排放。</p>
-    <a href="/projects/greenfriend" class="btn">了解更多</a>
-  </article>
-  <article class="card">
-    <h3>Discord Music Bot</h3>
-    <p>在 Discord 平台上設計的音樂機器人，支持播放清單與自動播放。</p>
-    <a href="/projects/discord-music" class="btn">了解更多</a>
-  </article>
-  <article class="card" data-category="deep-learning">
-    <div class="card-header">
-      <h3>Double DQN 演算法設計</h3>
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">Deep Learning</span>
-        <span class="tag">強化學習</span>
-      </div>
-    </div>
-    <p>
-      實作 Double DQN (Deep Q-Network)
-      演算法，用於解決強化學習問題。透過雙重評估機制改善傳統 DQN
-      的過度估計問題。
-    </p>
+    <p>{{ project.description }}</p>
     <div class="card-footer">
-      <span class="read-time">閱讀時間：10分鐘</span>
-      <a href="#" class="btn">了解更多</a>
-    </div>
-  </article>
-  <article class="card" data-category="tools-scripts">
-    <div class="card-header">
-      <h3>THU Grade Scraper</h3>
       <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">Web Scraping</span>
-        <span class="tag">資料分析</span>
+        {% for tag in project.tags %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
       </div>
-    </div>
-    <p>
-      專門為東海大學學生開發的成績計算工具，自動抓取並計算總成績，提供清晰的成績概況。
-    </p>
-    <div class="card-footer">
-      <span class="read-time">閱讀時間：6分鐘</span>
-      <a href="/projects/thu-grade/" class="btn">了解更多</a>
+      <a href="{{ project.url }}" class="btn">了解更多</a>
     </div>
   </article>
-  <article class="card" data-category="tools-scripts">
-    <div class="card-header">
-      <h3>成績視覺化工具</h3>
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">Data Viz</span>
-        <span class="tag">分析</span>
-      </div>
-    </div>
-    <p>將學生成績數據轉換為直觀的視覺化圖表，協助分析學習趨勢和表現。</p>
-    <div class="card-footer">
-      <span class="read-time">閱讀時間：5分鐘</span>
-      <a href="/projects/grade-scraper" class="btn">了解更多</a>
-    </div>
-  </article>
-  <article class="card" data-category="deep-learning">
-    <div class="card-header">
-      <h3>無人機影像語義分割</h3>
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">Deep Learning</span>
-        <span class="tag">Computer Vision</span>
-      </div>
-    </div>
-    <p>
-      運用 U-Net 與 VGG
-      模型進行高解析度無人機影像的語義分割，識別適合無人機著陸的區域。使用
-      Semantic Drone Dataset 訓練模型，可分類樹木、草地、道路及水體等地形特徵。
-    </p>
-    <div class="card-footer">
-      <span class="read-time">閱讀時間：12分鐘</span>
-      <a href="#" class="btn">了解更多</a>
-    </div>
-  </article>
-  <article class="card" data-category="web-apps">
-    <div class="card-header">
-      <h3>TownPass 場地租借系統</h3>
-      <div class="tags">
-        <span class="tag">WebView</span>
-        <span class="tag">前端開發</span>
-        <span class="tag">系統設計</span>
-      </div>
-    </div>
-    <p>
-      為台北通開發的場地租借系統，採用 WebView
-      技術，提供直觀的場地預約和管理介面。
-    </p>
-    <div class="card-footer">
-      <span class="read-time">閱讀時間：7分鐘</span>
-      <a href="#" class="btn">了解更多</a>
-    </div>
-  </article>
-  <article class="card" data-category="web-apps">
-    <div class="card-header">
-      <h3>簡易飯店管理系統</h3>
-      <div class="tags">
-        <span class="tag">Java</span>
-        <span class="tag">後端開發</span>
-        <span class="tag">資料庫</span>
-      </div>
-    </div>
-    <p>使用 Java 開發的飯店租借系統，具備基本的房間管理、預約和結帳功能。</p>
-    <div class="card-footer">
-      <span class="read-time">閱讀時間：8分鐘</span>
-      <a href="/projects/simple-hotel-management-system/" class="btn">了解更多</a>
-    </div>
-  </article>
-  <article class="card" data-category="web-apps">
-    <div class="card-header">
-      <h3>感測器 Dashboard</h3>
-      <div class="tags">
-        <span class="tag">前端開發</span>
-        <span class="tag">資料視覺化</span>
-        <span class="tag">即時監控</span>
-      </div>
-    </div>
-    <p>即時顯示和監控各類感測器數據的儀表板，提供數據視覺化和警報功能。</p>
-    <div class="card-footer">
-      <span class="read-time">閱讀時間：6分鐘</span>
-      <a href="/projects/adxl335-dashboard" class="btn">了解更多</a>
-    </div>
-  </article>
-  <article class="card" data-category="other-projects">
-    <div class="card-header">
-      <h3>Tiny FB</h3>
-      <div class="tags">
-        <span class="tag">全端開發</span>
-        <span class="tag">社交平台</span>
-        <span class="tag">用戶互動</span>
-      </div>
-    </div>
-    <p>簡化版的社交平台，實現基本的社交功能，包括貼文、留言和好友系統。</p>
-    <div class="card-footer">
-      <span class="read-time">閱讀時間：9分鐘</span>
-      <a href="/projects/tiny-fb/" class="btn">了解更多</a>
-    </div>
-  </article>
-  <article class="card" data-category="other-projects">
-    <div class="card-header">
-      <h3>生鮮公司產銷存系統</h3>
-      <div class="tags">
-        <span class="tag">系統開發</span>
-        <span class="tag">庫存管理</span>
-        <span class="tag">銷售追蹤</span>
-      </div>
-    </div>
-    <p>專為生鮮公司開發的完整產銷存管理系統，整合進貨、銷售和庫存管理功能。</p>
-    <div class="card-footer">
-      <span class="read-time">閱讀時間：10分鐘</span>
-      <a href="/projects/fresh-food-company/" class="btn">了解更多</a>
-    </div>
-  </article>
+  {% endfor %}
 </div>

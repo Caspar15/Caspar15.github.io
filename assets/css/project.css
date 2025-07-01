@@ -1,0 +1,109 @@
+/* assets/css/project.css */
+
+/* 頁首徽章 */
+.repo-header .repo-badges {
+  margin-top: 10px;
+  display: flex;
+  gap: 5px;
+  align-items: center; /* 確保容器內的元素垂直對齊 */
+}
+
+.repo-header .repo-badges a {
+  line-height: 0; /* 新增：移除 a 標籤的行高，解決跑版問題 */
+}
+
+.repo-header .repo-badges img {
+  height: 20px; /* 固定徽章高度 */
+  vertical-align: middle; /* 確保圖片垂直居中 */
+}
+
+/* GitHub 按鈕 */
+.repo-about .btn-github {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 15px;
+  background-color: #24292e;
+  color: white;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.repo-about .btn-github:hover {
+  background-color: #333;
+}
+
+.repo-about .btn-github .octicon {
+  margin-right: 8px;
+  fill: currentColor;
+}
+
+/* 專案主題標籤 */
+.repo-topics {
+  margin-top: 20px;
+}
+
+.repo-topics .topic-tag {
+  display: inline-block;
+  padding: 0.3em 0.9em;
+  margin: 0 0.5em 0.5em 0;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  color: #0366d6;
+  background-color: #f1f8ff;
+  border-radius: 2em;
+  text-decoration: none;
+}
+
+.repo-topics .topic-tag:hover {
+  background-color: #ddeeff;
+}
+
+/* 語言統計 */
+.repo-languages {
+  margin-top: 20px;
+}
+
+.repo-languages .lang-progress-container {
+  display: flex;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.repo-languages .lang-progress-bar {
+  height: 100%;
+}
+
+.repo-languages .lang-stats {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.repo-languages .lang-stats li {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.repo-languages .lang-stats .lang-color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.repo-languages .lang-stats .lang-name {
+  font-weight: 600;
+  margin-right: auto;
+}
+
+.repo-languages .lang-stats .lang-percentage {
+  color: #586069;
+}

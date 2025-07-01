@@ -11,6 +11,11 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name
+
 exclude:
   - Gemfile
   - Gemfile.lock

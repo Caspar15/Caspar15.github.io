@@ -8,31 +8,47 @@
   <meta name="keywords" content="Caspar, GitHub, Projects, Deep Learning, Tools, Web Apps">
   
   <!-- 主 CSS -->
-  <link rel="stylesheet" href="/asserts/css/main.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body>
+<body class="page-{{ page.title | slugify }}">
 
   <!-- Loading Overlay（只放一次） -->
   <div class="loading-overlay">
     <div class="loading-spinner"></div>
   </div>
 
+  <!-- Global Search Bar -->
+  <div class="global-search">
+    <input type="text" id="globalSearchInput" placeholder="Search projects, posts, and more...">
+    <div class="search-results"></div>
+  </div>
+
   <!-- Header（導覽列） -->
   {% include header.html %}
 
-  <!-- layout 容器 -->
-  <div class="layout">
+  {% if page.title == "關於我" %}
+  <div class="about-page-wrapper">
     {{ content }}
   </div>
+{% else %}
+  {{ content }}
+{% endif %}
 
   <!-- Footer（頁腳） -->
   {% include footer.html %}
 
+  <!-- Back to Top Button -->
+  <a href="#" id="backToTopBtn" class="back-to-top-btn" title="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+      <path d="M12 4l-8 8h6v8h4v-8h6z"/>
+    </svg>
+  </a>
+
   <!-- 主 JS -->
-  <script type="module" src="/asserts/js/main.js"></script>
+  <script type="module" src="/assets/js/main.js"></script>
 </body>
 </html>
