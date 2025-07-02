@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Discord Music Bot - Caspar15 的網站</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="一個基於 discord.py 和 yt-dlp 的音樂機器人，讓你在 Discord 上享受無縫的音樂體驗。" />
-  <link rel="stylesheet" href="/assets/css/main.css" />
-  <link rel="stylesheet" href="/assets/css/github-theme.css" />
-  <link rel="stylesheet" href="/assets/css/project.css" />
+  <meta charset="UTF-8">
+  <title>Discord Music Bot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Caspar's GitHub Pages - Explore my projects and development journey!">
+  <meta name="keywords" content="Caspar, GitHub, Projects, Deep Learning, Tools, Web Apps">
+  
+  <!-- 主 CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body>
+<body class="page-discord-music-bot">
+
+  <!-- Loading Overlay（只放一次） -->
+  <div class="loading-overlay">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- Header（導覽列） -->
   <header class="site-header">
   <div class="wrapper">
     <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle sidebar">
@@ -111,28 +123,30 @@
 </div>
 
 
-  <div class="repo-page-container">
-    <div class="repo-header">
-      <h1><svg class="octicon octicon-repo" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zM4.5 1C3.672 1 3 1.672 3 2.5V3h10V1H4.5z"></path></svg> Discord Music Bot</h1>
+  <div id="pageContent">
+    
+    <div class="repo-page-container">
+  <div class="repo-header">
+    <h1><svg class="octicon octicon-repo" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zM4.5 1C3.672 1 3 1.672 3 2.5V3h10V1H4.5z"></path></svg> Discord Music Bot</h1>
+    
+      <p class="repo-desc">一個基於 discord.py 和 yt-dlp 的音樂機器人，讓你在 Discord 上享受無縫的音樂體驗。</p>
+    
+    <div class="repo-badges">
       
-        <p class="repo-desc">一個基於 discord.py 和 yt-dlp 的音樂機器人，讓你在 Discord 上享受無縫的音樂體驗。</p>
+        <img src="https://img.shields.io/badge/python-3.8+-blue" alt="Python Version" />
       
-      <div class="repo-badges">
-        
-          <img src="https://img.shields.io/badge/python-3.8+-blue" alt="Python Version" />
-        
-        
-          <img src="https://img.shields.io/badge/license-MIT-green" alt="License" />
-        
-        
-           <a href="https://github.com/Caspar15/discord-music/issues" target="_blank"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen" alt="Contributions Welcome"></a>
-        
-      </div>
+      
+        <img src="https://img.shields.io/badge/license-MIT-green" alt="License" />
+      
+      
+         <a href="https://github.com/Caspar15/discord-music/issues" target="_blank"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen" alt="Contributions Welcome"></a>
+      
     </div>
+  </div>
 
-    <div class="repo-container">
-      <div class="repo-main markdown-body">
-        <!-- 以下為主要內容，已轉為 HTML -->
+  <div class="repo-container">
+    <div class="repo-main markdown-body">
+      <!-- 以下為主要內容，已轉為 HTML -->
 
 <h1>🎵 Discord 音樂機器人 - Music Bot</h1>
 
@@ -289,58 +303,63 @@ sudo apt install ffmpeg
   </li>
 </ul>
 
+    </div>
+
+    <aside class="repo-sidebar">
+      <div class="repo-about">
+        <h3>About</h3>
+        <p>一個基於 discord.py 和 yt-dlp 的音樂機器人，讓你在 Discord 上享受無縫的音樂體驗。</p>
+        
+          <a href="https://github.com/Caspar15/discord-music" class="btn btn-github" target="_blank">
+            <svg class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="16" height="16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+            View on GitHub
+          </a>
+        
       </div>
 
-      <aside class="repo-sidebar">
-        <div class="repo-about">
-          <h3>About</h3>
-          <p>一個基於 discord.py 和 yt-dlp 的音樂機器人，讓你在 Discord 上享受無縫的音樂體驗。</p>
+      
+      <div class="repo-topics">
+          <h3>Topics</h3>
           
-            <a href="https://github.com/Caspar15/discord-music" class="btn btn-github" target="_blank">
-              <svg class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="16" height="16"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-              View on GitHub
-            </a>
+              <a href="#" class="topic-tag">Python</a>
+          
+              <a href="#" class="topic-tag">Discord Bot</a>
+          
+              <a href="#" class="topic-tag">Music</a>
+          
+              <a href="#" class="topic-tag">API</a>
+          
+      </div>
+      
+
+      
+      <div class="repo-languages">
+        <h3>Languages</h3>
+        <div class="lang-progress-container">
+          
+            <span class="lang-progress-bar" style="width: 100%; background-color: #3572A5;" title="Python 100%"></span>
           
         </div>
-
-        
-        <div class="repo-topics">
-            <h3>Topics</h3>
-            
-                <a href="#" class="topic-tag">Python</a>
-            
-                <a href="#" class="topic-tag">Discord Bot</a>
-            
-                <a href="#" class="topic-tag">Music</a>
-            
-                <a href="#" class="topic-tag">API</a>
-            
-        </div>
-        
-
-        
-        <div class="repo-languages">
-          <h3>Languages</h3>
-          <div class="lang-progress-container">
-            
-              <span class="lang-progress-bar" style="width: 100%; background-color: #3572A5;" title="Python 100%"></span>
-            
-          </div>
-          <ul class="lang-stats">
-            
-            <li>
-              <span class="lang-color-dot" style="background-color: #3572A5;"></span>
-              <span class="lang-name">Python</span>
-              <span class="lang-percentage">100%</span>
-            </li>
-            
-          </ul>
-        </div>
-        
-      </aside>
-    </div>
+        <ul class="lang-stats">
+          
+          <li>
+            <span class="lang-color-dot" style="background-color: #3572A5;"></span>
+            <span class="lang-name">Python</span>
+            <span class="lang-percentage">100%</span>
+          </li>
+          
+        </ul>
+      </div>
+      
+    </aside>
+  </div>
+</div>
+  
   </div>
 
+  <div id="searchResults"></div>
+
+  <!-- Footer（頁腳） -->
   <footer class="footer">
     <div class="footer-content">
       <p>&copy; 2024 Caspar. All rights reserved.</p>
@@ -353,6 +372,15 @@ sudo apt install ffmpeg
     </div>
   </footer>
   
+
+  <!-- Back to Top Button -->
+  <a href="#" id="backToTopBtn" class="back-to-top-btn" title="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+      <path d="M12 4l-8 8h6v8h4v-8h6z"/>
+    </svg>
+  </a>
+
+  <!-- 主 JS -->
   <script type="module" src="/assets/js/main.js"></script>
 </body>
 </html>

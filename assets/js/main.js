@@ -1,6 +1,7 @@
 import { initializeTheme, toggleDarkMode } from './modules/theme.js';
 import { globalSearch } from './modules/search.js';
 import { initializeChart } from './modules/chart.js';
+import { initializeNavigation } from './modules/navigation.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('main.js: DOMContentLoaded fired.');
@@ -37,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const globalSearchInput = document.getElementById('globalSearchInput');
   if (globalSearchInput) {
     console.log('main.js: Global search input found.');
-    globalSearchInput.addEventListener('input', globalSearch);
+    globalSearch();
   } else {
     console.log('main.js: Global search input NOT found.');
   }
@@ -45,6 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 初始化圓餅圖
   console.log('main.js: Initializing chart.');
   initializeChart();
+
+  // 初始化導覽列
+  console.log('main.js: Initializing navigation.');
+  initializeNavigation();
 
   // --- 專案篩選邏輯 ---
   const filterButtons = document.querySelectorAll('.filter-btn');

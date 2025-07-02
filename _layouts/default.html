@@ -21,22 +21,20 @@
     <div class="loading-spinner"></div>
   </div>
 
-  <!-- Global Search Bar -->
-  <div class="global-search">
-    <input type="text" id="globalSearchInput" placeholder="Search projects, posts, and more...">
-    <div class="search-results"></div>
-  </div>
-
   <!-- Header（導覽列） -->
   {% include header.html %}
 
-  {% if page.title == "關於我" %}
-  <div class="about-page-wrapper">
+  <div id="pageContent">
+    {% if page.title == "關於我" %}
+    <div class="about-page-wrapper">
+      {{ content }}
+    </div>
+  {% else %}
     {{ content }}
+  {% endif %}
   </div>
-{% else %}
-  {{ content }}
-{% endif %}
+
+  <div id="searchResults"></div>
 
   <!-- Footer（頁腳） -->
   {% include footer.html %}

@@ -1,0 +1,21 @@
+---
+layout: null
+---
+[
+  {% assign all_searchable_items = site.projects | concat: site.posts %}
+  {% for item in all_searchable_items %}
+    {% assign item_category = "" %}
+    {% if item.collection == "projects" %}
+      {% assign item_category = "Project" %}
+    {% elsif item.collection == "posts" %}
+      {% assign item_category = "Blog" %}
+    {% endif %}
+    {
+      "title": {{ item.title | jsonify }},
+      "url": {{ item.url | relative_url | jsonify }},
+      "content": {{ item.content | strip_html | strip_newlines | jsonify }},
+      "category": {{ item_category | jsonify }}
+    }
+    {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

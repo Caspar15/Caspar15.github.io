@@ -2,6 +2,10 @@
 
 /* 版面配置、整體網頁框架相關 */
 
+header.site-header {
+  z-index: 1000;
+}
+
 /* .layout 容器 */
 .layout {
     display: grid;
@@ -141,4 +145,10 @@ body.page-關於我 .main-content {
 
 .back-to-top-btn:hover {
   background-color: var(--color-accent-dark);
+}
+
+/* 當側邊欄展開時，header 的樣式 */
+.site-header.sidebar-active {
+  /* 這裡可以添加你希望的樣式，例如改變背景顏色 */
+  background-color: var(--color-bg-subtle); /* 暫時用來測試 */
 }
