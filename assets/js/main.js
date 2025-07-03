@@ -2,6 +2,7 @@ import { initializeTheme, toggleDarkMode } from './modules/theme.js';
 import { globalSearch } from './modules/search.js';
 import { initializeChart } from './modules/chart.js';
 import { initializeNavigation } from './modules/navigation.js';
+import { initMagicCube } from './modules/magic-cube.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('main.js: DOMContentLoaded fired.');
@@ -100,4 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // Initialize Magic Cube
+  initMagicCube();
 });

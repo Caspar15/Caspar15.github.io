@@ -61,13 +61,14 @@
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--spacing-md);
 }
 
 .stat-card {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--spacing-md);
 }
 
@@ -96,6 +97,14 @@
 .chart-container {
   height: 250px;
   margin-top: var(--spacing-lg);
+}
+
+/* Magic Cube Container */
+.magic-cube-container {
+    height: 240px; /* Adjusted for sidebar */
+    margin-top: var(--spacing-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
 }
 
 /* 卡片 */
