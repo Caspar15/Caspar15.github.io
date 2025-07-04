@@ -6,7 +6,7 @@
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity var(--transition-base) ease-out, transform var(--transition-base) ease-out; /* 使用變數 */
 }
 
 .fade-in.visible {
@@ -21,13 +21,13 @@
   left: 0;
   width: 100%;
   height: 3px;
-  background: var(--color-border-muted);
+  background: var(--color-border-subtle); /* 使用變數 */
   z-index: 1000;
 }
 
 .reading-progress-bar {
   height: 100%;
-  background: var(--color-accent-emphasis);
+  background: var(--color-accent); /* 使用變數 */
   width: 0;
   transition: width 0.1s ease;
 }
@@ -40,12 +40,12 @@
 
 .search-container input {
   width: 100%;
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md); /* 使用變數 */
   padding-left: 40px;
-  border: 1px solid var(--color-border-default);
-  border-radius: 6px;
-  font-size: 14px;
-  transition: all 0.3s ease;
+  border: 1px solid var(--color-border); /* 使用變數 */
+  border-radius: var(--radius-sm); /* 使用變數 */
+  font-size: var(--font-size-base); /* 使用變數 */
+  transition: all var(--transition-fast); /* 使用變數 */
 }
 
 .search-container::before {
@@ -54,27 +54,31 @@
   left: var(--spacing-md);
   top: 50%;
   transform: translateY(-50%);
-  color: var(--color-fg-muted);
+  color: var(--color-text-muted); /* 使用變數 */
 }
 
 .search-container input:focus {
-  border-color: var(--color-accent-emphasis);
-  box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.1);
+  border-color: var(--color-accent); /* 使用變數 */
+  box-shadow: 0 0 0 3px rgba(var(--color-accent-rgb), 0.2); /* 使用變數 */
+  outline: none;
 }
 
 /* tag:hover 動畫效果 */
 .tag {
-  background: var(--color-canvas-subtle);
-  color: var(--color-fg-muted);
-  padding: 2px 8px;
-  border-radius: 12px;
-  font-size: 12px;
-  transition: all 0.3s ease; /* tag:hover */
+  background: var(--color-bg-subtle); /* 使用變數 */
+  color: var(--color-text-muted); /* 使用變數 */
+  padding: 4px 10px; /* 調整內邊距 */
+  border-radius: var(--radius-pill); /* 使用變數 */
+  font-size: var(--font-size-sm); /* 使用變數 */
+  transition: all var(--transition-fast); /* 使用變數 */
+  display: inline-block; /* 確保 transform 效果 */
 }
 
 .tag:hover {
   transform: translateY(-2px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm); /* 添加陰影 */
+  background-color: var(--color-accent); /* 懸停背景色 */
+  color: white; /* 懸停文字顏色 */
 }
 
 /* 回到頂部按鈕 */
@@ -82,21 +86,22 @@
   position: fixed;
   bottom: var(--spacing-lg);
   right: var(--spacing-lg);
-  background: var(--color-accent-emphasis);
+  background: var(--color-accent); /* 使用變數 */
   color: white;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  width: 48px; /* 稍微放大 */
+  height: 48px;
+  border-radius: var(--radius-pill); /* 使用變數 */
   border: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: var(--font-size-xl); /* 使用變數 */
   opacity: 0;
   visibility: hidden;
-  transition: all var(--transition-base);
+  transition: all var(--transition-base); /* 使用變數 */
   z-index: 99;
+  box-shadow: var(--shadow-md); /* 添加陰影 */
 }
 
 .back-to-top.visible {
@@ -105,18 +110,19 @@
 }
 
 .back-to-top:hover {
-  transform: translateY(-4px);
-  background: #0859c6;
+  transform: translateY(-5px); /* 懸停上浮效果 */
+  background: var(--color-accent-hover); /* 懸停顏色 */
+  box-shadow: var(--shadow-lg); /* 懸停時陰影加深 */
 }
 
 /* skeleton 加載動畫 */
 .skeleton {
   background: linear-gradient(
     90deg,
-    var(--color-canvas-subtle) 25%,
-    var(--color-neutral-muted) 50%,
-    var(--color-canvas-subtle) 75%
-  );
+    var(--color-bg-subtle) 25%,
+    var(--color-border) 50%,
+    var(--color-bg-subtle) 75%
+  ); /* 使用變數 */
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
@@ -132,24 +138,32 @@
 }
 
 .btn {
-  padding: 8px 16px;
-  border: 1px solid var(--color-border-default);
-  background-image: var(--btn-gradient);
-  border-radius: 6px;
+  padding: var(--spacing-sm) var(--spacing-md); /* 使用變數 */
+  border: 1px solid var(--color-border); /* 使用變數 */
+  background-color: var(--color-bg-subtle); /* 使用變數 */
+  border-radius: var(--radius-sm); /* 使用變數 */
   font-weight: 500;
-  transition: all 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition: all var(--transition-fast); /* 使用變數 */
+  color: var(--color-text); /* 確保文字顏色 */
 }
 
 .btn:hover {
-  background-image: none;
-  background-color: var(--color-canvas-subtle);
-  border-color: var(--color-border-muted);
+  background-color: var(--color-accent); /* 懸停背景色 */
+  border-color: var(--color-accent); /* 懸停邊框色 */
+  color: white; /* 懸停文字顏色 */
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm); /* 添加陰影 */
 }
 
 .download-resume {
   background: linear-gradient(120deg, #0c0c0c 0%, #ffffff 100%);
   color: white !important;
   border: none !important;
+  box-shadow: var(--shadow-md); /* 添加陰影 */
+}
+
+.download-resume:hover {
+  background: linear-gradient(120deg, #333 0%, #eee 100%); /* 懸停時顏色變化 */
+  transform: translateY(-3px); /* 懸停上浮效果 */
+  box-shadow: var(--shadow-lg); /* 懸停時陰影加深 */
 }

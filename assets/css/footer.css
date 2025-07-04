@@ -5,9 +5,12 @@
 .footer {
     grid-column: 1 / -1;
     text-align: center;
-    padding-top: var(--spacing-xl);
-    border-top: 1px solid var(--color-border-muted);
-    margin-top: var(--spacing-xl);
+    padding: var(--spacing-xl) var(--spacing-lg); /* 調整內邊距 */
+    border-top: 1px solid var(--color-border-subtle); /* 使用變數 */
+    margin-top: var(--spacing-xxl); /* 增加外邊距 */
+    background-color: var(--color-bg-subtle); /* 輕微背景色 */
+    color: var(--color-text-muted); /* 使用變數 */
+    font-size: var(--font-size-sm); /* 使用變數 */
   }
   
   .footer-content {
@@ -19,17 +22,18 @@
   
   .footer-social-icons {
     display: flex;
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg); /* 增加間距 */
   }
   
   .footer-social-icons img {
-    width: 20px;
-    height: 20px;
-    opacity: 0.8;
-    transition: opacity var(--transition-fast);
+    width: 24px; /* 稍微放大圖標 */
+    height: 24px;
+    opacity: 0.7;
+    transition: opacity var(--transition-fast), transform var(--transition-fast); /* 添加過渡效果 */
   }
   
   .footer-social-icons img:hover {
     opacity: 1;
+    transform: translateY(-3px); /* 懸停上浮效果 */
   }
   

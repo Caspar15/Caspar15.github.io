@@ -8,16 +8,23 @@
 .sidebar section {
   background-color: var(--color-bg);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: var(--spacing-lg);
-  margin-bottom: var(--spacing-lg);
+  border-radius: var(--radius); /* 使用變數 */
+  padding: var(--spacing-xl); /* 增加內邊距 */
+  margin-bottom: var(--spacing-xl); /* 增加外邊距 */
+  box-shadow: var(--shadow-sm); /* 添加輕微陰影 */
+  transition: box-shadow var(--transition-base), transform var(--transition-base); /* 添加過渡效果 */
+}
+
+.sidebar section:hover {
+  box-shadow: var(--shadow-md); /* 懸停時陰影加深 */
+  transform: translateY(-3px); /* 輕微上浮效果 */
 }
 
 .sidebar h3 {
-  font-size: 16px;
+  font-size: var(--font-size-lg); /* 使用變數 */
   margin-bottom: var(--spacing-md);
-  padding-bottom: var(--spacing-md);
-  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--spacing-sm); /* 調整內邊距 */
+  border-bottom: 1px solid var(--color-border-subtle); /* 使用變數 */
 }
 
 /* 個人資訊區塊 */
@@ -30,64 +37,79 @@
   height: 120px;
   border-radius: 50%;
   margin-bottom: var(--spacing-md);
+  box-shadow: var(--shadow-md); /* 添加陰影 */
+  transition: transform var(--transition-base); /* 添加過渡效果 */
+  display: block; /* 讓圖片成為區塊元素 */
+  margin: 0 auto var(--spacing-md) auto; /* 水平置中並保留底部間距 */
+}
+
+.profile-pic-sidebar:hover {
+  transform: scale(1.05); /* 懸停放大效果 */
 }
 
 .profile-section h2 {
-  font-size: 22px;
+  font-size: var(--font-size-xl); /* 使用變數 */
+  margin-top: var(--spacing-md);
 }
 
 .profile-section p {
   color: var(--color-text-muted);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-lg); /* 調整間距 */
+  font-size: var(--font-size-base);
 }
 
 .profile-section .social-icons {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: var(--spacing-md);
 }
 
 .profile-section .social-icons img {
-  width: 20px;
-  height: 20px;
+  width: 28px; /* 稍微放大圖標 */
+  height: 28px;
   opacity: 0.7;
-  transition: opacity var(--transition-fast);
+  transition: opacity var(--transition-fast), transform var(--transition-fast); /* 添加過渡效果 */
 }
 
 .profile-section .social-icons a:hover img {
   opacity: 1;
+  transform: translateY(-3px); /* 懸停上浮效果 */
 }
 
 /* 專案篩選器 */
 .project-filters {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--spacing-sm);
 }
 
 .filter-btn {
   width: 100%;
-  padding: 10px;
-  border: 1px solid transparent;
-  border-radius: var(--radius);
-  background-color: transparent;
+  padding: var(--spacing-sm) var(--spacing-md); /* 調整內邊距 */
+  border: 1px solid var(--color-border); /* 添加邊框 */
+  border-radius: var(--radius-sm); /* 使用變數 */
+  background-color: var(--color-bg-subtle); /* 輕微背景色 */
   text-align: left;
-  font-size: 14px;
+  font-size: var(--font-size-base); /* 使用變數 */
   font-weight: 500;
   color: var(--color-text-muted);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-fast); /* 使用新的過渡變數 */
 }
 
 .filter-btn:hover {
-  background-color: var(--color-bg-subtle);
-  color: var(--color-text);
+  background-color: var(--color-accent); /* 懸停背景色 */
+  color: white; /* 懸停文字顏色 */
+  transform: translateY(-2px); /* 輕微上浮 */
+  box-shadow: var(--shadow-sm); /* 添加陰影 */
 }
 
 .filter-btn.active {
-  background-color: var(--color-accent);
+  background-color: var(--color-accent); /* 活躍狀態背景色 */
   color: white;
   font-weight: 700;
+  box-shadow: var(--shadow-sm); /* 添加陰影 */
+  border-color: var(--color-accent); /* 活躍狀態邊框顏色 */
 }
 
 /* 右側邊欄 */
@@ -99,54 +121,86 @@
   background-color: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  padding: var(--spacing-lg);
-  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-xl); /* 增加內邊距 */
+  margin-bottom: var(--spacing-xl); /* 增加外邊距 */
+  box-shadow: var(--shadow-sm); /* 添加輕微陰影 */
+  transition: box-shadow var(--transition-base), transform var(--transition-base); /* 添加過渡效果 */
+}
+
+.right-bar section:hover {
+  box-shadow: var(--shadow-md); /* 懸停時陰影加深 */
+  transform: translateY(-3px); /* 輕微上浮效果 */
 }
 
 .right-bar h3 {
-  font-size: 16px;
+  font-size: var(--font-size-lg); /* 使用變數 */
   margin-bottom: var(--spacing-md);
-  padding-bottom: var(--spacing-md);
-  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
 .right-bar ul {
   list-style: none;
+  padding: 0;
 }
 
 .right-bar li {
-  margin-bottom: 10px;
+  margin-bottom: var(--spacing-sm);
+  padding: var(--spacing-xs) 0;
+  transition: background-color var(--transition-fast);
+}
+
+.right-bar li:hover {
+  background-color: var(--color-bg-subtle);
+  border-radius: var(--radius-sm);
 }
 
 .right-bar .post-title {
   display: block;
   font-weight: 500;
+  color: var(--color-text);
+  font-size: var(--font-size-base);
 }
 
 .right-bar .post-date {
-  font-size: 12px;
+  font-size: var(--font-size-sm);
   color: var(--color-text-muted);
 }
 
 .right-bar .view-all {
   display: inline-block;
-  margin-top: 10px;
+  margin-top: var(--spacing-md);
   font-weight: 500;
+  color: var(--color-accent);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.right-bar .view-all:hover {
+  color: var(--color-accent-hover);
+  transform: translateX(5px); /* 懸停右移效果 */
 }
 
 /* Skills Section */
 .skills-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--spacing-sm);
 }
 
 .skill-item {
-  font-size: 12px;
-  padding: 3px 8px;
+  font-size: var(--font-size-sm); /* 使用變數 */
+  padding: 4px 10px; /* 調整內邊距 */
   background-color: var(--color-bg-subtle);
   color: var(--color-text-muted);
-  border-radius: 10px;
-  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill); /* 藥丸形圓角 */
+  border: 1px solid var(--color-border-subtle); /* 添加邊框 */
   white-space: nowrap;
+  transition: all var(--transition-fast); /* 添加過渡效果 */
+}
+
+.skill-item:hover {
+  background-color: var(--color-accent); /* 懸停背景色 */
+  color: white; /* 懸停文字顏色 */
+  transform: translateY(-2px); /* 輕微上浮 */
+  box-shadow: var(--shadow-sm); /* 添加陰影 */
 }

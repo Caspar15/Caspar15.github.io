@@ -1,18 +1,27 @@
 /* dark-mode.css */
 
 body.dark {
-  --color-bg: #0d1117;
-  --color-bg-subtle: #161b22;
-  --color-text: #c9d1d9;
-  --color-text-muted: #8b949e;
-  --color-border: #30363d;
-  --color-accent: #58a6ff;
-  --color-accent-hover: #428eff;
+  /* Dark Mode Colors */
+  --color-bg: #1a1a1a; /* 深色模式主背景 */
+  --color-bg-subtle: #2a2a2a; /* 深色模式次要背景 */
+  --color-text: #e0e0e0; /* 深色模式主要文字 */
+  --color-text-muted: #b0b0b0; /* 深色模式次要文字 */
+  --color-border: #444444; /* 深色模式主要邊框 */
+  --color-border-subtle: #3a3a3a; /* 深色模式次要邊框 */
+  --color-accent: #64ffda; /* 深色模式強調色 (亮青綠) */
+  --color-accent-hover: #00bfa5; /* 深色模式強調色懸停 */
+  --color-accent-rgb: 100, 255, 218; /* 深色模式強調色 RGB */
+
+  /* Dark Mode Shadows - 更柔和，與深色背景融合 */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
 /* 針對特定元素調整深色模式下的樣式 */
 body.dark .site-header {
   border-bottom-color: var(--color-border);
+  box-shadow: var(--shadow-sm); /* 確保陰影在深色模式下也適用 */
 }
 
 body.dark .site-title,
@@ -20,24 +29,60 @@ body.dark .site-nav .page-link {
   color: var(--color-text);
 }
 
+body.dark .site-title:hover,
 body.dark .site-nav .page-link:hover {
   color: var(--color-accent);
 }
 
-body.dark .dark-mode-toggle svg {
-  color: var(--color-text);
+body.dark .site-nav .page-link::after {
+  background-color: var(--color-accent);
 }
 
-body.dark .dark-mode-toggle:hover {
-  background-color: var(--color-border);
+body.dark .dark-mode-toggle svg,
+body.dark .search-toggle svg {
+  color: var(--color-text-muted);
+}
+
+body.dark .dark-mode-toggle:hover,
+body.dark .search-toggle:hover {
+  background-color: var(--color-bg-subtle);
+}
+
+body.dark .dark-mode-toggle:hover svg,
+body.dark .search-toggle:hover svg {
+  color: var(--color-accent);
+}
+
+body.dark .site-nav .search-input {
+  background-color: var(--color-bg-subtle);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+body.dark .site-nav .search-input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(var(--color-accent-rgb), 0.3);
 }
 
 body.dark .sidebar section,
 body.dark .right-bar section,
 body.dark .statistics-section,
-body.dark .card {
+body.dark .card,
+body.dark .project-categories-sidebar,
+body.dark .info-card,
+body.dark .future-updates-section,
+body.dark .chart-container {
   background-color: var(--color-bg-subtle);
   border-color: var(--color-border);
+  box-shadow: var(--shadow-sm); /* 確保陰影在深色模式下也適用 */
+}
+
+body.dark .sidebar section:hover,
+body.dark .right-bar section:hover,
+body.dark .card:hover,
+body.dark .info-card:hover,
+body.dark .future-updates-section:hover {
+  box-shadow: var(--shadow-md); /* 懸停時陰影加深 */
 }
 
 body.dark .stat-icon {
@@ -47,11 +92,13 @@ body.dark .stat-icon {
 body.dark .filter-btn {
   color: var(--color-text-muted);
   border-color: var(--color-border);
+  background-color: var(--color-bg-subtle);
 }
 
 body.dark .filter-btn:hover {
-  background-color: var(--color-border);
-  color: var(--color-text);
+  background-color: var(--color-accent);
+  color: white;
+  border-color: var(--color-accent);
 }
 
 body.dark .filter-btn.active {
@@ -67,9 +114,17 @@ body.dark .card-header h3 a:hover {
   color: var(--color-accent);
 }
 
-body.dark .card .tag {
+body.dark .card .tag,
+body.dark .skill-item {
   background-color: var(--color-border);
   color: var(--color-text-muted);
+  border-color: var(--color-border-subtle);
+}
+
+body.dark .card .tag:hover,
+body.dark .skill-item:hover {
+  background-color: var(--color-accent);
+  color: white;
 }
 
 body.dark .repo-header .repo-badges img {
@@ -100,4 +155,107 @@ body.dark .repo-languages .lang-stats .lang-name {
 
 body.dark .repo-languages .lang-stats .lang-percentage {
   color: var(--color-text-muted);
+}
+
+body.dark .global-search {
+  background: var(--color-bg-subtle);
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+body.dark .global-search input {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+body.dark .global-search input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(var(--color-accent-rgb), 0.3);
+}
+
+body.dark .search-results-item {
+  border-color: var(--color-border);
+}
+
+body.dark .search-results-item a {
+  color: var(--color-text);
+}
+
+body.dark .search-results-item p {
+  color: var(--color-text-muted);
+}
+
+body.dark .back-to-top {
+  background: var(--color-accent);
+  box-shadow: var(--shadow-md);
+}
+
+body.dark .back-to-top:hover {
+  background: var(--color-accent-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+body.dark .btn {
+  background-color: var(--color-bg-subtle);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+body.dark .btn:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: white;
+}
+
+body.dark .download-resume {
+  background: linear-gradient(120deg, #333 0%, #555 100%);
+  color: white !important;
+  border: none !important;
+  box-shadow: var(--shadow-md);
+}
+
+body.dark .download-resume:hover {
+  background: linear-gradient(120deg, #555 0%, #777 100%);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+body.dark .profile-section .social-icons img {
+  filter: invert(1) hue-rotate(180deg); /* 調整社交圖標在深色模式下的顏色 */
+}
+
+body.dark .profile-section .social-icons a:hover img {
+  filter: none; /* 懸停時恢復原色 */
+}
+
+body.dark .contact-call-to-action {
+  background-color: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+body.dark .section-title {
+  border-bottom-color: var(--color-border);
+}
+
+body.dark .info-card ul li::before {
+  color: var(--color-accent);
+}
+
+body.dark .full-width-card {
+  border-top-color: var(--color-accent);
+}
+
+body.dark .reading-progress-bar {
+  background: var(--color-accent);
+}
+
+body.dark .skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-subtle) 25%,
+    var(--color-border) 50%,
+    var(--color-bg-subtle) 75%
+  );
 }

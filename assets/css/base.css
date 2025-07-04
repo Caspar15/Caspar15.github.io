@@ -3,34 +3,54 @@
 /* -------------------- Base Variables -------------------- */
 :root {
     /* Colors */
-    --color-bg: #ffffff;
-    --color-bg-subtle: #f8f9fa; /* Slightly warmer light grey */
-    --color-text: #212529; /* Slightly darker text for better contrast */
-    --color-text-muted: #6c757d; /* Standard muted grey */
-    --color-border: #dee2e6; /* Lighter border */
-    --color-accent: #616161; /* Graphite Gray */
-    --color-accent-hover: #424242; /* Darker Graphite Gray */
+    --color-bg: #ffffff; /* 主背景色 */
+    --color-bg-subtle: #f8f9fa; /* 次要背景色，用於卡片、區塊等 */
+    --color-text: #212529; /* 主要文字顏色 */
+    --color-text-muted: #6c757d; /* 次要文字顏色，用於描述、日期等 */
+    --color-border: #dee2e6; /* 主要邊框顏色 */
+    --color-border-subtle: #e9ecef; /* 次要邊框顏色 */
+    --color-accent: #007bff; /* 主強調色 (藍色) */
+    --color-accent-hover: #0056b3; /* 強調色懸停狀態 */
+    --color-accent-rgb: 0, 123, 255; /* 強調色 RGB 值，用於陰影 */
+    --color-success: #28a745; /* 成功提示色 */
+    --color-warning: #ffc107; /* 警告提示色 */
+    --color-danger: #dc3545; /* 危險提示色 */
 
     /* Typography */
-    --font-primary: 'Inter', 'Noto Sans TC', sans-serif;
-    --font-mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace;
+    --font-primary: 'Inter', 'Noto Sans TC', sans-serif; /* 主要字體 */
+    --font-mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace; /* 等寬字體 */
+    --font-size-base: 16px;
+    --font-size-sm: 14px;
+    --font-size-lg: 18px;
+    --font-size-xl: 24px;
+    --font-size-h1: 36px;
+    --font-size-h2: 30px;
+    --font-size-h3: 24px;
 
     /* Spacing */
     --spacing-xs: 4px;
     --spacing-sm: 8px;
     --spacing-md: 16px;
-    --spacing-lg: 32px;
-    --spacing-xl: 48px;
+    --spacing-lg: 24px; /* 調整為 24px，提供更多呼吸空間 */
+    --spacing-xl: 32px; /* 調整為 32px */
+    --spacing-xxl: 48px;
 
-    /* Shadows & Radii */
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-    --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
-    --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
-    --radius: 8px; /* Slightly larger radius */
-    --radius-lg: 12px;
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08); /* 小陰影，用於輕微浮起效果 */
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1); /* 中等陰影，用於卡片、模態框 */
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15); /* 大陰影，用於突出顯示 */
+    --shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.06); /* 內陰影 */
+
+    /* Radii */
+    --radius: 8px; /* 標準圓角 */
+    --radius-sm: 4px; /* 小圓角 */
+    --radius-lg: 12px; /* 大圓角 */
+    --radius-pill: 50px; /* 藥丸形圓角 */
 
     /* Transitions */
-    --transition-fast: 0.2s ease-out;
+    --transition-fast: 0.15s ease-out; /* 快速過渡 */
+    --transition-base: 0.3s ease-in-out; /* 標準過渡 */
+    --transition-slow: 0.5s ease-in-out; /* 慢速過渡 */
 }
 
 /* -------------------- Reset & Base Styles -------------------- */
@@ -50,6 +70,7 @@ body {
     color: var(--color-text);
     background-color: var(--color-bg);
     -webkit-font-smoothing: antialiased;
+    font-size: var(--font-size-base);
 }
 
 a {
@@ -66,6 +87,7 @@ a:hover {
 img {
     max-width: 100%;
     height: auto;
+    display: block; /* 避免圖片底部多餘空間 */
 }
 
 .btn {
@@ -73,10 +95,11 @@ img {
     padding: 10px 20px;
     font-weight: 500;
     text-align: center;
-    border-radius: var(--radius);
+    border-radius: var(--radius-sm); /* 調整為小圓角 */
     border: 1px solid transparent;
-    transition: all var(--transition-fast);
+    transition: all var(--transition-fast); /* 使用新的過渡變數 */
     cursor: pointer;
+    font-size: var(--font-size-base);
 }
 
 .btn-primary {
@@ -89,6 +112,6 @@ img {
     background-color: var(--color-accent-hover);
     color: white;
     text-decoration: none;
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-2px); /* 輕微上浮效果 */
+    box-shadow: var(--shadow-md); /* 添加陰影 */
 }

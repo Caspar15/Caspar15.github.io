@@ -169,6 +169,19 @@ a:hover {
   margin-top: 4px;
 }
 
+/* 徽章區塊 */
+.repo-badges {
+  display: flex; /* 讓徽章橫向排列 */
+  flex-wrap: wrap; /* 允許換行 */
+  gap: var(--spacing-sm); /* 徽章間距 */
+  margin-top: var(--spacing-md); /* 與描述的間距 */
+}
+
+.repo-badges img {
+  height: 20px; /* 統一徽章高度 */
+  vertical-align: middle; /* 垂直對齊 */
+}
+
 /* C. 導覽列 (Code / Issues / Pull Requests) */
 .repo-nav ul {
   list-style: none;
@@ -246,23 +259,51 @@ a:hover {
 }
 
 /* 語言統計條 */
-.lang-progress {
+.lang-progress-container {
   width: 100%;
   height: 8px;
   background: var(--color-border-muted);
   border-radius: 4px;
   margin-top: 6px;
-  position: relative;
+  display: flex; /* 讓語言條橫向排列 */
+  overflow: hidden; /* 確保圓角和溢出處理 */
 }
 
-.lang-progress span {
-  display: block;
+.lang-progress-bar {
   height: 100%;
-  border-radius: 4px;
+  display: block; /* 確保 span 佔據高度 */
+  border-radius: 4px; /* 繼承父容器圓角 */
+  transition: width 0.3s ease; /* 添加過渡動畫 */
 }
 
-.language-bar-info {
-  margin-top: 4px;
-  font-size: 14px;
+.lang-stats {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px; /* 與進度條的間距 */
+}
+
+.lang-stats li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 12px;
   color: var(--color-fg-muted);
 }
+
+.lang-color-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.lang-name {
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.lang-percentage {
+  color: var(--color-fg-muted);
+}
+

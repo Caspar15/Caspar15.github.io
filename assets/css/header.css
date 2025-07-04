@@ -3,72 +3,126 @@
 .site-header {
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
-  padding: 0 var(--spacing-lg);
-  position: sticky; /* 讓 header 固定在頂部 */
+  padding: var(--spacing-sm) var(--spacing-xl); /* 調整內邊距 */
+  position: sticky;
   top: 0;
   z-index: 99; /* 確保 header 在其他內容之上 */
+  box-shadow: var(--shadow-sm); /* 添加輕微陰影 */
+  transition: background-color var(--transition-fast), box-shadow var(--transition-fast); /* 添加過渡效果 */
 }
 
 .site-header .wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
-  gap: 20px; /* Add gap between site-title and site-nav */
+  height: 70px; /* 稍微增加高度 */
+  gap: var(--spacing-lg); /* 調整間距 */
 }
 
 .site-title {
-  font-size: 22px; /* Increased font size */
+  font-size: var(--font-size-xl); /* 使用變數 */
   font-weight: 700;
   color: var(--color-text);
-  white-space: nowrap; /* Prevent wrapping */
+  white-space: nowrap;
+  transition: color var(--transition-fast), transform var(--transition-fast); /* 添加過渡效果 */
 }
 .site-title:hover {
   text-decoration: none;
+  color: var(--color-accent); /* 懸停顏色 */
+  transform: translateY(-2px); /* 輕微上浮效果 */
 }
 
 .site-nav {
-  flex-grow: 1; /* Allow site-nav to take available space */
+  flex-grow: 1;
   display: flex;
-  justify-content: flex-end; /* Push nav items to the right */
+  justify-content: flex-end;
+  align-items: center; /* 垂直居中導航項目 */
 }
 
 .site-nav .page-link {
   color: var(--color-text-muted);
-  margin-left: 20px;
+  margin-left: var(--spacing-lg); /* 調整間距 */
   font-weight: 500;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), transform var(--transition-fast); /* 添加過渡效果 */
+  position: relative; /* 用於下劃線動畫 */
 }
 
 .site-nav .page-link:hover {
-  color: var(--color-text);
+  color: var(--color-accent); /* 懸停顏色 */
   text-decoration: none;
+  transform: translateY(-2px); /* 輕微上浮效果 */
+}
+
+/* 導航連結下劃線動畫 */
+.site-nav .page-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--color-accent);
+  transition: width var(--transition-fast) ease-out;
+}
+
+.site-nav .page-link:hover::after {
+  width: 100%;
 }
 
 .site-nav .menu-icon {
-  display: none; /* For mobile */
+  display: none;
 }
 
 .site-nav .trigger {
   display: flex;
   align-items: center;
-  gap: 20px; /* Add gap between nav items, search, and dark mode toggle */
+  gap: var(--spacing-lg); /* 調整間距 */
 }
 
 .site-nav .search-input {
   border: 1px solid var(--color-border);
-  border-radius: 5px;
-  padding: 8px 12px;
-  font-size: 14px;
+  border-radius: var(--radius-sm); /* 使用變數 */
+  padding: var(--spacing-sm) var(--spacing-md); /* 使用變數 */
+  font-size: var(--font-size-base); /* 使用變數 */
   background-color: var(--color-bg-subtle);
   color: var(--color-text);
-  width: 180px; /* Adjust as needed */
-  transition: width 0.3s ease;
+  width: 200px; /* 調整預設寬度 */
+  transition: width var(--transition-base), border-color var(--transition-fast), box-shadow var(--transition-fast); /* 添加過渡效果 */
 }
 
 .site-nav .search-input:focus {
-  width: 220px; /* Expand on focus */
+  width: 250px; /* 展開寬度 */
   outline: none;
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 2px rgba(var(--color-accent-rgb), 0.2);
+  border-color: var(--color-accent); /* 使用強調色 */
+  box-shadow: 0 0 0 3px rgba(var(--color-accent-rgb), 0.2); /* 使用強調色 RGB */
+}
+
+/* Dark Mode Toggle Button and Search Toggle Button */
+.dark-mode-toggle,
+.search-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-xs); /* 調整內邊距 */
+  border-radius: var(--radius-sm); /* 使用變數 */
+  transition: background-color var(--transition-fast), transform var(--transition-fast); /* 添加過渡效果 */
+}
+
+.dark-mode-toggle svg,
+.search-toggle svg {
+  width: 24px;
+  height: 24px;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast); /* 添加過渡效果 */
+}
+
+.dark-mode-toggle:hover,
+.search-toggle:hover {
+  background-color: var(--color-bg-subtle);
+  transform: scale(1.1); /* 懸停放大效果 */
+}
+
+.dark-mode-toggle:hover svg,
+.search-toggle:hover svg {
+  color: var(--color-accent); /* 懸停顏色 */
 }

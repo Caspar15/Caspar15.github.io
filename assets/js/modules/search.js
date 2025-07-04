@@ -31,56 +31,62 @@ function displayResults(results) {
   }
 
   const hasResults = results.length > 0;
+  // Check if the main content is visible. Note the check for `display === ''` for initial state.
+  const pageContentIsVisible = pageContent.style.display !== 'none';
 
-  // Determine which element should be visible after the update
-  const elementToShow = hasResults ? searchResultsContainer : pageContent;
-  const elementToHide = hasResults ? pageContent : searchResultsContainer;
+  // Helper function to build and insert the results list
+  const updateList = () => {
+    searchResultsContainer.innerHTML = '';
+    if (!hasResults) return;
+    const ul = document.createElement('ul');
+    ul.className = 'search-results-list';
+    results.forEach(item => {
+      const li = document.createElement('li');
+      li.className = 'search-results-item';
+      const a = document.createElement('a');
+      a.href = item.url;
+      a.textContent = item.title;
+      const p = document.createElement('p');
+      p.textContent = item.content.substring(0, 150) + '...';
+      li.appendChild(a);
+      li.appendChild(p);
+      ul.appendChild(li);
+    });
+    searchResultsContainer.appendChild(ul);
+  };
 
-  // If the element to show is already visible and we are just updating its content,
-  // we need to re-trigger the animation.
-  if (elementToShow.style.display !== 'none') {
-    elementToShow.classList.remove('fade-in');
-    elementToShow.classList.add('fade-out');
-  }
+  // We need to animate a transition if:
+  // 1. We have results to show, but the page content is currently visible (initial search).
+  // 2. We have no results, but the search results are currently visible (clearing the search).
+  const needsAnimation = (hasResults && pageContentIsVisible) || (!hasResults && !pageContentIsVisible);
 
-  // Hide the element that should not be visible
-  if (elementToHide.style.display !== 'none') {
+  if (needsAnimation) {
+    const elementToShow = hasResults ? searchResultsContainer : pageContent;
+    const elementToHide = hasResults ? pageContent : searchResultsContainer;
+
     elementToHide.classList.remove('fade-in');
     elementToHide.classList.add('fade-out');
+
+    setTimeout(() => {
+      elementToHide.style.display = 'none';
+      elementToHide.classList.remove('fade-out');
+
+      if (hasResults) {
+        updateList();
+      }
+
+      elementToShow.style.display = 'block';
+      void elementToShow.offsetHeight; // Force reflow
+      elementToShow.classList.remove('fade-out');
+      elementToShow.classList.add('fade-in');
+    }, 300); // Match CSS transition duration
+  } else if (hasResults) {
+    // If no animation is needed, but we have results, just update the list.
+    // This happens on subsequent keypresses when the search results are already visible.
+    updateList();
   }
-
-  setTimeout(() => {
-    // After fade-out, set display to none for the hidden element
-    elementToHide.style.display = 'none';
-    elementToHide.classList.remove('fade-out');
-
-    // Clear previous results if showing search results
-    if (hasResults) {
-      searchResultsContainer.innerHTML = '';
-      const ul = document.createElement('ul');
-      ul.className = 'search-results-list';
-      results.forEach(item => {
-        const li = document.createElement('li');
-        li.className = 'search-results-item';
-        const a = document.createElement('a');
-        a.href = item.url;
-        a.textContent = item.title;
-        const p = document.createElement('p');
-        p.textContent = item.content.substring(0, 150) + '...';
-        li.appendChild(a);
-        li.appendChild(p);
-        ul.appendChild(li);
-      });
-      searchResultsContainer.appendChild(ul);
-    }
-
-    // Show the target element and fade it in
-    elementToShow.style.display = 'block';
-    void elementToShow.offsetHeight; // Force reflow to re-trigger animation
-    elementToShow.classList.remove('fade-out'); // Ensure fade-out is removed before fade-in
-    elementToShow.classList.add('fade-in');
-  }, 300); // Match CSS transition duration
 }
+
 
 export function globalSearch() {
   const searchInput = document.getElementById('globalSearchInput');

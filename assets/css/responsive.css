@@ -6,7 +6,8 @@
 @media (max-width: 1024px) {
   .layout {
     grid-template-columns: minmax(200px, 280px) 1fr;
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg); /* 使用新的間距變數 */
+    padding: var(--spacing-lg); /* 調整內邊距 */
   }
 
   .right-bar {
@@ -16,14 +17,26 @@
   .stat-card {
     padding: var(--spacing-md) !important;
   }
+
+  .site-header .wrapper {
+    height: 60px; /* 調整 header 高度 */
+  }
+
+  .site-nav .search-input {
+    width: 150px; /* 調整搜尋框寬度 */
+  }
+
+  .site-nav .search-input:focus {
+    width: 200px; /* 調整搜尋框展開寬度 */
+  }
 }
 
 /* 768px 以下 */
 @media (max-width: 768px) {
   .layout {
     grid-template-columns: 1fr;
-    padding: var(--spacing-sm);
-    gap: var(--spacing-md);
+    padding: var(--spacing-md); /* 調整內邊距 */
+    gap: var(--spacing-lg); /* 調整間距 */
   }
 
   .sidebar {
@@ -43,8 +56,8 @@
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--color-header-bg);
-    padding: 16px;
+    background: var(--color-bg); /* 使用變數 */
+    padding: var(--spacing-lg);
     flex-direction: column;
     z-index: 99;
   }
@@ -53,13 +66,13 @@
     display: flex;
   }
 
-  .header {
-    padding: var(--spacing-sm);
+  .site-header {
+    padding: var(--spacing-sm) var(--spacing-md); /* 調整 header 內邊距 */
     margin-bottom: var(--spacing-md);
   }
 
-  .header h1 {
-    font-size: 18px;
+  .site-title {
+    font-size: var(--font-size-xl); /* 使用變數 */
   }
 
   .card-container.grid-view {
@@ -72,6 +85,11 @@
 
   .global-search {
     width: 95vw;
+    padding: var(--spacing-md); /* 調整內邊距 */
+  }
+
+  .global-search input {
+    font-size: var(--font-size-base); /* 使用變數 */
   }
 
   .section-header {
@@ -101,13 +119,14 @@
   .back-to-top {
     bottom: var(--spacing-md);
     right: var(--spacing-md);
-    width: 36px;
-    height: 36px;
-    font-size: 16px;
+    width: 40px; /* 調整大小 */
+    height: 40px;
+    font-size: var(--font-size-xl); /* 使用變數 */
   }
 
   .stats-grid {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* 調整網格大小 */
+    gap: var(--spacing-md); /* 調整間距 */
   }
 
   .stat-card {
@@ -116,11 +135,72 @@
 
   .chart-container {
     height: 200px;
+    margin-top: var(--spacing-lg); /* 調整間距 */
+  }
+
+  .profile-section h2 {
+    font-size: var(--font-size-xl); /* 使用變數 */
+  }
+
+  .profile-section p {
+    font-size: var(--font-size-base); /* 使用變數 */
+  }
+
+  .sidebar section,
+  .right-bar section {
+    padding: var(--spacing-lg); /* 調整內邊距 */
+  }
+
+  .sidebar h3,
+  .right-bar h3 {
+    font-size: var(--font-size-base); /* 使用變數 */
+  }
+
+  .skill-item {
+    font-size: var(--font-size-sm); /* 使用變數 */
+    padding: 3px 8px;
+  }
+
+  .about-container {
+    padding: 0 var(--spacing-md); /* 調整內邊距 */
+  }
+
+  .profile-header h1 {
+    font-size: var(--font-size-h2); /* 使用變數 */
+  }
+
+  .profile-header .subtitle {
+    font-size: var(--font-size-base); /* 使用變數 */
+  }
+
+  .section-title {
+    font-size: var(--font-size-xl); /* 使用變數 */
+  }
+
+  .info-card h3 {
+    font-size: var(--font-size-lg); /* 使用變數 */
+  }
+
+  .info-card ul li {
+    font-size: var(--font-size-base); /* 使用變數 */
   }
 }
 
 /* 480px 以下 */
 @media (max-width: 480px) {
+  .site-header .wrapper {
+    height: 50px; /* 進一步調整 header 高度 */
+  }
+
+  .site-title {
+    font-size: var(--font-size-lg); /* 使用變數 */
+  }
+
+  .site-nav .page-link {
+    margin-left: var(--spacing-md); /* 調整間距 */
+    font-size: var(--font-size-base); /* 使用變數 */
+  }
+
   .header-right {
     gap: var(--spacing-xs);
   }
@@ -147,5 +227,33 @@
 
   .stats-grid {
     grid-template-columns: 1fr;
+  }
+
+  .home-hero h1 {
+    font-size: var(--font-size-h2); /* 使用變數 */
+  }
+
+  .home-hero .tagline {
+    font-size: var(--font-size-base); /* 使用變數 */
+  }
+
+  .profile-header h1 {
+    font-size: var(--font-size-xl); /* 使用變數 */
+  }
+
+  .profile-header .subtitle {
+    font-size: var(--font-size-sm); /* 使用變數 */
+  }
+
+  .section-title {
+    font-size: var(--font-size-lg); /* 使用變數 */
+  }
+
+  .info-card h3 {
+    font-size: var(--font-size-base); /* 使用變數 */
+  }
+
+  .info-card ul li {
+    font-size: var(--font-size-sm); /* 使用變數 */
   }
 }
