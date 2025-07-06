@@ -9,6 +9,8 @@
   
   <!-- 主 CSS -->
   <link rel="stylesheet" href="/assets/css/main.css">
+  <!-- terminal -->
+  <link rel="stylesheet" href="/assets/css/terminal.css">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <!-- Chart.js -->
@@ -141,7 +143,22 @@
         <a href="https://www.linkedin.com/in/%E6%9F%8F%E5%AE%87-%E9%99%B3-3a84132a2/" title="LinkedIn" target="_blank"><img src="/assets/images/linkedin.png" alt="LinkedIn"></a>
       </div>
     </section>
-    <div id="magic-cube-container" class="magic-cube-container"></div>
+ <div id="magic-cube-container" class="magic-cube-container"></div>
+ 
+     <!-- Interactive Terminal -->
+     <section class="terminal-section">
+       <div id="terminal-container" class="terminal">
+         <div id="terminal-header">caspar@portfolio: ~</div>
+         <div id="terminal-body">
+           <div id="terminal-output"></div>
+           <div class="terminal-prompt">
+               <span class="prompt-user">guest@caspar-dev:</span><span class="prompt-symbol">
+      $&nbsp;</span>
+                <input type="text" id="terminal-input" class="terminal-input" autocomplete="off">
+           </div>
+         </div>
+       </div>
+     </section>
     
   </aside>
 
@@ -393,7 +410,6 @@
     
   </aside>
 </div>
-
   
   </div>
 
@@ -422,5 +438,7 @@
 
   <!-- 主 JS -->
   <script type="module" src="/assets/js/main.js"></script>
+  <!-- terminal -->
+  <script type="module" src="/assets/js/modules/terminal.js"></script>
 </body>
 </html>

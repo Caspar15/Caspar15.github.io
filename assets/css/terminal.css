@@ -1,0 +1,110 @@
+/* assets/css/terminal.css */
+
+/* This section prevents the sidebar's default styles from breaking the terminal's layou*/
+.terminal-section {
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    box-shadow: none !important;
+    margin-top: 20px; /* Keep some space from the element above */
+    margin-bottom: var(--spacing-xl);
+}
+
+/* === Terminal Styles === */
+.terminal {
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+    font-size: 14px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 10;
+}
+
+#terminal-header {
+    background-color: #3c3c3c;
+    padding: 8px 12px;
+    font-weight: bold;
+    color: #cccccc;
+    display: flex;
+    align-items: center;
+}
+
+#terminal-header::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #f95c5b;
+    box-shadow: 18px 0 #f8bc40, 36px 0 #3ec954;
+    margin-right: 50px;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+#terminal-body {
+    padding: 15px;
+    flex-grow: 1;
+    overflow-y: auto;
+    cursor: text; /* Make it obvious you can click here */
+}
+
+#terminal-output {
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+#terminal-output .terminal-line {
+    margin-bottom: 5px;
+}
+
+#terminal-output .command-echo {
+    color: #569cd6;
+}
+
+#terminal-output .output-line {
+    color: #d4d4d4;
+}
+
+#terminal-output .output-line.error {
+    color: #f44747;
+}
+
+#terminal-output .output-line a {
+    color: #b5cea8;
+    text-decoration: underline;
+}
+
+.terminal-prompt {
+    display: flex;
+    align-items: center;
+}
+
+.prompt-user {
+    color: #4ec9b0;
+}
+
+.prompt-symbol {
+    color: #d4d4d4;
+}
+
+.terminal-input {
+    background: none;
+    border: none;
+    color: #d4d4d4;
+    font-family: inherit;
+    font-size: inherit;
+    flex-grow: 1;
+    padding-left: 5px;
+    line-height: 1.5;
+}
+   
+.terminal-input:focus {
+    outline: none;
+}
