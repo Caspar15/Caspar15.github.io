@@ -1,5 +1,15 @@
 /* assets/css/project.css */
 
+/* 為專案內頁的主要內容和側邊欄添加背景，以確保在背景圖下的可讀性 */
+.repo-main,
+.repo-sidebar {
+  background-color: var(--color-bg); /* 使用主題定義的背景色 (白色) */
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--spacing-xl); /* 與其他元素保持間距 */
+}
+
 /* 頁首徽章 */
 .repo-header .repo-badges {
   margin-top: 10px;

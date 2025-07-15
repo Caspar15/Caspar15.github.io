@@ -51,9 +51,40 @@
   transform: translateY(-3px); /* 懸停上浮效果 */
 }
 
-/* 主內容區域 */
-.main-content {
+/* 主內容區域 - 高效能毛玻璃效果 */
+.main-content,
+.sidebar,
+.right-bar {
+  position: relative; /* 為偽元素提供定位上下文 */
   min-width: 0;
+  background-color: rgba(255, 255, 255, 0.25); /* 半透明白色疊加層，確保內容可讀性 */
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  overflow: hidden; /* 隱藏超出邊界的模糊背景 */
+  z-index: 1; /* 確保容器在背景之上 */
+}
+
+.main-content::before,
+.sidebar::before,
+.right-bar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('../images/background.jpg');
+  background-attachment: fixed; /* 關鍵：使背景相對於視窗固定，創造穿透效果 */
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px); /* 應用模糊效果 */
+  z-index: -1; /* 將此偽元素置於容器內容之後 */
+  margin: -20px; /* 放大偽元素以避免模糊邊緣出現瑕疵 */
+}
+
+/* 單獨調整 sidebar 的 padding */
+.sidebar,
+.right-bar {
+    padding: var(--spacing-lg);
 }
 
 /* 統計區 */

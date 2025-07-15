@@ -68,7 +68,11 @@ body {
     font-family: var(--font-primary);
     line-height: 1.6;
     color: var(--color-text);
-    background-color: var(--color-bg);
+    background-color: #1a1a1a; /* 深色備用背景 */
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     -webkit-font-smoothing: antialiased;
     font-size: var(--font-size-base);
 }
