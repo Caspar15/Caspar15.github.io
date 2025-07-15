@@ -1,8 +1,8 @@
 /* assets/css/project.css */
 
 /* 為專案內頁的主要內容和側邊欄添加背景，以確保在背景圖下的可讀性 */
-.repo-main,
-.repo-sidebar {
+.repo-page-container .repo-main,
+.repo-page-container .repo-sidebar {
   background-color: var(--color-bg); /* 使用主題定義的背景色 (白色) */
   padding: var(--spacing-xl);
   border-radius: var(--radius-lg);
@@ -116,4 +116,136 @@
 
 .repo-languages .lang-stats .lang-percentage {
   color: #586069;
+}
+
+/* --- Content Area Styling (repo-main / markdown-body) --- */
+
+.main-content-wrapper {
+  max-width: 1200px; /* Adjust as needed */
+  margin: 0 auto; /* Center the content */
+  padding: var(--spacing-xl) 0;
+}
+
+.repo-main.markdown-body {
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.repo-main.markdown-body h1,
+.repo-main.markdown-body h2,
+.repo-main.markdown-body h3,
+.repo-main.markdown-body h4,
+.repo-main.markdown-body h5,
+.repo-main.markdown-body h6 {
+  margin-top: 1.5em;
+  margin-bottom: 0.8em;
+  font-weight: 600;
+  line-height: 1.25;
+  border-bottom: 1px solid var(--color-border-primary); /* Subtle separator */
+  padding-bottom: 0.3em;
+}
+
+.repo-main.markdown-body h1 {
+  font-size: 2.2em;
+  color: var(--color-heading-primary);
+}
+
+.repo-main.markdown-body h2 {
+  font-size: 1.8em;
+  color: var(--color-heading-secondary);
+}
+
+.repo-main.markdown-body h3 {
+  font-size: 1.5em;
+}
+
+.repo-main.markdown-body h4 {
+  font-size: 1.2em;
+}
+
+.repo-main.markdown-body p {
+  margin-bottom: 1em;
+}
+
+.repo-main.markdown-body a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+.repo-main.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.repo-main.markdown-body ul,
+.repo-main.markdown-body ol {
+  margin-bottom: 1em;
+  padding-left: 2em;
+}
+
+.repo-main.markdown-body ul li,
+.repo-main.markdown-body ol li {
+  margin-bottom: 0.5em;
+}
+
+.repo-main.markdown-body img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Remove extra space below image */
+  margin: 1em auto; /* Center images and add vertical spacing */
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.repo-main.markdown-body pre {
+  background-color: var(--color-code-bg);
+  color: var(--color-code-text);
+  padding: 1em;
+  border-radius: var(--radius-md);
+  overflow-x: auto; /* Enable horizontal scrolling for long lines */
+  margin-bottom: 1em;
+}
+
+.repo-main.markdown-body code {
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  font-size: 0.9em;
+  background-color: var(--color-code-inline-bg);
+  padding: 0.2em 0.4em;
+  border-radius: var(--radius-sm);
+}
+
+.repo-main.markdown-body pre code {
+  padding: 0;
+  background-color: transparent;
+}
+
+.repo-main.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+
+.repo-main.markdown-body th,
+.repo-main.markdown-body td {
+  border: 1px solid var(--color-border-secondary);
+  padding: 0.8em;
+  text-align: left;
+}
+
+.repo-main.markdown-body th {
+  background-color: var(--color-table-header-bg);
+  font-weight: 600;
+}
+
+.repo-main.markdown-body blockquote {
+  border-left: 4px solid var(--color-blockquote-border);
+  padding-left: 1em;
+  margin-left: 0;
+  color: var(--color-blockquote-text);
+  font-style: italic;
+}
+
+.repo-main.markdown-body hr {
+  border: 0;
+  border-top: 1px solid var(--color-border-primary);
+  margin: 2em 0;
 }

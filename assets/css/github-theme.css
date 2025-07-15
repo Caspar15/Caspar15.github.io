@@ -108,6 +108,7 @@ a:hover {
   padding: 1rem;
   font-family: var(--font-sans);
   line-height: 1.6;
+  background-color: white; /* 添加白色背景 */
 }
 
 .markdown-body h1,

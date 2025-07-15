@@ -57,7 +57,7 @@
 .right-bar {
   position: relative; /* 為偽元素提供定位上下文 */
   min-width: 0;
-  background-color: rgba(255, 255, 255, 0.25); /* 半透明白色疊加層，確保內容可讀性 */
+  background-color: white; /* 半透明白色疊加層，確保內容可讀性 */
   border-radius: var(--radius-lg);
   padding: var(--spacing-xl);
   border: 1px solid rgba(255, 255, 255, 0.4);
