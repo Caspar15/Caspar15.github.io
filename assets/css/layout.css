@@ -72,7 +72,7 @@ body.page-關於我 .main-content {
   padding: var(--spacing-xl); /* 增加內邊距 */
   box-shadow: var(--shadow-lg); /* 使用更深的陰影 */
   transition: left var(--transition-base); /* 使用新的過渡變數 */
-  z-index: 999;
+  z-index: 1001; /* 提高層級，確保在 header 之上 */
   overflow-y: auto;
 }
 

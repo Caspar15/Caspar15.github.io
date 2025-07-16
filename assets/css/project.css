@@ -2,12 +2,20 @@
 
 /* 為專案內頁的主要內容和側邊欄添加背景，以確保在背景圖下的可讀性 */
 .repo-page-container .repo-main,
-.repo-page-container .repo-sidebar {
-  background-color: var(--color-bg); /* 使用主題定義的背景色 (白色) */
-  padding: var(--spacing-xl);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
+.repo-page-container .repo-sidebar,
+.repo-page-container .repo-header { /* 將 header 也加入 */
   margin-bottom: var(--spacing-xl); /* 與其他元素保持間距 */
+}
+
+/* 強制移除 repo-sidebar 內部區塊可能繼承的額外樣式，解決雙層邊框問題 */
+.repo-sidebar .repo-about,
+.repo-sidebar .repo-topics,
+.repo-sidebar .repo-languages {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin-bottom: 1.5rem; /* 保留原有的間距 */
 }
 
 /* 頁首徽章 */

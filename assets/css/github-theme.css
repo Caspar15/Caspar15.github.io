@@ -105,10 +105,12 @@ a:hover {
   min-width: 200px;
   max-width: 100%;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 30px; /* 增加內邊距 */
   font-family: var(--font-sans);
   line-height: 1.6;
-  background-color: white; /* 添加白色背景 */
+  background-color: var(--color-canvas-default); /* 確保為白色背景 */
+  border: 1px solid var(--color-border-default);
+  border-radius: 6px;
 }
 
 .markdown-body h1,
@@ -224,8 +226,8 @@ a:hover {
   /* 右側資訊欄 */
   border: 1px solid var(--color-border-default);
   border-radius: 6px;
-  padding: 16px;
-  background-color: var(--color-canvas-subtle);
+  padding: 24px; /* 增加內邊距 */
+  background-color: var(--color-canvas-default); /* 改為白色背景 */
 }
 
 .repo-sidebar h3 {

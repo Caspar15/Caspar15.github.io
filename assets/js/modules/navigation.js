@@ -7,21 +7,47 @@ export function initializeNavigation() {
 
   const sidebarToggle = document.getElementById('sidebarToggle');
   const projectCategoriesSidebar = document.getElementById('projectCategoriesSidebar');
-  const siteHeader = document.querySelector('.site-header'); // 獲取 header 元素
+  const siteHeader = document.querySelector('.site-header');
 
   if (sidebarToggle && projectCategoriesSidebar && siteHeader) {
     console.log('navigation.js: All navigation elements found.');
 
-    sidebarToggle.addEventListener('click', () => {
+    const closeSidebar = () => {
+      projectCategoriesSidebar.classList.remove('active');
+      siteHeader.classList.remove('sidebar-active');
+    };
+
+    const openSidebar = () => {
+      projectCategoriesSidebar.classList.add('active');
+      siteHeader.classList.add('sidebar-active');
+    };
+
+    sidebarToggle.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent the click from bubbling up to the document
       console.log('navigation.js: Sidebar toggle button clicked.');
       if (projectCategoriesSidebar.classList.contains('active')) {
-        projectCategoriesSidebar.classList.remove('active');
-        siteHeader.classList.remove('sidebar-active');
+        closeSidebar();
       } else {
-        projectCategoriesSidebar.classList.add('active');
-        siteHeader.classList.add('sidebar-active');
+        openSidebar();
       }
     });
+
+    // Add a listener to the document to close the sidebar when clicking outside
+    document.addEventListener('click', (event) => {
+      if (projectCategoriesSidebar.classList.contains('active')) {
+        const isClickInsideSidebar = projectCategoriesSidebar.contains(event.target);
+        if (!isClickInsideSidebar) {
+          console.log('navigation.js: Clicked outside, closing sidebar.');
+          closeSidebar();
+        }
+      }
+    });
+
+    // Prevent clicks inside the sidebar from closing it
+    projectCategoriesSidebar.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+
   } else {
     console.log('navigation.js: One or more navigation elements NOT found.');
     if (!sidebarToggle) console.log('navigation.js: sidebarToggle not found.');

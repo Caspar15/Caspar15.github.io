@@ -2,6 +2,7 @@
 
 /* 左側邊欄 */
 .sidebar {
+  z-index: 100; /* 確保在 header 之上 */
   /* 移除 padding-top */
 }
 
