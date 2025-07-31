@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
       appendOutput(`Command not found: <span class="error">${commandName}</span>. Type 'help' for a list of commands.`, 'output-line');
     }
 
-    // Scroll to the bottom of the terminal
+    // Scroll to the bottom of the terminal to keep the prompt visible
     terminalBody.scrollTop = terminalBody.scrollHeight;
   }
 
@@ -119,9 +119,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- 5. Initial Welcome Message ---
-  const welcomeMessage = `Welcome to my interactive terminal!\nType <span class="command-echo">'help'</span> to see a list of available commands.`;
+  const welcomeMessage = `Welcome to my interactive terminal!
+Type <span class="command-echo">'help'</span> to see a list of available commands.`;
   appendOutput(welcomeMessage, 'output-line');
   
-  // Auto-focus the input field on page load
-  inputElement.focus();
+  // Auto-focus on the input field has been removed to prevent auto-scrolling.
+  // inputElement.focus();
 });

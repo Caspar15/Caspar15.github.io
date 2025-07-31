@@ -2,8 +2,8 @@
 
 /* RWD Media Queries */
 
-/* 1024px 以下 */
-@media (max-width: 1024px) {
+/* 1200px 以下 */
+@media (max-width: 1200px) {
   .layout {
     grid-template-columns: minmax(200px, 280px) 1fr;
     gap: var(--spacing-lg); /* 使用新的間距變數 */

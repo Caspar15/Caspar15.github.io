@@ -170,15 +170,8 @@
         <div class="stat-card">
           <div class="stat-icon">📊</div>
           <div class="stat-content">
-            <div class="stat-value">8</div>
+            <div class="stat-value" id="github-repo-count">...</div>
             <div class="stat-label">總專案數</div>
-          </div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon">🔥</div>
-          <div class="stat-content">
-            <div class="stat-value">5</div>
-            <div class="stat-label">活躍專案</div>
           </div>
         </div>
         <div class="stat-card">
@@ -189,10 +182,10 @@
           </div>
         </div>
         <div class="stat-card">
-          <div class="stat-icon">📅</div>
+          <div class="stat-icon">📜</div>
           <div class="stat-content">
-            <div class="stat-value">156</div>
-            <div class="stat-label">貢獻天數</div>
+            <div class="stat-value" id="github-gists-count">...</div>
+            <div class="stat-label">公開 Gists</div>
           </div>
         </div>
       </div>
@@ -374,7 +367,7 @@
   </main>
 
   <!-- 右側邊欄 -->
-  <aside class="right-bar">
+  <aside class="right-bar animate-on-scroll">
     <section class="latest-posts">
       <h3>最新文章</h3>
       <ul>
@@ -402,15 +395,15 @@
     <section class="future-updates-section">
       <h3>未來更新計畫</h3>
       <ul>
-        <li><span class="update-item">新增更多專案範例</span><span class="update-status">進行中</span></li>
-        <li><span class="update-item">撰寫系列技術文章</span><span class="update-status">計畫中</span></li>
-        <li><span class="update-item">優化網站載入速度</span><span class="update-status">計畫中</span></li>
+        <li><span class="update-item">建立部落格頁面</span><span class="update-status">計畫中</span></li>
+        <li><span class="update-item">新增專案篩選功能</span><span class="update-status">計畫中</span></li>
       </ul>
     </section>
 
     
   </aside>
 </div>
+
   
   </div>
 
@@ -441,5 +434,9 @@
   <script type="module" src="/assets/js/main.js"></script>
   <!-- terminal -->
   <script type="module" src="/assets/js/modules/terminal.js"></script>
+  <!-- GitHub API -->
+  <script type="module" src="/assets/js/modules/github.js"></script>
+  <!-- Animations -->
+  <script type="module" src="/assets/js/modules/animations.js"></script>
 </body>
 </html>

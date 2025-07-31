@@ -15,7 +15,7 @@
     background-color: #1e1e1e;
     color: #d4d4d4;
     font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
-    font-size: 14px;
+    font-size: 10px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -84,6 +84,7 @@
 .terminal-prompt {
     display: flex;
     align-items: center;
+    flex-wrap: nowrap; /* Prevent wrapping */
 }
 
 .prompt-user {

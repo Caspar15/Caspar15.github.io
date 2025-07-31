@@ -9,9 +9,9 @@ header.site-header {
 /* .layout 容器 */
 .layout {
     display: grid;
-    grid-template-columns: 280px 1fr 260px;
+    grid-template-columns: 320px 1fr 300px;
     gap: var(--spacing-xl); /* 增加整體間距 */
-    max-width: 1440px; /* 稍微增加最大寬度 */
+    max-width: 1600px; /* 稍微增加最大寬度 */
     margin: 0 auto;
     padding: var(--spacing-xl); /* 增加整體內邊距 */
   }

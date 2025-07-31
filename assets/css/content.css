@@ -159,7 +159,7 @@
 
 /* Magic Cube Container */
 .magic-cube-container {
-    height: 240px; /* Adjusted for sidebar */
+    height: 280px; /* Adjusted for sidebar */
     margin-top: var(--spacing-lg);
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
@@ -424,6 +424,8 @@
   align-items: center;
   padding: var(--spacing-sm) 0;
   border-bottom: 1px solid var(--color-border-subtle); /* 使用變數 */
+  flex-wrap: nowrap; /* 防止換行 */
+  gap: var(--spacing-md); /* 增加間距 */
 }
 
 .future-updates-section li:last-child {
@@ -432,15 +434,20 @@
 
 .future-updates-section .update-item {
   color: var(--color-text-muted);
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm); /* Adjusted from base to sm */
+  white-space: nowrap; /* 確保不換行 */
+  overflow: hidden; /* 隱藏超出的部分 */
+  text-overflow: ellipsis; /* 超出部分顯示為... */
+  flex-grow: 1; /* 佔用多餘空間 */
 }
 
 .future-updates-section .update-status {
-  font-size: var(--font-size-sm); /* 使用變數 */
+  font-size: 12px; /* Adjusted from sm to 12px for a more compact look */
   font-weight: 500;
   padding: 4px 10px; /* 調整內邊距 */
   border-radius: var(--radius-pill); /* 藥丸形圓角 */
   background-color: var(--color-bg-subtle);
   color: var(--color-text-muted);
   border: 1px solid var(--color-border-subtle); /* 添加邊框 */
+  flex-shrink: 0; /* 防止狀態標籤被壓縮 */
 }

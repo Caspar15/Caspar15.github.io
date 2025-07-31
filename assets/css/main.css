@@ -32,6 +32,12 @@
 /* 10. github-theme */
 @import url("github-theme.css");
 
+/* 11. Guestbook */
+@import url("guestbook.css");
+
+/* 12. Animations */
+@import url("animations.css");
+
 /* Dark Mode Toggle Button */
 .dark-mode-toggle {
   background: none;
