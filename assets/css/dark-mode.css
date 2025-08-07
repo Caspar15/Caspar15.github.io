@@ -12,6 +12,13 @@ body.dark {
   --color-accent-hover: #00bfa5; /* 深色模式強調色懸停 */
   --color-accent-rgb: 100, 255, 218; /* 深色模式強調色 RGB */
 
+  /* Dark Mode Code Colors */
+  --code-bg: #2d2d2d; /* 深色模式程式碼區塊背景色 */
+  --code-text: #f8f8f2; /* 深色模式程式碼文字顏色 */
+  --code-border: #3a3a3a; /* 深色模式程式碼區塊邊框 */
+  --inline-code-bg: rgba(150, 150, 150, 0.2); /* 深色模式行內程式碼背景色 */
+  --inline-code-text: #f8f8f2; /* 深色模式行內程式碼文字顏色 */
+
   /* Dark Mode Shadows - 更柔和，與深色背景融合 */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
@@ -258,4 +265,15 @@ body.dark .skeleton {
     var(--color-border) 50%,
     var(--color-bg-subtle) 75%
   );
+}
+
+/* Blog Post Container in Dark Mode */
+body.dark .post-container {
+  background-color: rgba(42, 42, 42, 0.75); /* 使用 --color-bg-subtle 的 RGB 值 */
+  border: 1px solid rgba(68, 68, 68, 0.25); /* 使用 --color-border 的 RGB 值 */
+}
+
+body.dark .post-item {
+  background-color: rgba(42, 42, 42, 0.7); /* 使用 --color-bg-subtle 的 RGB 值 */
+  border: 1px solid rgba(68, 68, 68, 0.2); /* 使用 --color-border 的 RGB 值 */
 }

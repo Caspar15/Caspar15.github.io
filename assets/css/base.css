@@ -16,10 +16,17 @@
     --color-warning: #ffc107; /* 警告提示色 */
     --color-danger: #dc3545; /* 危險提示色 */
 
+    /* Code Colors */
+    --code-bg: #f6f8fa; /* 程式碼區塊背景色 */
+    --code-text: #24292e; /* 程式碼文字顏色 */
+    --code-border: #e1e4e8; /* 程式碼區塊邊框 */
+    --inline-code-bg: rgba(27,31,35,.05); /* 行內程式碼背景色 */
+    --inline-code-text: #24292e; /* 行內程式碼文字顏色 */
+
     /* Typography */
     --font-primary: 'Inter', 'Noto Sans TC', sans-serif; /* 主要字體 */
     --font-mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace; /* 等寬字體 */
-    --font-size-base: 16px;
+    --font-size-base: 15px;
     --font-size-sm: 14px;
     --font-size-lg: 18px;
     --font-size-xl: 24px;

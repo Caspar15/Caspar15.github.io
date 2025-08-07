@@ -28,3 +28,6 @@ exclude:
 
 # 設定永久連結 (專案頁面 URL 將會是 /projects/greenfriend/ 形式)
 permalink: /:categories/:title/
+
+# 摘要分隔符號
+excerpt_separator: <!-- excerpt -->

@@ -5,6 +5,7 @@ date: 2025-08-03 10:00:00 +0800
 categories: jekyll frontend web-development
 tags: ["Jekyll", "JavaScript", "Liquid", "Web Development"]
 author: "Caspar"
+excerpt: "當你的個人作品集網站專案越來越多時，訪客很難快速找到他們感興趣的內容。為了解決這個問題，我決定在我的 Jekyll 網站上增加一個專案篩選功能。這不僅優化了使用者體驗，也讓我的作品集看起來更專業。在這篇文章中，我將分享如何只用 Jekyll 的 Liquid 語法和一點點 JavaScript，就能實現一個高效的專案分類篩選功能。"
 ---
 
 ## 前言

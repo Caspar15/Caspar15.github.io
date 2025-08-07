@@ -94,6 +94,68 @@
   margin-bottom: 1rem;
 }
 
+/* Code Blocks */
+.post-content pre {
+  background-color: var(--code-bg);
+  color: var(--code-text);
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace; /* 考慮使用等寬字體 */
+  font-size: 0.95rem;
+  line-height: 1.5;
+  border: 1px solid var(--code-border);
+}
+
+.post-content pre code {
+  display: block; /* 確保 code 佔據整個 pre 空間 */
+  padding: 0;
+  background-color: transparent;
+  color: inherit;
+}
+
+/* Inline Code */
+.post-content :not(pre) > code {
+  background-color: var(--inline-code-bg);
+  color: var(--inline-code-text);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  font-size: 0.9em;
+}
+
+/* Blockquotes */
+.post-content blockquote {
+  margin: 2rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid var(--color-accent);
+  background-color: var(--color-bg-subtle);
+  color: var(--color-text-muted);
+  font-style: italic;
+  border-radius: 0 8px 8px 0;
+}
+
+.post-content blockquote p {
+  margin-bottom: 0;
+}
+
+/* Images within post content */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 2rem auto; /* 置中圖片並提供上下間距 */
+  border-radius: var(--radius); /* 使用全局圓角變數 */
+  box-shadow: var(--shadow-md); /* 添加中等陰影 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加過渡效果 */
+}
+
+.post-content img:hover {
+  transform: translateY(-3px); /* 懸停時輕微上浮 */
+  box-shadow: var(--shadow-lg); /* 懸停時陰影加深 */
+}
+
 .post-tags {
   margin-top: 2rem;
   padding-top: 1rem;
