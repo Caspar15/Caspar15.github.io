@@ -3,14 +3,15 @@
 body.dark {
   /* Dark Mode Colors */
   --color-bg: #1a1a1a; /* 深色模式主背景 */
+  --color-bg-rgb: 26, 26, 26; /* 深色模式主背景 RGB */
   --color-bg-subtle: #2a2a2a; /* 深色模式次要背景 */
   --color-text: #e0e0e0; /* 深色模式主要文字 */
   --color-text-muted: #b0b0b0; /* 深色模式次要文字 */
   --color-border: #444444; /* 深色模式主要邊框 */
   --color-border-subtle: #3a3a3a; /* 深色模式次要邊框 */
-  --color-accent: #64ffda; /* 深色模式強調色 (亮青綠) */
-  --color-accent-hover: #00bfa5; /* 深色模式強調色懸停 */
-  --color-accent-rgb: 100, 255, 218; /* 深色模式強調色 RGB */
+  --color-accent: #7F5AF0; /* 深色模式強調色 (漸層紫) */
+  --color-accent-hover: #9D84F5; /* 深色模式強調色懸停 (亮紫) */
+  --color-accent-rgb: 127, 90, 240; /* 深色模式強調色 RGB */
 
   /* Dark Mode Code Colors */
   --code-bg: #2d2d2d; /* 深色模式程式碼區塊背景色 */

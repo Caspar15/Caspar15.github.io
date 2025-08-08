@@ -38,6 +38,9 @@
 /* 12. Animations */
 @import url("animations.css");
 
+/* 13. AI Chat */
+@import url("ai-chat.css");
+
 /* Dark Mode Toggle Button */
 .dark-mode-toggle {
   background: none;

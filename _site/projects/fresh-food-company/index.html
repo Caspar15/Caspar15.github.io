@@ -389,8 +389,35 @@
   </footer>
   
 
+  <!-- AI Chatbot Floater -->
+  <div id="ai-chat-widget">
+    <div id="ai-chat-bubble" class="chat-bubble">
+      <!-- This will be the floating icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9.5 9.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm3 3c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm4.5-3c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z"/>
+      </svg>
+    </div>
+    <div id="ai-chat-window" class="chat-window">
+      <div class="chat-header">
+        <h3>AI Assistant</h3>
+        <button id="ai-chat-close-btn">&times;</button>
+      </div>
+      <div id="llm-response-area" class="chat-body">
+        你好！有什麼可以幫助你的嗎？
+      </div>
+      <div class="chat-footer">
+        <textarea id="llm-input" placeholder="輸入你的問題..."></textarea>
+        <button id="llm-submit-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Back to Top Button -->
-  <a href="#" id="backToTopBtn" class="back-to-top-btn" title="Back to top">
+  <a href="#" id="backToTopBtn" class="back-to-top" title="Back to top">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
       <path d="M12 4l-8 8h6v8h4v-8h6z"/>
     </svg>

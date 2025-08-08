@@ -4,14 +4,15 @@
 :root {
     /* Colors */
     --color-bg: #ffffff; /* 主背景色 */
+    --color-bg-rgb: 255, 255, 255; /* 主背景色 RGB */
     --color-bg-subtle: #f8f9fa; /* 次要背景色，用於卡片、區塊等 */
     --color-text: #212529; /* 主要文字顏色 */
     --color-text-muted: #6c757d; /* 次要文字顏色，用於描述、日期等 */
     --color-border: #dee2e6; /* 主要邊框顏色 */
     --color-border-subtle: #e9ecef; /* 次要邊框顏色 */
-    --color-accent: #007bff; /* 主強調色 (藍色) */
-    --color-accent-hover: #0056b3; /* 強調色懸停狀態 */
-    --color-accent-rgb: 0, 123, 255; /* 強調色 RGB 值，用於陰影 */
+    --color-accent: #7F5AF0; /* 主強調色 (漸層紫) */
+    --color-accent-hover: #9D84F5; /* 強調色懸停狀態 (亮紫) */
+    --color-accent-rgb: 127, 90, 240; /* 強調色 RGB 值，用於陰影 */
     --color-success: #28a745; /* 成功提示色 */
     --color-warning: #ffc107; /* 警告提示色 */
     --color-danger: #dc3545; /* 危險提示色 */

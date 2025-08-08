@@ -3,8 +3,11 @@ import { globalSearch } from './modules/search.js';
 import { initializeChart } from './modules/chart.js';
 import { initializeNavigation } from './modules/navigation.js';
 import { initMagicCube } from './modules/magic-cube.js';
+import { initLLMInterface } from './modules/llm-interface.js'; // 引入新的 AI 介面模組
 
 document.addEventListener('DOMContentLoaded', () => {
+  // 初始化 AI 聊天介面
+  initLLMInterface();
   console.log('main.js: DOMContentLoaded fired.');
 
   const loadingOverlay = document.querySelector('.loading-overlay');
@@ -87,9 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if (backToTopBtn) {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 300) {
-        backToTopBtn.classList.add('show');
+        backToTopBtn.classList.add('visible');
       } else {
-        backToTopBtn.classList.remove('show');
+        backToTopBtn.classList.remove('visible');
       }
     });
 

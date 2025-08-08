@@ -85,8 +85,8 @@
 .back-to-top {
   position: fixed;
   bottom: var(--spacing-lg);
-  right: var(--spacing-lg);
-  background: var(--color-accent); /* 使用變數 */
+  left: var(--spacing-lg);
+  background-image: linear-gradient(135deg, #7F5AF0 0%, #E1467C 100%);
   color: white;
   width: 48px; /* 稍微放大 */
   height: 48px;
@@ -111,7 +111,6 @@
 
 .back-to-top:hover {
   transform: translateY(-5px); /* 懸停上浮效果 */
-  background: var(--color-accent-hover); /* 懸停顏色 */
   box-shadow: var(--shadow-lg); /* 懸停時陰影加深 */
 }
 
