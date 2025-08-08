@@ -125,3 +125,48 @@
 .chat-footer button svg {
   color: white;
 }
+
+/* --- New styles for thought process --- */
+
+#llm-response-area {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Add space between elements */
+}
+
+.llm-thought-process {
+  background-color: rgba(var(--color-secondary-bg-rgb), 0.5);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 10px;
+  color: var(--secondary-text-color);
+  font-size: 0.9em;
+  white-space: pre-wrap; /* Preserve whitespace and newlines */
+  overflow-wrap: break-word; /* Wrap long words */
+}
+
+.llm-final-answer {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+.toggle-thought-btn {
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--secondary-text-color);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  margin-top: 5px;
+  align-self: flex-start; /* Align button to the left */
+}
+
+.toggle-thought-btn:hover {
+  background-color: var(--secondary-background-color);
+  color: var(--text-color);
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "caspar15_github_pages_copy",
+  "version": "1.0.0",
+  "description": "test\r 1\r 2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Caspar15/Caspar15_github_pages.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Caspar15/Caspar15_github_pages/issues"
+  },
+  "homepage": "https://github.com/Caspar15/Caspar15_github_pages#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "node-fetch": "^2.7.0"
+  }
+}
