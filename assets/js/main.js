@@ -4,8 +4,12 @@ import { initializeChart } from './modules/chart.js';
 import { initializeNavigation } from './modules/navigation.js';
 import { initMagicCube } from './modules/magic-cube.js';
 import { initLLMInterface } from './modules/llm-interface.js'; // 引入新的 AI 介面模組
+import { initProgressBar } from './modules/progress.js'; // 引入進度條模組
 
 document.addEventListener('DOMContentLoaded', () => {
+  // 初始化進度條
+  initProgressBar();
+
   // 初始化 AI 聊天介面
   initLLMInterface();
   console.log('main.js: DOMContentLoaded fired.');

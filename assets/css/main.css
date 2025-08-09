@@ -41,6 +41,9 @@
 /* 13. AI Chat */
 @import url("ai-chat.css");
 
+/* 14. Progress Bar */
+@import url("progress.css");
+
 /* Dark Mode Toggle Button */
 .dark-mode-toggle {
   background: none;

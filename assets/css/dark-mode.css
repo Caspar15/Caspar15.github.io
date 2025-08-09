@@ -278,3 +278,62 @@ body.dark .post-item {
   background-color: rgba(42, 42, 42, 0.7); /* 使用 --color-bg-subtle 的 RGB 值 */
   border: 1px solid rgba(68, 68, 68, 0.2); /* 使用 --color-border 的 RGB 值 */
 }
+
+/* --- Dark Mode for Markdown Body (Project Pages) --- */
+body.dark .markdown-body {
+  color: var(--color-text);
+  background-color: var(--color-bg-subtle);
+  border-color: var(--color-border);
+}
+
+body.dark .markdown-body h1,
+body.dark .markdown-body h2,
+body.dark .markdown-body h3,
+body.dark .markdown-body h4,
+body.dark .markdown-body h5,
+body.dark .markdown-body h6 {
+  color: var(--color-text);
+  border-bottom-color: var(--color-border);
+}
+
+body.dark .markdown-body a {
+  color: var(--color-accent-hover);
+}
+
+body.dark .markdown-body code {
+  color: var(--inline-code-text);
+  background-color: var(--inline-code-bg);
+}
+
+body.dark .markdown-body pre {
+  background-color: var(--code-bg);
+  color: var(--code-text);
+}
+
+/* --- Fixes for Project Page Header & Sidebar --- */
+body.dark .repo-header h1,
+body.dark .repo-sidebar h3 {
+  color: var(--color-text);
+}
+
+body.dark .repo-sidebar {
+  background-color: var(--color-bg-subtle);
+  border-color: var(--color-border);
+}
+
+body.dark .repo-sidebar p,
+body.dark .repo-sidebar a {
+  color: var(--color-text-muted);
+}
+
+body.dark .repo-sidebar a:hover {
+  color: var(--color-accent);
+}
+
+body.dark .repo-header {
+  background-color: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
