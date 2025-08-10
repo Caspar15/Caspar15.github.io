@@ -1,0 +1,67 @@
+- start_date:
+    year: 2021
+  text:
+    headline: "開啟大學生涯"
+    text: "進入東海大學資訊工程學系，開始了系統性的計算機科學學習之旅。"
+  group: "學業"
+  type: "education"
+
+- start_date:
+    year: 2022
+  text:
+    headline: "初試啼聲：黑客松競賽"
+    text: "在雙北程式設計節中，與團隊一同努力，獲得黑客松亞軍，初次體驗到快速開發與團隊協作的魅力。"
+  group: "競賽"
+  type: "competition"
+
+- start_date:
+    year: 2022
+    month: 8
+  text:
+    headline: "擔任實驗助教"
+    text: "開始擔任電子電路與邏輯設計的實驗助教，透過教學鞏固自己的基礎知識，並幫助學弟妹解決問題。"
+  group: "經歷"
+  type: "milestone"
+
+- start_date:
+    year: 2023
+    month: 3
+  text:
+    headline: "跨域挑戰：ATCC 商業競賽"
+    text: "參加 ATCC 全國大專院校商業個案大賽，在遠傳電信組獲得亞軍，學習將技術思維應用於商業問題。"
+  group: "競賽"
+  type: "competition"
+
+- start_date:
+    year: 2023
+    month: 7
+  text:
+    headline: "實習初體驗：雲端工程師"
+    text: "在智慧轉型中心擔任雲端工程師實習生，接觸業界的雲端架構與開發流程。"
+  group: "工作"
+  type: "work"
+
+- start_date:
+    year: 2023
+    month: 11
+  text:
+    headline: "屢創佳績：海科杯與台灣數位創新獎"
+    text: "在海科杯獲得銀獎與 MVP，並在台灣數位創新獎中榮獲金獎，這些是對我技術實作能力的肯定。"
+  group: "競賽"
+  type: "competition"
+
+- start_date:
+    year: 2024
+  text:
+    headline: "主辦論壇與全端開發"
+    text: "擔任產業應用論壇的主辦人與前端工程師，並投入 IoT 感測全端軟體開發專案，全面提升專案管理與開發能力。"
+  group: "經歷"
+  type: "milestone"
+
+- start_date:
+    year: 2025
+  text:
+    headline: "學業里程碑"
+    text: "以 GPA 3.76 (系排前 10%) 的成績畢業，並成功錄取國立臺灣科技大學電機工程學系碩士班，準備迎接新的學術挑戰。"
+  group: "學業"
+  type: "education"
