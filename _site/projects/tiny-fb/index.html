@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="/assets/css/main.css">
   <!-- terminal -->
   <link rel="stylesheet" href="/assets/css/terminal.css">
+  <link rel="stylesheet" href="/assets/css/custom-cursor.css">
+  <link rel="stylesheet" href="/assets/css/page-transitions.css">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <!-- Chart.js -->
@@ -135,9 +137,10 @@
 </div>
 
 
-  <div id="pageContent">
-    
-    <div class="repo-page-container">
+  <main id="ajax-wrapper">
+    <div id="pageContent">
+      
+      <div class="repo-page-container">
   <div class="main-content-wrapper">
     <div class="repo-header">
     <h1><svg class="octicon octicon-repo" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zM4.5 1C3.672 1 3 1.672 3 2.5V3h10V1H4.5z"></path></svg> TinyFB</h1>
@@ -321,10 +324,11 @@
   </div>
   </div>
 </div>
-  
-  </div>
+    
+    </div>
 
-  <div id="searchResults"></div>
+    <div id="searchResults"></div>
+  </main>
 
   <!-- Footer（頁腳） -->
   <footer class="footer">
@@ -382,5 +386,9 @@
   <script type="module" src="/assets/js/modules/github.js"></script>
   <!-- Animations -->
   <script type="module" src="/assets/js/modules/animations.js"></script>
+  <!-- Custom Cursor -->
+  <script type="module" src="/assets/js/modules/custom-cursor.js"></script>
+  <!-- Page Transitions -->
+  <script type="module" src="/assets/js/modules/page-transitions.js"></script>
 </body>
 </html>

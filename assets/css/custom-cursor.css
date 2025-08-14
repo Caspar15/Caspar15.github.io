@@ -1,0 +1,42 @@
+/* Force disable the default cursor on the entire document and all relevant elements */
+html, body, a, button, input, select, textarea, [onclick] {
+    cursor: none !important;
+}
+
+/* Styles for the custom cursor container, with difference blending */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.3s ease-in-out;
+    mix-blend-mode: difference; /* This creates the color inversion effect */
+}
+
+/* The inner dot of the cursor - must be white for the blend mode to work */
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+/* The outer circle of the cursor - a simple white border */
+.cursor-circle {
+    width: 35px;
+    height: 35px;
+    border: 1px solid white;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition: transform 0.25s cubic-bezier(0.1, 1, 0.5, 1);
+}
+
+/* Style for when the cursor is hovering over an interactive element */
+.custom-cursor.grow .cursor-circle {
+    transform: translate(-50%, -50%) scale(1.6);
+}

@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="/assets/css/main.css">
   <!-- terminal -->
   <link rel="stylesheet" href="/assets/css/terminal.css">
+  <link rel="stylesheet" href="/assets/css/custom-cursor.css">
+  <link rel="stylesheet" href="/assets/css/page-transitions.css">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <!-- Chart.js -->
@@ -33,17 +35,19 @@
   <!-- Header（導覽列） -->
   {% include header.html %}
 
-  <div id="pageContent">
-    {% if page.title == "關於我" %}
-    <div class="about-page-wrapper">
+  <main id="ajax-wrapper">
+    <div id="pageContent">
+      {% if page.title == "關於我" %}
+      <div class="about-page-wrapper">
+        {{ content }}
+      </div>
+    {% else %}
       {{ content }}
+    {% endif %}
     </div>
-  {% else %}
-    {{ content }}
-  {% endif %}
-  </div>
 
-  <div id="searchResults"></div>
+    <div id="searchResults"></div>
+  </main>
 
   <!-- Footer（頁腳） -->
   {% include footer.html %}
@@ -90,5 +94,9 @@
   <script type="module" src="/assets/js/modules/github.js"></script>
   <!-- Animations -->
   <script type="module" src="/assets/js/modules/animations.js"></script>
+  <!-- Custom Cursor -->
+  <script type="module" src="/assets/js/modules/custom-cursor.js"></script>
+  <!-- Page Transitions -->
+  <script type="module" src="/assets/js/modules/page-transitions.js"></script>
 </body>
 </html>
