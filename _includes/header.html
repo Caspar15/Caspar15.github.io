@@ -18,10 +18,16 @@
       </a>
       <div class="trigger">
         <a class="page-link" href="{{ '/' | relative_url }}">首頁</a>
-        <a class="page-link" href="{{ '/about/' | relative_url }}">關於我</a>
+        <div class="nav-item dropdown">
+          <a id="about-dropdown-toggle" class="page-link" href="javascript:void(0);">關於我 <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg></a>
+          <div class="dropdown-content">
+            <a class="page-link" href="{{ '/about/' | relative_url }}">個人總覽</a>
+            <a class="page-link" href="{{ '/resume/' | relative_url }}">互動式履歷</a>
+            <a class="page-link" href="{{ '/journey/' | relative_url }}">我的旅程</a>
+          </div>
+        </div>
         <a class="page-link" href="{{ '/blog/' | relative_url }}">部落格</a>
         <a class="page-link" href="{{ '/guestbook/' | relative_url }}">留言版</a>
-        <a class="page-link" href="{{ '/journey/' | relative_url }}">我的旅程</a>
         <!-- You can add a contact page later -->
         <!-- <a class="page-link" href="{{ '/contact/' | relative_url }}">聯絡我</a> -->
         <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">

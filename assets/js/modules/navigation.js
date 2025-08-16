@@ -54,4 +54,22 @@ export function initializeNavigation() {
     if (!projectCategoriesSidebar) console.log('navigation.js: projectCategoriesSidebar not found.');
     if (!siteHeader) console.log('navigation.js: siteHeader not found.');
   }
+
+  // --- Dropdown Menu Logic ---
+  const dropdownToggle = document.getElementById('about-dropdown-toggle');
+  if (dropdownToggle) {
+    const dropdown = dropdownToggle.closest('.nav-item.dropdown');
+
+    dropdownToggle.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      dropdown.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (event) => {
+      if (dropdown.classList.contains('open') && !dropdown.contains(event.target)) {
+        dropdown.classList.remove('open');
+      }
+    });
+  }
 }
