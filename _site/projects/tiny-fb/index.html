@@ -13,12 +13,17 @@
   <link rel="stylesheet" href="/assets/css/terminal.css">
   <link rel="stylesheet" href="/assets/css/custom-cursor.css">
   <link rel="stylesheet" href="/assets/css/page-transitions.css">
+  <link rel="stylesheet" href="/assets/css/interactive-resume.css">
   <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- Three.js for 3D animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- External Libraries (pinned; SRI will be added) -->
+  <!-- Chart.js (pinned) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer crossorigin="anonymous"></script>
+  <!-- Three.js for 3D animations (pinned r128) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer crossorigin="anonymous"></script>
 </head>
 <body class="page-tinyfb">
 
@@ -53,10 +58,16 @@
       </a>
       <div class="trigger">
         <a class="page-link" href="/">首頁</a>
-        <a class="page-link" href="/about/">關於我</a>
+        <div class="nav-item dropdown">
+          <a id="about-dropdown-toggle" class="page-link" href="javascript:void(0);">關於我 <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg></a>
+          <div class="dropdown-content">
+            <a class="page-link" href="/about/">個人總覽</a>
+            <a class="page-link" href="/resume/">互動式履歷</a>
+            <a class="page-link" href="/journey/">我的旅程</a>
+          </div>
+        </div>
         <a class="page-link" href="/blog/">部落格</a>
         <a class="page-link" href="/guestbook/">留言版</a>
-        <a class="page-link" href="/journey/">我的旅程</a>
         <!-- You can add a contact page later -->
         <!-- <a class="page-link" href="/contact/">聯絡我</a> -->
         <link rel="stylesheet" href="/assets/css/blog.css">

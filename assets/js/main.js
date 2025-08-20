@@ -5,6 +5,7 @@ import { initializeNavigation } from './modules/navigation.js';
 import { initMagicCube } from './modules/magic-cube.js';
 import { initLLMInterface } from './modules/llm-interface.js'; // 引入新的 AI 介面模組
 import { initProgressBar } from './modules/progress.js'; // 引入進度條模組
+import { initializeResume } from './modules/resume.js'; // 引入互動式履歷模組
 
 document.addEventListener('DOMContentLoaded', () => {
   // 初始化進度條
@@ -111,4 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize Magic Cube
   initMagicCube();
+
+  // Initialize Interactive Resume if on the right page
+  if (document.getElementById('resume-container')) {
+    initializeResume();
+  }
 });

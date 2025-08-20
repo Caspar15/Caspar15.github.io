@@ -8,6 +8,9 @@ export function initializeNavigation() {
   const sidebarToggle = document.getElementById('sidebarToggle');
   const projectCategoriesSidebar = document.getElementById('projectCategoriesSidebar');
   const siteHeader = document.querySelector('.site-header');
+  if (siteHeader) {
+    siteHeader.classList.add('glass-nav');
+  }
 
   if (sidebarToggle && projectCategoriesSidebar && siteHeader) {
     console.log('navigation.js: All navigation elements found.');
@@ -53,5 +56,45 @@ export function initializeNavigation() {
     if (!sidebarToggle) console.log('navigation.js: sidebarToggle not found.');
     if (!projectCategoriesSidebar) console.log('navigation.js: projectCategoriesSidebar not found.');
     if (!siteHeader) console.log('navigation.js: siteHeader not found.');
+  }
+
+  // --- Dropdown Menu Logic ---
+  const dropdownToggle = document.getElementById('about-dropdown-toggle');
+  if (dropdownToggle) {
+    const dropdown = dropdownToggle.closest('.nav-item.dropdown');
+
+    dropdownToggle.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      const isOpen = dropdown.classList.toggle('open');
+      dropdownToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', (event) => {
+      if (dropdown.classList.contains('open') && !dropdown.contains(event.target)) {
+        dropdown.classList.remove('open');
+        dropdownToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && dropdown.classList.contains('open')) {
+        dropdown.classList.remove('open');
+        dropdownToggle.setAttribute('aria-expanded', 'false');
+        dropdownToggle.focus();
+      }
+    });
+  }
+
+  // Elevate header shadow on scroll
+  const headerEl = document.querySelector('.site-header');
+  if (headerEl) {
+    const onScroll = () => {
+      if (window.scrollY > 8) headerEl.classList.add('is-scrolled');
+      else headerEl.classList.remove('is-scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
   }
 }

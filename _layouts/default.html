@@ -13,12 +13,17 @@
   <link rel="stylesheet" href="/assets/css/terminal.css">
   <link rel="stylesheet" href="/assets/css/custom-cursor.css">
   <link rel="stylesheet" href="/assets/css/page-transitions.css">
+  <link rel="stylesheet" href="/assets/css/interactive-resume.css">
   <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- Three.js for 3D animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- External Libraries (pinned; SRI will be added) -->
+  <!-- Chart.js (pinned) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer crossorigin="anonymous"></script>
+  <!-- Three.js for 3D animations (pinned r128) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer crossorigin="anonymous"></script>
 </head>
 <body class="page-{{ page.title | slugify }}">
 

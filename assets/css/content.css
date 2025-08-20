@@ -257,6 +257,26 @@
     margin-bottom: var(--spacing-xxl);
 }
 
+/* Improve readability: add panel background behind hero on About page */
+.profile-header {
+  position: relative;
+  padding: var(--spacing-xl);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+body.dark .profile-header {
+  background: rgba(20, 20, 20, 0.85);
+  border-color: rgba(255,255,255,0.08);
+}
+.profile-header h1,
+.profile-header .subtitle,
+.profile-header .summary {
+  position: relative;
+  z-index: 1;
+}
+
 .profile-header h1 {
     font-size: var(--font-size-h1); /* 使用變數 */
     font-weight: 700;

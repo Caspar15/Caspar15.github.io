@@ -1,0 +1,64 @@
+---
+layout: default
+title: 404 Not Found
+permalink: /404.html
+sitemap: false
+---
+
+<section class="not-found">
+  <div class="container">
+    <h1>404</h1>
+    <p>抱歉，找不到這個頁面。</p>
+    <p>
+      <a class="btn" href="/">回首頁</a>
+      <a class="btn" href="/blog/">前往部落格</a>
+    </p>
+
+    <div class="search-box">
+      <label for="inlineSearch">站內搜尋</label>
+      <input id="inlineSearch" type="search" placeholder="輸入關鍵字..." aria-label="站內搜尋">
+      <div id="inlineSearchResults" class="search-results" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // 簡易接入既有 search.json 與前端搜尋
+  (function(){
+    const input = document.getElementById('inlineSearch');
+    const results = document.getElementById('inlineSearchResults');
+    let data = [];
+    fetch('/search.json').then(r=>r.json()).then(j=>data=j).catch(()=>{});
+    input && input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      results.innerHTML = '';
+      if (!q) return;
+      const matched = data.filter(item => (item.title||'').toLowerCase().includes(q) || (item.content||'').toLowerCase().includes(q)).slice(0,8);
+      matched.forEach(m => {
+        const a = document.createElement('a');
+        a.href = m.url; a.textContent = m.title || m.url; a.className = 'search-hit';
+        results.appendChild(a);
+      });
+      if (matched.length === 0) {
+        const p = document.createElement('p'); p.textContent = '沒有找到相關結果'; results.appendChild(p);
+      }
+    });
+  })();
+</script>
+
+<style>
+  .not-found{padding:4rem 1rem; text-align:center}
+  .not-found h1{font-size:4rem; margin:0 0 0.5rem}
+  .not-found .btn{display:inline-block; margin:0.5rem; padding:0.6rem 1rem; border:1px solid #888; border-radius:8px; text-decoration:none}
+  .search-box{max-width:640px;margin:2rem auto 0;text-align:left}
+  .search-box input{width:100%;padding:0.6rem 0.8rem;border-radius:6px;border:1px solid #ccc}
+  .search-results{display:grid;gap:0.25rem;margin-top:0.75rem}
+  .search-hit{padding:0.4rem 0.5rem;border-radius:6px;text-decoration:none;border:1px solid transparent}
+  .search-hit:hover{border-color:#aaa}
+  @media (prefers-color-scheme: dark){
+    .not-found .btn{border-color:#aaa}
+    .search-box input{background:#111;border-color:#444;color:#eaeaea}
+    .search-hit:hover{border-color:#666}
+  }
+</style>
+

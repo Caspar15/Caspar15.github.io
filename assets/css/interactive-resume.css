@@ -1,0 +1,216 @@
+/* General Resume Page Styles */
+.resume-page {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--color-bg-subtle, #f9f9f9);
+}
+
+/* Header */
+#resume-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem 1.5rem;
+  background: var(--color-bg, #fff);
+  border: 1px solid var(--color-border, #eee);
+  border-radius: var(--radius-xl, 16px);
+  box-shadow: var(--shadow-sm, 0 2px 8px rgba(0,0,0,0.06));
+  position: relative;
+}
+
+#resume-header h1 {
+  font-size: 3.5rem;
+  color: var(--color-accent, #007bff);
+  margin-bottom: 0.5rem;
+}
+
+#resume-header .resume-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-muted, #6c757d);
+  margin-bottom: 1rem;
+}
+
+#resume-header .contact-info {
+  font-size: 1rem;
+  color: var(--color-text-muted, #6c757d);
+}
+
+#resume-header::after {
+  content: '';
+  position: absolute;
+  left: 24px; right: 24px; bottom: 0;
+  height: 3px;
+  border-bottom-left-radius: 999px;
+  border-bottom-right-radius: 999px;
+  background: linear-gradient(90deg, var(--color-accent, #007bff), #6ee7f9);
+  opacity: .4;
+}
+
+/* Grid Layout */
+.resume-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.75rem 2.25rem; /* larger row gap, moderate column gap */
+}
+
+@media (min-width: 768px) {
+  .resume-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+/* Card Styles */
+.resume-card {
+  background-color: var(--color-bg, #fff);
+  border: 1px solid var(--color-border, #eee);
+  border-radius: var(--radius-lg, 12px);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md, 0 4px 6px rgba(0,0,0,0.1));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg, 0 10px 15px rgba(0,0,0,0.12));
+}
+
+/* Accent bar on hover for visual polish */
+.resume-card::before{
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(180deg, var(--color-accent, #007bff), #6ee7f9);
+  opacity: 0; transform: translateX(-6px);
+  transition: opacity .25s ease, transform .25s ease;
+}
+.resume-card:hover::before{ opacity: 1; transform: translateX(0); }
+
+.card-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: var(--color-text, #333);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border, #eee);
+}
+
+.card-title svg {
+  margin-right: 0.75rem;
+  color: var(--color-accent, #007bff);
+}
+
+/* Experience Section */
+#resume-experience{ position: relative; }
+#resume-experience::before{
+  content: '';
+  position: absolute; top: 1.25rem; bottom: 1rem; left: 12px;
+  width: 2px; background: var(--color-border-subtle, #ececec);
+}
+.experience-item {
+  position: relative;
+  padding-left: 2.5rem; /* more space so hover lift doesn't cramp */
+  margin-bottom: 1.5rem;
+}
+
+.experience-item:before {
+  content: '';
+  position: absolute;
+  left: 12px; /* align with section timeline */
+  top: 12px;
+  width: 9px;
+  height: 9px;
+  background-color: var(--color-accent, #007bff);
+  border-radius: 50%;
+}
+
+.experience-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+  cursor: pointer;
+}
+
+.experience-date {
+  font-size: 0.9rem;
+  color: var(--color-text-muted, #6c757d);
+  margin-bottom: 0.5rem;
+}
+
+.experience-details {
+  display: none;
+  padding-top: 0.5rem;
+}
+
+.experience-item.active .experience-details {
+  display: block;
+}
+
+.experience-details ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.experience-details li {
+  margin-bottom: 0.5rem;
+}
+
+/* Skills Section */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.skill {
+  background-color: var(--color-bg, #fff);
+  color: var(--color-text, #333);
+  padding: 0.30rem 0.5rem;
+  border-radius: var(--radius-full, 999px);
+  font-size: 0.75rem;
+  cursor: pointer;
+  position: relative;
+  border: 1px solid var(--color-border, #eee);
+  box-shadow: var(--shadow-sm, 0 2px 6px rgba(0,0,0,0.06));
+  display: inline-flex; align-items: center; gap: .35rem;
+  transition: background-color 0.3s ease, box-shadow .3s ease, transform .2s ease;
+}
+
+.skill:hover {
+  background-color: var(--color-bg-subtle, #f5f7fb);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md, 0 6px 12px rgba(0,0,0,0.08));
+}
+
+.skill .skill-level {
+  display: none;
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 3px;
+  white-space: nowrap;
+  font-size: 0.8rem;
+}
+
+.skill:hover .skill-level {
+  display: block;
+}
+
+/* Inline progress bar */
+.skill .skill-bar{ width: 64px; height: 4px; background: var(--color-bg-subtle,#f0f0f0); border-radius: 999px; overflow: hidden; border: 1px solid var(--color-border,#eee); }
+.skill .skill-bar-fill{ height: 100%; width: 0; background: linear-gradient(90deg, var(--color-accent,#007bff), #6ee7f9); transition: width .6s ease-out; }
+
+/* Education Section */
+.education-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.education-item p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted, #6c757d);
+}

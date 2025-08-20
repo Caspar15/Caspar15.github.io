@@ -154,6 +154,24 @@
   box-shadow: var(--shadow-sm); /* 添加陰影 */
 }
 
+/* Override and refine resume download button visuals */
+.download-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text) !important;
+  text-decoration: none;
+}
+
+.download-resume:hover {
+  background: var(--color-bg-subtle);
+  border-color: var(--color-accent);
+}
+
 .download-resume {
   background: linear-gradient(120deg, #0c0c0c 0%, #ffffff 100%);
   color: white !important;
