@@ -9,6 +9,7 @@ export function initializeResume() {
     skillLevelDiv.classList.add('skill-level');
     skillLevelDiv.textContent = level;
     skill.appendChild(skillLevelDiv);
+<<<<<<< HEAD
 
     // Add inline progress bar
     const bar = document.createElement('div');
@@ -23,6 +24,8 @@ export function initializeResume() {
     requestAnimationFrame(() => {
       setTimeout(() => { fill.style.width = pct; }, 60);
     });
+=======
+>>>>>>> b0cda0aeadb494044c64b8eda3afa2af5eab90d9
   });
 
   // Experience toggle effect
