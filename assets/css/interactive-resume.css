@@ -10,15 +10,12 @@
 #resume-header {
   text-align: center;
   margin-bottom: 3rem;
-<<<<<<< HEAD
   padding: 2rem 1.5rem;
   background: var(--color-bg, #fff);
   border: 1px solid var(--color-border, #eee);
   border-radius: var(--radius-xl, 16px);
   box-shadow: var(--shadow-sm, 0 2px 8px rgba(0,0,0,0.06));
   position: relative;
-=======
->>>>>>> b0cda0aeadb494044c64b8eda3afa2af5eab90d9
 }
 
 #resume-header h1 {
@@ -38,7 +35,6 @@
   color: var(--color-text-muted, #6c757d);
 }
 
-<<<<<<< HEAD
 #resume-header::after {
   content: '';
   position: absolute;
@@ -50,17 +46,11 @@
   opacity: .4;
 }
 
-=======
->>>>>>> b0cda0aeadb494044c64b8eda3afa2af5eab90d9
 /* Grid Layout */
 .resume-grid {
   display: grid;
   grid-template-columns: 1fr;
-<<<<<<< HEAD
   gap: 3.75rem 2.25rem; /* larger row gap, moderate column gap */
-=======
-  gap: 2rem;
->>>>>>> b0cda0aeadb494044c64b8eda3afa2af5eab90d9
 }
 
 @media (min-width: 768px) {
@@ -72,15 +62,11 @@
 /* Card Styles */
 .resume-card {
   background-color: var(--color-bg, #fff);
-<<<<<<< HEAD
   border: 1px solid var(--color-border, #eee);
-=======
->>>>>>> b0cda0aeadb494044c64b8eda3afa2af5eab90d9
   border-radius: var(--radius-lg, 12px);
   padding: 1.5rem;
   box-shadow: var(--shadow-md, 0 4px 6px rgba(0,0,0,0.1));
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-<<<<<<< HEAD
   position: relative;
   overflow: hidden;
 }
@@ -100,15 +86,6 @@
 }
 .resume-card:hover::before{ opacity: 1; transform: translateX(0); }
 
-=======
-}
-
-.resume-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg, 0 10px 15px rgba(0,0,0,0.1));
-}
-
->>>>>>> b0cda0aeadb494044c64b8eda3afa2af5eab90d9
 .card-title {
   display: flex;
   align-items: center;
@@ -125,7 +102,6 @@
 }
 
 /* Experience Section */
-<<<<<<< HEAD
 #resume-experience{ position: relative; }
 #resume-experience::before{
   content: '';
@@ -135,24 +111,14 @@
 .experience-item {
   position: relative;
   padding-left: 2.5rem; /* more space so hover lift doesn't cramp */
-=======
-.experience-item {
-  position: relative;
-  padding-left: 1.5rem;
->>>>>>> b0cda0aeadb494044c64b8eda3afa2af5eab90d9
   margin-bottom: 1.5rem;
 }
 
 .experience-item:before {
   content: '';
   position: absolute;
-<<<<<<< HEAD
   left: 12px; /* align with section timeline */
   top: 12px;
-=======
-  left: 0;
-  top: 9px;
->>>>>>> b0cda0aeadb494044c64b8eda3afa2af5eab90d9
   width: 9px;
   height: 9px;
   background-color: var(--color-accent, #007bff);
@@ -193,7 +159,6 @@
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
-<<<<<<< HEAD
   gap: 0.45rem;
 }
 
@@ -215,25 +180,6 @@
   background-color: var(--color-bg-subtle, #f5f7fb);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md, 0 6px 12px rgba(0,0,0,0.08));
-=======
-  gap: 0.75rem;
-}
-
-.skill {
-  background-color: var(--color-bg-subtle, #f0f0f0);
-  color: var(--color-text, #333);
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-full, 999px);
-  font-size: 0.9rem;
-  cursor: pointer;
-  position: relative;
-  transition: background-color 0.3s ease;
-}
-
-.skill:hover {
-  background-color: var(--color-accent, #007bff);
-  color: #fff;
->>>>>>> b0cda0aeadb494044c64b8eda3afa2af5eab90d9
 }
 
 .skill .skill-level {
@@ -254,13 +200,10 @@
   display: block;
 }
 
-<<<<<<< HEAD
 /* Inline progress bar */
 .skill .skill-bar{ width: 64px; height: 4px; background: var(--color-bg-subtle,#f0f0f0); border-radius: 999px; overflow: hidden; border: 1px solid var(--color-border,#eee); }
 .skill .skill-bar-fill{ height: 100%; width: 0; background: linear-gradient(90deg, var(--color-accent,#007bff), #6ee7f9); transition: width .6s ease-out; }
 
-=======
->>>>>>> b0cda0aeadb494044c64b8eda3afa2af5eab90d9
 /* Education Section */
 .education-item h3 {
   font-size: 1.1rem;

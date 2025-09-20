@@ -169,7 +169,6 @@
 .nav-item.dropdown.open .dropdown-content {
   display: block;
 }
-<<<<<<< HEAD
 
 /* --- Enhanced glass header variant and dropdown polish --- */
 .site-header.glass-nav {
@@ -223,5 +222,3 @@
   background: linear-gradient(135deg, var(--color-accent), #6ee7f9 70%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-=======
->>>>>>> b0cda0aeadb494044c64b8eda3afa2af5eab90d9

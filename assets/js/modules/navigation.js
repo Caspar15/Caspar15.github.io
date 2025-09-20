@@ -66,18 +66,13 @@ export function initializeNavigation() {
     dropdownToggle.addEventListener('click', (event) => {
       event.preventDefault();
       event.stopPropagation();
-<<<<<<< HEAD
       const isOpen = dropdown.classList.toggle('open');
       dropdownToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-=======
-      dropdown.classList.toggle('open');
->>>>>>> b0cda0aeadb494044c64b8eda3afa2af5eab90d9
     });
 
     document.addEventListener('click', (event) => {
       if (dropdown.classList.contains('open') && !dropdown.contains(event.target)) {
         dropdown.classList.remove('open');
-<<<<<<< HEAD
         dropdownToggle.setAttribute('aria-expanded', 'false');
       }
     });
@@ -103,9 +98,3 @@ export function initializeNavigation() {
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 }
-=======
-      }
-    });
-  }
-}
->>>>>>> b0cda0aeadb494044c64b8eda3afa2af5eab90d9

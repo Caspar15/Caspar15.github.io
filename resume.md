@@ -12,12 +12,9 @@ title: Interactive Resume
       <span>|</span>
       <span>Phone: 123-456-7890</span>
     </div>
-<<<<<<< HEAD
     <p style="margin-top: 1rem;">
       <a class="download-resume" href="#" aria-label="Download PDF resume">Download PDF</a>
     </p>
-=======
->>>>>>> b0cda0aeadb494044c64b8eda3afa2af5eab90d9
   </header>
 
   <div class="resume-grid">
@@ -27,7 +24,6 @@ title: Interactive Resume
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
           Summary
         </h2>
-<<<<<<< HEAD
         <p>
           Tunghai University, Department of Computer Science & Information Engineering (Class of 2025).
           GPA 3.76/4.0 (Ranked 18/169, Top 10.65%). Admitted to National Taiwan University of Science and Technology, M.S. in Electrical Engineering.
@@ -52,9 +48,6 @@ title: Interactive Resume
           <li>2024 Taipei Programming Competition — Hackathon Finals</li>
           <li>2024 Chunghwa Post Big Data Competition — Semifinalist</li>
         </ul>
-=======
-        <p>A passionate web developer with a knack for creating engaging and interactive web experiences. Always eager to learn new technologies and apply them to solve real-world problems.</p>
->>>>>>> b0cda0aeadb494044c64b8eda3afa2af5eab90d9
       </section>
 
       <section id="resume-experience" class="resume-card">
@@ -63,26 +56,15 @@ title: Interactive Resume
           Experience
         </h2>
         <div class="experience-item">
-<<<<<<< HEAD
           <h3>System Engineer (Organizer), ISSC Youth Programming Competition</h3>
           <p class="experience-date">2022, 2024</p>
           <div class="experience-details">
             <ul>
               <li>Organized and supported system operations for national‑level programming competitions.</li>
-=======
-          <h3>Senior Web Developer at TechCorp</h3>
-          <p class="experience-date">Jan 2022 - Present</p>
-          <div class="experience-details">
-            <ul>
-              <li>Developed and maintained the company's main website.</li>
-              <li>Implemented new features using modern web technologies.</li>
-              <li>Collaborated with the design team to create user-friendly interfaces.</li>
->>>>>>> b0cda0aeadb494044c64b8eda3afa2af5eab90d9
             </ul>
           </div>
         </div>
         <div class="experience-item">
-<<<<<<< HEAD
           <h3>Teaching Assistant, Electronic Circuits Lab — Tunghai University</h3>
           <p class="experience-date">Year</p>
           <div class="experience-details">
@@ -142,14 +124,6 @@ title: Interactive Resume
           <div class="experience-details">
             <ul>
               <li>Built end‑to‑end IoT data ingestion, storage, visualization, and alerting pipelines.</li>
-=======
-          <h3>Junior Web Developer at WebStart</h3>
-          <p class="experience-date">Jun 2020 - Dec 2021</p>
-          <div class="experience-details">
-            <ul>
-              <li>Assisted in the development of client websites.</li>
-              <li>Learned and applied best practices in web development.</li>
->>>>>>> b0cda0aeadb494044c64b8eda3afa2af5eab90d9
             </ul>
           </div>
         </div>
@@ -163,7 +137,6 @@ title: Interactive Resume
           Skills
         </h2>
         <div class="skills-grid">
-<<<<<<< HEAD
           <div class="skill" data-level="90%">Python</div>
           <div class="skill" data-level="85%">JavaScript</div>
           <div class="skill" data-level="85%">HTML</div>
@@ -174,14 +147,6 @@ title: Interactive Resume
           <div class="skill" data-level="70%">React</div>
           <div class="skill" data-level="75%">Jekyll</div>
           <div class="skill" data-level="80%">Deep Learning</div>
-=======
-          <div class="skill" data-level="90%">JavaScript</div>
-          <div class="skill" data-level="85%">Python</div>
-          <div class="skill" data-level="80%">HTML & CSS</div>
-          <div class="skill" data-level="75%">Jekyll</div>
-          <div class="skill" data-level="70%">React</div>
-          <div class="skill" data-level="60%">Node.js</div>
->>>>>>> b0cda0aeadb494044c64b8eda3afa2af5eab90d9
         </div>
       </section>
 
@@ -191,17 +156,12 @@ title: Interactive Resume
           Education
         </h2>
         <div class="education-item">
-<<<<<<< HEAD
           <h3>Tunghai University — Department of Computer Science & Information Engineering</h3>
           <p>Class of 2025 · GPA 3.76/4.0 (Ranked 18/169, Top 10.65%)</p>
         </div>
         <div class="education-item">
           <h3>Admitted — National Taiwan University of Science and Technology</h3>
           <p>M.S. in Electrical Engineering (Admission)</p>
-=======
-          <h3>B.S. in Computer Science</h3>
-          <p>University of Technology, 2016 - 2020</p>
->>>>>>> b0cda0aeadb494044c64b8eda3afa2af5eab90d9
         </div>
       </section>
     </aside>
