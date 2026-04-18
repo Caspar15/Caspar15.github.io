@@ -1,39 +1,76 @@
-/* footer.css */
-
-/* 頁腳區域 */
+/* footer.css — iOS-style Footer */
 
 .footer {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: var(--spacing-xl) var(--spacing-lg); /* 調整內邊距 */
-    border-top: 1px solid var(--color-border-subtle); /* 使用變數 */
-    margin-top: var(--spacing-xxl); /* 增加外邊距 */
-    background-color: var(--color-bg-subtle); /* 輕微背景色 */
-    color: var(--color-text-muted); /* 使用變數 */
-    font-size: var(--font-size-sm); /* 使用變數 */
-  }
-  
-  .footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacing-md);
-  }
-  
-  .footer-social-icons {
-    display: flex;
-    gap: var(--spacing-lg); /* 增加間距 */
-  }
-  
-  .footer-social-icons img {
-    width: 24px; /* 稍微放大圖標 */
-    height: 24px;
-    opacity: 0.7;
-    transition: opacity var(--transition-fast), transform var(--transition-fast); /* 添加過渡效果 */
-  }
-  
-  .footer-social-icons img:hover {
-    opacity: 1;
-    transform: translateY(-3px); /* 懸停上浮效果 */
-  }
-  
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  margin-top: var(--spacing-xxl);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  max-width: 1560px;
+  margin: 0 auto;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.footer-social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(118, 118, 128, 0.1);
+  transition: all var(--transition-fast);
+}
+
+.footer-social-icons a:hover {
+  background: rgba(0, 122, 255, 0.15);
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+.footer-social-icons img {
+  width: 18px;
+  height: 18px;
+  opacity: 0.6;
+  transition: opacity var(--transition-fast);
+}
+
+.footer-social-icons a:hover img {
+  opacity: 1;
+}
+
+.footer p {
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.01em;
+}
+
+body.dark .footer {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark .footer-social-icons a {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+body.dark .footer-social-icons a:hover {
+  background: rgba(10, 132, 255, 0.2);
+}
+
+body.dark .footer-social-icons img {
+  filter: brightness(0) invert(1);
+}

@@ -4,60 +4,74 @@ title: Home
 ---
 
 <div class="layout">
-  <!-- 左側邊欄 (包含篩選器) -->
+  <!-- 左側邊欄 -->
   <aside class="sidebar">
     <section class="profile-section">
-      <img src="/assets/images/profile.webp" alt="Profile" class="profile-pic-sidebar">
-      <h2>Caspar</h2>
-      <p>軟體工程師 | 全端開發 | 資料科學愛好者</p>
+      <img src="/assets/images/profile.webp" alt="Caspar Chen" class="profile-pic-sidebar">
+      <h2>陳柏宇 Caspar</h2>
+      <p>台科大電機所 · AI 演算法 · 全端工程師</p>
       <div class="social-icons">
-        <a href="https://www.facebook.com/bai.yu.592792/" title="Facebook" target="_blank"><img src="/assets/images/facebook.png" alt="Facebook"></a>
-        <a href="https://x.com/chnbiy485839748" title="Twitter" target="_blank"><img src="/assets/images/twitter.png" alt="Twitter"></a>
-        <a href="https://github.com/Caspar15" title="GitHub" target="_blank"><img src="/assets/images/github.png" alt="GitHub"></a>
-        <a href="https://www.linkedin.com/in/%E6%9F%8F%E5%AE%87-%E9%99%B3-3a84132a2/" title="LinkedIn" target="_blank"><img src="/assets/images/linkedin.png" alt="LinkedIn"></a>
+        <a href="https://www.facebook.com/bai.yu.592792/" title="Facebook" target="_blank" rel="noopener">
+          <img src="/assets/images/facebook.png" alt="Facebook">
+        </a>
+        <a href="https://x.com/chnbiy485839748" title="Twitter / X" target="_blank" rel="noopener">
+          <img src="/assets/images/twitter.png" alt="Twitter">
+        </a>
+        <a href="https://github.com/Caspar15" title="GitHub" target="_blank" rel="noopener">
+          <img src="/assets/images/github.png" alt="GitHub">
+        </a>
+        <a href="https://www.linkedin.com/in/%E6%9F%8F%E5%AE%87-%E9%99%B3-3a84132a2/" title="LinkedIn" target="_blank" rel="noopener">
+          <img src="/assets/images/linkedin.png" alt="LinkedIn">
+        </a>
       </div>
     </section>
- <div id="magic-cube-container" class="magic-cube-container"></div>
- 
-     <!-- Interactive Terminal -->
-     <section class="terminal-section">
-       <div id="terminal-container" class="terminal">
-         <div id="terminal-header">caspar@portfolio: ~</div>
-         <div id="terminal-body">
-           <div id="terminal-output"></div>
-           <div class="terminal-prompt">
-               <span class="prompt-user">guest@caspar-dev:</span><span class="prompt-symbol">
-      $&nbsp;</span>
-                <input type="text" id="terminal-input" class="terminal-input" autocomplete="off">
-           </div>
-         </div>
-       </div>
-     </section>
-    
+
+    <div id="magic-cube-container" class="magic-cube-container"></div>
+
+    <!-- Interactive Terminal -->
+    <section class="terminal-section">
+      <div id="terminal-container" class="terminal">
+        <div id="terminal-header">caspar@portfolio: ~</div>
+        <div id="terminal-body">
+          <div id="terminal-output"></div>
+          <div class="terminal-prompt">
+            <span class="prompt-user">guest@caspar-dev:</span><span class="prompt-symbol">$&nbsp;</span>
+            <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" spellcheck="false">
+          </div>
+        </div>
+      </div>
+    </section>
   </aside>
 
-  <!-- 中間主內容 (統計 + 專案) -->
+  <!-- 中間主內容 -->
   <main class="main-content">
     <div class="statistics-section">
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-icon">📊</div>
+          <div class="stat-icon">📦</div>
           <div class="stat-content">
-            <div class="stat-value" id="github-repo-count">...</div>
-            <div class="stat-label">總專案數</div>
+            <div class="stat-value" id="github-repo-count">—</div>
+            <div class="stat-label">GitHub 專案</div>
           </div>
         </div>
         <div class="stat-card">
-          <div class="stat-icon">📝</div>
+          <div class="stat-icon">🏆</div>
           <div class="stat-content">
-            <div class="stat-value">8</div>
-            <div class="stat-label">技術文章</div>
+            <div class="stat-value">4</div>
+            <div class="stat-label">競賽獎項</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">📄</div>
+          <div class="stat-content">
+            <div class="stat-value">1</div>
+            <div class="stat-label">IEEE 論文</div>
           </div>
         </div>
         <div class="stat-card">
           <div class="stat-icon">📜</div>
           <div class="stat-content">
-            <div class="stat-value" id="github-gists-count">...</div>
+            <div class="stat-value" id="github-gists-count">—</div>
             <div class="stat-label">公開 Gists</div>
           </div>
         </div>
@@ -66,7 +80,7 @@ title: Home
         <canvas id="categoryChart"></canvas>
       </div>
     </div>
-    
+
     <section class="articles" id="projects">
       {% include projects.html %}
     </section>
@@ -77,35 +91,60 @@ title: Home
     <section class="latest-posts">
       <h3>最新文章</h3>
       <ul>
-        <li><a href="#"><span class="post-title">GreenFriend 專案介紹</span><span class="post-date">2024-02-10</span></a></li>
-        <li><a href="#"><span class="post-title">Discord Music Bot 更新</span><span class="post-date">2024-02-05</span></a></li>
+        {% for post in site.posts limit:5 %}
+        <li>
+          <a href="{{ post.url | relative_url }}">
+            <span class="post-title">{{ post.title }}</span>
+            <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+          </a>
+        </li>
+        {% else %}
+        <li>
+          <a href="/blog/">
+            <span class="post-title">如何在 Jekyll 實作專案篩選功能</span>
+            <span class="post-date">2025-08-03</span>
+          </a>
+        </li>
+        {% endfor %}
       </ul>
-      <a href="/blog/" class="view-all">查看全部</a>
+      <a href="/blog/" class="view-all">查看全部 →</a>
     </section>
+
     <section class="skills-section">
       <h3>技能與技術</h3>
       <div class="skills-list">
         <span class="skill-item">Python</span>
-        <span class="skill-item">JavaScript</span>
-        <span class="skill-item">HTML/CSS</span>
-        <span class="skill-item">React</span>
-        <span class="skill-item">Node.js</span>
-        <span class="skill-item">SQL</span>
-        <span class="skill-item">Git</span>
-        <span class="skill-item">Jekyll</span>
+        <span class="skill-item">C / C++</span>
+        <span class="skill-item">Machine Learning</span>
         <span class="skill-item">Deep Learning</span>
-        <span class="skill-item">Data Science</span>
+        <span class="skill-item">NLP</span>
+        <span class="skill-item">Reinforcement Learning</span>
+        <span class="skill-item">PyTorch</span>
+        <span class="skill-item">CUDA</span>
+        <span class="skill-item">React</span>
+        <span class="skill-item">JavaScript</span>
+        <span class="skill-item">HTML / CSS</span>
+        <span class="skill-item">Git</span>
+        <span class="skill-item">Docker</span>
       </div>
     </section>
 
     <section class="future-updates-section">
-      <h3>未來更新計畫</h3>
+      <h3>近期計畫</h3>
       <ul>
-        <li><span class="update-item">我的旅程」/互動式時間軸</span><span class="update-status">計畫中</span></li>
-        <li><span class="update-item">網站訪客地圖/統計</span><span class="update-status">計畫中</span></li>
+        <li>
+          <span class="update-item">網站訪客地圖統計</span>
+          <span class="update-status">計畫中</span>
+        </li>
+        <li>
+          <span class="update-item">更多部落格文章</span>
+          <span class="update-status">進行中</span>
+        </li>
+        <li>
+          <span class="update-item">碩士研究專案展示</span>
+          <span class="update-status">計畫中</span>
+        </li>
       </ul>
     </section>
-
-    
   </aside>
 </div>

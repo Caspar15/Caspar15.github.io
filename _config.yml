@@ -1,5 +1,5 @@
-title: "Caspar15 的網站"
-description: "這是一個使用 Jekyll 建立的 GitHub Pages 網站"
+title: "陳柏宇 Caspar Chen"
+description: "台科大電機所碩士生 · AI 演算法研究 · 全端工程師 · IEEE ICACT 2026 Outstanding Paper Award"
 baseurl: ""                  # 因為是 user page (caspar15.github.io)，留空即可
 url: "https://caspar15.github.io"
 

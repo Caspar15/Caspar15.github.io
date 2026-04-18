@@ -3,86 +3,49 @@
 /* main.css */
 
 /* 1. 基本與變數 */
-@import url("base.css");
+@import url("/assets/css/base.css");
 
 /* 2. 版面布局 */
-@import url("layout.css");
+@import url("/assets/css/layout.css");
 
 /* 3. Header */
-@import url("header.css");
+@import url("/assets/css/header.css");
 
 /* 4. Sidebar */
-@import url("sidebar.css");
+@import url("/assets/css/sidebar.css");
 
 /* 5. Content */
-@import url("content.css");
+@import url("/assets/css/content.css");
 
 /* 6. Footer */
-@import url("footer.css");
+@import url("/assets/css/footer.css");
 
 /* 7. Utilities */
-@import url("utilities.css");
+@import url("/assets/css/utilities.css");
 
 /* 8. Dark mode */
-@import url("dark-mode.css");
+@import url("/assets/css/dark-mode.css");
 
 /* 9. Responsive */
-@import url("responsive.css");
+@import url("/assets/css/responsive.css");
 
 /* 10. github-theme */
-@import url("github-theme.css");
+@import url("/assets/css/github-theme.css");
 
 /* 11. Guestbook */
-@import url("guestbook.css");
+@import url("/assets/css/guestbook.css");
 
 /* 12. Animations */
-@import url("animations.css");
+@import url("/assets/css/animations.css");
 
 /* 13. AI Chat */
-@import url("ai-chat.css");
+@import url("/assets/css/ai-chat.css");
 
 /* 14. Progress Bar */
-@import url("progress.css");
+@import url("/assets/css/progress.css");
 
-/* Dark Mode Toggle Button */
-.dark-mode-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.dark-mode-toggle svg {
-  width: 24px;
-  height: 24px;
-  color: var(--color-text-muted);
-}
-
-.dark-mode-toggle:hover {
-  background-color: var(--color-bg-subtle);
-}
-
-/* Search Toggle Button */
-.search-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 5px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.search-toggle svg {
-  width: 24px;
-  height: 24px;
-  color: var(--color-text-muted);
-}
-
-.search-toggle:hover {
-  background-color: var(--color-bg-subtle);
-}
+/* Dark Mode Toggle Button — defined in header.css */
+/* Search Toggle Button — defined in header.css */
 
 /* Global Search Bar */
 .global-search {
@@ -139,26 +102,38 @@
 }
 
 .search-results-item {
-  margin-bottom: 20px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  transition: box-shadow var(--transition-fast);
+}
+
+.search-results-item:hover {
+  box-shadow: var(--shadow-md);
 }
 
 .search-results-item a {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #333;
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text);
   text-decoration: none;
+  letter-spacing: -0.01em;
 }
 
 .search-results-item a:hover {
-  text-decoration: underline;
+  color: var(--color-accent);
+  text-decoration: none;
+  opacity: 1;
 }
 
 .search-results-item p {
-  margin-top: 5px;
-  color: #666;
+  margin-top: var(--spacing-xs);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
 }
 
 /* Animation */

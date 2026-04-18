@@ -116,12 +116,16 @@
     justify-content: center;
   }
 
-  .back-to-top {
+  .back-to-top,
+  #backToTopBtn {
     bottom: var(--spacing-md);
     right: var(--spacing-md);
-    width: 40px; /* 調整大小 */
+    width: 40px;
     height: 40px;
-    font-size: var(--font-size-xl); /* 使用變數 */
+  }
+
+  #ai-chat-widget {
+    left: var(--spacing-md);
   }
 
   .stats-grid {

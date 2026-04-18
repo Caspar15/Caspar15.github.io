@@ -1,370 +1,287 @@
-/* content.css */
+/* content.css — iOS-style Content Areas */
 
-/* 英雄區塊 */
-.home-hero {
-  text-align: center;
-  padding: var(--spacing-xxl) var(--spacing-lg); /* 增加垂直間距 */
-  background-color: var(--color-bg-subtle);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.home-hero .profile-pic {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  margin-bottom: var(--spacing-md);
-  box-shadow: var(--shadow-md);
-  transition: transform var(--transition-base); /* 添加過渡效果 */
-}
-
-.home-hero .profile-pic:hover {
-  transform: scale(1.05); /* 懸停放大效果 */
-}
-
-.home-hero h1 {
-  font-size: var(--font-size-h1); /* 使用變數 */
-  font-weight: 700;
-  margin-bottom: var(--spacing-xs); /* 調整間距 */
-}
-
-.home-hero .tagline {
-  font-size: var(--font-size-lg); /* 使用變數 */
-  color: var(--color-text-muted);
-  margin-bottom: var(--spacing-xl);
-}
-
-.home-hero .social-icons {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-lg);
-}
-
-.home-hero .social-icons img {
-  width: 28px; /* 稍微放大圖標 */
-  height: 28px;
-  opacity: 0.7;
-  transition: opacity var(--transition-fast), transform var(--transition-fast); /* 添加過渡效果 */
-}
-
-.home-hero .social-icons a:hover img {
-  opacity: 1;
-  transform: translateY(-3px); /* 懸停上浮效果 */
-}
-
-/* 主內容區域 - 高效能毛玻璃效果 */
+/* ===== Main + Sidebar Column Wrappers ===== */
 .main-content,
 .sidebar,
 .right-bar {
-  position: relative; /* 為偽元素提供定位上下文 */
+  position: relative;
   min-width: 0;
-  background-color: white; /* 半透明白色疊加層，確保內容可讀性 */
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-xl);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  overflow: hidden; /* 隱藏超出邊界的模糊背景 */
-  z-index: 1; /* 確保容器在背景之上 */
+  /* Transparent: let background show through, sections have their own glass cards */
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  overflow: visible;
 }
 
+/* Remove the old blurred pseudo-element */
 .main-content::before,
 .sidebar::before,
 .right-bar::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url('../images/background.jpg');
-  background-attachment: fixed; /* 關鍵：使背景相對於視窗固定，創造穿透效果 */
-  background-size: cover;
-  background-position: center;
-  filter: blur(8px); /* 應用模糊效果 */
-  z-index: -1; /* 將此偽元素置於容器內容之後 */
-  margin: -20px; /* 放大偽元素以避免模糊邊緣出現瑕疵 */
+  display: none;
 }
 
-/* 單獨調整 sidebar 的 padding */
-.sidebar,
-.right-bar {
-    padding: var(--spacing-lg);
-}
-
-/* 統計區 */
+/* ===== Statistics Section ===== */
 .statistics-section {
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: var(--spacing-xl); /* 增加內邊距 */
-  margin-bottom: var(--spacing-xl); /* 增加外邊距 */
-  box-shadow: var(--shadow-sm); /* 添加輕微陰影 */
-  transition: box-shadow var(--transition-base); /* 添加過渡效果 */
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  transition: box-shadow var(--transition-base);
 }
 
 .statistics-section:hover {
-  box-shadow: var(--shadow-md); /* 懸停時陰影加深 */
+  box-shadow: var(--shadow-lg);
 }
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* 響應式調整 */
-  gap: var(--spacing-lg); /* 增加間距 */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--spacing-md);
 }
 
 .stat-card {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: var(--spacing-md);
-  padding: var(--spacing-md); /* 增加內邊距 */
-  background-color: var(--color-bg-subtle); /* 輕微背景色 */
-  border-radius: var(--radius-sm); /* 小圓角 */
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast); /* 添加過渡效果 */
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: rgba(118, 118, 128, 0.08);
+  border-radius: var(--radius-lg);
+  transition: background var(--transition-fast), transform var(--transition-fast);
 }
 
 .stat-card:hover {
-  transform: translateY(-3px); /* 懸停上浮效果 */
-  box-shadow: var(--shadow-sm); /* 懸停時陰影 */
+  background: rgba(0, 122, 255, 0.08);
+  transform: translateY(-2px);
 }
 
 .stat-icon {
-  width: 48px; /* 放大圖標 */
-  height: 48px;
-  background: var(--color-accent); /* 使用強調色 */
-  color: white;
-  border-radius: var(--radius-sm); /* 小圓角 */
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-indigo));
+  color: #FFFFFF;
+  border-radius: var(--radius);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--font-size-xl); /* 放大字體 */
-  box-shadow: var(--shadow-sm); /* 添加陰影 */
+  font-size: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
 }
 
 .stat-value {
-  font-size: var(--font-size-h3); /* 使用變數 */
+  font-size: 24px;
   font-weight: 700;
   color: var(--color-text);
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 
 .stat-label {
   color: var(--color-text-muted);
-  font-size: var(--font-size-sm); /* 使用變數 */
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .chart-container {
-  height: 280px; /* 稍微增加高度 */
-  margin-top: var(--spacing-xl);
+  height: 260px;
+  margin-top: var(--spacing-lg);
   padding: var(--spacing-md);
-  background-color: var(--color-bg-subtle);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
+  background: rgba(118, 118, 128, 0.06);
+  border-radius: var(--radius-lg);
 }
 
-/* Magic Cube Container */
+/* ===== Magic Cube Container ===== */
 .magic-cube-container {
-    height: 280px; /* Adjusted for sidebar */
-    margin-top: var(--spacing-lg);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-sm); /* 添加陰影 */
+  height: 240px;
+  margin-bottom: var(--spacing-lg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  background: rgba(0, 0, 0, 0.04);
 }
 
-/* 卡片 */
+/* ===== Project Cards ===== */
 .card-container {
   display: grid;
-  gap: var(--spacing-xl); /* 增加卡片間距 */
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-md);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
 .card {
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius); /* 使用變數 */
-  padding: var(--spacing-lg); /* 使用變數 */
-  transition: all var(--transition-base); /* 使用新的過渡變數 */
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
+  transition: all var(--transition-base);
   display: flex;
   flex-direction: column;
-  box-shadow: var(--shadow-sm); /* 添加輕微陰影 */
+  box-shadow: var(--shadow-sm);
 }
 
 .card:hover {
-  transform: translateY(-8px); /* 懸停上浮效果更明顯 */
-  box-shadow: var(--shadow-lg); /* 懸停時陰影更深 */
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(0, 122, 255, 0.25);
 }
 
 .card-header h3 a {
   color: var(--color-text);
-  font-size: var(--font-size-xl); /* 放大字體 */
+  font-size: 17px;
   font-weight: 600;
+  letter-spacing: -0.02em;
+  transition: color var(--transition-fast);
 }
+
 .card-header h3 a:hover {
-  text-decoration: none;
-  color: var(--color-accent-hover); /* 懸停顏色 */
+  color: var(--color-accent);
+  opacity: 1;
 }
 
 .card p {
   flex-grow: 1;
   color: var(--color-text-muted);
-  margin: var(--spacing-md) 0;
-  font-size: var(--font-size-base);
+  margin: var(--spacing-sm) 0 var(--spacing-md);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
 }
 
 .card-footer {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-top: var(--spacing-md);
+  margin-top: auto;
 }
 
 .card .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-xs);
+  gap: 4px;
 }
 
 .card .tag {
-  font-size: var(--font-size-sm); /* 使用變數 */
-  padding: 4px 10px; /* 調整內邊距 */
-  background-color: var(--color-bg-subtle);
-  border-radius: var(--radius-pill); /* 藥丸形圓角 */
-  color: var(--color-text-muted);
-  transition: all var(--transition-fast); /* 添加過渡效果 */
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  padding: 3px 8px;
+  background: rgba(0, 122, 255, 0.1);
+  border-radius: var(--radius-pill);
+  color: var(--color-accent);
+  transition: all var(--transition-fast);
+  cursor: default;
 }
 
 .card .tag:hover {
-  background-color: var(--color-accent); /* 懸停背景色 */
-  color: white; /* 懸停文字顏色 */
-  transform: translateY(-2px); /* 輕微上浮 */
+  background: var(--color-accent);
+  color: #FFFFFF;
 }
 
-/* About Page Styles */
+/* ===== About Page ===== */
 .about-container {
-    max-width: 900px;
-    margin: var(--spacing-xxl) auto; /* 增加外邊距 */
-    padding: 0 var(--spacing-lg); /* 調整水平內邊距 */
-    animation: fadeIn var(--transition-slow) ease-out; /* 使用變數 */
+  max-width: 900px;
+  margin: var(--spacing-xxl) auto;
+  padding: 0 var(--spacing-lg);
+  animation: fadeInUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.about-container section {
-    margin-bottom: var(--spacing-xxl); /* 增加間距 */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Profile Header */
 .profile-header {
-    text-align: center;
-    margin-bottom: var(--spacing-xxl);
-}
-
-/* Improve readability: add panel background behind hero on About page */
-.profile-header {
-  position: relative;
-  padding: var(--spacing-xl);
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-}
-body.dark .profile-header {
-  background: rgba(20, 20, 20, 0.85);
-  border-color: rgba(255,255,255,0.08);
-}
-.profile-header h1,
-.profile-header .subtitle,
-.profile-header .summary {
-  position: relative;
-  z-index: 1;
+  text-align: center;
+  margin-bottom: var(--spacing-xxl);
 }
 
 .profile-header h1 {
-    font-size: var(--font-size-h1); /* 使用變數 */
-    font-weight: 700;
-    letter-spacing: -1px;
-    margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-h1);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--spacing-sm);
 }
 
 .profile-header .subtitle {
-    font-size: var(--font-size-lg); /* 使用變數 */
-    color: var(--color-text-muted);
-    margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-lg);
+  color: var(--color-accent);
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
 }
 
 .profile-header .summary {
-    font-size: var(--font-size-base); /* 使用變數 */
-    line-height: 1.7;
-    max-width: 700px;
-    margin: 0 auto;
+  font-size: var(--font-size-base);
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  max-width: 680px;
+  margin: 0 auto;
 }
 
 /* Section Title */
 .section-title {
-    font-size: var(--font-size-h2); /* 使用變數 */
-    font-weight: 700;
-    margin-bottom: var(--spacing-xl);
-    border-bottom: 2px solid var(--color-border);
-    padding-bottom: var(--spacing-sm);
-    text-align: center; /* 居中標題 */
+  font-size: var(--font-size-h2);
+  font-weight: 700;
+  margin-bottom: var(--spacing-xl);
+  letter-spacing: -0.02em;
+  text-align: center;
 }
 
-/* Grid Layout for Cards */
+/* Content Grid */
 .content-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-xl); /* 增加間距 */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
 }
 
-/* Card Style */
+/* Info Card — iOS glass style */
 .info-card {
-    background-color: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg); /* 使用變數 */
-    padding: var(--spacing-xl); /* 增加內邊距 */
-    transition: transform var(--transition-base), box-shadow var(--transition-base); /* 使用變數 */
-    box-shadow: var(--shadow-sm); /* 添加陰影 */
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
 .info-card:hover {
-    transform: translateY(-8px); /* 懸停上浮效果更明顯 */
-    box-shadow: var(--shadow-md); /* 懸停時陰影加深 */
-}
-
-.info-card h3 {
-    font-size: var(--font-size-xl); /* 使用變數 */
-    font-weight: 600;
-    margin-bottom: var(--spacing-md);
-}
-
-.info-card p {
-    color: var(--color-text-muted);
-    margin-bottom: var(--spacing-xs);
-    font-size: var(--font-size-base);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
 }
 
 .info-card ul {
-    list-style: none;
-    padding-left: 0;
+  list-style: none;
+  padding-left: 0;
 }
 
 .info-card ul li {
-    position: relative;
-    padding-left: 25px; /* 增加左側內邊距 */
-    margin-bottom: var(--spacing-sm);
-    color: var(--color-text-muted);
-    font-size: var(--font-size-base);
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
 }
 
-/* Custom list icon */
 .info-card ul li::before {
-    content: '✓'; /* Checkmark icon */
-    position: absolute;
-    left: 0;
-    color: var(--color-accent); /* 使用強調色 */
-    font-weight: bold;
-    font-size: var(--font-size-lg); /* 放大圖標 */
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: 600;
 }
 
-/* Card Header */
+/* Card Header (icon + title) */
 .card-header {
   display: flex;
   align-items: center;
@@ -375,99 +292,70 @@ body.dark .profile-header {
 .card-header svg {
   color: var(--color-accent);
   flex-shrink: 0;
+  width: 20px;
+  height: 20px;
 }
 
 .card-header h3 {
   margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
-/* Full Width Card (Education Card) */
+/* Full Width Card (Education) */
 .full-width-card {
   grid-column: 1 / -1;
-  border-top: 4px solid var(--color-accent); /* 使用強調色 */
-  box-shadow: var(--shadow-lg); /* 更強的陰影 */
+  border-top: 3px solid var(--color-accent);
+  box-shadow: var(--shadow-lg);
 }
 
 .full-width-card:hover {
-    transform: translateY(-10px); /* 更明顯的上浮 */
-    box-shadow: var(--shadow-xl); /* 更強的陰影 */
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
 }
 
 .full-width-card ul li {
-  font-size: var(--font-size-base); /* 使用變數 */
+  font-size: var(--font-size-base);
   line-height: 1.8;
 }
 
-/* Education Section Specifics */
-
-/* Call to Action */
+/* Contact CTA */
 .contact-call-to-action {
-    text-align: center;
-    font-style: italic;
-    margin-top: var(--spacing-xxl);
-    padding: var(--spacing-xl); /* 增加內邊距 */
-    background-color: var(--color-bg-subtle);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-sm); /* 添加陰影 */
-}
-
-/* Future Updates Section */
-.future-updates-section {
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: var(--spacing-lg); /* 使用變數 */
-  margin-top: var(--spacing-lg);
-  box-shadow: var(--shadow-sm); /* 添加陰影 */
-  transition: box-shadow var(--transition-base); /* 添加過渡效果 */
-}
-
-.future-updates-section:hover {
-  box-shadow: var(--shadow-md); /* 懸停時陰影加深 */
-}
-
-.future-updates-section h3 {
-  font-size: var(--font-size-lg); /* 使用變數 */
-  font-weight: 600;
-  margin-bottom: var(--spacing-md);
-}
-
-.future-updates-section ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.future-updates-section li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--spacing-sm) 0;
-  border-bottom: 1px solid var(--color-border-subtle); /* 使用變數 */
-  flex-wrap: nowrap; /* 防止換行 */
-  gap: var(--spacing-md); /* 增加間距 */
-}
-
-.future-updates-section li:last-child {
-  border-bottom: none;
-}
-
-.future-updates-section .update-item {
+  text-align: center;
+  font-style: italic;
+  margin-top: var(--spacing-xxl);
+  padding: var(--spacing-xl);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
   color: var(--color-text-muted);
-  font-size: var(--font-size-sm); /* Adjusted from base to sm */
-  white-space: nowrap; /* 確保不換行 */
-  overflow: hidden; /* 隱藏超出的部分 */
-  text-overflow: ellipsis; /* 超出部分顯示為... */
-  flex-grow: 1; /* 佔用多餘空間 */
 }
 
-.future-updates-section .update-status {
-  font-size: 12px; /* Adjusted from sm to 12px for a more compact look */
-  font-weight: 500;
-  padding: 4px 10px; /* 調整內邊距 */
-  border-radius: var(--radius-pill); /* 藥丸形圓角 */
-  background-color: var(--color-bg-subtle);
+/* Home Hero */
+.home-hero {
+  text-align: center;
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  margin-bottom: var(--spacing-lg);
+}
+
+.home-hero h1 {
+  font-size: var(--font-size-h1);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--spacing-xs);
+}
+
+.home-hero .tagline {
+  font-size: var(--font-size-lg);
   color: var(--color-text-muted);
-  border: 1px solid var(--color-border-subtle); /* 添加邊框 */
-  flex-shrink: 0; /* 防止狀態標籤被壓縮 */
+  margin-bottom: var(--spacing-xl);
 }

@@ -1,78 +1,76 @@
-/* layout.css */
-
-/* 版面配置、整體網頁框架相關 */
+/* layout.css — iOS-style Layout System */
 
 header.site-header {
   z-index: 1000;
 }
 
-/* .layout 容器 */
+/* ===== Main Layout Grid ===== */
 .layout {
-    display: grid;
-    grid-template-columns: 320px 1fr 300px;
-    gap: var(--spacing-xl); /* 增加整體間距 */
-    max-width: 1600px; /* 稍微增加最大寬度 */
-    margin: 0 auto;
-    padding: var(--spacing-xl); /* 增加整體內邊距 */
-  }
-  
-/* About Page Wrapper for centering */
-.about-page-wrapper {
-  max-width: 960px; /* 調整最大寬度 */
+  display: grid;
+  grid-template-columns: 300px 1fr 280px;
+  gap: var(--spacing-lg);
+  max-width: 1560px;
   margin: 0 auto;
-  padding: var(--spacing-xl); /* 使用新的間距變數 */
+  padding: var(--spacing-lg) var(--spacing-xl);
 }
 
-/* Hide sidebars on about page */
+/* ===== About Page Wrapper ===== */
+.about-page-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+/* Hide sidebars on About page */
 body.page-關於我 .sidebar,
 body.page-關於我 .right-bar {
   display: none;
 }
 
-/* Adjust main-content for about page */
 body.page-關於我 .main-content {
   grid-column: 1 / -1;
   width: 100%;
 }
 
-/* 側邊欄切換按鈕 */
+/* ===== Sidebar Toggle Button ===== */
 .sidebar-toggle {
   background: none;
   border: none;
   cursor: pointer;
-  padding: var(--spacing-sm); /* 使用變數 */
-  border-radius: var(--radius-sm); /* 使用變數 */
-  transition: background-color var(--transition-fast), transform var(--transition-fast); /* 添加 transform 過渡 */
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: var(--spacing-md); /* 使用變數 */
+  margin-right: var(--spacing-sm);
 }
 
 .sidebar-toggle svg {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   color: var(--color-text-muted);
 }
 
 .sidebar-toggle:hover {
-  background-color: var(--color-bg-subtle);
-  transform: scale(1.1); /* 懸停放大效果 */
+  background: rgba(0, 0, 0, 0.06);
 }
 
-/* 可展開的專案分類側邊欄 */
+/* ===== Project Categories Sidebar (slide-in) ===== */
 .project-categories-sidebar {
   position: fixed;
   top: 0;
-  left: -300px;
-  width: 280px;
+  left: -320px;
+  width: 290px;
   height: 100%;
-  background-color: var(--color-bg);
-  border-right: 1px solid var(--color-border);
-  padding: var(--spacing-xl); /* 增加內邊距 */
-  box-shadow: var(--shadow-lg); /* 使用更深的陰影 */
-  transition: left var(--transition-base); /* 使用新的過渡變數 */
-  z-index: 1001; /* 提高層級，確保在 header 之上 */
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border-right: 1px solid var(--glass-border);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-xl);
+  transition: left var(--transition-base);
+  z-index: 1001;
   overflow-y: auto;
 }
 
@@ -81,77 +79,76 @@ body.page-關於我 .main-content {
 }
 
 .project-categories-sidebar .categories {
-  margin-top: var(--spacing-xxl); /* 避免被 header 遮擋 */
+  margin-top: var(--spacing-xxl);
 }
 
 .project-categories-sidebar .categories h3 {
-  font-size: var(--font-size-lg); /* 使用變數 */
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   margin-bottom: var(--spacing-md);
-  padding-bottom: var(--spacing-md);
-  border-bottom: 1px solid var(--color-border-subtle); /* 使用變數 */
-}
-
-.project-categories-sidebar .project-filters {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .project-categories-sidebar .filter-btn {
   width: 100%;
-  padding: var(--spacing-sm) var(--spacing-md); /* 調整內邊距 */
-  border: 1px solid transparent;
-  border-radius: var(--radius-sm); /* 使用變數 */
-  background-color: transparent;
   text-align: left;
-  font-size: var(--font-size-base); /* 使用變數 */
-  font-weight: 500;
-  color: var(--color-text-muted);
-  cursor: pointer;
-  transition: all var(--transition-fast); /* 使用新的過渡變數 */
 }
 
-.project-categories-sidebar .filter-btn.active {
-  background-color: var(--color-accent);
-  color: white;
-  font-weight: 700;
-  box-shadow: var(--shadow-sm); /* 添加陰影 */
-}
-
-/* Back to Top Button */
-.back-to-top-btn {
+/* ===== Back to Top Button ===== */
+/* utilities.css 的舊定義被覆蓋：統一位置在右下，使用 .visible class（與 main.js 一致） */
+#backToTopBtn {
   position: fixed;
-  bottom: var(--spacing-lg); /* 使用變數 */
-  right: var(--spacing-lg); /* 使用變數 */
-  width: 50px;
-  height: 50px;
-  background-color: var(--color-accent);
-  color: white;
-  border-radius: var(--radius-pill); /* 藥丸形圓角 */
-  box-shadow: var(--shadow-md); /* 使用變數 */
+  bottom: var(--spacing-xl);
+  right: var(--spacing-xl);
+  width: 44px;
+  height: 44px;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  color: var(--color-accent);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  box-shadow: var(--shadow-lg);
   z-index: 1000;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity var(--transition-base), transform var(--transition-base), background-color var(--transition-fast); /* 使用變數 */
   opacity: 0;
-  transform: translateY(100px);
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity var(--transition-base), visibility var(--transition-base), transform var(--transition-base), background var(--transition-fast), box-shadow var(--transition-fast);
+  text-decoration: none;
 }
 
-.back-to-top-btn.show {
+/* JS 在 scrollY > 300 時加上 .visible */
+#backToTopBtn.visible {
   opacity: 1;
+  visibility: visible;
   transform: translateY(0);
 }
 
-.back-to-top-btn:hover {
-  background-color: var(--color-accent-hover); /* 懸停顏色 */
-  transform: translateY(-5px); /* 懸停上浮效果 */
-  box-shadow: var(--shadow-lg); /* 懸停時陰影加深 */
+#backToTopBtn:hover {
+  background: var(--color-accent);
+  color: #FFFFFF;
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-accent);
+  opacity: 1;
+  transform: translateY(-2px);
 }
 
-/* 當側邊欄展開時，header 的樣式 */
+/* 把 utilities.css 中 .back-to-top 的舊位置（左下）覆蓋掉 */
+.back-to-top {
+  bottom: var(--spacing-xl) !important;
+  right: var(--spacing-xl) !important;
+  left: auto !important;
+}
+
+/* ===== Scrolled header state ===== */
 .site-header.sidebar-active {
-  background-color: var(--color-bg-subtle);
-  box-shadow: var(--shadow-sm); /* 添加陰影 */
+  background: rgba(242, 242, 247, 0.95);
 }

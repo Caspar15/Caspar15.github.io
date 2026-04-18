@@ -1,28 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <title>{{ page.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Caspar's GitHub Pages - Explore my projects and development journey!">
-  <meta name="keywords" content="Caspar, GitHub, Projects, Deep Learning, Tools, Web Apps">
-  
-  <!-- 主 CSS -->
+  <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}陳柏宇 Caspar Chen 的個人作品集 — 台科大電機所碩士生、AI 演算法研究、IEEE ICACT 2026 Outstanding Paper Award。{% endif %}">
+  <meta name="keywords" content="Caspar, 陳柏宇, 台科大, NTUST, GitHub, NLP, AI, 機器學習, 深度學習, 強化學習, 全端開發, IEEE">
+  <meta name="author" content="陳柏宇 Caspar Chen">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="陳柏宇 Caspar Chen 的個人作品集">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/assets/images/profile.webp">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="{{ page.url | prepend: site.url }}">
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" type="image/png" href="/assets/images/profile.webp">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="/assets/css/main.css">
-  <!-- terminal -->
   <link rel="stylesheet" href="/assets/css/terminal.css">
   <link rel="stylesheet" href="/assets/css/custom-cursor.css">
   <link rel="stylesheet" href="/assets/css/page-transitions.css">
   <link rel="stylesheet" href="/assets/css/interactive-resume.css">
+  <link rel="stylesheet" href="/assets/css/blog.css">
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- External Libraries (pinned; SRI will be added) -->
-  <!-- Chart.js (pinned) -->
+  <!-- External Libraries (pinned) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer crossorigin="anonymous"></script>
-  <!-- Three.js for 3D animations (pinned r128) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer crossorigin="anonymous"></script>
 </head>
 <body class="page-{{ page.title | slugify }}">
@@ -32,51 +49,50 @@
     <div id="progress-bar"></div>
   </div>
 
-  <!-- Loading Overlay（只放一次） -->
-  <div class="loading-overlay">
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" aria-hidden="true">
     <div class="loading-spinner"></div>
   </div>
 
-  <!-- Header（導覽列） -->
+  <!-- Header / Navigation -->
   {% include header.html %}
 
   <main id="ajax-wrapper">
     <div id="pageContent">
       {% if page.title == "關於我" %}
-      <div class="about-page-wrapper">
+        <div class="about-page-wrapper">
+          {{ content }}
+        </div>
+      {% else %}
         {{ content }}
-      </div>
-    {% else %}
-      {{ content }}
-    {% endif %}
+      {% endif %}
     </div>
 
-    <div id="searchResults"></div>
+    <div id="searchResults" aria-live="polite"></div>
   </main>
 
-  <!-- Footer（頁腳） -->
+  <!-- Footer -->
   {% include footer.html %}
 
-  <!-- AI Chatbot Floater -->
-  <div id="ai-chat-widget">
-    <div id="ai-chat-bubble" class="chat-bubble">
-      <!-- This will be the floating icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+  <!-- AI Chatbot Widget -->
+  <div id="ai-chat-widget" aria-label="AI 助手">
+    <button id="ai-chat-bubble" class="chat-bubble" aria-label="開啟 AI 助手">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
         <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9.5 9.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm3 3c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm4.5-3c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z"/>
       </svg>
-    </div>
-    <div id="ai-chat-window" class="chat-window">
+    </button>
+    <div id="ai-chat-window" class="chat-window" role="dialog" aria-label="AI 助手對話視窗">
       <div class="chat-header">
         <h3>AI Assistant</h3>
-        <button id="ai-chat-close-btn">&times;</button>
+        <button id="ai-chat-close-btn" aria-label="關閉">&times;</button>
       </div>
       <div id="llm-response-area" class="chat-body">
         你好！有什麼可以幫助你的嗎？
       </div>
       <div class="chat-footer">
-        <textarea id="llm-input" placeholder="輸入你的問題..."></textarea>
-        <button id="llm-submit-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+        <textarea id="llm-input" placeholder="輸入你的問題..." aria-label="輸入問題"></textarea>
+        <button id="llm-submit-btn" aria-label="送出">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
             <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
           </svg>
         </button>
@@ -84,24 +100,19 @@
     </div>
   </div>
 
-  <!-- Back to Top Button -->
-  <a href="#" id="backToTopBtn" class="back-to-top" title="Back to top">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+  <!-- Back to Top -->
+  <a href="#" id="backToTopBtn" class="back-to-top" title="回到頂端" aria-label="回到頂端">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
       <path d="M12 4l-8 8h6v8h4v-8h6z"/>
     </svg>
   </a>
 
-  <!-- 主 JS -->
+  <!-- JavaScript Modules -->
   <script type="module" src="/assets/js/main.js"></script>
-  <!-- terminal -->
   <script type="module" src="/assets/js/modules/terminal.js"></script>
-  <!-- GitHub API -->
   <script type="module" src="/assets/js/modules/github.js"></script>
-  <!-- Animations -->
   <script type="module" src="/assets/js/modules/animations.js"></script>
-  <!-- Custom Cursor -->
   <script type="module" src="/assets/js/modules/custom-cursor.js"></script>
-  <!-- Page Transitions -->
   <script type="module" src="/assets/js/modules/page-transitions.js"></script>
 </body>
 </html>

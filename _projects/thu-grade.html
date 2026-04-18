@@ -15,115 +15,85 @@ languages:
 ---
 
 <div class="repo-content markdown-body">
-  <h1>TinyFB</h1>
+  <h1>THU Grade Scraper</h1>
   <p>
-    TinyFB 是一個基於 C++
-    的簡單的社交網路模擬應用程式。用戶可以建立帳戶、登入、發布文章、發送好友請求、喜歡頁面以及刪除好友等。
+    THU Grade Scraper 是一個專為東海大學（Tunghai University）學生設計的 Python 工具，
+    透過 Selenium 自動登入東海大學學生資訊系統，擷取成績資料後進行計算與視覺化呈現，
+    讓學生能快速掌握自己的 GPA 與各科成績概況。
   </p>
 
   <h2>目錄</h2>
   <ul>
-    <li><a href="#安裝">安裝</a></li>
+    <li><a href="#功能特色">功能特色</a></li>
+    <li><a href="#安裝需求">安裝需求</a></li>
     <li><a href="#使用說明">使用說明</a></li>
-    <li><a href="#功能">功能</a></li>
     <li><a href="#項目結構">項目結構</a></li>
-    <li><a href="#貢獻">貢獻</a></li>
+    <li><a href="#注意事項">注意事項</a></li>
     <li><a href="#許可證">許可證</a></li>
     <li><a href="#作者">作者</a></li>
   </ul>
 
-  <h2 id="安裝">安裝</h2>
-  <p>首先，請確保您的系統已安裝 C++ 編譯器，例如 GCC 或 Visual Studio。</p>
-  <ol>
-    <li>
-      <p>克隆項目到本地：</p>
-      <pre><code>git clone https://github.com/你的使用者名稱/TinyFB.git</code></pre>
-    </li>
-    <li>
-      <p>進入專案目錄：</p>
-      <pre><code>cd TinyFB</code></pre>
-    </li>
-    <li>
-      <p>編譯專案：</p>
-      <pre><code>g++ -o tinyfb_app main.cpp tinyfb.cpp -lws2_32</code></pre>
-    </li>
-    <li>
-      <p>運行可執行檔：</p>
-      <pre><code>./tinyfb_app # 或 tinyfb_app.exe 在 Windows 上</code></pre>
-    </li>
-  </ol>
+  <h2 id="功能特色">功能特色</h2>
+  <ul>
+    <li><strong>自動登入</strong>：使用 Selenium 自動化登入東海大學學生入口網站。</li>
+    <li><strong>成績擷取</strong>：自動抓取各學期、各科目的成績資料。</li>
+    <li><strong>GPA 計算</strong>：根據學分加權自動計算累計 GPA。</li>
+    <li><strong>成績分析</strong>：統計各分數區間分佈，提供清晰的成績報表。</li>
+    <li><strong>資料視覺化</strong>：使用 Matplotlib 繪製成績趨勢圖與分佈圖。</li>
+    <li><strong>CSV 匯出</strong>：可將成績資料匯出為 CSV 檔案，方便後續分析。</li>
+  </ul>
+
+  <h2 id="安裝需求">安裝需求</h2>
+  <ul>
+    <li>Python 3.8 以上版本</li>
+    <li>Google Chrome 瀏覽器 + ChromeDriver（版本需對應）</li>
+    <li>所需套件：<code>selenium</code>、<code>pandas</code>、<code>matplotlib</code></li>
+  </ul>
+
+  <p>安裝相依套件：</p>
+  <pre><code>pip install selenium pandas matplotlib</code></pre>
 
   <h2 id="使用說明">使用說明</h2>
-  <p>啟動應用程式後，您將看到主選單，您可以選擇以下操作：</p>
-  <ol>
-    <li>登入已有帳戶</li>
-    <li>建立新帳戶</li>
-    <li>退出</li>
-  </ol>
-  <h3>建立新帳戶</h3>
-  <p>選擇建立新帳戶後，按提示輸入相關資訊：</p>
-  <ul>
-    <li>姓名</li>
-    <li>電子郵件</li>
-    <li>密碼</li>
-    <li>性別</li>
-  </ul>
-  <h3>登入</h3>
-  <p>
-    選擇登入後，按提示輸入您的電子郵件和密碼。成功登入後，您可以進行以下操作：
-  </p>
-  <ul>
-    <li>發布文章</li>
-    <li>發送好友請求</li>
-    <li>喜歡頁面</li>
-    <li>刪除好友</li>
-    <li>顯示好友列表</li>
-    <li>顯示喜歡的頁面</li>
-    <li>顯示刪除列表</li>
-    <li>顯示您的文章</li>
-    <li>登出登入</li>
-  </ul>
 
-  <h2 id="功能">功能</h2>
-  <ul>
-    <li>
-      <strong>建立帳戶</strong
-      >：使用者可以建立一個新帳戶並將其儲存到本機檔案系統。
-    </li>
-    <li><strong>登入</strong>：使用者可以使用電子郵件和密碼登入已有帳戶。</li>
-    <li><strong>發布文章</strong>：登入後，使用者可以發布文章到自己的帳號。</li>
-    <li><strong>發送好友請求</strong>：使用者可以向其他使用者發送好友請求。</li>
-    <li><strong>喜歡頁面</strong>：使用者可以喜歡某個頁面。</li>
-    <li><strong>刪除好友</strong>：使用者可以刪除某個好友。</li>
-    <li><strong>顯示好友清單</strong>：使用者可以查看自己的好友清單。</li>
-    <li><strong>顯示喜歡的頁面</strong>：使用者可以查看自己喜歡的頁面。</li>
-    <li><strong>顯示刪除清單</strong>：使用者可以查看已刪除的好友清單。</li>
-    <li><strong>顯示文章</strong>：使用者可以查看自己的所有文章。</li>
-    <li><strong>登出登入</strong>：使用者可以安全地登出登入。</li>
-  </ul>
+  <h3>1. 克隆專案</h3>
+  <pre><code>git clone https://github.com/Caspar15/thu-grade.git
+cd thu-grade</code></pre>
+
+  <h3>2. 設定帳號</h3>
+  <p>於 <code>config.py</code>（或直接在 <code>main.py</code>）中填入您的東海大學學號與密碼：</p>
+  <pre><code>USERNAME = "你的學號"
+PASSWORD = "你的密碼"</code></pre>
+
+  <h3>3. 執行腳本</h3>
+  <pre><code>python main.py</code></pre>
+
+  <p>程式將自動啟動 Chrome，登入學生系統，擷取所有學期成績，並輸出分析結果。</p>
 
   <h2 id="項目結構">項目結構</h2>
-  <pre><code>TinyFB/
-├── Mini_FB/
-│   ├── Files_loaded_for_options/
-│   │   └── Pages_Names.txt
-│   ├── User_Data_base/
-│   └── User_info.txt
-├── main.cpp
-├── tinyfb.cpp
-├── tinyfb.h
+  <pre><code>thu-grade/
+├── main.py           # 主程式入口
+├── scraper.py        # Selenium 爬蟲模組
+├── calculator.py     # GPA 計算與成績分析
+├── visualizer.py     # Matplotlib 視覺化模組
+├── config.py         # 帳號設定（請勿上傳至 GitHub）
+├── output/
+│   ├── grades.csv    # 匯出的成績資料
+│   └── chart.png     # 成績趨勢圖
 └── README.md</code></pre>
 
-  <h2 id="貢獻">貢獻</h2>
-  <p>
-    歡迎對本項目提出建議、報告問題或建立合併請求。如果您想做出重大改變，請先開啟一個問題，以便我們討論您的計劃。
-  </p>
+  <h2 id="注意事項">注意事項</h2>
+  <ul>
+    <li>本工具僅供個人學術用途，請勿濫用或用於非法目的。</li>
+    <li>帳號密碼儲存於本機設定檔，請確保 <code>config.py</code> 不被提交至版本控制。</li>
+    <li>網站介面若有異動，可能需要更新 CSS Selector 以維持正常運作。</li>
+    <li>ChromeDriver 版本需與本機 Chrome 版本相符，否則可能無法啟動瀏覽器。</li>
+  </ul>
 
   <h2 id="許可證">許可證</h2>
-  <p>（此處填入許可證相關資訊，如 MIT License 等）</p>
+  <p>本專案採用 MIT License 授權。詳見 <a href="https://github.com/Caspar15/thu-grade/blob/main/LICENSE" target="_blank" rel="noopener">LICENSE</a>。</p>
 
   <h2 id="作者">作者</h2>
   <ul>
-    <li><strong>Caspar15</strong></li>
+    <li><strong>Caspar15</strong> — <a href="https://github.com/Caspar15" target="_blank" rel="noopener">github.com/Caspar15</a></li>
   </ul>
 </div>

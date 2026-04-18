@@ -1,68 +1,97 @@
-/* base.css */
+/* base.css — Apple iOS Design Language */
 
 /* -------------------- Base Variables -------------------- */
 :root {
-    /* Colors */
-    --color-bg: #ffffff; /* 主背景色 */
-    --color-bg-rgb: 255, 255, 255; /* 主背景色 RGB */
-    --color-bg-subtle: #f8f9fa; /* 次要背景色，用於卡片、區塊等 */
-    --color-text: #212529; /* 主要文字顏色 */
-    --color-text-muted: #6c757d; /* 次要文字顏色，用於描述、日期等 */
-    --color-border: #dee2e6; /* 主要邊框顏色 */
-    --color-border-subtle: #e9ecef; /* 次要邊框顏色 */
-    --color-accent: #7F5AF0; /* 主強調色 (漸層紫) */
-    --color-accent-hover: #9D84F5; /* 強調色懸停狀態 (亮紫) */
-    --color-accent-rgb: 127, 90, 240; /* 強調色 RGB 值，用於陰影 */
-    --color-success: #28a745; /* 成功提示色 */
-    --color-warning: #ffc107; /* 警告提示色 */
-    --color-danger: #dc3545; /* 危險提示色 */
+    /* === iOS Light Mode Colors === */
+    --color-bg: #F2F2F7;              /* iOS系統背景灰 */
+    --color-bg-rgb: 242, 242, 247;
+    --color-card: #FFFFFF;            /* 卡片白色 */
+    --color-card-rgb: 255, 255, 255;
+    --color-bg-subtle: #FFFFFF;       /* 次要背景 (卡片) */
+    --color-bg-elevated: #F9F9FB;     /* 輕微提升背景 */
+    --color-text: #1C1C1E;            /* iOS主要文字 */
+    --color-text-muted: #8E8E93;      /* iOS次要文字 */
+    --color-text-tertiary: #AEAEB2;   /* iOS三級文字 */
+    --color-border: rgba(60, 60, 67, 0.12);   /* iOS分隔線 */
+    --color-border-subtle: rgba(60, 60, 67, 0.08);
+
+    /* === iOS System Colors === */
+    --color-accent: #007AFF;          /* iOS Blue */
+    --color-accent-hover: #0071E3;    /* Apple藍懸停 */
+    --color-accent-light: rgba(0, 122, 255, 0.12); /* 淡藍背景 */
+    --color-accent-rgb: 0, 122, 255;
+    --color-green: #34C759;           /* iOS Green */
+    --color-orange: #FF9500;          /* iOS Orange */
+    --color-red: #FF3B30;             /* iOS Red */
+    --color-purple: #5856D6;          /* iOS Purple */
+    --color-teal: #5AC8FA;            /* iOS Teal */
+    --color-indigo: #5E5CE6;          /* iOS Indigo */
+    --color-success: #34C759;
+    --color-warning: #FF9500;
+    --color-danger: #FF3B30;
+
+    /* === Glass Effect === */
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-blur: blur(20px) saturate(180%);
 
     /* Code Colors */
-    --code-bg: #f6f8fa; /* 程式碼區塊背景色 */
-    --code-text: #24292e; /* 程式碼文字顏色 */
-    --code-border: #e1e4e8; /* 程式碼區塊邊框 */
-    --inline-code-bg: rgba(27,31,35,.05); /* 行內程式碼背景色 */
-    --inline-code-text: #24292e; /* 行內程式碼文字顏色 */
+    --code-bg: #F6F8FA;
+    --code-text: #24292E;
+    --code-border: rgba(60, 60, 67, 0.12);
+    --inline-code-bg: rgba(0, 122, 255, 0.08);
+    --inline-code-text: #007AFF;
 
-    /* Typography */
-    --font-primary: 'Inter', 'Noto Sans TC', sans-serif; /* 主要字體 */
-    --font-mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, monospace; /* 等寬字體 */
+    /* === Typography — Apple System Fonts === */
+    --font-primary: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Inter", "Noto Sans TC", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
     --font-size-base: 15px;
-    --font-size-sm: 14px;
-    --font-size-lg: 18px;
-    --font-size-xl: 24px;
-    --font-size-h1: 36px;
-    --font-size-h2: 30px;
-    --font-size-h3: 24px;
+    --font-size-sm: 13px;
+    --font-size-xs: 11px;
+    --font-size-lg: 17px;
+    --font-size-xl: 22px;
+    --font-size-h1: 34px;
+    --font-size-h2: 28px;
+    --font-size-h3: 20px;
+    --line-height: 1.6;
+    --letter-spacing: -0.01em;
 
-    /* Spacing */
+    /* === Spacing (8pt grid) === */
     --spacing-xs: 4px;
     --spacing-sm: 8px;
     --spacing-md: 16px;
-    --spacing-lg: 24px; /* 調整為 24px，提供更多呼吸空間 */
-    --spacing-xl: 32px; /* 調整為 32px */
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
     --spacing-xxl: 48px;
 
-    /* Shadows */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08); /* 小陰影，用於輕微浮起效果 */
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1); /* 中等陰影，用於卡片、模態框 */
-    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15); /* 大陰影，用於突出顯示 */
-    --shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.06); /* 內陰影 */
+    /* === iOS Shadows (very soft, layered) === */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.10), 0 4px 8px rgba(0, 0, 0, 0.06);
+    --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.06);
+    --shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-accent: 0 4px 16px rgba(0, 122, 255, 0.25);
 
-    /* Radii */
-    --radius: 8px; /* 標準圓角 */
-    --radius-sm: 4px; /* 小圓角 */
-    --radius-lg: 12px; /* 大圓角 */
-    --radius-pill: 50px; /* 藥丸形圓角 */
+    /* === Border Radius — iOS-style large corners === */
+    --radius-xs: 6px;
+    --radius-sm: 8px;
+    --radius: 12px;         /* 標準iOS圓角 */
+    --radius-md: 12px;
+    --radius-lg: 16px;      /* 大卡片圓角 */
+    --radius-xl: 20px;
+    --radius-xxl: 28px;
+    --radius-pill: 100px;
 
-    /* Transitions */
-    --transition-fast: 0.15s ease-out; /* 快速過渡 */
-    --transition-base: 0.3s ease-in-out; /* 標準過渡 */
-    --transition-slow: 0.5s ease-in-out; /* 慢速過渡 */
+    /* === Transitions === */
+    --transition-fast: 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-base: 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-slow: 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-spring: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* -------------------- Reset & Base Styles -------------------- */
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -70,60 +99,135 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
     font-family: var(--font-primary);
-    line-height: 1.6;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height);
+    letter-spacing: var(--letter-spacing);
     color: var(--color-text);
-    background-color: #1a1a1a; /* 深色備用背景 */
+    background-color: var(--color-bg);
     background-image: url('../images/background.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     -webkit-font-smoothing: antialiased;
-    font-size: var(--font-size-base);
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 a {
     color: var(--color-accent);
     text-decoration: none;
-    transition: color var(--transition-fast);
+    transition: color var(--transition-fast), opacity var(--transition-fast);
 }
 
 a:hover {
     color: var(--color-accent-hover);
-    text-decoration: underline;
+    text-decoration: none;
+    opacity: 0.85;
 }
 
 img {
     max-width: 100%;
     height: auto;
-    display: block; /* 避免圖片底部多餘空間 */
+    display: block;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    color: var(--color-text);
+}
+
+h1 { font-size: var(--font-size-h1); font-weight: 700; }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+
+/* -------------------- iOS-style Button -------------------- */
 .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
     padding: 10px 20px;
-    font-weight: 500;
-    text-align: center;
-    border-radius: var(--radius-sm); /* 調整為小圓角 */
-    border: 1px solid transparent;
-    transition: all var(--transition-fast); /* 使用新的過渡變數 */
-    cursor: pointer;
+    font-family: var(--font-primary);
     font-size: var(--font-size-base);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-align: center;
+    border-radius: var(--radius-pill);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .btn-primary {
     background-color: var(--color-accent);
-    color: white;
-    border-color: var(--color-accent);
+    color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
 }
 
 .btn-primary:hover {
     background-color: var(--color-accent-hover);
-    color: white;
-    text-decoration: none;
-    transform: translateY(-2px); /* 輕微上浮效果 */
-    box-shadow: var(--shadow-md); /* 添加陰影 */
+    color: #FFFFFF;
+    opacity: 1;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0, 122, 255, 0.35);
+}
+
+.btn-primary:active {
+    transform: scale(0.97);
+    box-shadow: 0 1px 4px rgba(0, 122, 255, 0.2);
+}
+
+.btn-secondary {
+    background-color: var(--color-accent-light);
+    color: var(--color-accent);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(0, 122, 255, 0.18);
+    opacity: 1;
+}
+
+/* -------------------- iOS-style Card -------------------- */
+.ios-card {
+    background: var(--color-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-border);
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+    overflow: hidden;
+}
+
+.ios-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+/* -------------------- iOS-style Badge -------------------- */
+.ios-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    border-radius: var(--radius-pill);
+    background: var(--color-accent-light);
+    color: var(--color-accent);
+    letter-spacing: 0.01em;
+}
+
+/* -------------------- Section Title -------------------- */
+.section-title {
+    font-size: var(--font-size-h3);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: -0.02em;
 }
