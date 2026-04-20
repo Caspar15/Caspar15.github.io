@@ -30,23 +30,23 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     about: {
       description: 'Display a brief bio.',
-      execute: (args) => `Caspar - Software Engineer | Full-Stack Developer | Data Science Enthusiast.\nFind more on my <a href="/about.html" target="_blank">About Me</a> page.`
+      execute: (args) => `Caspar - Software Engineer | Full-Stack Developer | AI/NLP Researcher.\nFind more on my <a href="/about/" target="_blank" rel="noopener">About Me</a> page.`
     },
     projects: {
       description: 'List key projects.',
       execute: (args) => {
         return `Key Projects:\n` +
-               `  - <a href="/projects/greenfriend.html" target="_blank">GreenFriend</a>\n` +
-               `  - <a href="/projects/discord-music.html" target="_blank">Discord Music Bot</a>\n` +
-               `  - <a href="/projects/tiny-fb.html" target="_blank">Tiny Facebook</a>\n` +
+               `  - <a href="/projects/greenfriend/" target="_blank" rel="noopener">GreenFriend</a>\n` +
+               `  - <a href="/projects/discord-music/" target="_blank" rel="noopener">Discord Music Bot</a>\n` +
+               `  - <a href="/projects/tiny-fb/" target="_blank" rel="noopener">Tiny Facebook</a>\n` +
                `  ... and more on the Projects page.`;
       }
     },
     contact: {
       description: 'Show contact information.',
       execute: (args) => `You can reach me via:\n` +
-                       `  - <a href="https://github.com/Caspar15" target="_blank">GitHub</a>\n` +
-                       `  - <a href="https://www.linkedin.com/in/%E6%9F%8F%E5%AE%87-%E9%99%B3-3a84132a2/" target="_blank">LinkedIn</a>`
+                       `  - <a href="https://github.com/Caspar15" target="_blank" rel="noopener">GitHub</a>\n` +
+                       `  - <a href="https://www.linkedin.com/in/%E6%9F%8F%E5%AE%87-%E9%99%B3-3a84132a2/" target="_blank" rel="noopener">LinkedIn</a>`
     },
     clear: {
       description: 'Clear the terminal screen.',

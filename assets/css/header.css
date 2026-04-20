@@ -47,6 +47,21 @@
 
 .site-nav .menu-icon {
   display: none;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 6px;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.site-nav .menu-icon:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--color-text);
 }
 
 .site-nav .trigger {

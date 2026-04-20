@@ -8,8 +8,46 @@ export function initializeNavigation() {
   const sidebarToggle = document.getElementById('sidebarToggle');
   const projectCategoriesSidebar = document.getElementById('projectCategoriesSidebar');
   const siteHeader = document.querySelector('.site-header');
+  const siteNav = document.querySelector('.site-nav');
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const primaryNavLinks = document.getElementById('primaryNavLinks');
   if (siteHeader) {
     siteHeader.classList.add('glass-nav');
+  }
+
+  const closeMobileMenu = () => {
+    if (!siteNav || !mobileMenuToggle) return;
+    siteNav.classList.remove('open');
+    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+    mobileMenuToggle.setAttribute('aria-label', '開啟主選單');
+  };
+
+  const toggleMobileMenu = () => {
+    if (!siteNav || !mobileMenuToggle) return;
+    const isOpen = siteNav.classList.toggle('open');
+    mobileMenuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    mobileMenuToggle.setAttribute('aria-label', isOpen ? '關閉主選單' : '開啟主選單');
+  };
+
+  if (mobileMenuToggle && siteNav && primaryNavLinks) {
+    mobileMenuToggle.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      toggleMobileMenu();
+    });
+
+    primaryNavLinks.addEventListener('click', (event) => {
+      const link = event.target.closest('a.page-link');
+      if (link && link.id !== 'about-dropdown-toggle') {
+        closeMobileMenu();
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      if (siteNav.classList.contains('open') && !siteNav.contains(event.target)) {
+        closeMobileMenu();
+      }
+    });
   }
 
   if (sidebarToggle && projectCategoriesSidebar && siteHeader) {
@@ -83,6 +121,9 @@ export function initializeNavigation() {
         dropdown.classList.remove('open');
         dropdownToggle.setAttribute('aria-expanded', 'false');
         dropdownToggle.focus();
+      }
+      if (e.key === 'Escape') {
+        closeMobileMenu();
       }
     });
   }

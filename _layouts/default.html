@@ -28,7 +28,6 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="stylesheet" href="/assets/css/terminal.css">
-  <link rel="stylesheet" href="/assets/css/custom-cursor.css">
   <link rel="stylesheet" href="/assets/css/page-transitions.css">
   <link rel="stylesheet" href="/assets/css/interactive-resume.css">
   <link rel="stylesheet" href="/assets/css/blog.css">
@@ -38,9 +37,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- External Libraries (pinned) -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer crossorigin="anonymous"></script>
+  {% if page.url == "/" %}
+    <!-- External Libraries used by the home dashboard only -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer crossorigin="anonymous"></script>
+  {% endif %}
 </head>
 <body class="page-{{ page.title | slugify }}">
 
@@ -83,14 +84,13 @@
     </button>
     <div id="ai-chat-window" class="chat-window" role="dialog" aria-label="AI 助手對話視窗">
       <div class="chat-header">
-        <h3>AI Assistant</h3>
+        <h3>網站導覽助手</h3>
         <button id="ai-chat-close-btn" aria-label="關閉">&times;</button>
       </div>
       <div id="llm-response-area" class="chat-body">
-        你好！有什麼可以幫助你的嗎？
       </div>
       <div class="chat-footer">
-        <textarea id="llm-input" placeholder="輸入你的問題..." aria-label="輸入問題"></textarea>
+        <textarea id="llm-input" placeholder="輸入想找的內容..." aria-label="輸入問題"></textarea>
         <button id="llm-submit-btn" aria-label="送出">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
             <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
@@ -112,7 +112,6 @@
   <script type="module" src="/assets/js/modules/terminal.js"></script>
   <script type="module" src="/assets/js/modules/github.js"></script>
   <script type="module" src="/assets/js/modules/animations.js"></script>
-  <script type="module" src="/assets/js/modules/custom-cursor.js"></script>
   <script type="module" src="/assets/js/modules/page-transitions.js"></script>
 </body>
 </html>

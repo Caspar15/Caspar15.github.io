@@ -52,9 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('main.js: Global search input NOT found.');
   }
 
-  // 初始化圓餅圖
-  console.log('main.js: Initializing chart.');
-  initializeChart();
+  // 初始化首頁限定的視覺元件
+  if (document.getElementById('categoryChart')) {
+    console.log('main.js: Initializing chart.');
+    initializeChart();
+  }
 
   // 初始化導覽列
   console.log('main.js: Initializing navigation.');
@@ -110,8 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Initialize Magic Cube
-  initMagicCube();
+  if (document.getElementById('magic-cube-container')) {
+    initMagicCube();
+  }
 
   // Initialize Interactive Resume if on the right page
   if (document.getElementById('resume-container')) {

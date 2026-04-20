@@ -68,12 +68,14 @@ body.dark .site-nav .page-link:hover {
 
 body.dark .dark-mode-toggle:hover,
 body.dark .search-toggle:hover,
+body.dark .site-nav .menu-icon:hover,
 body.dark .sidebar-toggle:hover {
   background: rgba(255, 255, 255, 0.08);
 }
 
 body.dark .dark-mode-toggle:hover svg,
 body.dark .search-toggle:hover svg,
+body.dark .site-nav .menu-icon:hover svg,
 body.dark .sidebar-toggle:hover svg {
   color: var(--color-text);
 }

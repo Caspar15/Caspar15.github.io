@@ -22,6 +22,10 @@ exclude:
   - Gemfile.lock
   - README.md
   - node_modules
+  - package.json
+  - package-lock.json
+  - server.js
+  - Boyu_resume.tex
   - vendor
   - .gitignore
   - .idea

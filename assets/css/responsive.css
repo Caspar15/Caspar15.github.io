@@ -46,24 +46,75 @@
     margin-bottom: var(--spacing-xl);
   }
 
-  .hamburger {
-    display: block;
+  .site-header .wrapper {
+    position: relative;
   }
 
-  .nav .menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--color-bg); /* 使用變數 */
-    padding: var(--spacing-lg);
-    flex-direction: column;
-    z-index: 99;
+  .site-nav {
+    flex-grow: 0;
   }
 
-  .nav .menu.active {
+  .site-nav .menu-icon {
     display: flex;
+  }
+
+  .site-nav .trigger {
+    position: absolute;
+    top: calc(100% + var(--spacing-sm));
+    left: var(--spacing-md);
+    right: var(--spacing-md);
+    z-index: 1002;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: var(--spacing-sm);
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    visibility: hidden;
+    transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
+  }
+
+  .site-nav.open .trigger {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  .site-nav .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .nav-item.dropdown {
+    width: 100%;
+  }
+
+  .site-header .dropdown-content {
+    position: static;
+    min-width: 100%;
+    margin-top: 4px;
+    transform: none;
+  }
+
+  .site-header .nav-item.dropdown.open .dropdown-content,
+  .site-header .nav-item.dropdown:hover .dropdown-content {
+    transform: none;
+  }
+
+  .site-nav .search-input,
+  .site-nav .search-input:focus {
+    width: 100%;
   }
 
   .site-header {
@@ -201,7 +252,7 @@
   }
 
   .site-nav .page-link {
-    margin-left: var(--spacing-md); /* 調整間距 */
+    margin-left: 0;
     font-size: var(--font-size-base); /* 使用變數 */
   }
 

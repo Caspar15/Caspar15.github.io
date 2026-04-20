@@ -8,14 +8,6 @@
 
 - start_date:
     year: 2022
-  text:
-    headline: "初試啼聲：黑客松競賽"
-    text: "在雙北程式設計節中，與團隊一同努力，獲得黑客松亞軍，初次體驗到快速開發與團隊協作的魅力。"
-  group: "競賽"
-  type: "competition"
-
-- start_date:
-    year: 2022
     month: 8
   text:
     headline: "擔任實驗助教"
@@ -42,11 +34,10 @@
   type: "work"
 
 - start_date:
-    year: 2023
-    month: 11
+    year: 2024
   text:
-    headline: "屢創佳績：海科杯與台灣數位創新獎"
-    text: "在海科杯獲得銀獎與 MVP，並在台灣數位創新獎中榮獲金獎，這些是對我技術實作能力的肯定。"
+    headline: "IEC 2024 臺灣數創大賞金獎"
+    text: "以低碳路徑推薦系統獲得 IEC 2024 臺灣數創大賞金獎全國第一名，將最短路徑演算法、碳排模型與行動應用整合成可用系統。"
   group: "競賽"
   type: "competition"
 
@@ -65,3 +56,19 @@
     text: "以 GPA 3.76 (系排前 10%) 的成績畢業，並成功錄取國立臺灣科技大學電機工程學系碩士班，準備迎接新的學術挑戰。"
   group: "學業"
   type: "education"
+
+- start_date:
+    year: 2025
+  text:
+    headline: "雙北程式設計節黑客松亞軍"
+    text: "在 2025 雙北程式設計節黑客松中開發可整合至臺北城市儀表板的擴充功能模組，獲得亞軍全國第二名。"
+  group: "競賽"
+  type: "competition"
+
+- start_date:
+    year: 2025
+  text:
+    headline: "海科盃銀質獎與個人 MVP"
+    text: "於 2025 海科盃提出 MR 系統應用構想，獲得銀質獎，並因報告表現獲選個人 MVP。"
+  group: "競賽"
+  type: "competition"
