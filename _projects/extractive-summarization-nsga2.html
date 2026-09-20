@@ -1,0 +1,82 @@
+---
+layout: project
+title: "NSGA-II 抽取式摘要"
+description: "把「挑哪幾句當摘要」建模成多目標最佳化問題，用演化演算法取代大部分的模型推論。IEEE ICACT 2026 Outstanding Paper Award。"
+permalink: /projects/extractive-summarization-nsga2/
+weight: 1
+tags: ["Python", "PyTorch", "NLP", "多目標最佳化", "研究"]
+read-time: "6分鐘"
+python_version: "3.10"
+languages:
+  - name: "Python"
+    percentage: 100
+    color: "#3572A5"
+---
+
+<div class="demo-cta demo-cta--pending">
+  <div class="demo-cta__text">
+    <span class="demo-cta__badge">IEEE ICACT 2026</span>
+    <h2>🏆 Outstanding Paper Award</h2>
+    <p>Meta-Heuristic Approaches with LM-based Selectors for Extractive Summarization ── 延伸版本投稿 SCI 期刊 IEEE Access，審稿中。</p>
+  </div>
+</div>
+
+<h2>問題</h2>
+<p>
+  抽取式摘要要做的事很單純：從原文挑出幾句話組成摘要。難的地方在於「好摘要」不是單一指標 ——
+  你要它<strong>涵蓋原文重點</strong>、又要它<strong>句子之間不要重複</strong>、還要<strong>控制長度</strong>。
+  這三件事會互相衝突：想涵蓋更多就會變長、想變短就容易漏掉重點。
+</p>
+<p>
+  主流做法是用大型語言模型直接生成或評分每一句。效果好，但每一篇文章都要跑一次完整推論，
+  部署成本和 GPU 依賴都很高。
+</p>
+
+<h2>做法</h2>
+<p>
+  我們把句子選取建模成<strong>多目標最佳化問題</strong>，用 NSGA-II 在解空間裡搜尋，
+  語言模型只負責提供句子的語意表示（BERT / RoBERTa / XLNet 作為 selector），不負責逐句評分。
+</p>
+<ul>
+  <li><strong>目標一：內容覆蓋率</strong> —— 選出的句子集合對原文語意的涵蓋程度。</li>
+  <li><strong>目標二：冗餘度</strong> —— 句子彼此之間的重複，越低越好。</li>
+  <li><strong>目標三：長度</strong> —— 控制在目標摘要長度附近。</li>
+</ul>
+<p>
+  NSGA-II 會給出一整條 Pareto front，而不是單一解 ——
+  這代表可以依照場景（要精簡還是要完整）在同一個模型上取不同的操作點，不需要重訓。
+</p>
+
+<h2>結果</h2>
+<table>
+  <thead>
+    <tr><th>項目</th><th>結果</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>推理速度</td><td>較純 LM 基線提升 <strong>10 倍以上</strong></td></tr>
+    <tr><td>CNN/DailyMail</td><td>ROUGE-1 達 <strong>0.351</strong></td></tr>
+    <tr><td>跨領域泛化</td><td>於 SciTLDR-AIC（科學論文摘要）驗證通過</td></tr>
+  </tbody>
+</table>
+<p>
+  重點不只是分數，而是<strong>在準確度相近的前提下大幅降低 GPU 依賴</strong>。
+  演化搜尋跑在 CPU 上就可以，語言模型只需要做一次前向傳播取得句子表示。
+</p>
+
+<h2>我負責的部分</h2>
+<p>
+  演算法設計、實驗與系統實作（Second Author）。
+  包含多目標函數的定義與調校、NSGA-II 的參數設計、三種預訓練模型的 selector 比較，
+  以及跨資料集的實驗驗證。
+</p>
+
+<h2>發表</h2>
+<ul>
+  <li>
+    <strong>IEEE ICACT 2026</strong> —— Meta-Heuristic Approaches with LM-based Selectors
+    for Extractive Summarization。獲 <strong>Outstanding Paper Award</strong>。
+  </li>
+  <li>
+    <strong>SCI 期刊 IEEE Access</strong> —— 延伸版本，審稿中。
+  </li>
+</ul>

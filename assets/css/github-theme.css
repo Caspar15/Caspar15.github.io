@@ -310,3 +310,209 @@ a:hover {
   color: var(--color-fg-muted);
 }
 
+
+/* F. 線上測試入口 —— 專案頁最上方的行動點，以及側邊欄的同一個連結。
+   由 page.demo_url 驅動；沒有網址時整塊轉成「準備中」的靜態樣式。 */
+.demo-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin: 0 0 var(--spacing-xl);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--color-accent-light);
+  border-radius: var(--radius-lg);
+  background: var(--color-accent-light);
+}
+
+.demo-cta__text {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.demo-cta__text h2 {
+  margin: var(--spacing-xs) 0 var(--spacing-sm);
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  border-bottom: 0;          /* markdown-body 會給 h2 底線，這裡不要 */
+  padding-bottom: 0;
+}
+
+.demo-cta__text p {
+  margin: 0;
+  /* 不用 muted 灰 —— 疊在淡藍底上對比度不夠 */
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+.demo-cta__badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: #fff;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* 主按鈕：沿用 .btn 的尺寸，只換顏色與強調程度。
+   選擇器要帶上 .demo-cta / body.dark，否則 .markdown-body a 的顏色
+   會蓋過來，變成藍底藍字。 */
+.btn-demo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background-color: var(--color-accent);
+  border-color: transparent;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-demo,
+.demo-cta .btn-demo,
+.repo-about .btn-demo,
+body.dark .demo-cta .btn-demo,
+body.dark .repo-about .btn-demo {
+  color: #fff;
+}
+
+.btn-demo:hover,
+.demo-cta .btn-demo:hover,
+.repo-about .btn-demo:hover,
+body.dark .demo-cta .btn-demo:hover,
+body.dark .repo-about .btn-demo:hover {
+  background-color: var(--color-accent-hover);
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-demo .octicon {
+  fill: currentColor;
+}
+
+/* 還沒有網址：看得出是佔位，而不是一個點了沒反應的按鈕 */
+.btn-demo--disabled,
+.demo-cta .btn-demo--disabled,
+body.dark .demo-cta .btn-demo--disabled {
+  background-color: transparent;
+  color: var(--color-text-muted);
+  border: 1px dashed var(--color-border);
+  box-shadow: none;
+  cursor: default;
+}
+
+.demo-cta--pending {
+  border-color: var(--color-border);
+  background: var(--color-bg-elevated);
+}
+
+.demo-cta--pending .demo-cta__badge {
+  background: var(--color-text-tertiary);
+}
+
+/* 側邊欄版本：撐滿寬度，跟下方的 GitHub 按鈕對齊 */
+.repo-about .btn-demo--sidebar {
+  width: 100%;
+  margin-top: var(--spacing-md);
+  margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .demo-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* 直向排列時 flex-basis 量的是高度，260px 會撐出一大塊空白 */
+  .demo-cta__text {
+    flex: 0 1 auto;
+  }
+
+  .demo-cta .btn-demo {
+    width: 100%;
+  }
+}
+
+/* F2. GitHub 按鈕（原本放在從未被載入的 project.css，搬過來才會生效） */
+.repo-about .btn-github {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: var(--spacing-md);
+  padding: 10px 16px;
+  background-color: #24292e;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: var(--radius);
+  transition: background-color var(--transition-fast);
+}
+
+.repo-about .btn-github,
+body.dark .repo-about .btn-github {
+  color: #fff;
+}
+
+.repo-about .btn-github:hover,
+body.dark .repo-about .btn-github:hover {
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+}
+
+.repo-about .btn-github .octicon {
+  fill: currentColor;
+}
+
+/* F3. 內文表格。專案頁用得到，但全站原本沒有定義過。 */
+.markdown-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-sm);
+}
+
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid var(--color-border);
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.markdown-body th {
+  background-color: var(--color-bg-elevated);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* G. 專案頁的窄螢幕版面
+   .repo-container 的第二欄是固定 280px，在手機上不會自己收掉，
+   整頁會橫向溢出。這裡把它疊成單欄，並讓寬表格自己捲。 */
+@media (max-width: 800px) {
+  .repo-page-container {
+    padding: var(--spacing-md);
+  }
+
+  .repo-container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .repo-sidebar {
+    padding: var(--spacing-lg);
+  }
+
+  .markdown-body table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+}

@@ -1,5 +1,6 @@
 <div class="card-container grid-view">
-  {% for project in site.projects %}
+  {% assign ordered_projects = site.projects | sort: "weight" %}
+  {% for project in ordered_projects %}
   <article class="card" data-tags="{{ project.tags | join: ' ' | slugify }}">
     <div class="card-header">
       <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>

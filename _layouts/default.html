@@ -32,14 +32,8 @@
   <link rel="stylesheet" href="/assets/css/interactive-resume.css">
   <link rel="stylesheet" href="/assets/css/blog.css">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
   {% if page.url == "/" %}
     <!-- External Libraries used by the home dashboard only -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer crossorigin="anonymous"></script>
   {% endif %}
 </head>
@@ -75,31 +69,6 @@
   <!-- Footer -->
   {% include footer.html %}
 
-  <!-- AI Chatbot Widget -->
-  <div id="ai-chat-widget" aria-label="AI 助手">
-    <button id="ai-chat-bubble" class="chat-bubble" aria-label="開啟 AI 助手">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
-        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9.5 9.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm3 3c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zm4.5-3c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z"/>
-      </svg>
-    </button>
-    <div id="ai-chat-window" class="chat-window" role="dialog" aria-label="AI 助手對話視窗">
-      <div class="chat-header">
-        <h3>網站導覽助手</h3>
-        <button id="ai-chat-close-btn" aria-label="關閉">&times;</button>
-      </div>
-      <div id="llm-response-area" class="chat-body">
-      </div>
-      <div class="chat-footer">
-        <textarea id="llm-input" placeholder="輸入想找的內容..." aria-label="輸入問題"></textarea>
-        <button id="llm-submit-btn" aria-label="送出">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>
-
   <!-- Back to Top -->
   <a href="#" id="backToTopBtn" class="back-to-top" title="回到頂端" aria-label="回到頂端">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
@@ -109,9 +78,12 @@
 
   <!-- JavaScript Modules -->
   <script type="module" src="/assets/js/main.js"></script>
-  <script type="module" src="/assets/js/modules/terminal.js"></script>
-  <script type="module" src="/assets/js/modules/github.js"></script>
   <script type="module" src="/assets/js/modules/animations.js"></script>
   <script type="module" src="/assets/js/modules/page-transitions.js"></script>
+  {% if page.url == "/" %}
+    <!-- 只有首頁有終端機與 GitHub 統計 -->
+    <script type="module" src="/assets/js/modules/terminal.js"></script>
+    <script type="module" src="/assets/js/modules/github.js"></script>
+  {% endif %}
 </body>
 </html>

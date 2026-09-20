@@ -1,0 +1,64 @@
+---
+layout: project
+title: "CNN-LSTM 智慧家庭需量反應"
+description: "預測一個家庭接下來會用多少電，再讓 DR Agent 決定哪些負載該挪走。ISASD 2026 已接受。"
+permalink: /projects/cnn-lstm-demand-response/
+weight: 3
+tags: ["Python", "PyTorch", "時間序列", "Agentic AI", "研究"]
+read-time: "4分鐘"
+python_version: "3.10"
+languages:
+  - name: "Python"
+    percentage: 100
+    color: "#3572A5"
+---
+
+<div class="demo-cta demo-cta--pending">
+  <div class="demo-cta__text">
+    <span class="demo-cta__badge">ISASD 2026 · Accepted</span>
+    <h2>AI-Agent-Driven Demand Response Forecasting</h2>
+    <p>International Conference on Intelligent Science and Sustainable Development 2026 ── 主責架構設計、系統開發與實驗驗證。</p>
+  </div>
+</div>
+
+<h2>問題</h2>
+<p>
+  電網的尖峰負載很貴 —— 貴在必須為了那幾個小時養一整套備載容量。
+  需量反應（Demand Response）的想法是反過來做：不增加供給，而是<strong>把可以延後的用電挪開尖峰</strong>。
+</p>
+<p>
+  要挪得動，前提是知道接下來會用多少電。家庭層級的用電預測難在訊號很碎：
+  冰箱是週期性的、冷氣跟天氣走、洗衣機則完全看人的作息。
+</p>
+
+<h2>做法</h2>
+<p>
+  用 CNN-LSTM 的組合處理這種混合訊號：
+</p>
+<ul>
+  <li><strong>CNN 層</strong> 抽取短時間窗內的局部樣態（某個電器啟動的特徵形狀）。</li>
+  <li><strong>LSTM 層</strong> 接手時間上的長程相依（作息週期、連續數小時的趨勢）。</li>
+  <li>資料集為 <strong>UCI Appliances Energy Prediction</strong>。</li>
+</ul>
+<p>
+  預測結果交給一個<strong>單一家庭的 DR Agent</strong>：它拿著預測曲線與電價訊號，
+  決定哪些負載可以延後、延後多久。
+</p>
+
+<h2>評估</h2>
+<p>不只看預測誤差，而是看這套決策實際帶來什麼：</p>
+<ul>
+  <li><strong>尖峰負載削減</strong> —— 挪走多少尖峰用電。</li>
+  <li><strong>電費節省</strong> —— 在時間電價下實際省下多少。</li>
+  <li><strong>能源調度成效</strong> —— 挪動後的負載曲線是否平滑，有沒有製造出新的尖峰。</li>
+</ul>
+<p>
+  最後一項常被忽略，但很關鍵：如果所有家庭都把負載挪到同一個離峰時段，
+  只是把尖峰搬家而已。
+</p>
+
+<h2>我負責的部分</h2>
+<p>
+  架構設計、系統開發與實驗驗證 —— 包含 CNN-LSTM 的模型設計與訓練、
+  需量反應模擬策略的實作，以及 DR Agent 的決策邏輯與成效評估。
+</p>

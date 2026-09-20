@@ -1,35 +1,34 @@
+/**
+ * 互動式履歷：每個 experience-item 的標題可以收合 / 展開。
+ * 預設全部展開，收合只是給想快速掃過標題的人用的。
+ */
 export function initializeResume() {
-  console.log('resume.js: Initializing resume interactions.');
+  const headings = document.querySelectorAll('#resume-container .experience-item h3');
 
-  // Skills hover effect
-  const skills = document.querySelectorAll('#resume-container .skill');
-  skills.forEach(skill => {
-    const level = skill.getAttribute('data-level');
-    const skillLevelDiv = document.createElement('div');
-    skillLevelDiv.classList.add('skill-level');
-    skillLevelDiv.textContent = level;
-    skill.appendChild(skillLevelDiv);
+  headings.forEach(heading => {
+    const item = heading.parentElement;
+    // 沒有細節內容的項目（例如只有一行標題的活動）不需要收合
+    if (!item.querySelector('.experience-details')) {
+      heading.style.cursor = 'default';
+      heading.classList.add('no-toggle');
+      return;
+    }
 
-    // Add inline progress bar
-    const bar = document.createElement('div');
-    bar.className = 'skill-bar';
-    const fill = document.createElement('div');
-    fill.className = 'skill-bar-fill';
-    bar.appendChild(fill);
-    skill.appendChild(bar);
+    heading.setAttribute('role', 'button');
+    heading.setAttribute('tabindex', '0');
+    heading.setAttribute('aria-expanded', 'true');
 
-    // Animate width
-    const pct = (level || '').trim();
-    requestAnimationFrame(() => {
-      setTimeout(() => { fill.style.width = pct; }, 60);
-    });
-  });
+    const toggle = () => {
+      const collapsed = item.classList.toggle('collapsed');
+      heading.setAttribute('aria-expanded', String(!collapsed));
+    };
 
-  // Experience toggle effect
-  const experienceItems = document.querySelectorAll('#resume-container .experience-item h3');
-  experienceItems.forEach(item => {
-    item.addEventListener('click', () => {
-      item.parentElement.classList.toggle('active');
+    heading.addEventListener('click', toggle);
+    heading.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggle();
+      }
     });
   });
 }

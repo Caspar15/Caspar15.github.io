@@ -175,10 +175,6 @@
     height: 40px;
   }
 
-  #ai-chat-widget {
-    left: var(--spacing-md);
-  }
-
   .stats-grid {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* 調整網格大小 */
     gap: var(--spacing-md); /* 調整間距 */
@@ -186,11 +182,6 @@
 
   .stat-card {
     padding: var(--spacing-sm);
-  }
-
-  .chart-container {
-    height: 200px;
-    margin-top: var(--spacing-lg); /* 調整間距 */
   }
 
   .profile-section h2 {

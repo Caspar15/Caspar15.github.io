@@ -30,34 +30,53 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     about: {
       description: 'Display a brief bio.',
-      execute: (args) => `Caspar - Software Engineer | Full-Stack Developer | AI/NLP Researcher.\nFind more on my <a href="/about/" target="_blank" rel="noopener">About Me</a> page.`
+      execute: (args) => `Caspar Chen - M.S. in EE @ NTUST.\n` +
+                         `AI algorithms, LLM systems & evaluation, full-stack.\n` +
+                         `More on my <a href="/about/">About</a> page.`
+    },
+    work: {
+      description: 'Show work experience.',
+      execute: (args) => `Work Experience:\n` +
+                         `  2026.07-08  AI Engineer Intern @ Trend Micro\n` +
+                         `              LLM-as-a-judge eval harness, CI-driven on Kubernetes\n` +
+                         `  2023.06-10  Cloud Engineer @ Smart Transformation Center\n` +
+                         `              IoT predictive maintenance, ML price forecasting\n` +
+                         `Full details: <a href="/resume/">/resume/</a>`
+    },
+    research: {
+      description: 'List publications.',
+      execute: (args) => `Publications:\n` +
+                         `  IEEE ICACT 2026  Meta-Heuristic Approaches with LM-based Selectors\n` +
+                         `                   for Extractive Summarization\n` +
+                         `                   *** Outstanding Paper Award ***\n` +
+                         `  ISASD 2026       AI-Agent-Driven Demand Response Forecasting\n` +
+                         `                   for Smart Homes with a CNN-LSTM Framework (accepted)\n` +
+                         `  IEEE Access      extended version, under review`
     },
     projects: {
       description: 'List key projects.',
       execute: (args) => {
         return `Key Projects:\n` +
-               `  - <a href="/projects/greenfriend/" target="_blank" rel="noopener">GreenFriend</a>\n` +
-               `  - <a href="/projects/discord-music/" target="_blank" rel="noopener">Discord Music Bot</a>\n` +
-               `  - <a href="/projects/tiny-fb/" target="_blank" rel="noopener">Tiny Facebook</a>\n` +
-               `  ... and more on the Projects page.`;
+               `  - <a href="/projects/extractive-summarization-nsga2/">NSGA-II Extractive Summarization</a>\n` +
+               `  - <a href="/projects/rain-nowcast-tw/">Rain Nowcast TW</a>\n` +
+               `  - <a href="/projects/cnn-lstm-demand-response/">CNN-LSTM Demand Response</a>\n` +
+               `  - <a href="/projects/greenfriend/">GreenFriend</a>\n` +
+               `  ... and more on the <a href="/#projects">Projects</a> section.`;
       }
     },
     contact: {
       description: 'Show contact information.',
       execute: (args) => `You can reach me via:\n` +
+                       `  - <a href="mailto:caspar9202166422@gmail.com">caspar9202166422@gmail.com</a>\n` +
                        `  - <a href="https://github.com/Caspar15" target="_blank" rel="noopener">GitHub</a>\n` +
-                       `  - <a href="https://www.linkedin.com/in/%E6%9F%8F%E5%AE%87-%E9%99%B3-3a84132a2/" target="_blank" rel="noopener">LinkedIn</a>`
+                       `  - <a href="https://www.linkedin.com/in/caspar0216" target="_blank" rel="noopener">LinkedIn</a>`
     },
     clear: {
       description: 'Clear the terminal screen.',
       execute: (args) => {
         outputElement.innerHTML = '';
-        return ''; // No success message needed, just clear the screen
+        return '';
       }
-    },
-    sudo: {
-      description: 'Request admin privileges.',
-      execute: (args) => `<span class="error">Error: User is not in the sudoers file. This incident will be reported.</span>`
     }
   };
 

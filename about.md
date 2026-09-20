@@ -7,8 +7,8 @@ title: 關於我
 
   <header class="profile-header">
     <h1>陳柏宇 Caspar Chen</h1>
-    <p class="subtitle">臺灣科技大學電機所碩士生 · AI 演算法 · 全端工程師</p>
-    <p class="summary">具備 AI 演算法與系統實作背景的工程師，專注於 NLP、資料分析與效能優化。曾以核心成員身分發表 IEEE 國際會議論文並榮獲 2026 IEEE ICACT Outstanding Paper Award，主責演算法設計與實驗驗證。具備將研究成果轉化為可部署系統的實作能力，並在多項全國級競賽中取得冠軍及亞軍。</p>
+    <p class="subtitle">臺灣科技大學電機所碩士生 · AI 演算法 · LLM 系統與評測</p>
+    <p class="summary">AI 演算法與系統實作背景的工程師，專注於 NLP、LLM 系統與效能優化。以核心成員身分發表 IEEE 國際會議論文並獲得 2026 IEEE ICACT Outstanding Paper Award，主責演算法設計與實驗驗證。在趨勢科技擔任 AI Engineer Intern 期間，負責消費性 AI 助理長期記憶功能的自動化評測與 CI 管線。習慣把研究成果收斂成可部署的系統，並在多項全國級競賽中取得金獎與亞軍。</p>
   </header>
 
   <section class="info-card full-width-card">
@@ -17,9 +17,10 @@ title: 關於我
       <h3>學歷</h3>
     </div>
     <ul>
-      <li>國立臺灣科技大學 電機工程系 碩士 ｜ 2025 – 2027（預計畢業）</li>
-      <li>東海大學 資訊工程學系 學士 ｜ 2021 – 2025（畢業）</li>
-      <li>GPA 3.76 / 4.0（系排 18 / 169，前 10.65%）</li>
+      <li>國立臺灣科技大學 電機工程系 碩士 ｜ 2025.09 – 2027.06（預計畢業）</li>
+      <li>碩班修課：分散式機器學習系統（NTU）、電腦對局理論（NTU）、VLSI 測試與可測試性設計</li>
+      <li>東海大學 資訊工程學系 學士 ｜ 2021.09 – 2025.06（畢業）</li>
+      <li>GPA 3.76 / 4.0（系排 18 / 169，前 10%）</li>
     </ul>
   </section>
 
@@ -31,11 +32,11 @@ title: 關於我
         <h3>研究成果</h3>
       </div>
       <ul>
-        <li>IEEE ICACT 2026 國際會議論文（Second Author）</li>
-        <li>🏆 2026 IEEE ICACT Outstanding Paper Award</li>
-        <li>SCI 期刊 ICT Express 投稿中（審稿階段）</li>
-        <li>NSGA-II 結合 LM 的抽取式摘要系統</li>
-        <li>5G 資源分配深度強化學習（DQN / DDQN）</li>
+        <li>🏆 IEEE ICACT 2026 — Outstanding Paper Award</li>
+        <li>NSGA-II 結合 LM 的抽取式摘要系統（推理快 10 倍以上）</li>
+        <li>ISASD 2026 — CNN-LSTM 智慧家庭需量反應預測（已接受）</li>
+        <li>SCI 期刊 IEEE Access 審稿中（ICACT 延伸版本）</li>
+        <li>5G 資源分配深度強化學習（DQN / DDQN，大學畢業專題）</li>
       </ul>
     </section>
 
@@ -45,12 +46,12 @@ title: 關於我
         <h3>技術技能</h3>
       </div>
       <ul>
-        <li>Python、C / C++</li>
-        <li>Machine Learning、Deep Learning、NLP</li>
-        <li>Reinforcement Learning、多目標最佳化</li>
-        <li>PyTorch、CUDA</li>
-        <li>React、JavaScript、HTML / CSS</li>
-        <li>Git、Docker</li>
+        <li>Python、C / C++、JavaScript、SQL</li>
+        <li>LLM、NLP、Agentic AI、RAG、Vector Search</li>
+        <li>Prompt Engineering、LLM Evaluation、多目標最佳化</li>
+        <li>PyTorch、Hugging Face Transformers、LangChain / LangGraph、vLLM</li>
+        <li>FastAPI、React、Node.js、Flutter、MySQL / PostgreSQL</li>
+        <li>Docker、Kubernetes、GCP、CI/CD、GitHub Actions、pytest</li>
       </ul>
     </section>
 
@@ -60,9 +61,9 @@ title: 關於我
         <h3>競賽獎項</h3>
       </div>
       <ul>
-        <li>🥈 2025 雙北程式設計節 黑客松 — 亞軍（全國第二）</li>
         <li>🥇 IEC 2024 臺灣數創大賞 — 金獎（全國第一）</li>
-        <li>🥈 ATCC 遠傳電信組 — 亞軍</li>
+        <li>🥈 2025 雙北程式設計節 黑客松 — 亞軍（全國第二）</li>
+        <li>🥈 2025 ATCC 商業個案大賽 遠傳電信組 — 亞軍</li>
         <li>🥈 2025 海科盃 — 銀質獎 ＋ 個人 MVP</li>
       </ul>
     </section>
@@ -70,13 +71,14 @@ title: 關於我
     <section class="info-card">
       <div class="card-header">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-        <h3>教學 / 活動經歷</h3>
+        <h3>工作 / 活動經歷</h3>
       </div>
       <ul>
+        <li>AI Engineer Intern — 趨勢科技 Trend Micro（2026.07–2026.08）</li>
         <li>雲端工程師 — 智慧轉型中心（2023.06–2023.10）</li>
         <li>課程助教 — 電子電路實驗、邏輯設計實驗</li>
-        <li>課程助教 — ESG 永續淨零碳排、半導體產業管理</li>
-        <li>企劃長 — 東海大學 AI 資料應用社</li>
+        <li>課程助教 — 半導體產業趨勢與實務、ESG 永續淨零碳排</li>
+        <li>企劃長 — 東海大學 AI 資料應用社（2024–2025）</li>
         <li>ChatGPT 論壇（高雄場、彰化場）主辦</li>
         <li>ISSC 2022 / 2024 青年程式競賽 主辦方</li>
       </ul>
@@ -89,7 +91,7 @@ title: 關於我
     <p style="margin-top: 12px;">
       <a href="mailto:caspar9202166422@gmail.com" style="margin: 0 8px;">✉ caspar9202166422@gmail.com</a> ·
       <a href="https://github.com/Caspar15" target="_blank" rel="noopener" style="margin: 0 8px;">GitHub</a> ·
-      <a href="https://pse.is/8jwnkm" target="_blank" rel="noopener" style="margin: 0 8px;">LinkedIn</a> ·
+      <a href="https://www.linkedin.com/in/caspar0216" target="_blank" rel="noopener" style="margin: 0 8px;">LinkedIn</a> ·
       <a href="/resume/" style="margin: 0 8px;">互動式履歷</a>
     </p>
   </section>

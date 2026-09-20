@@ -42,15 +42,12 @@
   opacity: 1;
 }
 
-.footer-social-icons img {
-  width: 18px;
-  height: 18px;
-  opacity: 0.6;
-  transition: opacity var(--transition-fast);
+.footer-social-icons a {
+  color: var(--color-text-muted);
 }
 
-.footer-social-icons a:hover img {
-  opacity: 1;
+.footer-social-icons a:hover {
+  color: var(--color-accent);
 }
 
 .footer p {

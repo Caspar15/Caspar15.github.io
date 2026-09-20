@@ -63,8 +63,10 @@ export function initMagicCube() {
     scene.add(directionalLight);
 
     // --- Ground Plane for Shadows ---
+    // ShadowMaterial 只畫出陰影，平面本身透明 ——
+    // 用不透明的淺色會在深色模式變成一整塊白板。
     const groundGeometry = new THREE.PlaneGeometry(20, 20);
-    const groundMaterial = new THREE.MeshStandardMaterial({ color: 0xf0f0f0, roughness: 0.8, metalness: 0.1 });
+    const groundMaterial = new THREE.ShadowMaterial({ opacity: 0.22 });
     const ground = new THREE.Mesh(groundGeometry, groundMaterial);
     ground.rotation.x = -Math.PI / 2;
     ground.position.y = -pieceSize * 3.0; // Position below the cube (further adjusted)

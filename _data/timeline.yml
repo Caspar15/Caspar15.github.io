@@ -1,5 +1,6 @@
 - start_date:
     year: 2021
+    month: 9
   text:
     headline: "開啟大學生涯"
     text: "進入東海大學資訊工程學系，開始了系統性的計算機科學學習之旅。"
@@ -17,19 +18,10 @@
 
 - start_date:
     year: 2023
-    month: 3
-  text:
-    headline: "跨域挑戰：ATCC 商業競賽"
-    text: "參加 ATCC 全國大專院校商業個案大賽，在遠傳電信組獲得亞軍，學習將技術思維應用於商業問題。"
-  group: "競賽"
-  type: "competition"
-
-- start_date:
-    year: 2023
-    month: 7
+    month: 6
   text:
     headline: "實習初體驗：雲端工程師"
-    text: "在智慧轉型中心擔任雲端工程師實習生，接觸業界的雲端架構與開發流程。"
+    text: "在智慧轉型中心擔任雲端工程師，建置校內 IoT 感測與設備維護預測系統，並參與廢鋼價格預測的產學合作案。"
   group: "工作"
   type: "work"
 
@@ -37,23 +29,24 @@
     year: 2024
   text:
     headline: "IEC 2024 臺灣數創大賞金獎"
-    text: "以低碳路徑推薦系統獲得 IEC 2024 臺灣數創大賞金獎全國第一名，將最短路徑演算法、碳排模型與行動應用整合成可用系統。"
+    text: "以低碳路徑推薦系統獲得全國第一名，將最短路徑演算法、碳排模型與 Flutter 行動應用整合成可用系統。"
   group: "競賽"
   type: "competition"
 
 - start_date:
     year: 2024
   text:
-    headline: "主辦論壇與全端開發"
-    text: "擔任產業應用論壇的主辦人與前端工程師，並投入 IoT 感測全端軟體開發專案，全面提升專案管理與開發能力。"
+    headline: "社團企劃長與論壇主辦"
+    text: "擔任東海大學 AI 資料應用社企劃長，並主辦 ChatGPT 論壇與 ISSC 青年程式設計競賽，把技術活動辦成規模。"
   group: "經歷"
   type: "milestone"
 
 - start_date:
     year: 2025
+    month: 6
   text:
-    headline: "學業里程碑"
-    text: "以 GPA 3.76 (系排前 10%) 的成績畢業，並成功錄取國立臺灣科技大學電機工程學系碩士班，準備迎接新的學術挑戰。"
+    headline: "畢業與錄取台科大電機所"
+    text: "以 GPA 3.76、系排 18 / 169（前 10%）自東海資工畢業，錄取國立臺灣科技大學電機工程學系碩士班。"
   group: "學業"
   type: "education"
 
@@ -61,7 +54,15 @@
     year: 2025
   text:
     headline: "雙北程式設計節黑客松亞軍"
-    text: "在 2025 雙北程式設計節黑客松中開發可整合至臺北城市儀表板的擴充功能模組，獲得亞軍全國第二名。"
+    text: "開發可整合至臺北城市儀表板的擴充模組，建立四大地圖資料組件與搜尋功能，獲得全國第二名。"
+  group: "競賽"
+  type: "competition"
+
+- start_date:
+    year: 2025
+  text:
+    headline: "ATCC 商業個案大賽遠傳組亞軍"
+    text: "設計 AI 語音反詐騙系統，以 ASR、對話式 LLM Agent 與 TTS 串接電信通話流程，延長通話並蒐集詐騙話術特徵。"
   group: "競賽"
   type: "competition"
 
@@ -69,6 +70,31 @@
     year: 2025
   text:
     headline: "海科盃銀質獎與個人 MVP"
-    text: "於 2025 海科盃提出 MR 系統應用構想，獲得銀質獎，並因報告表現獲選個人 MVP。"
+    text: "提出 MR 系統應用構想，獲得銀質獎，並因報告表現獲選個人 MVP。"
   group: "競賽"
   type: "competition"
+
+- start_date:
+    year: 2026
+  text:
+    headline: "IEEE ICACT 2026 Outstanding Paper Award"
+    text: "以 NSGA-II 結合預訓練語言模型的抽取式摘要系統發表於 IEEE ICACT 2026 並獲傑出論文獎，推理速度較純 LM 基線提升 10 倍以上。延伸版本投稿 SCI 期刊 IEEE Access，審稿中。"
+  group: "經歷"
+  type: "milestone"
+
+- start_date:
+    year: 2026
+    month: 7
+  text:
+    headline: "趨勢科技 AI Engineer Intern"
+    text: "為消費性 AI 助理 TrendLife Kaleida 建立長期記憶的自動化評測：LLM-as-a-judge 判卷、GitHub Actions 觸發 Kubernetes Job，把評測從人工轉為無人值守，回歸測試通過數自 130/168 提升至 164/168。"
+  group: "工作"
+  type: "work"
+
+- start_date:
+    year: 2026
+  text:
+    headline: "ISASD 2026 論文接受"
+    text: "以 CNN-LSTM 為核心的智慧家庭短期能源預測框架，結合需量反應模擬與單一家庭 DR Agent，獲 ISASD 2026 接受。"
+  group: "經歷"
+  type: "milestone"

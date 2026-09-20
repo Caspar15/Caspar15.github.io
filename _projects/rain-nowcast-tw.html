@@ -1,0 +1,163 @@
+---
+layout: project
+title: "會不會下雨 · rain-nowcast-tw"
+description: "某個地點、某個時間，會不會下雨。一個地點加一個時間直接給答案，而不是行政區級的日預報。"
+permalink: /projects/rain-nowcast-tw/
+weight: 2
+tags: ["Python", "FastAPI", "NumPy", "氣象資料", "Leaflet"]
+read-time: "5分鐘"
+python_version: "3.11"
+languages:
+  - name: "Python"
+    percentage: 61
+    color: "#3572A5"
+  - name: "HTML / JS"
+    percentage: 39
+    color: "#e34c26"
+
+# ── 測試網址 ─────────────────────────────────────────────
+# 服務跑在自己的機器 / 伺服器上（GitHub Pages 只能放靜態檔，
+# 跑不了 FastAPI 與背景排程），所以這裡填的是對外的網址。
+# 本頁與右側欄的入口按鈕都只看這一行 —— 換網址只要改這裡。
+# 留空時頁面會顯示「測試網址準備中」，不會產生壞掉的連結。
+demo_url: ""
+demo_status: "封閉測試中"
+---
+
+{% assign demo = page.demo_url | default: "" | strip %}
+<div class="demo-cta{% if demo == "" %} demo-cta--pending{% endif %}">
+  <div class="demo-cta__text">
+    <span class="demo-cta__badge">{{ page.demo_status }}</span>
+    <h2>線上測試</h2>
+    <p>不用註冊、不用安裝。開啟後選一個地點，直接看結果。介面是手機優先設計的，用手機開最順。</p>
+  </div>
+  {% if demo != "" %}
+    <a class="btn btn-demo" href="{{ demo }}" target="_blank" rel="noopener">開始測試 →</a>
+  {% else %}
+    <span class="btn btn-demo btn-demo--disabled" aria-disabled="true">測試網址準備中</span>
+  {% endif %}
+</div>
+
+<h2>這是什麼</h2>
+<p>
+  回答「<strong>台北市仁愛國小下午 6 點會不會下雨</strong>」這種問題 ——
+  一個地點加一個時間，直接給答案。
+</p>
+<p>
+  一般天氣 App 給的是行政區級的日預報：「大安區今日降雨機率 40%」。
+  這個數字對「我現在要不要帶傘出門」幫助有限。
+  這個服務把空間解析度拉到 <strong>1.25 公里</strong>、時間解析度拉到 <strong>10 分鐘</strong>，
+  所以它能講的是「35 分鐘後開始下、下 5 mm」。
+</p>
+
+<h2>怎麼測</h2>
+<ol>
+  <li><strong>開啟網址</strong> —— 建議用手機。</li>
+  <li><strong>選地點</strong> —— 搜尋地標（學校、車站、公園都可以）、按定位、或直接在地圖上點。</li>
+  <li><strong>看答案</strong> —— 前兩小時給雨量（mm），再往後給降雨機率（%）。</li>
+</ol>
+<p>
+  網址本身就是分享單位，帶著地點直接進結果頁，不需要任何操作：
+</p>
+<pre><code>/?lat=25.0378&amp;lon=121.5435&amp;name=仁愛國小&amp;county=臺北市&amp;town=大安區</code></pre>
+<p>
+  所以你可以把「某個地點的雨況」直接貼給別人。也有全螢幕雨區圖可以看整片雨往哪走。
+</p>
+
+<h2>你會看到兩種答案</h2>
+<p>介面上刻意看得出斷層，因為這兩段資料的性質本來就不同，不假裝是同一種東西。</p>
+<table>
+  <thead>
+    <tr><th>時段</th><th>資料來源</th><th>空間</th><th>時間</th><th>回答的問題</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0 ~ 2 小時</td><td>NCDR ExAMP</td><td>1.25 km</td><td>10 分鐘</td>
+      <td><strong>會下多少 mm</strong></td>
+    </tr>
+    <tr>
+      <td>0 ~ 3 天</td><td>CWA 鄉鎮預報</td><td>368 個鄉鎮區</td><td>3 小時</td>
+      <td><strong>降雨機率 %</strong></td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  另外每 10 分鐘會記錄約 1,340 個自動雨量站的實測值，用來日後校正預報準不準。
+</p>
+
+<h2>測試時請注意</h2>
+<p>這些是已經知道的限制，遇到不用特地回報（但遇到<em>沒寫在這裡</em>的問題請告訴我）：</p>
+<ul>
+  <li>
+    <strong>服務不是 24 小時開著。</strong>現在還在封閉測試，跑在自己的機器上，
+    連不上很可能只是沒開，不是你的網路有問題。
+  </li>
+  <li>
+    <strong>預報視窗會縮短。</strong>兩小時是從「資料快照的時間」起算，不是從「現在」。
+    快照舊了 30 分鐘，可用的就只剩 90 分鐘。畫面上會標示。
+  </li>
+  <li>
+    <strong>完整門牌地址查不到。</strong>目前用免費的 Nominatim 做地標搜尋，
+    對學校、車站、公園、巷弄堪用，但門牌地址查無 —— 這種情況請改用定位或直接點地圖。
+  </li>
+  <li>
+    <strong>常用地點存在瀏覽器裡。</strong>還沒有登入機制，
+    所以換瀏覽器、換裝置、清除網站資料都會不見。
+  </li>
+</ul>
+
+<h2>回報問題</h2>
+<p>
+  在下面直接留言就可以（用 GitHub 帳號登入），或是講給我聽也行。
+  最有幫助的回報格式是：<strong>什麼時間、哪個地點、你看到什麼、你覺得應該看到什麼</strong>。
+  如果畫面怪怪的，附一張截圖最快。
+</p>
+
+<div class="giscus-wrapper">
+  <script src="https://giscus.app/client.js"
+          data-repo="Caspar15/Caspar15.github.io"
+          data-category="Guestbook"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="zh-TW"
+          crossorigin="anonymous"
+          async>
+  </script>
+  <noscript>請開啟 JavaScript 以使用留言功能。</noscript>
+</div>
+
+<h2>技術架構</h2>
+<p>
+  FastAPI 同時提供 API 與 HTML，沒有前後端之分，只有一個行程，不需要 npm 或 build。
+  但架構上有一個非做不可的決定：
+</p>
+<p>
+  <strong>ExAMP 每次固定吐 112,784,866 bytes，而且不支援查詢參數、gzip、HTTP Range。</strong>
+  沒有辦法只要一個點，所以不可能做成「使用者查一次、打一次上游 API」，
+  必須是排程抓取加上本地快取。<em>快取不是優化，是這個架構能不能成立的前提。</em>
+</p>
+<p>兩個提早中斷把成本壓下來：</p>
+<ul>
+  <li>
+    收滿開頭 266 bytes 就能讀到 <code>ini_dtg</code>。與上次相同代表來源還沒更新，
+    立刻中斷 —— 約 66 KB / 2.7 秒，而不是 86 MB / 12 秒。
+    因此輪詢可以比 10 分鐘的更新週期更密集。
+  </li>
+  <li>
+    涵蓋範圍的緯度帶在 86.2 MB 處結束，收到就中斷，省下最後 24%。
+  </li>
+</ul>
+<p>
+  存下來的資料很小：量化成 uint16（0.01 mm）再壓縮，一筆約 28 KB，一年約 1.4 GB，
+  所以快照全部保留，不需要刪舊資料。
+</p>
+<p>
+  另外一個實測踩到的坑：<strong>預報強度會隨預報時間被系統性壓低</strong>。
+  同一場雨，<code>f120min</code> 的總雨量比 <code>f10min</code> 少約 67%，
+  全域最大值是一條精確的等差數列 —— 那是演算法的阻尼，不是天氣。
+  所以不同時距的 mm 值不能直接比大小，路線功能裡有一套時距正規化在處理這件事。
+</p>

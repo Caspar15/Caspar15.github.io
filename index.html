@@ -9,21 +9,8 @@ title: Home
     <section class="profile-section">
       <img src="/assets/images/profile.webp" alt="Caspar Chen" class="profile-pic-sidebar">
       <h2>陳柏宇 Caspar</h2>
-      <p>台科大電機所 · AI 演算法 · 全端工程師</p>
-      <div class="social-icons">
-        <a href="https://www.facebook.com/bai.yu.592792/" title="Facebook" target="_blank" rel="noopener">
-          <img src="/assets/images/facebook.png" alt="Facebook">
-        </a>
-        <a href="https://x.com/chnbiy485839748" title="Twitter / X" target="_blank" rel="noopener">
-          <img src="/assets/images/twitter.png" alt="Twitter">
-        </a>
-        <a href="https://github.com/Caspar15" title="GitHub" target="_blank" rel="noopener">
-          <img src="/assets/images/github.png" alt="GitHub">
-        </a>
-        <a href="https://www.linkedin.com/in/%E6%9F%8F%E5%AE%87-%E9%99%B3-3a84132a2/" title="LinkedIn" target="_blank" rel="noopener">
-          <img src="/assets/images/linkedin.png" alt="LinkedIn">
-        </a>
-      </div>
+      <p>台科大電機所 · LLM 系統與評測 · AI 演算法</p>
+      {% include social_links.html class="social-icons" %}
     </section>
 
     <div id="magic-cube-container" class="magic-cube-container"></div>
@@ -58,26 +45,16 @@ title: Home
           <div class="stat-icon">🏆</div>
           <div class="stat-content">
             <div class="stat-value">4</div>
-            <div class="stat-label">競賽獎項</div>
+            <div class="stat-label">全國級競賽獎項</div>
           </div>
         </div>
         <div class="stat-card">
           <div class="stat-icon">📄</div>
           <div class="stat-content">
-            <div class="stat-value">1</div>
-            <div class="stat-label">IEEE 論文</div>
+            <div class="stat-value">2</div>
+            <div class="stat-label">國際會議論文</div>
           </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-icon">📜</div>
-          <div class="stat-content">
-            <div class="stat-value" id="github-gists-count">—</div>
-            <div class="stat-label">公開 Gists</div>
-          </div>
-        </div>
-      </div>
-      <div class="chart-container">
-        <canvas id="categoryChart"></canvas>
       </div>
     </div>
 
@@ -114,18 +91,21 @@ title: Home
       <h3>技能與技術</h3>
       <div class="skills-list">
         <span class="skill-item">Python</span>
-        <span class="skill-item">C / C++</span>
-        <span class="skill-item">Machine Learning</span>
-        <span class="skill-item">Deep Learning</span>
+        <span class="skill-item">LLM</span>
         <span class="skill-item">NLP</span>
-        <span class="skill-item">Reinforcement Learning</span>
+        <span class="skill-item">Agentic AI</span>
+        <span class="skill-item">RAG</span>
+        <span class="skill-item">LLM Evaluation</span>
+        <span class="skill-item">Prompt Engineering</span>
         <span class="skill-item">PyTorch</span>
-        <span class="skill-item">CUDA</span>
+        <span class="skill-item">LangChain / LangGraph</span>
+        <span class="skill-item">vLLM</span>
+        <span class="skill-item">FastAPI</span>
         <span class="skill-item">React</span>
-        <span class="skill-item">JavaScript</span>
-        <span class="skill-item">HTML / CSS</span>
-        <span class="skill-item">Git</span>
         <span class="skill-item">Docker</span>
+        <span class="skill-item">Kubernetes</span>
+        <span class="skill-item">CI/CD</span>
+        <span class="skill-item">pytest</span>
       </div>
     </section>
 
@@ -133,16 +113,16 @@ title: Home
       <h3>近期計畫</h3>
       <ul>
         <li>
-          <span class="update-item">網站訪客地圖統計</span>
-          <span class="update-status">計畫中</span>
-        </li>
-        <li>
-          <span class="update-item">更多部落格文章</span>
+          <span class="update-item">降雨即時預報服務封閉測試</span>
           <span class="update-status">進行中</span>
         </li>
         <li>
-          <span class="update-item">碩士研究專案展示</span>
-          <span class="update-status">計畫中</span>
+          <span class="update-item">IEEE Access 期刊論文審稿</span>
+          <span class="update-status">審稿中</span>
+        </li>
+        <li>
+          <span class="update-item">更多技術文章</span>
+          <span class="update-status">進行中</span>
         </li>
       </ul>
     </section>

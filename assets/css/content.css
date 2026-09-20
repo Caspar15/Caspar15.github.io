@@ -90,14 +90,6 @@
   letter-spacing: 0.04em;
 }
 
-.chart-container {
-  height: 260px;
-  margin-top: var(--spacing-lg);
-  padding: var(--spacing-md);
-  background: rgba(118, 118, 128, 0.06);
-  border-radius: var(--radius-lg);
-}
-
 /* ===== Magic Cube Container ===== */
 .magic-cube-container {
   height: 240px;

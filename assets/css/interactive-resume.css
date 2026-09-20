@@ -121,6 +121,7 @@
   font-size: var(--font-size-base);
   font-weight: 600;
   margin-bottom: 2px;
+  padding-right: 22px;
   cursor: pointer;
   color: var(--color-text);
   letter-spacing: -0.01em;
@@ -129,6 +130,35 @@
 
 .experience-item h3:hover {
   color: var(--color-accent);
+}
+
+.experience-item h3:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-xs);
+}
+
+/* 可收合的提示。沒有這個箭頭就沒有人知道標題可以點。 */
+.experience-item h3::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--color-text-tertiary);
+  border-bottom: 2px solid var(--color-text-tertiary);
+  transform: rotate(45deg);
+  transition: transform var(--transition-fast);
+}
+
+.experience-item.collapsed h3::after {
+  transform: rotate(-45deg);
+}
+
+/* 只有標題、沒有細節的項目不顯示箭頭 */
+.experience-item h3.no-toggle::after {
+  display: none;
 }
 
 .experience-date {
@@ -140,14 +170,15 @@
   letter-spacing: 0.04em;
 }
 
+/* 預設展開 —— 履歷的重點就是這些內容，不該藏在點擊後面。
+   點標題可以收合，狀態由 .collapsed 表示。 */
 .experience-details {
-  display: none;
+  display: block;
   padding-top: var(--spacing-sm);
-  animation: fadeInUp 0.2s ease forwards;
 }
 
-.experience-item.active .experience-details {
-  display: block;
+.experience-item.collapsed .experience-details {
+  display: none;
 }
 
 .experience-details ul {
@@ -172,7 +203,22 @@
   font-size: 12px;
 }
 
-/* === Skills Section === */
+/* === Skills Section ===
+   技能以「分組標籤」呈現，不標熟練度百分比 ——
+   自己給自己打的分數沒有可比性，看的人也無從驗證。 */
+.skill-group + .skill-group {
+  margin-top: var(--spacing-md);
+}
+
+.skill-group-title {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--spacing-sm);
+}
+
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
@@ -182,42 +228,30 @@
 .skill {
   background: rgba(0, 122, 255, 0.08);
   color: var(--color-accent);
-  padding: 6px 14px;
+  padding: 5px 12px;
   border-radius: var(--radius-pill);
   font-size: var(--font-size-sm);
   font-weight: 500;
-  cursor: pointer;
-  position: relative;
-  transition: all var(--transition-fast);
+  line-height: 1.4;
   border: 1px solid rgba(0, 122, 255, 0.2);
 }
 
-.skill:hover {
-  background: var(--color-accent);
-  color: #FFFFFF;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+/* === 修課清單 === */
+.coursework-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.skill .skill-level {
-  display: none;
-  position: absolute;
-  bottom: 130%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(28, 28, 30, 0.9);
-  color: #FFFFFF;
-  padding: 4px 10px;
-  border-radius: var(--radius-pill);
-  white-space: nowrap;
-  font-size: var(--font-size-xs);
-  font-weight: 600;
-  pointer-events: none;
-  box-shadow: var(--shadow-md);
+.coursework-list li {
+  padding: 4px 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
-.skill:hover .skill-level {
-  display: block;
+.coursework-list li:last-child {
+  border-bottom: 0;
 }
 
 /* === Education Items === */
