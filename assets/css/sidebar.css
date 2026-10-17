@@ -233,13 +233,13 @@
 }
 
 .skill-item {
-  font-size: var(--font-size-xs);
-  font-weight: 500;
+  font-size: 11px;
+  font-weight: 600;
   padding: 4px 10px;
-  background: rgba(118, 118, 128, 0.12);
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
   color: var(--color-text);
   border-radius: var(--radius-pill);
-  border: none;
   white-space: nowrap;
   transition: all var(--transition-fast);
   cursor: default;
@@ -247,9 +247,10 @@
 
 .skill-item:hover {
   background: var(--color-accent);
+  border-color: var(--color-accent);
   color: #FFFFFF;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.28);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
 }
 
 /* ===== Future Updates Section ===== */
@@ -273,15 +274,21 @@
 
 .update-item {
   color: var(--color-text);
+  font-weight: 500;
 }
 
 .update-status {
-  font-size: var(--font-size-xs);
+  font-size: 11px;
   font-weight: 600;
   padding: 2px 8px;
   border-radius: var(--radius-pill);
-  background: rgba(255, 149, 0, 0.12);
-  color: var(--color-orange);
+  background: rgba(245, 158, 11, 0.12);
+  color: #D97706;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+body.dark .update-status {
+  color: #FBBF24;
 }
 
 /* ===== Project Categories Sidebar (slide-in) ===== */

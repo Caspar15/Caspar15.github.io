@@ -1,19 +1,87 @@
-<div class="card-container grid-view">
-  {% assign ordered_projects = site.projects | sort: "weight" %}
-  {% for project in ordered_projects %}
-  <article class="card" data-tags="{{ project.tags | join: ' ' | slugify }}">
-    <div class="card-header">
-      <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>
+<div class="projects-section-container">
+  <!-- Section Title & Inline Filter Tabs -->
+  <div class="projects-control-bar">
+    <div class="projects-section-title-wrap">
+      <h2 class="projects-heading">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7"></rect>
+          <rect x="14" y="3" width="7" height="7"></rect>
+          <rect x="14" y="14" width="7" height="7"></rect>
+          <rect x="3" y="14" width="7" height="7"></rect>
+        </svg>
+        精選作品與研發成果
+      </h2>
+      <span class="projects-count-pill">{{ site.projects.size }} 件專案</span>
     </div>
-    <p>{{ project.description }}</p>
-    <div class="card-footer">
-      <div class="tags">
-        {% for tag in project.tags %}
-          <span class="tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
-      <a href="{{ project.url }}" class="btn">了解更多</a>
+
+    <!-- Category Filter Tabs -->
+    <div class="category-filter-tabs" role="tablist" aria-label="專案分類">
+      <button class="filter-tab active" data-filter="all">全部專案</button>
+      <button class="filter-tab" data-filter="ai-llm">AI · LLM · 深度學習</button>
+      <button class="filter-tab" data-filter="research">學術論文成果</button>
+      <button class="filter-tab" data-filter="fullstack">全端與雲端系統</button>
+      <button class="filter-tab" data-filter="tools">實用工具與自動化</button>
     </div>
-  </article>
-  {% endfor %}
+  </div>
+
+  <div class="card-container grid-view" id="projectsCardGrid">
+    {% assign ordered_projects = site.projects | sort: "weight" %}
+    {% for project in ordered_projects %}
+      {% assign tag_str = project.tags | join: ' ' | downcase %}
+      {% assign category = "tools" %}
+      {% if tag_str contains "nlp" or tag_str contains "agentic" or tag_str contains "pytorch" or tag_str contains "時間序列" or tag_str contains "llm" %}
+        {% assign category = "ai-llm" %}
+      {% elsif tag_str contains "研究" or project.title contains "IEEE" or project.title contains "ISASD" or project.title contains "NSGA-II" %}
+        {% assign category = "research" %}
+      {% elsif tag_str contains "fastapi" or tag_str contains "php" or tag_str contains "mysql" or tag_str contains "backend" or tag_str contains "api" or tag_str contains "leaflet" or tag_str contains "social" or tag_str contains "hotel" %}
+        {% assign category = "fullstack" %}
+      {% endif %}
+
+      <article class="card modern-project-card" data-category="{{ category }}" data-tags="{{ project.tags | join: ' ' | slugify }}">
+        <!-- Card Top Meta: Badge & Read Time -->
+        <div class="card-meta-top">
+          {% if project.title contains "IEEE" or project.title contains "NSGA-II" %}
+            <span class="card-badge badge-trophy">🏆 IEEE 獲獎論文</span>
+          {% elsif project.demo_status %}
+            <span class="card-badge badge-live">🚀 {{ project.demo_status }}</span>
+          {% elsif category == "ai-llm" %}
+            <span class="card-badge badge-ai">🤖 AI / LLM 系統</span>
+          {% elsif category == "research" %}
+            <span class="card-badge badge-research">📄 學術會議論文</span>
+          {% elsif category == "fullstack" %}
+            <span class="card-badge badge-fullstack">🌐 全端系統</span>
+          {% else %}
+            <span class="card-badge badge-tool">⚡ 工具與腳本</span>
+          {% endif %}
+
+          {% if project.read-time %}
+            <span class="card-read-time">{{ project.read-time }}</span>
+          {% endif %}
+        </div>
+
+        <div class="card-header">
+          <h3 class="card-title"><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h3>
+        </div>
+
+        <p class="card-description">{{ project.description }}</p>
+
+        <div class="card-footer">
+          <div class="tags">
+            {% for tag in project.tags limit:4 %}
+              <span class="tag">{{ tag }}</span>
+            {% endfor %}
+            {% if project.tags.size > 4 %}
+              <span class="tag-more">+{{ project.tags.size | minus: 4 }}</span>
+            {% endif %}
+          </div>
+          <a href="{{ project.url | relative_url }}" class="btn-project-more">
+            <span>了解更多</span>
+            <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 12l4-4-4-4"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
 </div>

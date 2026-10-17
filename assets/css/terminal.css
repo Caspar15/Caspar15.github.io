@@ -12,13 +12,14 @@
 
 /* === Terminal Styles === */
 .terminal {
-    background-color: #1e1e1e;
-    color: #d4d4d4;
-    font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
-    font-size: 10px;
-    border-radius: 8px;
+    background-color: #0F172A;
+    color: #E2E8F0;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    border-radius: var(--radius);
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     min-height: 250px;
     display: flex;
     flex-direction: column;
@@ -27,12 +28,14 @@
 }
 
 #terminal-header {
-    background-color: #3c3c3c;
+    background-color: #1E293B;
     padding: 8px 12px;
-    font-weight: bold;
-    color: #cccccc;
+    font-weight: 600;
+    font-size: 11px;
+    color: #94A3B8;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 #terminal-header::before {
@@ -41,18 +44,19 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #f95c5b;
-    box-shadow: 18px 0 #f8bc40, 36px 0 #3ec954;
-    margin-right: 50px;
+    background-color: #EF4444;
+    box-shadow: 16px 0 #F59E0B, 32px 0 #10B981;
+    margin-right: 44px;
     line-height: 1;
     vertical-align: middle;
 }
 
 #terminal-body {
-    padding: 15px;
+    padding: 14px;
     flex-grow: 1;
     overflow-y: auto;
-    cursor: text; /* Make it obvious you can click here */
+    cursor: text;
+    line-height: 1.6;
 }
 
 #terminal-output {

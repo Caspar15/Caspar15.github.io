@@ -35,8 +35,8 @@ export function initMagicCube() {
     camera.position.set(4.5, 4.5, 7);
     camera.lookAt(0, 0, 0);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(window.devicePixelRatio);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'low-power' });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
     renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
 
@@ -45,15 +45,14 @@ export function initMagicCube() {
     renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Softer shadows
 
     // --- Lighting ---
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
     scene.add(ambientLight);
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.65);
     directionalLight.position.set(10, 20, 15);
-    directionalLight.castShadow = true; // Light casts shadows
-    // Configure shadow camera for better quality
-    directionalLight.shadow.mapSize.width = 1024;
-    directionalLight.shadow.mapSize.height = 1024;
+    directionalLight.castShadow = true;
+    directionalLight.shadow.mapSize.width = 512;
+    directionalLight.shadow.mapSize.height = 512;
     directionalLight.shadow.camera.near = 0.5;
     directionalLight.shadow.camera.far = 50;
     directionalLight.shadow.camera.left = -10;
@@ -225,18 +224,68 @@ export function initMagicCube() {
         }
     }
 
-    setInterval(performNextMove, 1500);
+    let moveInterval = null;
+    let animationFrameId = null;
+    let isCubeVisible = true;
+
+    function startLoops() {
+        if (!moveInterval) {
+            moveInterval = setInterval(performNextMove, 1500);
+        }
+        if (!animationFrameId) {
+            animate();
+        }
+    }
+
+    function stopLoops() {
+        if (moveInterval) {
+            clearInterval(moveInterval);
+            moveInterval = null;
+        }
+        if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+        }
+    }
 
     // --- Main Loop & Resize ---
     function animate() {
-        requestAnimationFrame(animate);
+        if (!isCubeVisible || document.hidden) {
+            animationFrameId = null;
+            return;
+        }
+        animationFrameId = requestAnimationFrame(animate);
         if (!isRotating) {
             cubeWrapper.rotation.y += 0.002;
             cubeWrapper.rotation.x += 0.001;
         }
         renderer.render(scene, camera);
     }
-    animate();
+
+    // Pause when offscreen
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                isCubeVisible = entry.isIntersecting;
+                if (isCubeVisible && !document.hidden) {
+                    startLoops();
+                } else {
+                    stopLoops();
+                }
+            });
+        }, { threshold: 0.05 });
+        observer.observe(container);
+    } else {
+        startLoops();
+    }
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            stopLoops();
+        } else if (isCubeVisible) {
+            startLoops();
+        }
+    });
 
     window.addEventListener('resize', () => {
         if (!container.clientWidth || !container.clientHeight) return;

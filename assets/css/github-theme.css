@@ -1,350 +1,508 @@
-/* github-theme.css */
+/* ==========================================================================
+   Project Showcase Design System (Modern Engineering Case Study Layout)
+   ========================================================================== */
 
-/* GitHub Theme Overrides */
-/* ------------------------------------------------------ */
-
-/* 1. 覆寫基礎變數以符合 GitHub 的設計風格 */
-:root {
-  /* GitHub 的邊框與前景顏色 */
-  --color-canvas-default: #ffffff;
-  --color-canvas-subtle: #f6f8fa;
-  --color-border-default: #d0d7de;
-  --color-border-muted: #d8dee4;
-  --color-accent-fg: #0969da;
-  --color-accent-emphasis: #0a69da;
-  --color-fg-default: #1f2328;
-  --color-fg-muted: #656d76;
-  --color-neutral-muted: rgba(175, 184, 193, 0.2);
-
-  /* 新增阴影层级 */
-  --shadow-card-resting: 0 1px 3px rgba(27, 31, 35, 0.04);
-  --shadow-card-hover: 0 8px 24px rgba(140, 149, 159, 0.2);
-  --shadow-header: 0 1px 0 rgba(27, 31, 35, 0.04);
-
-  /* 調整字型（GitHub 內部採用系統字型） */
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
-    sans-serif;
-  --font-mono: SFMono-Regular, Menlo, Consolas, "Liberation Mono", Courier,
-    monospace;
-
-  /* 按钮渐变 */
-  --btn-gradient: linear-gradient(180deg, #f6f8fa 0%, #eaeef2 90%);
+/* --- 1. Page Container & Breadcrumb Navigation --- */
+.project-page-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-xxl);
+  animation: projectFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* 2. Header 調整：GitHub 頁首通常有一條底線 */
-.header {
-  background: var(--color-header-bg);
-  border-bottom: 1px solid var(--color-border-default);
-  padding: var(--spacing-md) var(--spacing-lg);
+@keyframes projectFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.header h1 {
-  font-size: 24px;
-  font-weight: 600;
+.project-breadcrumb-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-sm);
 }
 
-/* 3. 按鈕樣式，參考 GitHub 的按鈕設計 */
-.btn {
-  display: inline-block;
-  padding: 6px 12px;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  border: 1px solid transparent;
-  border-radius: 6px;
-  background-color: #eff3f6;
-  color: #24292e;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+.breadcrumb-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  color: var(--color-text-muted);
 }
 
-.btn:hover {
-  background-color: #e1e4e8;
+.breadcrumb-item {
+  color: var(--color-text-muted);
   text-decoration: none;
+  transition: color var(--transition-fast);
 }
 
-/* 4. 卡片樣式調整：模仿 GitHub issue / PR 卡片風格 */
-.card {
-  background: var(--color-canvas-default);
-  border: 1px solid var(--color-border-default);
-  border-radius: 6px;
-  padding: var(--spacing-lg);
-  transition: all 0.2s cubic-bezier(0.3, 0, 0.5, 1);
-  box-shadow: var(--shadow-card-resting);
+.breadcrumb-item:hover {
+  color: var(--color-accent);
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-card-hover);
-  border-color: var(--color-accent-fg);
+.breadcrumb-separator {
+  color: var(--color-text-tertiary);
+  font-size: 11px;
 }
 
-/* 5. 頁腳樣式調整 */
-.footer {
-  border-top: 1px solid var(--color-border-default);
-  padding-top: var(--spacing-lg);
-  margin-top: var(--spacing-xl);
-  text-align: center;
-  color: var(--color-fg-muted);
+.breadcrumb-current {
+  color: var(--color-text);
+  font-weight: 600;
+  max-width: 320px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* 6. 連結樣式（GitHub 風格通常連結使用藍色） */
-a {
-  color: var(--color-accent-emphasis);
+.back-to-projects-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  color: var(--color-text);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition-base);
 }
 
-a:hover {
-  text-decoration: underline;
+.back-to-projects-btn svg {
+  transition: transform var(--transition-fast);
 }
 
-/* 7. Markdown Body 基礎排版 */
-.markdown-body {
-  box-sizing: border-box;
-  min-width: 200px;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 30px; /* 增加內邊距 */
-  font-family: var(--font-sans);
-  line-height: 1.6;
-  background-color: var(--color-canvas-default); /* 確保為白色背景 */
-  border: 1px solid var(--color-border-default);
-  border-radius: 6px;
+.back-to-projects-btn:hover {
+  background: var(--color-accent);
+  color: #FFFFFF;
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-accent);
+  transform: translateY(-1px);
 }
 
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3 {
-  border-bottom: 1px solid var(--color-border-default);
-  padding-bottom: 0.3em;
-  margin-bottom: 0.8em;
+.back-to-projects-btn:hover svg {
+  transform: translateX(-3px);
 }
 
-.markdown-body ul {
-  list-style: disc inside;
-  margin-left: 1em;
+/* --- 2. Project Hero Header Card --- */
+.project-hero-header {
+  position: relative;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl) 2.5rem;
+  margin-bottom: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
 }
 
-.markdown-body code {
-  background-color: #f6f8fa;
-  padding: 0.2em 0.4em;
-  border-radius: 4px;
+.project-hero-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-purple), var(--color-teal));
 }
 
-.markdown-body pre code {
-  background: none;
-  padding: 0;
+.hero-header-content {
+  position: relative;
+  z-index: 1;
 }
 
-.markdown-body pre {
-  background-color: #f6f8fa;
-  padding: 1em;
-  border-radius: 6px;
-  overflow: auto;
-}
-
-/* ------------------------------------------------------
-   針對 project.html 的排版結構
-   ------------------------------------------------------ */
-
-/* A. 外層容器: 讓內容有最大寬度 & 置中 */
-.repo-page-container {
-  max-width: 1000px; /* 你可依需求調整 */
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-/* B. 專案標題區 */
-.repo-header {
-  border-bottom: 1px solid var(--color-border-default);
-  padding-bottom: var(--spacing-md);
+.project-badge-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-bottom: var(--spacing-md);
 }
 
-.repo-header h1 {
-  font-size: 24px;
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-xs);
   font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
-.repo-desc {
-  color: var(--color-fg-muted);
-  margin-top: 4px;
+.badge-status {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--color-green);
+  border: 1px solid rgba(16, 185, 129, 0.25);
 }
 
-/* 徽章區塊 */
-.repo-badges {
-  display: flex; /* 讓徽章橫向排列 */
-  flex-wrap: wrap; /* 允許換行 */
-  gap: var(--spacing-sm); /* 徽章間距 */
-  margin-top: var(--spacing-md); /* 與描述的間距 */
+.badge-status .badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-green);
+  box-shadow: 0 0 6px var(--color-green);
+  animation: pulseDot 2s infinite;
 }
 
-.repo-badges img {
-  height: 20px; /* 統一徽章高度 */
-  vertical-align: middle; /* 垂直對齊 */
+@keyframes pulseDot {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
 }
 
-/* C. 導覽列 (Code / Issues / Pull Requests) */
-.repo-nav ul {
-  list-style: none;
-  display: flex;
-  gap: var(--spacing-md);
+.badge-award {
+  background: rgba(245, 158, 11, 0.12);
+  color: #D97706;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+body.dark .badge-award {
+  color: #FBBF24;
+}
+
+.badge-featured {
+  background: rgba(2, 132, 199, 0.10);
+  color: var(--color-accent);
+  border: 1px solid rgba(2, 132, 199, 0.25);
+}
+
+.badge-meta {
+  background: rgba(148, 163, 184, 0.12);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+.project-hero-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.25;
+}
+
+.project-hero-desc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  max-width: 880px;
   margin-bottom: var(--spacing-lg);
-  padding-left: 0;
 }
 
-.repo-nav li {
-  display: inline-block;
-}
-
-.repo-nav li a {
-  color: var(--color-fg-default);
-  text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: background-color 0.2s ease;
-}
-
-.repo-nav li a:hover {
-  background-color: var(--color-canvas-subtle);
-}
-
-/* D. 兩欄結構：左主欄、右側欄 */
-.repo-container {
-  display: grid;
-  grid-template-columns: 1fr 280px; /* 左寬右窄 */
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.repo-main {
-  /* 左側主要內容 */
-}
-
-.repo-sidebar {
-  /* 右側資訊欄 */
-  border: 1px solid var(--color-border-default);
-  border-radius: 6px;
-  padding: 24px; /* 增加內邊距 */
-  background-color: var(--color-canvas-default); /* 改為白色背景 */
-}
-
-.repo-sidebar h3 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.repo-sidebar p,
-.repo-sidebar a {
-  font-size: 14px;
-  line-height: 1.4;
-  color: var(--color-fg-default);
-}
-
-.repo-sidebar a {
-  margin-bottom: 0.5rem;
-  display: inline-block;
-}
-
-.repo-sidebar a:hover {
-  text-decoration: underline;
-}
-
-/* E. About / Releases / Packages / Languages 區塊 */
-.repo-about,
-.repo-releases,
-.repo-packages,
-.repo-languages {
-  margin-bottom: 1.5rem;
-}
-
-/* 語言統計條 */
-.lang-progress-container {
-  width: 100%;
-  height: 8px;
-  background: var(--color-border-muted);
-  border-radius: 4px;
-  margin-top: 6px;
-  display: flex; /* 讓語言條橫向排列 */
-  overflow: hidden; /* 確保圓角和溢出處理 */
-}
-
-.lang-progress-bar {
-  height: 100%;
-  display: block; /* 確保 span 佔據高度 */
-  border-radius: 4px; /* 繼承父容器圓角 */
-  transition: width 0.3s ease; /* 添加過渡動畫 */
-}
-
-.lang-stats {
-  list-style: none;
-  padding: 0;
-  margin-top: 10px; /* 與進度條的間距 */
-}
-
-.lang-stats li {
+.project-hero-footer {
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.project-tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.project-tag-pill {
+  padding: 4px 10px;
   font-size: 12px;
-  color: var(--color-fg-muted);
+  font-weight: 500;
+  color: var(--color-accent);
+  background: var(--color-accent-light);
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-fast);
 }
 
-.lang-color-dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin-right: 5px;
+.project-tag-pill:hover {
+  background: var(--color-accent);
+  color: #FFFFFF;
 }
 
-.lang-name {
+.project-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.btn-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: var(--radius);
+  font-size: var(--font-size-sm);
   font-weight: 600;
-  margin-right: 5px;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
 }
 
-.lang-percentage {
-  color: var(--color-fg-muted);
+.btn-hero-primary {
+  background: linear-gradient(135deg, var(--color-accent), #0284C7);
+  color: #FFFFFF !important;
+  border: 1px solid transparent;
 }
 
+.btn-hero-primary:hover {
+  background: linear-gradient(135deg, var(--color-accent-hover), #0369A1);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-accent);
+  color: #FFFFFF !important;
+}
 
-/* F. 線上測試入口 —— 專案頁最上方的行動點，以及側邊欄的同一個連結。
-   由 page.demo_url 驅動；沒有網址時整塊轉成「準備中」的靜態樣式。 */
+.btn-hero-secondary {
+  background: var(--color-card);
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-border);
+}
+
+.btn-hero-secondary:hover {
+  background: var(--color-bg-subtle);
+  border-color: var(--color-accent);
+  color: var(--color-accent) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* --- 3. Two-Column Layout Grid --- */
+.project-layout-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: var(--spacing-xl);
+  align-items: start;
+}
+
+/* --- 4. Main Article & Modern Content Styles --- */
+.project-main-article {
+  min-width: 0;
+}
+
+.project-content-body {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+  font-size: 1.025rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+/* Headings */
+.project-content-body h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.project-content-body h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+  padding-left: 12px;
+  border-left: 4px solid var(--color-accent);
+  display: flex;
+  align-items: center;
+}
+
+.project-content-body h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-content-body p {
+  margin-bottom: 1.25rem;
+  color: var(--color-text);
+}
+
+.project-content-body strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.project-content-body em {
+  color: var(--color-accent);
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* Lists */
+.project-content-body ul,
+.project-content-body ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.project-content-body li {
+  margin-bottom: 0.5rem;
+  line-height: 1.75;
+}
+
+/* Modern Tables */
+.project-content-body table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.5rem 0 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-xs);
+  font-size: var(--font-size-sm);
+}
+
+.project-content-body th,
+.project-content-body td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.project-content-body th {
+  background: var(--color-bg-subtle);
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.project-content-body tr:last-child td {
+  border-bottom: none;
+}
+
+.project-content-body tbody tr {
+  transition: background var(--transition-fast);
+}
+
+.project-content-body tbody tr:hover {
+  background: rgba(2, 132, 199, 0.04);
+}
+
+body.dark .project-content-body tbody tr:hover {
+  background: rgba(56, 189, 248, 0.06);
+}
+
+/* Code Blocks */
+.project-content-body pre {
+  position: relative;
+  background: #0F172A;
+  color: #E2E8F0;
+  padding: 1.25rem 1.5rem;
+  padding-top: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.6;
+  box-shadow: var(--shadow-md);
+}
+
+.copy-code-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #94A3B8;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.copy-code-btn:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.copy-code-btn.copied {
+  color: #34D399;
+  border-color: rgba(52, 211, 153, 0.4);
+}
+
+.project-content-body pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+.project-content-body code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  background: var(--inline-code-bg);
+  color: var(--inline-code-text);
+}
+
+/* Callout Box (.demo-cta) Redesign */
 .demo-cta {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--spacing-md);
-  margin: 0 0 var(--spacing-xl);
-  padding: var(--spacing-lg);
-  border: 1px solid var(--color-accent-light);
+  margin: 1.5rem 0 2rem;
+  padding: 1.5rem 1.75rem;
   border-radius: var(--radius-lg);
-  background: var(--color-accent-light);
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(99, 102, 241, 0.06) 100%);
+  border: 1px solid rgba(2, 132, 199, 0.2);
+  box-shadow: var(--shadow-sm);
 }
 
-.demo-cta__text {
-  flex: 1 1 260px;
-  min-width: 0;
+.demo-cta--pending {
+  background: var(--color-bg-subtle);
+  border-color: var(--color-border);
 }
 
 .demo-cta__text h2 {
-  margin: var(--spacing-xs) 0 var(--spacing-sm);
-  font-size: var(--font-size-xl);
-  font-weight: 600;
-  border-bottom: 0;          /* markdown-body 會給 h2 底線，這裡不要 */
-  padding-bottom: 0;
+  border-left: none;
+  padding-left: 0;
+  margin: 6px 0 4px;
+  font-size: 1.25rem;
 }
 
 .demo-cta__text p {
   margin: 0;
-  /* 不用 muted 灰 —— 疊在淡藍底上對比度不夠 */
-  color: var(--color-text);
   font-size: var(--font-size-sm);
-  line-height: 1.6;
+  color: var(--color-text-muted);
 }
 
 .demo-cta__badge {
@@ -352,167 +510,377 @@ a:hover {
   padding: 2px 10px;
   border-radius: var(--radius-pill);
   background: var(--color-accent);
-  color: #fff;
-  font-size: var(--font-size-xs);
+  color: #FFFFFF;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.02em;
 }
 
-/* 主按鈕：沿用 .btn 的尺寸，只換顏色與強調程度。
-   選擇器要帶上 .demo-cta / body.dark，否則 .markdown-body a 的顏色
-   會蓋過來，變成藍底藍字。 */
 .btn-demo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 10px 20px;
-  background-color: var(--color-accent);
-  border-color: transparent;
+  padding: 9px 18px;
+  background: var(--color-accent);
+  color: #FFFFFF !important;
   border-radius: var(--radius);
-  box-shadow: var(--shadow-accent);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
 }
 
-.btn-demo,
-.demo-cta .btn-demo,
-.repo-about .btn-demo,
-body.dark .demo-cta .btn-demo,
-body.dark .repo-about .btn-demo {
-  color: #fff;
+.btn-demo:hover {
+  background: var(--color-accent-hover);
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-accent);
 }
 
-.btn-demo:hover,
-.demo-cta .btn-demo:hover,
-.repo-about .btn-demo:hover,
-body.dark .demo-cta .btn-demo:hover,
-body.dark .repo-about .btn-demo:hover {
-  background-color: var(--color-accent-hover);
-  color: #fff;
-  text-decoration: none;
-}
-
-.btn-demo .octicon {
-  fill: currentColor;
-}
-
-/* 還沒有網址：看得出是佔位，而不是一個點了沒反應的按鈕 */
-.btn-demo--disabled,
-.demo-cta .btn-demo--disabled,
-body.dark .demo-cta .btn-demo--disabled {
-  background-color: transparent;
-  color: var(--color-text-muted);
+.btn-demo--disabled {
+  background: transparent;
+  color: var(--color-text-muted) !important;
   border: 1px dashed var(--color-border);
   box-shadow: none;
-  cursor: default;
+  cursor: not-allowed;
 }
 
-.demo-cta--pending {
-  border-color: var(--color-border);
-  background: var(--color-bg-elevated);
+.btn-demo--disabled:hover {
+  transform: none;
+  background: transparent;
 }
 
-.demo-cta--pending .demo-cta__badge {
-  background: var(--color-text-tertiary);
+/* Giscus Comments Wrap */
+.giscus-wrapper {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
 }
 
-/* 側邊欄版本：撐滿寬度，跟下方的 GitHub 按鈕對齊 */
-.repo-about .btn-demo--sidebar {
-  width: 100%;
-  margin-top: var(--spacing-md);
-  margin-bottom: 0;
+/* --- 5. Sticky Project Sidebar --- */
+.project-sidebar {
+  position: sticky;
+  top: 84px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
 }
 
-@media (max-width: 600px) {
-  .demo-cta {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  /* 直向排列時 flex-basis 量的是高度，260px 會撐出一大塊空白 */
-  .demo-cta__text {
-    flex: 0 1 auto;
-  }
-
-  .demo-cta .btn-demo {
-    width: 100%;
-  }
+.project-sidebar-card {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
 }
 
-/* F2. GitHub 按鈕（原本放在從未被載入的 project.css，搬過來才會生效） */
-.repo-about .btn-github {
+.sidebar-card-title {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
-  width: 100%;
-  margin-top: var(--spacing-md);
-  padding: 10px 16px;
-  background-color: #24292e;
-  border: 1px solid rgba(27, 31, 35, 0.15);
-  border-radius: var(--radius);
-  transition: background-color var(--transition-fast);
-}
-
-.repo-about .btn-github,
-body.dark .repo-about .btn-github {
-  color: #fff;
-}
-
-.repo-about .btn-github:hover,
-body.dark .repo-about .btn-github:hover {
-  background-color: #333;
-  color: #fff;
-  text-decoration: none;
-}
-
-.repo-about .btn-github .octicon {
-  fill: currentColor;
-}
-
-/* F3. 內文表格。專案頁用得到，但全站原本沒有定義過。 */
-.markdown-body table {
-  width: 100%;
-  border-collapse: collapse;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
   margin-bottom: var(--spacing-md);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.sidebar-card-title svg {
+  color: var(--color-accent);
+}
+
+.spec-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.spec-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-sm);
+  gap: var(--spacing-sm);
+}
+
+.spec-label {
+  color: var(--color-text-muted);
+}
+
+.spec-value {
+  color: var(--color-text);
+  font-weight: 600;
+  text-align: right;
+}
+
+/* Languages Breakdown in Sidebar */
+.languages-breakdown {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.languages-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+}
+
+.lang-progress-track {
+  display: flex;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  background: var(--color-border-subtle);
+  margin-bottom: 10px;
+}
+
+.lang-bar-segment {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.lang-legend-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lang-legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.lang-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.lang-title {
+  font-weight: 500;
+  color: var(--color-text);
+  margin-right: auto;
+}
+
+.lang-ratio {
+  font-weight: 600;
+}
+
+/* Table of Contents Nav */
+.project-toc-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.toc-link {
+  display: block;
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toc-link:hover,
+.toc-link.active {
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+  padding-left: 12px;
+}
+
+/* Author Mini Card */
+.author-mini-card {
   font-size: var(--font-size-sm);
 }
 
-.markdown-body th,
-.markdown-body td {
-  border: 1px solid var(--color-border);
-  padding: 8px 12px;
-  text-align: left;
-  vertical-align: top;
+.author-mini-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: var(--spacing-sm);
 }
 
-.markdown-body th {
-  background-color: var(--color-bg-elevated);
+.author-mini-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.author-mini-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-mini-name {
+  font-weight: 700;
+  color: var(--color-text);
+  font-size: 14px;
+}
+
+.author-mini-role {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.author-mini-bio {
+  color: var(--color-text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.author-mini-link {
+  font-size: 12px;
   font-weight: 600;
-  white-space: nowrap;
+  color: var(--color-accent);
+  text-decoration: none;
+  display: inline-block;
+  transition: transform var(--transition-fast);
 }
 
-/* G. 專案頁的窄螢幕版面
-   .repo-container 的第二欄是固定 280px，在手機上不會自己收掉，
-   整頁會橫向溢出。這裡把它疊成單欄，並讓寬表格自己捲。 */
-@media (max-width: 800px) {
-  .repo-page-container {
-    padding: var(--spacing-md);
-  }
+.author-mini-link:hover {
+  transform: translateX(3px);
+}
 
-  .repo-container {
+/* --- 6. Previous / Next Project Pagination --- */
+.project-footer-nav {
+  margin-top: var(--spacing-xxl);
+}
+
+.project-prev-next-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.prev-next-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.prev-next-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-lg);
+}
+
+.prev-next-direction {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.prev-next-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.prev-next-desc {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.next-card {
+  text-align: right;
+}
+
+.next-card .prev-next-direction {
+  text-align: right;
+}
+
+/* --- 7. Backward Compatibility Overrides --- */
+.repo-page-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.repo-header {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.markdown-body {
+  box-sizing: border-box;
+  font-family: inherit;
+  line-height: 1.8;
+}
+
+/* --- 8. Responsive Adaptations --- */
+@media (max-width: 900px) {
+  .project-layout-grid {
     grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
   }
 
-  .repo-sidebar {
+  .project-sidebar {
+    position: static;
+  }
+
+  .project-hero-header {
     padding: var(--spacing-lg);
   }
 
-  .markdown-body table {
+  .project-content-body {
+    padding: 1.5rem;
+  }
+
+  .project-content-body table {
     display: block;
-    width: 100%;
     overflow-x: auto;
+    width: 100%;
+  }
+
+  .project-hero-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-hero-actions {
+    width: 100%;
+  }
+
+  .project-hero-actions .btn-hero {
+    flex: 1;
+    justify-content: center;
   }
 }

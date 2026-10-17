@@ -2,45 +2,45 @@
 
 /* -------------------- Base Variables -------------------- */
 :root {
-    /* === iOS Light Mode Colors === */
-    --color-bg: #F2F2F7;              /* iOS系統背景灰 */
-    --color-bg-rgb: 242, 242, 247;
-    --color-card: #FFFFFF;            /* 卡片白色 */
+    /* === Modern Light Mode Colors === */
+    --color-bg: #F8FAFC;              /* Modern Slate-50 Canvas */
+    --color-bg-rgb: 248, 250, 252;
+    --color-card: #FFFFFF;            /* Pure card white */
     --color-card-rgb: 255, 255, 255;
-    --color-bg-subtle: #FFFFFF;       /* 次要背景 (卡片) */
-    --color-bg-elevated: #F9F9FB;     /* 輕微提升背景 */
-    --color-text: #1C1C1E;            /* iOS主要文字 */
-    --color-text-muted: #8E8E93;      /* iOS次要文字 */
-    --color-text-tertiary: #AEAEB2;   /* iOS三級文字 */
-    --color-border: rgba(60, 60, 67, 0.12);   /* iOS分隔線 */
-    --color-border-subtle: rgba(60, 60, 67, 0.08);
+    --color-bg-subtle: #F1F5F9;       /* Slate-100 */
+    --color-bg-elevated: #FFFFFF;     /* Elevated card */
+    --color-text: #0F172A;            /* Slate-900 high contrast */
+    --color-text-muted: #64748B;      /* Slate-500 secondary */
+    --color-text-tertiary: #94A3B8;   /* Slate-400 */
+    --color-border: rgba(148, 163, 184, 0.22);
+    --color-border-subtle: rgba(148, 163, 184, 0.12);
 
-    /* === iOS System Colors === */
-    --color-accent: #007AFF;          /* iOS Blue */
-    --color-accent-hover: #0071E3;    /* Apple藍懸停 */
-    --color-accent-light: rgba(0, 122, 255, 0.12); /* 淡藍背景 */
-    --color-accent-rgb: 0, 122, 255;
-    --color-green: #34C759;           /* iOS Green */
-    --color-orange: #FF9500;          /* iOS Orange */
-    --color-red: #FF3B30;             /* iOS Red */
-    --color-purple: #5856D6;          /* iOS Purple */
-    --color-teal: #5AC8FA;            /* iOS Teal */
-    --color-indigo: #5E5CE6;          /* iOS Indigo */
-    --color-success: #34C759;
-    --color-warning: #FF9500;
-    --color-danger: #FF3B30;
+    /* === System Accent Colors === */
+    --color-accent: #0284C7;          /* Tech Sky/Ocean Blue */
+    --color-accent-hover: #0369A1;
+    --color-accent-light: rgba(2, 132, 199, 0.10);
+    --color-accent-rgb: 2, 132, 199;
+    --color-green: #10B981;           /* Emerald */
+    --color-orange: #F59E0B;          /* Amber */
+    --color-red: #EF4444;             /* Crimson */
+    --color-purple: #8B5CF6;          /* Violet */
+    --color-teal: #14B8A6;            /* Teal */
+    --color-indigo: #6366F1;          /* Indigo */
+    --color-success: #10B981;
+    --color-warning: #F59E0B;
+    --color-danger: #EF4444;
 
     /* === Glass Effect === */
-    --glass-bg: rgba(255, 255, 255, 0.75);
-    --glass-border: rgba(255, 255, 255, 0.5);
-    --glass-blur: blur(20px) saturate(180%);
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.7);
+    --glass-blur: blur(16px) saturate(180%);
 
     /* Code Colors */
-    --code-bg: #F6F8FA;
-    --code-text: #24292E;
-    --code-border: rgba(60, 60, 67, 0.12);
-    --inline-code-bg: rgba(0, 122, 255, 0.08);
-    --inline-code-text: #007AFF;
+    --code-bg: #F8FAFC;
+    --code-text: #1E293B;
+    --code-border: rgba(148, 163, 184, 0.25);
+    --inline-code-bg: rgba(2, 132, 199, 0.08);
+    --inline-code-text: #0284C7;
 
     /* === Typography — Apple System Fonts === */
     --font-primary: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Inter", "Noto Sans TC", sans-serif;
@@ -65,13 +65,13 @@
     --spacing-xxl: 48px;
 
     /* === iOS Shadows (very soft, layered) === */
-    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
-    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.10), 0 4px 8px rgba(0, 0, 0, 0.06);
-    --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.06);
-    --shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.04);
-    --shadow-accent: 0 4px 16px rgba(0, 122, 255, 0.25);
+    --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.04);
+    --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.07), 0 2px 4px rgba(15, 23, 42, 0.03);
+    --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.09), 0 4px 8px rgba(15, 23, 42, 0.04);
+    --shadow-xl: 0 20px 40px rgba(15, 23, 42, 0.11), 0 8px 16px rgba(15, 23, 42, 0.05);
+    --shadow-inset: inset 0 1px 2px rgba(15, 23, 42, 0.04);
+    --shadow-accent: 0 4px 16px rgba(2, 132, 199, 0.22);
 
     /* === Border Radius — iOS-style large corners === */
     --radius-xs: 6px;
@@ -109,10 +109,14 @@ body {
     letter-spacing: var(--letter-spacing);
     color: var(--color-text);
     background-color: var(--color-bg);
-    background-image: url('../images/background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-image: 
+        radial-gradient(at 15% 15%, rgba(2, 132, 199, 0.07) 0px, transparent 40%),
+        radial-gradient(at 85% 20%, rgba(99, 102, 241, 0.06) 0px, transparent 40%),
+        radial-gradient(at 50% 80%, rgba(16, 185, 129, 0.04) 0px, transparent 50%),
+        radial-gradient(#CBD5E1 0.75px, transparent 0.75px);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 24px 24px;
+    background-position: 0 0, 0 0, 0 0, 0 0;
+    min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
