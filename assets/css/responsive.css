@@ -208,27 +208,21 @@
   }
 
   .about-container {
-    padding: 0 var(--spacing-md); /* 調整內邊距 */
+    padding: 0 var(--spacing-md);
   }
 
-  .profile-header h1 {
-    font-size: var(--font-size-h2); /* 使用變數 */
+  .about-hero-card {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--spacing-lg);
   }
 
-  .profile-header .subtitle {
-    font-size: var(--font-size-base); /* 使用變數 */
+  .about-hero-actions {
+    justify-content: center;
   }
 
-  .section-title {
-    font-size: var(--font-size-xl); /* 使用變數 */
-  }
-
-  .info-card h3 {
-    font-size: var(--font-size-lg); /* 使用變數 */
-  }
-
-  .info-card ul li {
-    font-size: var(--font-size-base); /* 使用變數 */
+  .about-bento-grid {
+    grid-template-columns: 1fr;
   }
 }
 

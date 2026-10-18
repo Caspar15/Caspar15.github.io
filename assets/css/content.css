@@ -497,152 +497,308 @@ body.dark .badge-trophy {
 }
 
 /* ===== About Page ===== */
+/* ===== Modern About Page (Bento Grid Design System) ===== */
 .about-container {
-  max-width: 900px;
-  margin: var(--spacing-xxl) auto;
+  max-width: 1040px;
+  margin: var(--spacing-xl) auto var(--spacing-xxl);
   padding: 0 var(--spacing-lg);
-  animation: fadeInUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Profile Header */
-.profile-header {
-  text-align: center;
-  margin-bottom: var(--spacing-xxl);
+/* 1. About Hero Profile Card */
+.about-hero-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xxl);
+  padding: 2.25rem;
+  margin-bottom: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
 }
 
-.profile-header h1 {
-  font-size: var(--font-size-h1);
-  font-weight: 700;
-  letter-spacing: -0.03em;
+.about-hero-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-purple), var(--color-teal));
+}
+
+.about-avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.about-avatar-img {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.25), 0 0 0 3px var(--color-card);
+  transition: transform var(--transition-spring);
+}
+
+.about-avatar-img:hover {
+  transform: scale(1.05);
+}
+
+.about-hero-content {
+  flex-grow: 1;
+}
+
+.about-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  background: var(--color-accent-light);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.25);
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-accent);
   margin-bottom: var(--spacing-sm);
 }
 
-.profile-header .subtitle {
-  font-size: var(--font-size-lg);
+.about-hero-name {
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.about-hero-role {
+  font-size: 1.05rem;
+  font-weight: 500;
   color: var(--color-accent);
+  margin-bottom: var(--spacing-md);
+}
+
+.about-hero-bio {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-lg);
+  max-width: 720px;
+}
+
+.about-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.about-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.about-action-primary {
+  background: var(--color-accent);
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(var(--color-accent-rgb), 0.3);
+}
+
+.about-action-primary:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(var(--color-accent-rgb), 0.4);
+}
+
+.about-action-ghost {
+  background: var(--color-bg-subtle);
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-border);
+}
+
+.about-action-ghost:hover {
+  background: var(--color-accent-light);
+  border-color: var(--color-accent);
+  color: var(--color-accent) !important;
+  transform: translateY(-2px);
+}
+
+/* 2. Bento Grid Cards */
+.about-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.bento-full-width {
+  grid-column: 1 / -1;
+}
+
+.bento-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(var(--color-accent-rgb), 0.35);
+}
+
+.bento-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.bento-header svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+}
+
+.bento-header h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.bento-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bento-item {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+.bento-item::before {
+  content: '▪';
+  position: absolute;
+  left: 2px;
+  color: var(--color-accent);
+  font-size: 14px;
+}
+
+.bento-item strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.bento-item-sub {
+  font-size: 0.85rem;
+  color: var(--color-text-tertiary);
+  margin-top: 2px;
+  line-height: 1.5;
+}
+
+.bento-pills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.bento-pill {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  transition: all var(--transition-fast);
+}
+
+.bento-pill:hover {
+  background: var(--color-accent-light);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* 3. Bottom Contact Banner */
+.about-contact-card {
+  text-align: center;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: 2.25rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.about-contact-card p {
+  font-size: 1.05rem;
+  color: var(--color-text);
   font-weight: 500;
   margin-bottom: var(--spacing-md);
 }
 
-.profile-header .summary {
-  font-size: var(--font-size-base);
-  line-height: 1.75;
-  color: var(--color-text-muted);
-  max-width: 680px;
-  margin: 0 auto;
-}
-
-/* Section Title */
-.section-title {
-  font-size: var(--font-size-h2);
-  font-weight: 700;
-  margin-bottom: var(--spacing-xl);
-  letter-spacing: -0.02em;
-  text-align: center;
-}
-
-/* Content Grid */
-.content-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--spacing-lg);
-}
-
-/* Info Card — iOS glass style */
-.info-card {
-  background: var(--glass-bg);
-  -webkit-backdrop-filter: var(--glass-blur);
-  backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-xl);
-  padding: var(--spacing-xl);
-  box-shadow: var(--shadow-md);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
-}
-
-.info-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-.info-card ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.info-card ul li {
-  position: relative;
-  padding-left: 22px;
-  margin-bottom: var(--spacing-sm);
-  color: var(--color-text-muted);
-  font-size: var(--font-size-sm);
-  line-height: 1.6;
-}
-
-.info-card ul li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--color-accent);
-  font-weight: 600;
-}
-
-/* Card Header (icon + title) */
-.card-header {
+.about-contact-links {
   display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  font-size: 0.95rem;
 }
 
-.card-header svg {
+.about-contact-links a {
   color: var(--color-accent);
-  flex-shrink: 0;
-  width: 20px;
-  height: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
-.card-header h3 {
-  margin: 0;
-  font-size: var(--font-size-base);
-  font-weight: 700;
-  letter-spacing: -0.01em;
+.about-contact-links a:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
 }
 
-/* Full Width Card (Education) */
-.full-width-card {
-  grid-column: 1 / -1;
-  border-top: 3px solid var(--color-accent);
-  box-shadow: var(--shadow-lg);
-}
-
-.full-width-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-}
-
-.full-width-card ul li {
-  font-size: var(--font-size-base);
-  line-height: 1.8;
-}
-
-/* Contact CTA */
-.contact-call-to-action {
-  text-align: center;
-  font-style: italic;
-  margin-top: var(--spacing-xxl);
-  padding: var(--spacing-xl);
-  background: var(--glass-bg);
-  -webkit-backdrop-filter: var(--glass-blur);
-  backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
+/* Backward compatibility */
+.info-card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
   box-shadow: var(--shadow-sm);
+}
   color: var(--color-text-muted);
 }
 

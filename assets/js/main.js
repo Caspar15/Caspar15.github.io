@@ -4,11 +4,13 @@ import { initializeNavigation } from './modules/navigation.js';
 import { initMagicCube } from './modules/magic-cube.js';
 import { initProgressBar } from './modules/progress.js';
 import { initializeResume } from './modules/resume.js';
+import { initTerminal } from './modules/terminal.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initProgressBar();
   initializeTheme();
   initializeNavigation();
+  initTerminal();
 
 
   const darkModeBtn = document.getElementById('darkModeToggle');

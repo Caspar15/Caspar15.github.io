@@ -193,23 +193,109 @@ body.dark .card .tag:hover {
   color: #FFFFFF;
 }
 
-/* ===== Info Cards Dark (About page) ===== */
+/* ===== About Page Dark Mode (Bulletproof High-Contrast) ===== */
+body.dark .about-hero-card,
+body.dark .bento-card,
+body.dark .about-contact-card,
 body.dark .info-card {
-  background: rgba(28, 28, 30, 0.82);
-  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(17, 24, 39, 0.88) !important;
+  border-color: rgba(255, 255, 255, 0.09) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45) !important;
 }
 
-body.dark .info-card:hover {
-  box-shadow: var(--shadow-lg);
+body.dark .about-avatar-img {
+  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.95), 0 8px 24px rgba(56, 189, 248, 0.35) !important;
 }
 
-body.dark .info-card ul li::before {
-  color: var(--color-accent);
+body.dark .about-hero-name,
+body.dark .bento-header h3,
+body.dark .about-contact-card p,
+body.dark .bento-item strong {
+  color: #F8FAFC !important;
 }
 
-body.dark .full-width-card {
-  border-top-color: var(--color-accent);
+body.dark .about-hero-bio,
+body.dark .bento-item,
+body.dark .info-card ul li {
+  color: #94A3B8 !important;
 }
+
+body.dark .bento-item-sub {
+  color: #64748B !important;
+}
+
+body.dark .about-action-ghost {
+  background: rgba(30, 41, 59, 0.75) !important;
+  color: #F8FAFC !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+body.dark .about-action-ghost:hover {
+  background: rgba(56, 189, 248, 0.15) !important;
+  border-color: #38BDF8 !important;
+  color: #38BDF8 !important;
+}
+
+body.dark .bento-pill {
+  background: rgba(30, 41, 59, 0.75) !important;
+  color: #E2E8F0 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark .bento-pill:hover {
+  background: rgba(56, 189, 248, 0.15) !important;
+  border-color: #38BDF8 !important;
+  color: #38BDF8 !important;
+}
+
+body.dark .bento-card:hover {
+  border-color: rgba(56, 189, 248, 0.35) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55) !important;
+}
+
+body.dark .bento-header {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ===== Interactive Resume Dark ===== */
+body.dark .resume-card {
+  background: rgba(17, 24, 39, 0.88) !important;
+  border-color: rgba(255, 255, 255, 0.09) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45) !important;
+}
+
+body.dark .resume-card .card-title {
+  color: #F8FAFC !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.dark .experience-item h3,
+body.dark .education-item h3 {
+  color: #F8FAFC !important;
+}
+
+body.dark .experience-item h3:hover {
+  color: var(--color-accent) !important;
+}
+
+body.dark .experience-details,
+body.dark .experience-details li,
+body.dark #resume-summary p,
+body.dark .coursework-list li,
+body.dark .education-item p {
+  color: #94A3B8 !important;
+}
+
+body.dark .experience-date {
+  color: #64748B !important;
+}
+
+body.dark .skill {
+  background: rgba(56, 189, 248, 0.12) !important;
+  color: #38BDF8 !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+}
+
 
 /* ===== Search Dark ===== */
 body.dark .global-search {

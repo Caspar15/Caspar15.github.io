@@ -3,17 +3,25 @@
  * Location: /assets/js/modules/terminal.js
  */
 
-document.addEventListener('DOMContentLoaded', () => {
-  // --- 1. DOM Element Selection ---
+export function initTerminal() {
   const terminalContainer = document.getElementById('terminal-container');
   if (!terminalContainer) {
-    // If the terminal HTML doesn't exist on the page, do nothing.
     return;
   }
+
+  // Prevent multiple initializations
+  if (terminalContainer.dataset.initialized === 'true') {
+    return;
+  }
+  terminalContainer.dataset.initialized = 'true';
 
   const outputElement = document.getElementById('terminal-output');
   const inputElement = document.getElementById('terminal-input');
   const terminalBody = document.getElementById('terminal-body');
+
+  if (!outputElement || !inputElement || !terminalBody) {
+    return;
+  }
 
   // --- 2. Command Definitions ---
   const commands = {
@@ -22,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
       execute: (args) => {
         let helpText = 'Available commands:\n';
         Object.keys(commands).forEach(cmd => {
-          // Use template literals and proper spacing for readability
           helpText += `  <span class="command-echo">${cmd.padEnd(10)}</span> - ${commands[cmd].description}\n`;
         });
         return helpText;
@@ -31,17 +38,17 @@ document.addEventListener('DOMContentLoaded', () => {
     about: {
       description: 'Display a brief bio.',
       execute: (args) => `Caspar Chen - M.S. in EE @ NTUST.\n` +
-                         `AI algorithms, LLM systems & evaluation, full-stack.\n` +
-                         `More on my <a href="/about/">About</a> page.`
+                         `Specialized in AI algorithms, LLM evaluation & multi-agent systems.\n` +
+                         `Full story on the <a href="/about/">/about/</a> page.`
     },
     work: {
-      description: 'Show work experience.',
+      description: 'Show work & internship experience.',
       execute: (args) => `Work Experience:\n` +
                          `  2026.07-08  AI Engineer Intern @ Trend Micro\n` +
                          `              LLM-as-a-judge eval harness, CI-driven on Kubernetes\n` +
                          `  2023.06-10  Cloud Engineer @ Smart Transformation Center\n` +
                          `              IoT predictive maintenance, ML price forecasting\n` +
-                         `Full details: <a href="/resume/">/resume/</a>`
+                         `Details: <a href="/resume/">/resume/</a>`
     },
     research: {
       description: 'List publications.',
@@ -56,19 +63,19 @@ document.addEventListener('DOMContentLoaded', () => {
       description: 'List key projects.',
       execute: (args) => {
         return `Key Projects:\n` +
-               `  - <a href="/projects/extractive-summarization-nsga2/">NSGA-II Extractive Summarization</a>\n` +
-               `  - <a href="/projects/rain-nowcast-tw/">Rain Nowcast TW</a>\n` +
+               `  - <a href="/projects/extractive-summarization-nsga2/">NSGA-II Extractive Summarization (ICACT Award)</a>\n` +
+               `  - <a href="/projects/rain-nowcast-tw/">Rain Nowcast TW (Taiwan Rain Radar)</a>\n` +
                `  - <a href="/projects/cnn-lstm-demand-response/">CNN-LSTM Demand Response</a>\n` +
-               `  - <a href="/projects/greenfriend/">GreenFriend</a>\n` +
-               `  ... and more on the <a href="/#projects">Projects</a> section.`;
+               `  - <a href="/projects/greenfriend/">GreenFriend (Low Carbon Route Recommender)</a>\n` +
+               `  ... browse all below in <a href="/#projects">#projects</a>.`;
       }
     },
     contact: {
       description: 'Show contact information.',
-      execute: (args) => `You can reach me via:\n` +
-                       `  - <a href="mailto:caspar9202166422@gmail.com">caspar9202166422@gmail.com</a>\n` +
-                       `  - <a href="https://github.com/Caspar15" target="_blank" rel="noopener">GitHub</a>\n` +
-                       `  - <a href="https://www.linkedin.com/in/caspar0216" target="_blank" rel="noopener">LinkedIn</a>`
+      execute: (args) => `Contact Caspar:\n` +
+                       `  - Email   : <a href="mailto:caspar9202166422@gmail.com">caspar9202166422@gmail.com</a>\n` +
+                       `  - GitHub  : <a href="https://github.com/Caspar15" target="_blank" rel="noopener">github.com/Caspar15</a>\n` +
+                       `  - LinkedIn: <a href="https://www.linkedin.com/in/caspar0216" target="_blank" rel="noopener">linkedin.com/in/caspar0216</a>`
     },
     clear: {
       description: 'Clear the terminal screen.',
@@ -76,34 +83,42 @@ document.addEventListener('DOMContentLoaded', () => {
         outputElement.innerHTML = '';
         return '';
       }
+    },
+    cmd: {
+      description: 'Show CLI status.',
+      execute: () => `Interactive Portfolio CLI v2.1. Type <span class="command-echo">'help'</span> for a list of commands.`
+    },
+    ls: {
+      description: 'List directory entries.',
+      execute: () => `about/   work/   research/   projects/   contact/   resume/`
     }
   };
 
-  // --- 3. Core Functions ---
+  // Convert full-width characters (e.g. from Chinese IME) to half-width
+  function normalizeInput(str) {
+    return str.replace(/[\uff01-\uff5e]/g, (ch) => {
+      return String.fromCharCode(ch.charCodeAt(0) - 0xfee0);
+    }).replace(/\u3000/g, ' ').trim();
+  }
 
-  /**
-   * Appends a message to the terminal output.
-   * @param {string} message - The HTML or text to append.
-   * @param {string} [className] - An optional CSS class to add to the line.
-   */
   function appendOutput(message, className) {
     const line = document.createElement('div');
-    line.innerHTML = message; // Use innerHTML to render HTML tags like <span> and <a>
+    line.innerHTML = message;
     if (className) {
       line.classList.add(className);
     }
     outputElement.appendChild(line);
   }
 
-  /**
-   * Processes and executes a user-entered command.
-   * @param {string} commandText - The full command string from the input.
-   */
-  function executeCommand(commandText) {
-    // Echo the command that was just entered
+  function executeCommand(rawCommandText) {
+    const commandText = normalizeInput(rawCommandText);
+    if (!commandText) return;
+
     appendOutput(`> ${commandText}`, 'command-echo');
 
-    const [commandName, ...args] = commandText.trim().split(' ');
+    const parts = commandText.split(/\s+/);
+    const commandName = parts[0].toLowerCase();
+    const args = parts.slice(1);
 
     if (commands[commandName]) {
       const output = commands[commandName].execute(args);
@@ -111,27 +126,23 @@ document.addEventListener('DOMContentLoaded', () => {
         appendOutput(output, 'output-line');
       }
     } else {
-      appendOutput(`Command not found: <span class="error">${commandName}</span>. Type 'help' for a list of commands.`, 'output-line');
+      appendOutput(`Command not found: <span class="error">${commandName}</span>. Type <span class="command-echo">'help'</span> for commands.`, 'output-line');
     }
 
-    // Scroll to the bottom of the terminal to keep the prompt visible
     terminalBody.scrollTop = terminalBody.scrollHeight;
   }
 
-  // --- 4. Event Listeners ---
-
-  // Focus on the input when any part of the terminal body is clicked
+  // --- Event Listeners ---
   terminalBody.addEventListener('click', () => {
     inputElement.focus();
   });
 
-  // Handle the 'Enter' key press in the input field
   inputElement.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
-      const commandText = inputElement.value.trim();
-      if (commandText) {
+      const commandText = inputElement.value;
+      if (commandText.trim()) {
         executeCommand(commandText);
-        inputElement.value = ''; // Clear the input field
+        inputElement.value = '';
       }
     }
   });
@@ -150,11 +161,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 5. Initial Welcome Message ---
-  const welcomeMessage = `Welcome to my interactive terminal!
-Type <span class="command-echo">'help'</span> to see a list of available commands.`;
+  // Initial Welcome Message
+  const welcomeMessage = `Welcome to Caspar's interactive terminal!
+Click any chip above or type <span class="command-echo">'help'</span> to explore.`;
   appendOutput(welcomeMessage, 'output-line');
-  
-  // Auto-focus on the input field has been removed to prevent auto-scrolling.
-  // inputElement.focus();
-});
+}
+
+// Auto-run if DOM is already ready, or on DOMContentLoaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initTerminal);
+} else {
+  initTerminal();
+}
