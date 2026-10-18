@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return res.json();
     })
     .then(data => {
-      const repos = data.public_repos ?? '—';
+      const repos = data.public_repos ?? '20+';
       repoCountEl.textContent = repos;
       try {
         localStorage.setItem(CACHE_KEY, JSON.stringify({ repos, ts: Date.now() }));
@@ -38,6 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     })
     .catch(() => {
-      repoCountEl.textContent = '—';
+      repoCountEl.textContent = '20+';
     });
 });

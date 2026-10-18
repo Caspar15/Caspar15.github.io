@@ -32,10 +32,10 @@ title: 關於我
         <h3>研究成果</h3>
       </div>
       <ul>
-        <li>🏆 IEEE ICACT 2026 — Outstanding Paper Award</li>
-        <li>NSGA-II 結合 LM 的抽取式摘要系統（推理快 10 倍以上）</li>
-        <li>ISASD 2026 — CNN-LSTM 智慧家庭需量反應預測（已接受）</li>
-        <li>SCI 期刊 IEEE Access 審稿中（ICACT 延伸版本）</li>
+        <li>🏆 IEEE ICACT 2026 — Outstanding Paper Award（NSGA-II 結合 LM 抽取式摘要，推理加速 10x+）</li>
+        <li>📄 Journal of Internet Technology (JIT) 2026 — 多代理人生成式需量反應框架（已接受發表，P95 負載降低 30.4%）</li>
+        <li>📄 ISASD 2026 — CNN-LSTM 智慧家庭需量反應預測（已接受）</li>
+        <li>📄 SCI 期刊 IEEE Access 審稿中 — 長文本抽取式摘要融合（GovReport 9 套對比系統中 Mean ROUGE 最高）</li>
         <li>5G 資源分配深度強化學習（DQN / DDQN，大學畢業專題）</li>
       </ul>
     </section>

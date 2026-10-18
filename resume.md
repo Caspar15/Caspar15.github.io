@@ -81,6 +81,17 @@ title: Interactive Resume
         </h2>
 
         <div class="experience-item">
+          <h3>A Multi-Agent Framework with a Generative Advisory Agent for Residential Demand Response under Partial Participation</h3>
+          <p class="experience-date">Journal of Internet Technology (JIT) · Journal Article (Accepted, Sep 2026)</p>
+          <div class="experience-details">
+            <ul>
+              <li>結合家戶與電動車（EV）調度 Multi-Agent 架構，串接在地部署的 LLM Advisory Agent 與八項訊息安全驗證。</li>
+              <li>在 15 戶虛擬電動車負載實驗環境中，於 85% 採納率下達成總體 P95 負載降低 <strong>30.4%</strong>，且維持電費不上升。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="experience-item">
           <h3>Meta-Heuristic Approaches with LM-based Selectors for Extractive Summarization</h3>
           <p class="experience-date">IEEE ICACT 2026 · 🏆 Outstanding Paper Award</p>
           <div class="experience-details">
@@ -89,19 +100,28 @@ title: Interactive Resume
               <li>結合 NSGA-II 多目標最佳化與預訓練語言模型（BERT / RoBERTa / XLNet），將摘要選取建模為涵蓋內容覆蓋率、冗餘度與長度的多目標問題。</li>
               <li>相較純 LM 基線，推理速度提升 <strong>10 倍以上</strong>，顯著降低 GPU 依賴與部署成本。</li>
               <li>CNN/DailyMail 達 ROUGE-1 0.351，並於 SciTLDR-AIC 驗證跨領域泛化能力。</li>
-              <li>延伸版本投稿 <strong>SCI 期刊 IEEE Access</strong>，現處於審稿階段。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <h3>Provenance-Aware Multi-Route Fusion for Long-Document Extractive Summarization</h3>
+          <p class="experience-date">IEEE Access · SCI Journal Manuscript (Under Review)</p>
+          <div class="experience-details">
+            <ul>
+              <li>融合詞彙統計、固定 MiniLM 語意特徵與稀疏圖結構（Sparse Graph）排序，並提供句子層級決策可解釋性（Decision Provenance）。</li>
+              <li>在 GovReport（973 篇政府長文本長篇基準）評測中，取得 9 套對比系統中最高 Mean ROUGE 分數，無需進行特定任務微調。</li>
             </ul>
           </div>
         </div>
 
         <div class="experience-item">
           <h3>AI-Agent-Driven Demand Response Forecasting for Smart Homes with a CNN-LSTM Framework</h3>
-          <p class="experience-date">ISASD 2026 · Accepted</p>
+          <p class="experience-date">ISASD 2026 · Poster presentation</p>
           <div class="experience-details">
             <ul>
               <li>角色：主責架構設計、系統開發與實驗驗證。</li>
-              <li>建構以 CNN-LSTM 為核心的短期家電能源預測框架（UCI Appliances Energy Prediction）。</li>
-              <li>結合 Demand Response 模擬策略與單一家庭 DR Agent，評估尖峰負載削減、電費節省與能源調度成效。</li>
+              <li>建構以 CNN-LSTM 為核心的短期家電能源預測框架，於合成時間電價（TOU）下單一家庭 DR Agent 降低 P95 負載 10.3%、電費 2.6%。</li>
             </ul>
           </div>
         </div>

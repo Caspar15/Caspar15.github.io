@@ -46,12 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
     research: {
       description: 'List publications.',
       execute: (args) => `Publications:\n` +
-                         `  IEEE ICACT 2026  Meta-Heuristic Approaches with LM-based Selectors\n` +
-                         `                   for Extractive Summarization\n` +
-                         `                   *** Outstanding Paper Award ***\n` +
-                         `  ISASD 2026       AI-Agent-Driven Demand Response Forecasting\n` +
-                         `                   for Smart Homes with a CNN-LSTM Framework (accepted)\n` +
-                         `  IEEE Access      extended version, under review`
+                         `  - JIT (Sep 2026) : Multi-Agent Demand Response Framework w/ Generative Advisory Agent (Accepted)\n` +
+                         `  - IEEE ICACT 2026: Meta-Heuristic Approaches with LM-based Selectors (*** Outstanding Paper Award ***)\n` +
+                         `  - ISASD 2026     : CNN-LSTM Framework for Smart Home Demand Response (Accepted)\n` +
+                         `  - IEEE Access    : Provenance-Aware Multi-Route Fusion (Under Review)\n` +
+                         `Details: <a href="/resume/#resume-research">/resume/</a>`
     },
     projects: {
       description: 'List key projects.',
@@ -136,6 +135,20 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+  // Handle quick command chips click
+  const chipsContainer = document.getElementById('terminal-chips');
+  if (chipsContainer) {
+    chipsContainer.addEventListener('click', (e) => {
+      const chip = e.target.closest('.terminal-chip');
+      if (chip && chip.dataset.cmd) {
+        const cmd = chip.dataset.cmd;
+        inputElement.value = cmd;
+        executeCommand(cmd);
+        inputElement.value = '';
+      }
+    });
+  }
 
   // --- 5. Initial Welcome Message ---
   const welcomeMessage = `Welcome to my interactive terminal!

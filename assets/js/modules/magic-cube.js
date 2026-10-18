@@ -20,7 +20,7 @@ function tween(start, end, duration, onUpdate, onComplete) {
 
 export function initMagicCube() {
     const container = document.getElementById('magic-cube-container');
-    if (!container) return;
+    if (!container || typeof THREE === 'undefined') return;
 
     // --- Cube Properties (Declared first to ensure availability) ---
     const pieceSize = 1;

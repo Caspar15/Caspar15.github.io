@@ -317,12 +317,28 @@
   flex-direction: column;
   box-shadow: var(--shadow-sm);
   position: relative;
+  overflow: hidden;
+}
+
+.card.modern-project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: transparent;
+  transition: background var(--transition-base);
 }
 
 .card.modern-project-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-  border-color: rgba(2, 132, 199, 0.35);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.10), 0 4px 12px rgba(2, 132, 199, 0.08);
+  border-color: rgba(2, 132, 199, 0.4);
+}
+
+.card.modern-project-card:hover::before {
+  background: linear-gradient(90deg, var(--color-accent), var(--color-purple));
 }
 
 .card-meta-top {
@@ -343,11 +359,13 @@
 .badge-trophy {
   background: rgba(245, 158, 11, 0.12);
   color: #D97706;
-  border: 1px solid rgba(245, 158, 11, 0.25);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.18);
 }
 
 body.dark .badge-trophy {
   color: #FBBF24;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.25);
 }
 
 .badge-live {

@@ -19,10 +19,10 @@
       <div id="primaryNavLinks" class="trigger">
         <a class="page-link" href="{{ '/' | relative_url }}">首頁</a>
         <div class="nav-item dropdown">
-          <a id="about-dropdown-toggle" class="page-link" href="javascript:void(0);">
+          <button id="about-dropdown-toggle" class="page-link dropdown-toggle-btn" type="button" aria-haspopup="true" aria-expanded="false">
             關於我
             <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
-          </a>
+          </button>
           <div class="dropdown-content">
             <a class="page-link" href="{{ '/about/' | relative_url }}">個人總覽</a>
             <a class="page-link" href="{{ '/resume/' | relative_url }}">互動式履歷</a>

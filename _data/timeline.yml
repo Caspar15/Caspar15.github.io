@@ -98,3 +98,12 @@
     text: "以 CNN-LSTM 為核心的智慧家庭短期能源預測框架，結合需量反應模擬與單一家庭 DR Agent，獲 ISASD 2026 接受。"
   group: "經歷"
   type: "milestone"
+
+- start_date:
+    year: 2026
+    month: 9
+  text:
+    headline: "JIT 期刊論文獲接受發表"
+    text: "以多代理人架構（Multi-Agent）結合生成式建議 Agent，於 Journal of Internet Technology (JIT) 發表需量反應系統研究，在 15 戶虛擬電動車負載實驗中達成 P95 負載降低 30.4%。"
+  group: "經歷"
+  type: "milestone"

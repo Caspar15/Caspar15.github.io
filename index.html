@@ -19,11 +19,18 @@ title: Home
     <section class="terminal-section">
       <div id="terminal-container" class="terminal">
         <div id="terminal-header">caspar@portfolio: ~</div>
+        <div id="terminal-chips" class="terminal-chips" aria-label="快捷指令">
+          <button type="button" class="terminal-chip" data-cmd="help">help</button>
+          <button type="button" class="terminal-chip" data-cmd="research">research</button>
+          <button type="button" class="terminal-chip" data-cmd="work">work</button>
+          <button type="button" class="terminal-chip" data-cmd="projects">projects</button>
+          <button type="button" class="terminal-chip" data-cmd="contact">contact</button>
+        </div>
         <div id="terminal-body">
           <div id="terminal-output"></div>
           <div class="terminal-prompt">
             <span class="prompt-user">guest@caspar-dev:</span><span class="prompt-symbol">$&nbsp;</span>
-            <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" spellcheck="false">
+            <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" spellcheck="false" aria-label="Terminal Input">
           </div>
         </div>
       </div>
@@ -42,7 +49,7 @@ title: Home
         專注於 LLM 系統、評測框架與 <span class="gradient-text">高效能 AI 演算法</span>
       </h1>
       <p class="hero-intro-subtitle">
-        以核心成員身分發表 IEEE 論文並榮獲 <strong>2026 ICACT Outstanding Paper Award</strong>；曾任趨勢科技 AI Engineer Intern，負責消費性 AI 助理評測 harness 與 CI 管線。致力於將先進研究轉化為高可靠、生產級系統。
+        以核心成員身分發表多篇頂尖期刊與會議成果，榮獲 <strong>2026 IEEE ICACT Outstanding Paper Award</strong> 與 <strong>JIT 期刊接受發表</strong>；曾任趨勢科技 AI Engineer Intern，負責消費性 AI 助理評測 harness 與 CI 管線。致力於將先進研究轉化為高可靠、生產級系統。
       </p>
       <div class="hero-intro-cta-group">
         <a href="#projects" class="hero-cta-btn hero-cta-primary">
@@ -78,8 +85,8 @@ title: Home
         <div class="stat-card">
           <div class="stat-icon">📄</div>
           <div class="stat-content">
-            <div class="stat-value">2</div>
-            <div class="stat-label">國際會議論文</div>
+            <div class="stat-value">4</div>
+            <div class="stat-label">期刊與會議成果</div>
           </div>
         </div>
       </div>
@@ -140,15 +147,15 @@ title: Home
       <h3>近期計畫</h3>
       <ul>
         <li>
-          <span class="update-item">降雨即時預報服務封閉測試</span>
-          <span class="update-status">進行中</span>
+          <span class="update-item">JIT 期刊論文出刊發表</span>
+          <span class="update-status">已接受</span>
         </li>
         <li>
           <span class="update-item">IEEE Access 期刊論文審稿</span>
           <span class="update-status">審稿中</span>
         </li>
         <li>
-          <span class="update-item">更多技術文章</span>
+          <span class="update-item">降雨即時預報服務封閉測試</span>
           <span class="update-status">進行中</span>
         </li>
       </ul>

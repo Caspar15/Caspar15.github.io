@@ -1,7 +1,3 @@
-export function toggleMenu() {}
-export function toggleView() {}
-export function scrollToTop() {}
-
 export function initializeNavigation() {
   const sidebarToggle = document.getElementById('sidebarToggle');
   const projectCategoriesSidebar = document.getElementById('projectCategoriesSidebar');

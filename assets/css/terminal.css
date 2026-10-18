@@ -51,6 +51,39 @@
     vertical-align: middle;
 }
 
+.terminal-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(15, 23, 42, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.terminal-chip {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #38BDF8;
+    font-size: 11px;
+    font-family: var(--font-mono);
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    line-height: 1.4;
+}
+
+.terminal-chip:hover {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: #38BDF8;
+    color: #FFFFFF;
+    transform: translateY(-1px);
+}
+
+.terminal-chip:active {
+    transform: translateY(0);
+}
+
 #terminal-body {
     padding: 14px;
     flex-grow: 1;
