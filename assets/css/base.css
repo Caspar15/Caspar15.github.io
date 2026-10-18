@@ -16,10 +16,10 @@
     --color-border-subtle: rgba(148, 163, 184, 0.12);
 
     /* === System Accent Colors === */
-    --color-accent: #0284C7;          /* Tech Sky/Ocean Blue */
-    --color-accent-hover: #0369A1;
-    --color-accent-light: rgba(2, 132, 199, 0.10);
-    --color-accent-rgb: 2, 132, 199;
+    --color-accent: #2563EB;          /* Engineering Blue */
+    --color-accent-hover: #1D4ED8;
+    --color-accent-light: rgba(37, 99, 235, 0.08);
+    --color-accent-rgb: 37, 99, 235;
     --color-green: #10B981;           /* Emerald */
     --color-orange: #F59E0B;          /* Amber */
     --color-red: #EF4444;             /* Crimson */
@@ -109,13 +109,9 @@ body {
     letter-spacing: var(--letter-spacing);
     color: var(--color-text);
     background-color: var(--color-bg);
-    background-image: 
-        radial-gradient(at 15% 15%, rgba(2, 132, 199, 0.07) 0px, transparent 40%),
-        radial-gradient(at 85% 20%, rgba(99, 102, 241, 0.06) 0px, transparent 40%),
-        radial-gradient(at 50% 80%, rgba(16, 185, 129, 0.04) 0px, transparent 50%),
-        radial-gradient(#CBD5E1 0.75px, transparent 0.75px);
-    background-size: 100% 100%, 100% 100%, 100% 100%, 24px 24px;
-    background-position: 0 0, 0 0, 0 0, 0 0;
+    background-image: radial-gradient(rgba(148, 163, 184, 0.22) 1px, transparent 1px);
+    background-size: 24px 24px;
+    background-position: 0 0;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

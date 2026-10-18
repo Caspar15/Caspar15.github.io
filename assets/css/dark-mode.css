@@ -1,58 +1,55 @@
-/* dark-mode.css — Modern High-Contrast Space Dark Palette */
+/* dark-mode.css — Modern Executive Slate Minimalist Dark Palette */
 
 body.dark {
-  /* === Space Dark Mode System Colors === */
-  --color-bg: #0B0F19;              /* Deep Space Slate */
-  --color-bg-rgb: 11, 15, 25;
-  --color-card: rgba(17, 24, 39, 0.85); /* Slate-900 / 85% */
+  /* === Space Slate Dark System Colors === */
+  --color-bg: #0B0F17;              /* Clean Slate-950 */
+  --color-bg-rgb: 11, 15, 23;
+  --color-card: rgba(17, 24, 39, 0.90); /* Slate-900 / 90% */
   --color-card-rgb: 17, 24, 39;
   --color-bg-subtle: #111827;        /* Slate-900 */
   --color-bg-elevated: #1F2937;      /* Slate-800 */
   --color-text: #F8FAFC;            /* Slate-50 */
   --color-text-muted: #94A3B8;      /* Slate-400 */
   --color-text-tertiary: #64748B;   /* Slate-500 */
-  --color-border: rgba(255, 255, 255, 0.10);
-  --color-border-subtle: rgba(255, 255, 255, 0.05);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-subtle: rgba(255, 255, 255, 0.04);
 
-  /* === Neon & Cyber Accent Colors === */
-  --color-accent: #38BDF8;           /* Cyber Sky Blue */
-  --color-accent-hover: #0EA5E9;
-  --color-accent-light: rgba(56, 189, 248, 0.14);
-  --color-accent-rgb: 56, 189, 248;
-  --color-green: #34D399;
-  --color-orange: #FBBF24;
-  --color-red: #F87171;
-  --color-purple: #C084FC;
+  /* === Refined Engineering Accent Colors === */
+  --color-accent: #3B82F6;           /* Engineering Blue */
+  --color-accent-hover: #60A5FA;
+  --color-accent-light: rgba(59, 130, 246, 0.12);
+  --color-accent-rgb: 59, 130, 246;
+  --color-green: #10B981;
+  --color-orange: #F59E0B;
+  --color-red: #EF4444;
+  --color-purple: #8B5CF6;
 
   /* === Glass Effect (dark) === */
-  --glass-bg: rgba(15, 23, 42, 0.80);
-  --glass-border: rgba(255, 255, 255, 0.09);
-  --glass-blur: blur(20px) saturate(180%);
+  --glass-bg: rgba(17, 24, 39, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: blur(16px);
 
   /* Code Colors */
   --code-bg: #111827;
   --code-text: #F8FAFC;
-  --code-border: rgba(255, 255, 255, 0.12);
-  --inline-code-bg: rgba(56, 189, 248, 0.15);
-  --inline-code-text: #38BDF8;
+  --code-border: rgba(255, 255, 255, 0.08);
+  --inline-code-bg: rgba(59, 130, 246, 0.12);
+  --inline-code-text: #60A5FA;
 
-  /* Dark Shadows */
+  /* Subtle Crisp Neutral Shadows */
   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.45), 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.65), 0 4px 8px rgba(0, 0, 0, 0.4);
-  --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.75), 0 8px 16px rgba(0, 0, 0, 0.5);
-  --shadow-accent: 0 4px 16px rgba(56, 189, 248, 0.3);
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 28px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.6);
+  --shadow-accent: 0 4px 14px rgba(0, 0, 0, 0.4);
 
   background-color: var(--color-bg);
-  background-image: 
-    radial-gradient(at 15% 15%, rgba(56, 189, 248, 0.10) 0px, transparent 40%),
-    radial-gradient(at 85% 25%, rgba(139, 92, 246, 0.12) 0px, transparent 45%),
-    radial-gradient(at 40% 80%, rgba(16, 185, 129, 0.05) 0px, transparent 50%),
-    radial-gradient(rgba(255, 255, 255, 0.08) 0.75px, transparent 0.75px);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 24px 24px;
-  background-position: 0 0, 0 0, 0 0, 0 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: 0 0;
 }
+
 
 /* ===== Header — Dark frosted glass ===== */
 body.dark .site-header {
@@ -204,7 +201,7 @@ body.dark .info-card {
 }
 
 body.dark .about-avatar-img {
-  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.95), 0 8px 24px rgba(56, 189, 248, 0.35) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(255, 255, 255, 0.12) !important;
 }
 
 body.dark .about-hero-name,
@@ -231,9 +228,9 @@ body.dark .about-action-ghost {
 }
 
 body.dark .about-action-ghost:hover {
-  background: rgba(56, 189, 248, 0.15) !important;
-  border-color: #38BDF8 !important;
-  color: #38BDF8 !important;
+  background: rgba(59, 130, 246, 0.12) !important;
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  color: #60A5FA !important;
 }
 
 body.dark .bento-pill {
@@ -243,14 +240,14 @@ body.dark .bento-pill {
 }
 
 body.dark .bento-pill:hover {
-  background: rgba(56, 189, 248, 0.15) !important;
-  border-color: #38BDF8 !important;
-  color: #38BDF8 !important;
+  background: rgba(59, 130, 246, 0.12) !important;
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  color: #60A5FA !important;
 }
 
 body.dark .bento-card:hover {
-  border-color: rgba(56, 189, 248, 0.35) !important;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5) !important;
 }
 
 body.dark .bento-header {

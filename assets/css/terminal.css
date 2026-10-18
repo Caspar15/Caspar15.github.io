@@ -1,82 +1,115 @@
-/* assets/css/terminal.css */
+/* assets/css/terminal.css — Modern macOS Developer Terminal */
 
-/* This section prevents the sidebar's default styles from breaking the terminal's layou*/
 .terminal-section {
-    padding: 0 !important;
-    border: none !important;
-    background: none !important;
-    box-shadow: none !important;
-    margin-top: 20px; /* Keep some space from the element above */
     margin-bottom: var(--spacing-xl);
+    width: 100%;
 }
 
-/* === Terminal Styles === */
+/* === Terminal Window Box === */
 .terminal {
-    background-color: #0F172A;
+    background-color: #0B1120;
     color: #E2E8F0;
     font-family: var(--font-mono);
-    font-size: 12px;
-    border-radius: var(--radius);
+    font-size: 13px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    min-height: 250px;
     display: flex;
     flex-direction: column;
     position: relative;
     z-index: 10;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
+.terminal:focus-within {
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* === Terminal Header === */
 #terminal-header {
-    background-color: #1E293B;
-    padding: 8px 12px;
-    font-weight: 600;
-    font-size: 11px;
+    background-color: #111C30;
+    padding: 10px 16px;
+    font-weight: 500;
+    font-size: 12px;
     color: #94A3B8;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
 }
 
 #terminal-header::before {
     content: '';
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    width: 11px;
+    height: 11px;
     border-radius: 50%;
     background-color: #EF4444;
-    box-shadow: 16px 0 #F59E0B, 32px 0 #10B981;
-    margin-right: 44px;
+    box-shadow: 18px 0 #F59E0B, 36px 0 #10B981;
+    margin-right: 48px;
     line-height: 1;
     vertical-align: middle;
+    flex-shrink: 0;
 }
 
+.terminal-window-title {
+    font-size: 12px;
+    color: #94A3B8;
+    font-family: var(--font-mono);
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.terminal-badge {
+    font-size: 11px;
+    font-family: var(--font-mono);
+    color: #64748B;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
+}
+
+/* === Quick Chips Toolbar === */
 .terminal-chips {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 6px;
-    padding: 6px 12px;
-    background: rgba(15, 23, 42, 0.85);
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(15, 23, 42, 0.7);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.terminal-chips-label {
+    font-size: 11px;
+    color: #64748B;
+    font-family: var(--font-mono);
+    margin-right: 2px;
 }
 
 .terminal-chip {
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    color: #38BDF8;
+    color: #94A3B8;
     font-size: 11px;
     font-family: var(--font-mono);
-    padding: 2px 8px;
-    border-radius: var(--radius-pill);
+    padding: 3px 10px;
+    border-radius: var(--radius-sm);
     cursor: pointer;
     transition: all var(--transition-fast);
     line-height: 1.4;
 }
 
 .terminal-chip:hover {
-    background: rgba(56, 189, 248, 0.2);
-    border-color: #38BDF8;
-    color: #FFFFFF;
+    background: rgba(59, 130, 246, 0.15);
+    border-color: #3B82F6;
+    color: #F8FAFC;
     transform: translateY(-1px);
 }
 
@@ -84,9 +117,11 @@
     transform: translateY(0);
 }
 
+/* === Console Body & Output === */
 #terminal-body {
-    padding: 14px;
-    flex-grow: 1;
+    padding: 16px 20px;
+    min-height: 150px;
+    max-height: 280px;
     overflow-y: auto;
     cursor: text;
     line-height: 1.6;
@@ -94,55 +129,77 @@
 
 #terminal-output {
     white-space: pre-wrap;
-    word-break: break-all;
+    word-break: normal;
+    overflow-wrap: break-word;
 }
 
 #terminal-output .terminal-line {
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 
 #terminal-output .command-echo {
-    color: #569cd6;
+    color: #60A5FA;
+    font-weight: 600;
 }
 
 #terminal-output .output-line {
-    color: #d4d4d4;
+    color: #CBD5E1;
 }
 
 #terminal-output .output-line.error {
-    color: #f44747;
+    color: #F87171;
 }
 
 #terminal-output .output-line a {
-    color: #b5cea8;
+    color: #60A5FA;
     text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
+#terminal-output .output-line a:hover {
+    color: #93C5FD;
+}
+
+/* === Prompt Line === */
 .terminal-prompt {
     display: flex;
     align-items: center;
-    flex-wrap: nowrap; /* Prevent wrapping */
+    flex-wrap: nowrap;
+    margin-top: 6px;
 }
 
 .prompt-user {
-    color: #4ec9b0;
+    color: #38BDF8;
+    font-weight: 600;
+}
+
+.prompt-path {
+    color: #94A3B8;
+    margin: 0 3px;
 }
 
 .prompt-symbol {
-    color: #d4d4d4;
+    color: #E2E8F0;
+    margin-right: 4px;
 }
 
 .terminal-input {
     background: none;
     border: none;
-    color: #d4d4d4;
+    color: #F8FAFC;
     font-family: inherit;
     font-size: inherit;
     flex-grow: 1;
-    padding-left: 5px;
+    padding-left: 2px;
     line-height: 1.5;
 }
-   
+
+.terminal-input::placeholder {
+    color: #475569;
+    font-size: 12px;
+    font-style: italic;
+}
+
 .terminal-input:focus {
     outline: none;
 }

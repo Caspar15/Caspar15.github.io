@@ -224,7 +224,23 @@
   .about-bento-grid {
     grid-template-columns: 1fr;
   }
+
+  /* Terminal Mobile */
+  .terminal-section {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  #terminal-body {
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+
+  .terminal-chip {
+    padding: 2px 8px;
+    font-size: 11px;
+  }
 }
+
 
 /* 480px 以下 */
 @media (max-width: 480px) {

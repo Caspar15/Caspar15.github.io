@@ -36,23 +36,13 @@
   transition: box-shadow var(--transition-base);
 }
 
-.hero-intro-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--color-accent), var(--color-purple), var(--color-teal));
-}
-
 .hero-intro-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 4px 12px;
-  background: rgba(2, 132, 199, 0.10);
-  border: 1px solid rgba(2, 132, 199, 0.25);
+  background: var(--color-accent-light);
+  border: 1px solid rgba(37, 99, 235, 0.15);
   border-radius: var(--radius-pill);
   font-size: var(--font-size-xs);
   font-weight: 600;
@@ -61,12 +51,11 @@
 }
 
 .pulse-indicator {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--color-green);
-  box-shadow: 0 0 6px var(--color-green);
-  animation: pulseDot 2s infinite;
+  box-shadow: none;
 }
 
 .hero-intro-title {
@@ -79,9 +68,8 @@
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-accent), var(--color-purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-accent);
+  font-weight: 700;
 }
 
 .hero-intro-subtitle {
@@ -525,15 +513,6 @@ body.dark .badge-trophy {
   overflow: hidden;
 }
 
-.about-hero-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--color-accent), var(--color-purple), var(--color-teal));
-}
 
 .about-avatar-wrap {
   position: relative;

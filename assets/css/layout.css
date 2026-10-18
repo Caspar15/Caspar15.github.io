@@ -7,12 +7,20 @@ header.site-header {
 /* ===== Main Layout Grid ===== */
 .layout {
   display: grid;
-  grid-template-columns: 300px 1fr 280px;
-  gap: var(--spacing-lg);
-  max-width: 1560px;
+  grid-template-columns: 280px 1fr 260px;
+  gap: var(--spacing-xl);
+  max-width: 1440px;
   margin: 0 auto;
   padding: var(--spacing-lg) var(--spacing-xl);
+  align-items: start;
 }
+
+.sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 84px;
+}
+
 
 /* ===== About Page Wrapper ===== */
 .about-page-wrapper {
