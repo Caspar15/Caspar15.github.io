@@ -17,7 +17,7 @@
   justify-content: space-between;
   align-items: center;
   height: 64px;
-  max-width: 1600px;
+  max-width: 1440px;
   margin: 0 auto;
   gap: var(--spacing-md);
 }
@@ -77,8 +77,14 @@
   font-size: var(--font-size-sm);
   font-weight: 500;
   letter-spacing: -0.01em;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: background var(--transition-fast), color var(--transition-fast);
   position: relative;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
 .site-nav .dropdown-toggle-btn {
@@ -89,6 +95,14 @@
   align-items: center;
   gap: 4px;
   font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: 1.2;
+  color: var(--color-text);
+  padding: 6px 12px;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-appearance: none;
 }
 
 .site-nav .page-link:hover {
@@ -163,12 +177,18 @@
 /* === Dropdown === */
 .nav-item.dropdown {
   position: relative;
+  display: inline-flex;
+  align-items: center;
 }
 
 .dropdown-arrow {
+  display: inline-block;
   vertical-align: middle;
+  width: 14px;
+  height: 14px;
   transition: transform var(--transition-fast);
   opacity: 0.6;
+  flex-shrink: 0;
 }
 
 .nav-item.dropdown.open .dropdown-arrow {
@@ -253,33 +273,35 @@
 
 /* --- Enhanced glass header variant and dropdown polish --- */
 .site-header.glass-nav {
-  background: rgba(255, 255, 255, 0.6);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  backdrop-filter: saturate(160%) blur(12px);
+  background: var(--glass-bg);
+  border-bottom: 1px solid var(--color-border);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
 }
+
 .dark .site-header.glass-nav {
-  background: rgba(17, 17, 17, 0.55);
-  border-bottom-color: rgba(255,255,255,0.08);
-}
-.site-header.glass-nav::after{
-  content: '';
-  position: absolute; left: 0; right:0; bottom:0; height:2px;
-  background: linear-gradient(90deg, var(--color-accent), transparent 40%, transparent 60%, var(--color-accent));
-  opacity: .35;
-}
-.site-header.is-scrolled{ box-shadow: var(--shadow-md); }
-
-/* Brand gradient text */
-.site-title.brand{ background: linear-gradient(135deg, var(--color-accent), #6ee7f9 70%); -webkit-background-clip:text; background-clip:text; color:transparent; }
-
-/* Upgrade link underline when glass is enabled */
-.site-header.glass-nav .site-nav .page-link::after{
-  bottom: -6px;
-  background: linear-gradient(90deg, var(--color-accent), #6ee7f9);
+  background: var(--glass-bg);
+  border-bottom: 1px solid var(--color-border);
 }
 
-/* Animated dropdown (override base "display" to allow transitions) */
-.site-header .dropdown-content{
+.site-header.is-scrolled {
+  box-shadow: var(--shadow-sm);
+}
+
+/* Site title — Clean Apple Typography */
+.site-title,
+.site-header.glass-nav .site-title,
+.site-title.brand {
+  color: var(--color-text);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+}
+
+/* Animated dropdown */
+.site-header .dropdown-content {
   display: block;
   opacity: 0;
   transform: translateY(6px) scale(.98);
@@ -289,17 +311,20 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  background: var(--glass-bg);
   transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
 }
-.site-header .nav-item.dropdown.open .dropdown-content,
-.site-header .nav-item.dropdown:hover .dropdown-content{
-  opacity: 1; transform: translateY(0) scale(1); pointer-events:auto; visibility:visible;
-}
-.site-header .nav-item.dropdown:hover .dropdown-arrow{ transform: rotate(180deg); }
 
-/* Apply gradient brand style to title when glass header active */
-.site-header.glass-nav .site-title{
-  background: linear-gradient(135deg, var(--color-accent), #6ee7f9 70%);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
+.site-header .nav-item.dropdown.open .dropdown-content,
+.site-header .nav-item.dropdown:hover .dropdown-content {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.site-header .nav-item.dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
 }

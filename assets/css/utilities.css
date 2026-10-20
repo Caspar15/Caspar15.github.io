@@ -86,32 +86,31 @@
   position: fixed;
   bottom: var(--spacing-lg);
   left: var(--spacing-lg);
-  background-image: linear-gradient(135deg, #7F5AF0 0%, #E1467C 100%);
-  color: white;
-  width: 48px; /* 稍微放大 */
-  height: 48px;
-  border-radius: var(--radius-pill); /* 使用變數 */
-  border: none;
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  color: var(--color-text);
+  border: 1px solid var(--glass-border);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: var(--font-size-xl); /* 使用變數 */
+  font-size: var(--font-size-lg);
   opacity: 0;
   visibility: hidden;
-  transition: all var(--transition-base); /* 使用變數 */
+  transition: all var(--transition-base);
   z-index: 99;
-  box-shadow: var(--shadow-md); /* 添加陰影 */
-}
-
-.back-to-top.visible {
-  opacity: 1;
-  visibility: visible;
+  box-shadow: var(--shadow-md);
 }
 
 .back-to-top:hover {
-  transform: translateY(-5px); /* 懸停上浮效果 */
-  box-shadow: var(--shadow-lg); /* 懸停時陰影加深 */
+  background: var(--color-card);
+  color: var(--color-accent);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
 }
 
 /* skeleton 加載動畫 */

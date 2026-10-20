@@ -109,9 +109,6 @@ body {
     letter-spacing: var(--letter-spacing);
     color: var(--color-text);
     background-color: var(--color-bg);
-    background-image: radial-gradient(rgba(148, 163, 184, 0.22) 1px, transparent 1px);
-    background-size: 24px 24px;
-    background-position: 0 0;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

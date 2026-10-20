@@ -15,10 +15,10 @@ header.site-header {
   align-items: start;
 }
 
-.sidebar {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 84px;
+.sidebar,
+.main-content,
+.right-bar {
+  align-self: start;
 }
 
 

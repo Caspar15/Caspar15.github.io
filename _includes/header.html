@@ -1,12 +1,5 @@
 <header class="site-header">
   <div class="wrapper">
-    <button id="sidebarToggle" class="sidebar-toggle" aria-label="Toggle sidebar">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
-        <line x1="3" y1="12" x2="21" y2="12"></line>
-        <line x1="3" y1="6" x2="21" y2="6"></line>
-        <line x1="3" y1="18" x2="21" y2="18"></line>
-      </svg>
-    </button>
     <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
     <nav class="site-nav" aria-label="Main navigation">
       <button id="mobileMenuToggle" class="menu-icon" type="button" aria-label="開啟主選單" aria-expanded="false" aria-controls="primaryNavLinks">
@@ -20,8 +13,8 @@
         <a class="page-link" href="{{ '/' | relative_url }}">首頁</a>
         <div class="nav-item dropdown">
           <button id="about-dropdown-toggle" class="page-link dropdown-toggle-btn" type="button" aria-haspopup="true" aria-expanded="false">
-            關於我
-            <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+            <span>關於我</span>
+            <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
           </button>
           <div class="dropdown-content">
             <a class="page-link" href="{{ '/about/' | relative_url }}">個人總覽</a>
@@ -41,7 +34,3 @@
     </nav>
   </div>
 </header>
-
-<div id="projectCategoriesSidebar" class="project-categories-sidebar">
-  {% include project_categories_sidebar.html %}
-</div>

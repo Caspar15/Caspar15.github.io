@@ -5,6 +5,44 @@
     width: 100%;
 }
 
+.sidebar .terminal-section {
+    padding: 0 !important;
+    border: none !important;
+    background: none !important;
+    box-shadow: none !important;
+    margin-bottom: var(--spacing-lg);
+}
+
+.sidebar .terminal {
+    border-radius: var(--radius-xl);
+    font-size: 12px;
+}
+
+.sidebar #terminal-header {
+    padding: 8px 12px;
+}
+
+.sidebar #terminal-header::before {
+    margin-right: 32px;
+}
+
+.sidebar .terminal-chips {
+    padding: 6px 10px;
+    gap: 4px;
+}
+
+.sidebar .terminal-chip {
+    padding: 2px 8px;
+    font-size: 10px;
+}
+
+.sidebar #terminal-body {
+    padding: 10px 12px;
+    min-height: 140px;
+    max-height: 220px;
+    font-size: 11px;
+}
+
 /* === Terminal Window Box === */
 .terminal {
     background-color: #0B1120;

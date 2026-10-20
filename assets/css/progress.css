@@ -13,7 +13,7 @@
 #progress-bar {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #007AFF 0%, #5856D6 50%, #BF5AF2 100%);
+  background: var(--color-accent);
   transition: width 0.1s linear;
   border-radius: 0 2px 2px 0;
 }
