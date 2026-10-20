@@ -262,8 +262,9 @@
 .future-updates-section li {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 8px 0;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 0;
   border-bottom: 1px solid var(--color-border-subtle);
   font-size: var(--font-size-sm);
 }
@@ -275,6 +276,8 @@
 .update-item {
   color: var(--color-text);
   font-weight: 500;
+  line-height: 1.45;
+  flex: 1 1 auto;
 }
 
 .update-status {
@@ -285,6 +288,9 @@
   background: rgba(245, 158, 11, 0.12);
   color: #D97706;
   border: 1px solid rgba(245, 158, 11, 0.25);
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 1px;
 }
 
 body.dark .update-status {

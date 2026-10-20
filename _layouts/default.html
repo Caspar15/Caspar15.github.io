@@ -33,12 +33,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="stylesheet" href="/assets/css/terminal.css">
-  <link rel="stylesheet" href="/assets/css/page-transitions.css">
-  <link rel="stylesheet" href="/assets/css/interactive-resume.css">
-  <link rel="stylesheet" href="/assets/css/blog.css">
+  <!-- Stylesheets with Cache Busting -->
+  <link rel="stylesheet" href="/assets/css/main.css?v={{ site.time | date: '%s' }}">
+  <link rel="stylesheet" href="/assets/css/terminal.css?v={{ site.time | date: '%s' }}">
+  <link rel="stylesheet" href="/assets/css/page-transitions.css?v={{ site.time | date: '%s' }}">
+  <link rel="stylesheet" href="/assets/css/interactive-resume.css?v={{ site.time | date: '%s' }}">
+  <link rel="stylesheet" href="/assets/css/blog.css?v={{ site.time | date: '%s' }}">
 
   {% if page.url == "/" %}
     <!-- External Libraries used by the home dashboard only -->
@@ -80,10 +80,10 @@
     </svg>
   </a>
 
-  <!-- JavaScript Modules -->
-  <script type="module" src="/assets/js/main.js"></script>
-  <script type="module" src="/assets/js/modules/animations.js"></script>
-  <script type="module" src="/assets/js/modules/page-transitions.js"></script>
+  <!-- JavaScript Modules with Cache Busting -->
+  <script type="module" src="/assets/js/main.js?v={{ site.time | date: '%s' }}"></script>
+  <script type="module" src="/assets/js/modules/animations.js?v={{ site.time | date: '%s' }}"></script>
+  <script type="module" src="/assets/js/modules/page-transitions.js?v={{ site.time | date: '%s' }}"></script>
   {% if page.url == "/" %}
     <!-- 只有首頁有終端機與 GitHub 統計 -->
     <script type="module" src="/assets/js/modules/terminal.js"></script>
