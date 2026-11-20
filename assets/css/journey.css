@@ -46,7 +46,7 @@ body.journey-background::after { /* Nebula Layer */
 
 /* --- 0. 獨立樣式域，確保最高優先級 --- */
 #journey-page-wrapper {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-primary);
   /* overflow: hidden; REMOVED to allow scrolling */
 }
 
@@ -56,7 +56,7 @@ body.journey-background::after { /* Nebula Layer */
 
 /* --- 分類篩選按鈕 --- */
 #journey-page-wrapper .timeline-filters { display: flex; justify-content: center; gap: 10px; margin-bottom: 3rem; }
-#journey-page-wrapper .timeline-filters button { font-family: 'Poppins', sans-serif; background: #374151; color: #E5E7EB; border: none; padding: 10px 20px; border-radius: 999px; cursor: pointer; transition: background-color 0.3s, color 0.3s; }
+#journey-page-wrapper .timeline-filters button { font-family: var(--font-primary); background: #374151; color: #E5E7EB; border: none; padding: 10px 20px; border-radius: 999px; cursor: pointer; transition: background-color 0.3s, color 0.3s; }
 #journey-page-wrapper .timeline-filters button:hover { background: #4B5563; }
 #journey-page-wrapper .timeline-filters button.active { background: #2dd4bf; color: #fff; font-weight: 600; }
 

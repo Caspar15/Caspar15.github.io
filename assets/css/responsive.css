@@ -101,13 +101,32 @@
   }
 
   .site-header .dropdown-content {
+    display: none;
     position: static;
     min-width: 100%;
     margin-top: 4px;
+    left: auto;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  .site-header .dropdown-content::before {
+    display: none;
+  }
+
+  .site-header .nav-item.dropdown.open .dropdown-content {
+    display: block;
     transform: none;
   }
 
-  .site-header .nav-item.dropdown.open .dropdown-content,
+  body.dark .site-header .dropdown-content {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
   .site-header .nav-item.dropdown:hover .dropdown-content {
     transform: none;
   }

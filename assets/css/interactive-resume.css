@@ -272,3 +272,138 @@
   color: var(--color-text-muted);
   line-height: 1.5;
 }
+
+/* === Resume Action Buttons (PDF & Print) === */
+.resume-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.resume-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.resume-download-btn.primary {
+  background-color: var(--color-accent);
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+}
+
+.resume-download-btn.primary:hover {
+  background-color: var(--color-accent-hover);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+.resume-download-btn.secondary {
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.resume-download-btn.secondary:hover {
+  background-color: rgba(37, 99, 235, 0.16);
+  color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.resume-download-btn.ghost {
+  background: transparent;
+  color: var(--color-text-muted);
+  border-color: var(--color-border);
+}
+
+.resume-download-btn.ghost:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--color-text);
+  transform: translateY(-1px);
+}
+
+body.dark .resume-download-btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* === Print Styles === */
+@media print {
+  .site-header,
+  .site-footer,
+  .back-to-top,
+  #progress-bar-container,
+  .resume-actions,
+  .sidebar,
+  .right-bar {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+  }
+
+  .resume-page {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #resume-header,
+  .resume-card {
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 0 10pt 0 !important;
+    margin-bottom: 12pt !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    page-break-inside: avoid;
+  }
+
+  #resume-header h1 {
+    font-size: 24pt !important;
+    color: #000 !important;
+  }
+
+  .card-title {
+    font-size: 14pt !important;
+    border-bottom: 1.5pt solid #111827 !important;
+    color: #000 !important;
+    padding-bottom: 4pt !important;
+  }
+
+  .resume-grid {
+    display: block !important;
+  }
+
+  .experience-item {
+    page-break-inside: avoid;
+    margin-bottom: 10pt !important;
+  }
+
+  .experience-item.collapsed .experience-details {
+    display: block !important;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+}

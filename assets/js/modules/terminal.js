@@ -132,6 +132,11 @@ export function initTerminal() {
     terminalBody.scrollTop = terminalBody.scrollHeight;
   }
 
+  // --- Command History & Autocomplete ---
+  const commandHistory = [];
+  let historyIndex = -1;
+  let currentDraft = '';
+
   // --- Event Listeners ---
   terminalBody.addEventListener('click', () => {
     inputElement.focus();
@@ -141,8 +146,45 @@ export function initTerminal() {
     if (e.key === 'Enter') {
       const commandText = inputElement.value;
       if (commandText.trim()) {
+        commandHistory.push(commandText);
+        historyIndex = -1;
+        currentDraft = '';
         executeCommand(commandText);
         inputElement.value = '';
+      }
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (!commandHistory.length) return;
+      if (historyIndex === -1) {
+        currentDraft = inputElement.value;
+        historyIndex = commandHistory.length - 1;
+      } else if (historyIndex > 0) {
+        historyIndex--;
+      }
+      inputElement.value = commandHistory[historyIndex] || '';
+      inputElement.setSelectionRange(inputElement.value.length, inputElement.value.length);
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (historyIndex === -1) return;
+      if (historyIndex < commandHistory.length - 1) {
+        historyIndex++;
+        inputElement.value = commandHistory[historyIndex];
+      } else {
+        historyIndex = -1;
+        inputElement.value = currentDraft;
+      }
+      inputElement.setSelectionRange(inputElement.value.length, inputElement.value.length);
+    } else if (e.key === 'Tab') {
+      e.preventDefault();
+      const current = inputElement.value.trim().toLowerCase();
+      if (!current) return;
+      const cmdList = Object.keys(commands);
+      const matches = cmdList.filter(cmd => cmd.startsWith(current));
+      if (matches.length === 1) {
+        inputElement.value = matches[0];
+      } else if (matches.length > 1) {
+        appendOutput(`<span class="command-echo">Matches:</span> ${matches.join('  ')}`, 'output-line');
+        terminalBody.scrollTop = terminalBody.scrollHeight;
       }
     }
   });

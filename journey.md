@@ -3,10 +3,7 @@ layout: default
 title: My Journey
 ---
 
-<!-- 1. 引入 Google Font & Stylesheet -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- 1. 頁面專屬樣式 -->
 <link rel="stylesheet" href="/assets/css/journey.css">
 
 <!-- 頁面 HTML 結構 -->

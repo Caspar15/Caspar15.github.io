@@ -15,7 +15,30 @@ layout: null
       "url": {{ item.url | relative_url | jsonify }},
       "content": {{ item.content | strip_html | strip_newlines | jsonify }},
       "category": {{ item_category | jsonify }}
-    }
-    {% unless forloop.last %},{% endunless %}
+    },
   {% endfor %}
+  {
+    "title": "個人總覽 (About Me)",
+    "url": "/about/",
+    "content": "陳柏宇 Caspar Chen 台科大電機所碩士生 AI 演算法與系統工程師 LLM 系統與評測 多目標最佳化 生產級架構研發 IEEE ICACT 2026 Outstanding Paper Award JIT 期刊論文 趨勢科技 Trend Micro AI Engineer Intern 東海大學 資工系",
+    "category": "About"
+  },
+  {
+    "title": "互動式完整履歷 (Interactive Resume)",
+    "url": "/resume/",
+    "content": "陳柏宇 Caspar Chen 履歷 Resume AI 演算法 LLM 系統與評測 趨勢科技 Trend Micro AI Engineer Intern 智慧轉型中心 雲端工程師 IEEE ICACT 2026 Outstanding Paper Award JIT 期刊 臺灣數創大賞 金獎 雙北黑客松 亞軍 ATCC 遠傳電信組 亞軍 海科盃 銀質獎 Python C++ JavaScript SQL",
+    "category": "Resume"
+  },
+  {
+    "title": "個人歷程與大事紀 (My Journey)",
+    "url": "/journey/",
+    "content": "Professional Journey 學業 競賽 工作 經歷 台科大 東海大學 趨勢科技 Trend Micro 數創大賞 黑客松 歷程 時間軸",
+    "category": "Journey"
+  },
+  {
+    "title": "留言板 (Guestbook)",
+    "url": "/guestbook/",
+    "content": "留言板 Guestbook GitHub Discussions 交流 想法 建議 討論",
+    "category": "Guestbook"
+  }
 ]

@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <title>{% if page.title and page.title != "Home" %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} — AI 演算法與系統工程師 · LLM 系統評測{% endif %}</title>
   <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}陳柏宇 Caspar Chen 的個人作品集 — 台科大電機所碩士生、AI 演算法研究、IEEE ICACT 2026 Outstanding Paper Award。{% endif %}">
   <meta name="keywords" content="Caspar, 陳柏宇, 台科大, NTUST, GitHub, NLP, AI, 機器學習, 深度學習, 強化學習, 全端開發, IEEE">
   <meta name="author" content="陳柏宇 Caspar Chen">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:title" content="{% if page.title and page.title != "Home" %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} — AI 演算法與系統工程師 · LLM 系統評測{% endif %}">
   <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}陳柏宇 Caspar Chen 的個人作品集 — 台科大電機所碩士生、AI 演算法研究、IEEE ICACT 2026 Outstanding Paper Award。{% endif %}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
@@ -17,7 +17,7 @@
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:title" content="{% if page.title and page.title != "Home" %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} — AI 演算法與系統工程師 · LLM 系統評測{% endif %}">
   <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}陳柏宇 Caspar Chen 的個人作品集 — 台科大電機所碩士生、AI 演算法研究、IEEE ICACT 2026 Outstanding Paper Award。{% endif %}">
   <meta name="twitter:image" content="{{ '/assets/images/avatar.png' | absolute_url }}">
 
@@ -85,8 +85,7 @@
   <script type="module" src="/assets/js/modules/animations.js?v={{ site.time | date: '%s' }}"></script>
   <script type="module" src="/assets/js/modules/page-transitions.js?v={{ site.time | date: '%s' }}"></script>
   {% if page.url == "/" %}
-    <!-- 只有首頁有終端機與 GitHub 統計 -->
-    <script type="module" src="/assets/js/modules/terminal.js"></script>
+    <!-- 只有首頁有 GitHub 統計（終端機由 main.js 初始化） -->
     <script type="module" src="/assets/js/modules/github.js"></script>
   {% endif %}
 </body>

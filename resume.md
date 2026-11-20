@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Interactive Resume
+title: 互動式履歷
+permalink: /resume/
 ---
 
 <div id="resume-container" class="resume-page">
@@ -15,6 +16,22 @@ title: Interactive Resume
       <span><a href="https://www.linkedin.com/in/caspar0216" target="_blank" rel="noopener">LinkedIn: caspar0216</a></span>
       <span>|</span>
       <span>兵役：免役</span>
+    </div>
+
+    <!-- Resume Download & Print Actions -->
+    <div class="resume-actions">
+      <a href="/resume/caspar_chen_zh.pdf" target="_blank" rel="noopener" class="resume-download-btn primary" download="陳柏宇_Caspar_Chen_履歷.pdf">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <span>中文履歷 (PDF)</span>
+      </a>
+      <a href="/resume/caspar_chen_resume.pdf" target="_blank" rel="noopener" class="resume-download-btn secondary" download="Caspar_Chen_Resume.pdf">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <span>English Resume (PDF)</span>
+      </a>
+      <button type="button" onclick="window.print()" class="resume-download-btn ghost" aria-label="列印履歷">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        <span>列印履歷</span>
+      </button>
     </div>
   </header>
 
